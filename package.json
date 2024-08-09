@@ -6,7 +6,8 @@
   "scripts": {
     "start": "pnpm --filter @ucc-ui/play dev",
     "docs": "pnpm --filter @ucc-ui/docs dev",
-    "docs:build": "pnpm --filter @ucc-ui/docs build"
+    "docs:build": "pnpm --filter @ucc-ui/docs build",
+    "test": "echo todo"
   },
   "keywords": [],
   "author": "",
