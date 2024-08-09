@@ -22,5 +22,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue", "./global.d.ts"]
+  "include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue", "./global.d.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.tsx", "**/*.spec.tsx", "**/*.config.ts"]
 }
