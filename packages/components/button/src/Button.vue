@@ -5,5 +5,7 @@
 </script>
 
 <template>
-  <button style="background-color: red;">666</button>
+  <button class="u-button" style="background-color: red;">666</button>
 </template>
+
+<style src="../styles/index.css"></style>
