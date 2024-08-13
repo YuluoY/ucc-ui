@@ -1,8 +1,8 @@
 import components from "./components";
-import { makeInstaller } from "@ucc-ui/utils";
-import "@ucc-ui/theme/index.css";
+import { makeInstaller } from "../utils/index";
+import "../theme/index.css";
 
 const install = makeInstaller(components);
 
-export * from "@ucc-ui/components";
+export * from "../components";
 export default install;

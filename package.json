@@ -10,6 +10,7 @@
     "build:es": "pnpm --filter ucc-ui build:es && node auto-global-dts.js",
     "docs": "pnpm --filter @ucc-ui/docs dev",
     "docs:build": "pnpm --filter @ucc-ui/docs build",
+    "publish": "pnpm --filter ucc-ui publish",
     "test": "echo todo"
   },
   "keywords": [],

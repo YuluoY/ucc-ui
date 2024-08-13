@@ -1,3 +1,3 @@
 declare const install: import('vue').Plugin;
-export * from '@ucc-ui/components';
+export * from '../components';
 export default install;

@@ -2,6 +2,12 @@
   defineOptions({
     name: 'UButton'
   })
+  defineProps({
+    type: {
+      type: String,
+      default: 'default'
+    }
+  })
 </script>
 
 <template>
