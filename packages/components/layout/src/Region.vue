@@ -1,9 +1,23 @@
+<template>
+  <div :class="['u-region', `u-region__${region}`, 'u-region-container']" :style="regionStyles">
+    <slot></slot>
+  </div>
+</template>
+
 <script setup lang="ts">
+import type { URegionProps } from '../types';
+import useRegion from '../hooks/useRegion';
+
   defineOptions({
     name: 'URegion',
   })
-</script>
+  const props = withDefaults(defineProps<URegionProps>(), {
+  })
 
-<template>
-  <div class="u-region">布局2</div>
-</template>
+  const {
+    regionStyles
+  } = useRegion({
+    props
+  })
+  
+</script>
