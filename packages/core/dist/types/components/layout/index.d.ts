@@ -53,7 +53,7 @@ export declare const URegion: import('../../utils/core').SFCWithInstall<{
             type: import('vue').PropType<string | number>;
         };
         region: {
-            type: import('vue').PropType<import('./types/const').Region>;
+            type: import('vue').PropType<import('./types/const').RegionType>;
             required: true;
         };
         mode: {
@@ -64,7 +64,7 @@ export declare const URegion: import('../../utils/core').SFCWithInstall<{
             type: import('vue').PropType<string | number>;
         };
         region: {
-            type: import('vue').PropType<import('./types/const').Region>;
+            type: import('vue').PropType<import('./types/const').RegionType>;
             required: true;
         };
         mode: {
@@ -82,7 +82,7 @@ export declare const URegion: import('../../utils/core').SFCWithInstall<{
             type: import('vue').PropType<string | number>;
         };
         region: {
-            type: import('vue').PropType<import('./types/const').Region>;
+            type: import('vue').PropType<import('./types/const').RegionType>;
             required: true;
         };
         mode: {
@@ -97,7 +97,7 @@ export declare const URegion: import('../../utils/core').SFCWithInstall<{
         type: import('vue').PropType<string | number>;
     };
     region: {
-        type: import('vue').PropType<import('./types/const').Region>;
+        type: import('vue').PropType<import('./types/const').RegionType>;
         required: true;
     };
     mode: {

@@ -68,7 +68,6 @@ import { throttle, debounce } from 'lodash-es'
     autofocus: false,
     iconProps: void 0
   })
-  console.log(props, 'props');
   
   const slots = defineSlots()
   const _ref = ref<HTMLButtonElement>()

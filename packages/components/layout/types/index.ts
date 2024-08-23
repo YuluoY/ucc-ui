@@ -1,4 +1,4 @@
-import type { Region, LayoutMode } from "./const";
+import type { RegionType, LayoutMode } from "./const";
 
 export interface UlayoutProps {
   mode?: LayoutMode;  // 布局模式
@@ -10,6 +10,6 @@ export interface UlayoutProps {
 
 export interface URegionProps {
   mode?: LayoutMode;
-  region: Region;
+  region: RegionType;
   width?: number | string;
 }

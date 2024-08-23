@@ -10,8 +10,9 @@ export const REGION = {
 export const LAYOUT_MODE = {
   HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical',
+  DEFAULT: 'default',
 } as const;
 
 
-export type Region = typeof REGION[keyof typeof REGION];
+export type RegionType = typeof REGION[keyof typeof REGION];
 export type LayoutMode = typeof LAYOUT_MODE[keyof typeof LAYOUT_MODE];

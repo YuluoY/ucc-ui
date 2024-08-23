@@ -8,6 +8,7 @@ export declare const REGION: {
 export declare const LAYOUT_MODE: {
     readonly HORIZONTAL: "horizontal";
     readonly VERTICAL: "vertical";
+    readonly DEFAULT: "default";
 };
-export type Region = typeof REGION[keyof typeof REGION];
+export type RegionType = typeof REGION[keyof typeof REGION];
 export type LayoutMode = typeof LAYOUT_MODE[keyof typeof LAYOUT_MODE];

@@ -8,9 +8,7 @@
   overflow-x: hidden;
   overflow-y: auto;
 
-  & > * {
-    width: inherit;
-    height: inherit;
+  .u-region {
     box-sizing: border-box;
   }
 
@@ -21,28 +19,32 @@
    flex-shrink: 0;
   }
 
-  .u-region__top,
-  .u-region__bottom {
-    width: 100%;
+  &.u-layout__default {
+    .u-region__top,
+    .u-region__bottom {
+      width: 100%;
+    }
+
+    .u-region__center {
+      flex: 1;
+      flex-grow: 1;
+    }
   }
 
-  .u-region__center {
-    flex: 1;
-    flex-grow: 1;
+
+  &.u-layout__horizontal {
+    flex-direction: row;
+  }
+  
+  &.u-layout__vertical {
+    display: grid;
+    flex-direction: unset;
+  }
+  
+  &.u-layout__fit {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 
-.u-layout__horizontal {
-  flex-direction: row;
-}
-
-.u-layout__vertical {
-  display: grid;
-  flex-direction: unset;
-}
-
-.u-layout__fit {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}

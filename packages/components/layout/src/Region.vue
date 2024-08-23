@@ -1,5 +1,8 @@
 <template>
-  <div :class="['u-region', `u-region__${region}`, 'u-region-container']" :style="regionStyles">
+  <div 
+    :class="['u-region', `u-region__${region}`, 'u-region-container']" 
+    :style="regionStyles"
+  >
     <slot></slot>
   </div>
 </template>

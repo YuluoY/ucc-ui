@@ -1,12 +1,13 @@
-@charset "UTF-8";
 @import './blue/index.css';
 @import './reset.css';
 @import './uncss.css';
+
 :root {
   /* 基础色 */
   --uc-white: #FFFFFF; /* 白色 */
   --uc-black: #000000; /* 黑色 */
   --uc-gray: #F0F0F0; /* 灰色 */
+
   /* 边框圆角 */
   --uc-border-radius-2: 0.2rem; /* 小边框圆角 */
   --uc-border-radius-4: 0.4rem; /* 默认边框圆角 */
@@ -17,8 +18,10 @@
   --uc-border-radius-16: 1.6rem; /* 超超超超大边框圆角 */
   --uc-border-radius-20: 2rem; /* 超超超超超大边框圆角 */
   --uc-border-radius-circle: 50%; /* 圆形边框圆角 */
+
   /* 字体 */
-  --uc-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 字体族 */
+  --uc-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 字体族 */
+
   /* 动画相关 */
   --uc-transition: all 0.3s ease-in-out;
   --uc-animation-duration: 0.3s;
@@ -47,6 +50,7 @@
   --uc-animation-ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   /* ease-in-out-back */
   --uc-animation-ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
   /* 其他 */
   --uc-z-index-modal: 1050; /* 模态框的 z-index */
   --uc-z-index-tooltip: 1060; /* 工具提示的 z-index */
@@ -63,4 +67,4 @@
   --uc-z-index-navbar-sticky-bottom: 1030; /* 粘性在底部的导航栏的 z-index */
   --uc-z-index-navbar-static-top: 1030; /* 静态在顶部的导航栏的 z-index */
   --uc-z-index-navbar-static-bottom: 1030; /* 静态在底部的导航栏的 z-index */
-}/*# sourceMappingURL=index.css.map */
+}

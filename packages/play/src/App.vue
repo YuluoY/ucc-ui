@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import type { RegionType } from '../../components/layout/types/const';
+
   const handleChangeTheme = () =>
   {
     document.documentElement.classList.toggle('dark')
@@ -49,15 +50,25 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   <u-icon type="primary" icon="phone"></u-icon>
 
 
-  <u-layout mode='vertical' :col="4" fit :gap="10">
-    <u-region region="right">right</u-region>
-    <u-region region="bottom">bottom</u-region>
+  <u-layout mode='default' :col="4" :gap="10">
+    <u-region v-for="r in ['left', 'right', 'top', 'bottom', 'center']" 
+      :region="(r as RegionType)" :key="r">
+      {{ r }}
+    </u-region>
+    <!-- <u-region region="right">right</u-region>
     <u-region region="top">top</u-region>
     <u-region region="right">right</u-region>
     <u-region region="bottom">bottom</u-region>
     <u-region region="center">center</u-region>
-    <u-region region="left">left</u-region>
+    <u-region region="left">left</u-region> -->
   </u-layout>
+  <div class="flex f-wrap">
+    <span>1</span>
+    <span>2</span>
+    <span class="flex-1">3</span>
+    <span>4</span>
+    <span>5</span>
+  </div>
 </template>
 
 <style>
