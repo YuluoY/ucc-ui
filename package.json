@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "pnpm --filter @ucc-ui/play dev",
+    "story": "pnpm --filter @ucc-ui/play story",
     "build": "pnpm --filter ucc-ui build && node auto-global-dts.js",
     "build:umd": "pnpm --filter ucc-ui build:umd && node auto-global-dts.js",
     "build:es": "pnpm --filter ucc-ui build:es && node auto-global-dts.js",

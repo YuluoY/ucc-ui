@@ -1,15 +1,22 @@
-import { B as o } from "./Button-RXUaV8xR.js";
-import { w as t, m as s } from "./utils-C3OJfYEx.js";
-import { _ as n } from "./Layout-j-6Q-IHQ.js";
-import { _ as a } from "./Region-B-_xxSgl.js";
-const m = t(o), r = t(n), i = t(a), c = [
-  m,
-  r,
-  i
-], _ = s(c);
+import { _ as t } from "./Button-C7gkrEPy.js";
+import { w as o, m as s } from "./utils-DqzV52Hi.js";
+import { _ as m } from "./Layout-BXSwHctD.js";
+import { _ as a } from "./Region-RH8zNPdx.js";
+import { _ as n } from "./Icon-CfGJNHx9.js";
+import { library as r } from "@fortawesome/fontawesome-svg-core";
+import { fas as i } from "@fortawesome/free-solid-svg-icons";
+const f = o(t), c = o(m), _ = o(a), p = o(n), l = [
+  f,
+  c,
+  _,
+  p
+];
+r.add(i);
+const y = s(l);
 export {
-  m as UButton,
-  r as ULayout,
-  i as URegion,
-  _ as default
+  f as UButton,
+  p as UIcon,
+  c as ULayout,
+  _ as URegion,
+  y as default
 };

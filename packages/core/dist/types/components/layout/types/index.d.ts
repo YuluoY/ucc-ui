@@ -4,10 +4,10 @@ export interface UlayoutProps {
     padding?: number;
     gap?: number;
     col?: number;
+    fit?: boolean;
 }
 export interface URegionProps {
     mode?: LayoutMode;
     region: Region;
-    width?: number;
-    col?: number;
+    width?: number | string;
 }

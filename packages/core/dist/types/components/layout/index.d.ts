@@ -1,5 +1,9 @@
 export declare const ULayout: import('../../utils/core').SFCWithInstall<import('vue').DefineComponent<{
-    col: {
+    gap: {
+        type: import('vue').PropType<number>;
+        default: number;
+    };
+    padding: {
         type: import('vue').PropType<number>;
         default: number;
     };
@@ -7,16 +11,20 @@ export declare const ULayout: import('../../utils/core').SFCWithInstall<import('
         type: import('vue').PropType<import('./types/const').LayoutMode>;
         default: string;
     };
-    padding: {
+    col: {
         type: import('vue').PropType<number>;
         default: number;
     };
-    gap: {
-        type: import('vue').PropType<number>;
-        default: number;
+    fit: {
+        type: import('vue').PropType<boolean>;
+        default: boolean;
     };
 }, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
-    col: {
+    gap: {
+        type: import('vue').PropType<number>;
+        default: number;
+    };
+    padding: {
         type: import('vue').PropType<number>;
         default: number;
     };
@@ -24,48 +32,43 @@ export declare const ULayout: import('../../utils/core').SFCWithInstall<import('
         type: import('vue').PropType<import('./types/const').LayoutMode>;
         default: string;
     };
-    padding: {
+    col: {
         type: import('vue').PropType<number>;
         default: number;
     };
-    gap: {
-        type: import('vue').PropType<number>;
-        default: number;
+    fit: {
+        type: import('vue').PropType<boolean>;
+        default: boolean;
     };
 }>>, {
-    col: number;
-    mode: import('./types/const').LayoutMode;
-    padding: number;
     gap: number;
+    padding: number;
+    mode: import('./types/const').LayoutMode;
+    col: number;
+    fit: boolean;
 }, {}>>;
 export declare const URegion: import('../../utils/core').SFCWithInstall<{
     new (...args: any[]): import('vue').CreateComponentPublicInstance<Readonly<import('vue').ExtractPropTypes<{
-        col: {
-            type: import('vue').PropType<number>;
-        };
-        mode: {
-            type: import('vue').PropType<import('./types/const').LayoutMode>;
+        width: {
+            type: import('vue').PropType<string | number>;
         };
         region: {
             type: import('vue').PropType<import('./types/const').Region>;
             required: true;
         };
-        width: {
-            type: import('vue').PropType<number>;
+        mode: {
+            type: import('vue').PropType<import('./types/const').LayoutMode>;
         };
     }>>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & Readonly<import('vue').ExtractPropTypes<{
-        col: {
-            type: import('vue').PropType<number>;
-        };
-        mode: {
-            type: import('vue').PropType<import('./types/const').LayoutMode>;
+        width: {
+            type: import('vue').PropType<string | number>;
         };
         region: {
             type: import('vue').PropType<import('./types/const').Region>;
             required: true;
         };
-        width: {
-            type: import('vue').PropType<number>;
+        mode: {
+            type: import('vue').PropType<import('./types/const').LayoutMode>;
         };
     }>>, {}, true, {}, {}, {
         P: {};
@@ -75,36 +78,30 @@ export declare const URegion: import('../../utils/core').SFCWithInstall<{
         M: {};
         Defaults: {};
     }, Readonly<import('vue').ExtractPropTypes<{
-        col: {
-            type: import('vue').PropType<number>;
-        };
-        mode: {
-            type: import('vue').PropType<import('./types/const').LayoutMode>;
+        width: {
+            type: import('vue').PropType<string | number>;
         };
         region: {
             type: import('vue').PropType<import('./types/const').Region>;
             required: true;
         };
-        width: {
-            type: import('vue').PropType<number>;
+        mode: {
+            type: import('vue').PropType<import('./types/const').LayoutMode>;
         };
     }>>, {}, {}, {}, {}, {}>;
     __isFragment?: never;
     __isTeleport?: never;
     __isSuspense?: never;
 } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
-    col: {
-        type: import('vue').PropType<number>;
-    };
-    mode: {
-        type: import('vue').PropType<import('./types/const').LayoutMode>;
+    width: {
+        type: import('vue').PropType<string | number>;
     };
     region: {
         type: import('vue').PropType<import('./types/const').Region>;
         required: true;
     };
-    width: {
-        type: import('vue').PropType<number>;
+    mode: {
+        type: import('vue').PropType<import('./types/const').LayoutMode>;
     };
 }>>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
     $slots: {

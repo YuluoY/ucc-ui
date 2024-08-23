@@ -1,36 +1,144 @@
-import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3'
-import { fn } from '@storybook/test'
+import type { Meta } from '@storybook/vue3'
+import { expect, fn, userEvent, within } from '@storybook/test'
 
 import { UButton } from 'ucc-ui'
+import 'ucc-ui/dist/index.css'
+import type { UButtonProps } from '../../../components/button/types'
+import { ICON_POSITION, SIZE, TYPE } from '../../../components/button/types/const'
+import type { ExtraContent, StoryPlus } from './types'
+import { container } from './utils'
 
-type Story = StoryObj<typeof UButton> & { argTypes: ArgTypes }
 
 const meta: Meta<typeof UButton> = {
-  title: 'Components/Button',
-  component: UButton,
-  argTypes: {
-    type: {
-      control: 'select',
-      options: ['primary', 'success', 'warning', 'danger', 'text'],
-    },
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
-    }
-  },
+ title: 'Components/Button',
+ component: UButton,
+ argTypes: {
+   type: {
+     control: 'select',
+     options: Object.values(TYPE),
+     description: '按钮类型'
+   },
+   size: {
+     control: 'select',
+     options: Object.values(SIZE),
+     description: '按钮大小'
+   },
+   icon: {
+     control: 'text',
+     description: '按钮图标'
+   },
+   iconStyle: {
+     control: 'text',
+     description: '图标样式'
+   },
+   iconPosition: {
+     control: 'select',
+     options: Object.values(ICON_POSITION),
+     description: '图标位置'
+   },
+   color: { 
+     control: 'color',
+     description: '按钮颜色'
+   },
+   autofocus: {
+     control: 'boolean',
+     description: '是否自动获得焦点'
+   },
+   circle: { 
+     control: 'boolean',
+     description: '是否为圆形按钮'
+   },
+   disabled: { 
+     control: 'boolean',
+     description: '是否禁用按钮'
+   },
+   round: { 
+     control: 'boolean',
+     description: '是否为圆角按钮'
+   },
+   plain: { 
+     control: 'boolean',
+     description: '是否为朴素按钮'
+   },
+   loading: {
+     control: 'boolean',
+     description: '是否为加载状态'
+   },
+   nativeType: { 
+     control: 'text',
+     description: '原生按钮类型'
+   },
+   useDebounce: {
+     control: 'boolean',
+     description: '是否使用防抖'
+   },
+   debounceTime: {
+     control: 'number',
+     description: '防抖时间(ms)'
+   },
+   useThrottle: {
+     control: 'boolean',
+     description: '是否使用节流'
+   },
+   throttleTime: {
+     control: 'number',
+     description: '节流时间(ms)'
+   },
+   tag: {
+     control: 'text',
+     description: '自定义渲染的 HTML 标签'
+   },
+ },
+ args: {
+   onClick: fn(),
+ }
 }
 
-export default meta
-export const Primary: Story = {
-  args: {
-    type: 'primary',
-    size: 'medium',
+export const Default: StoryPlus<typeof UButton> = {
+  argTypes: {
+    content: {
+      control: { type: 'text' }
+    }
   },
-  render: (args: any) => ({
+  args: {
+    content: "Primary",
+    nativeType: 'button',
+    tag: "button",
+    type: "primary",
+    size: "default",
+    iconStyle: {},
+    icon: "phone",
+    iconPosition: 'left',
+    circle: false,
+    disabled: false,
+    round: false,
+    plain: false,
+    loading: false,
+    autofocus: false,
+    useThrottle: false,
+    useDebounce: false,
+    throttleTime: 400,
+    debounceTime: 400,
+    color: "#705353",
+  },
+  render: (args: UButtonProps & ExtraContent) => ({
     components: { UButton },
     setup() {
       return { args }
     },
-    template: '<UButton v-bind="args">Primary</UButton>',
+    template: container(`
+      <UButton v-bind="args">${args.content}</UButton>
+    `),
   }),
+
+  play: async ({canvasElement, args, step}) => {
+    const canvas = within(canvasElement);
+    await step('Click the button', async () => {
+      await userEvent.click(canvas.getByRole('button'));
+    })
+
+    expect(args.onClick).toHaveBeenCalled();
+  }
 }
+
+export default meta

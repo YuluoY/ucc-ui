@@ -4,17 +4,16 @@ export declare const TYPE: {
     readonly WARNING: "warning";
     readonly DANGER: "danger";
     readonly INFO: "info";
-    readonly TEXT: "text";
     readonly LINK: "link";
 };
 export declare const SIZE: {
-    SMALL: string;
-    MEDIUM: string;
-    LARGE: string;
+    readonly SMALL: "small";
+    readonly DEFAULT: "default";
+    readonly LARGE: "large";
 };
 export declare const ICON_POSITION: {
-    LEFT: string;
-    RIGHT: string;
+    readonly LEFT: "left";
+    readonly RIGHT: "right";
 };
 export type ButtonSize = typeof SIZE[keyof typeof SIZE];
 export type ButtonType = typeof TYPE[keyof typeof TYPE];

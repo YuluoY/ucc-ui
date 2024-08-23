@@ -1,3 +1,4 @@
+
 /** @type { import('@storybook/vue3').Preview } */
 const preview = {
   parameters: {
@@ -7,7 +8,9 @@ const preview = {
         date: /Date$/i,
       },
     },
-  },
+    controls: { expanded: true }
+  }
 };
+
 
 export default preview;

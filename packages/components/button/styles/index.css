@@ -1,1 +1,271 @@
-.u-button { color: var(--uc-text-color); }
+.u-button { 
+  box-sizing: border-box;
+  white-space: nowrap;
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: var(--uc-text-1); 
+  background-color: transparent;
+  border: solid 0.02rem var(--uc-border-1);
+  border-radius: var(--uc-border-radius-4);
+  transition: all var(--uc-animation-delay-2) var(--uc-animation-ease-in-out);
+  overflow: hidden;
+  margin: 0 0.16rem;
+              
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  .u-button__loading {
+    margin-right: 0.4rem;
+  }
+
+  &:hover {
+    background-color: var(--uc-primary-light-7);
+    border: 0.02rem solid var(--uc-primary-light-4);
+    color: var(--uc-primary);
+  }
+
+  &:active {
+    border-color: var(--uc-primary-light-2);
+  }
+  
+
+  &.u-button--primary { 
+    background-color: var(--uc-primary-0); 
+    &:hover {
+      background-color: var(--uc-primary);
+    }
+    &:active {
+      background-color: var(--uc-primary-1);
+    }
+    &.is-loading,
+    &.is-disabled {
+      background-color: var(--uc-primary-0);
+      &:active,
+      &:hover {
+        background-color: var(--uc-primary-0);
+      }
+    }
+    &.is-plain {
+      color: var(--uc-primary-0);
+      border: solid 0.02rem var(--uc-primary-0);
+      background-color: var(--uc-primary-light-7);
+      &:hover {
+        color: var(--uc-text-9);
+        background-color: var(--uc-primary-0);
+      }
+      &:active {
+        background-color: var(--uc-primary-1);
+      }
+    }
+  }
+
+  &.u-button--success,
+  &.u-button--warning,
+  &.u-button--danger,
+  &.u-button--info,
+  &.u-button--primary {
+    color: var(--uc-text-9);
+  }
+  /* success状态 */
+  &.u-button--success { 
+    background-color: var(--uc-success-1); 
+    &:hover {
+      background-color: var(--uc-success);
+    }
+    &:active {
+      background-color: var(--uc-success-2)
+    }
+    &.is-loading,
+    &.is-disabled {
+      background-color: var(--uc-success-1);
+      &:active,
+      &:hover {
+        background-color: var(--uc-success-1);
+      }
+    }
+    &.is-plain {
+      color: var(--uc-success-1);
+      border: solid 0.02rem var(--uc-success-1);
+      background-color: var(--uc-success-light-7);
+      &:hover {
+        color: var(--uc-text-9);
+        background-color: var(--uc-success-1);
+      }
+      &:active {
+        background-color: var(--uc-success-2)
+      }
+    }
+  }
+
+  /* warning状态 */
+  &.u-button--warning { 
+    background-color: var(--uc-warning-3); 
+    &:hover {
+      background-color: var(--uc-warning-2);
+    }
+    &:active {
+      background-color: var(--uc-warning-4);
+    }
+    &.is-loading,
+    &.is-disabled {
+      background-color: var(--uc-warning-3);
+      &:active,
+      &:hover {
+        background-color: var(--uc-warning-3);
+      }
+    }
+    &.is-plain {
+      color: var(--uc-warning-3);
+      border: solid 0.02rem var(--uc-warning-3);
+      background-color: var(--uc-warning-light-7);
+      &:hover {
+        color: var(--uc-text-9);
+        background-color: var(--uc-warning-3);
+      }
+      &:active {
+        background-color: var(--uc-warning-4);
+      }
+    }
+  }
+
+  /* danger状态 */
+  &.u-button--danger { 
+    background-color: var(--uc-danger-1); 
+    &:hover {
+      background-color: var(--uc-danger);
+    }
+    &:active {
+      background-color: var(--uc-danger-2);
+    }
+    &.is-loading,
+    &.is-disabled {
+      background-color: var(--uc-danger-1);
+      &:active,
+      &:hover {
+        background-color: var(--uc-danger-1);
+      }
+    }
+    &.is-plain {
+      color: var(--uc-danger-1);
+      border: solid 0.02rem var(--uc-danger-1);
+      background-color: var(--uc-danger-light-7);
+      &:hover {
+        color: var(--uc-text-9);
+        background-color: var(--uc-danger-1);
+      }
+      &:active {
+        background-color: var(--uc-danger-2);
+      }
+    }
+  }
+
+  /* info状态 */
+  &.u-button--info {
+    background-color: var(--uc-info-1); 
+    &:hover {
+      background-color: var(--uc-info);
+    }
+    &:active {
+      background-color: var(--uc-info-2);
+    }
+    &.is-loading,
+    &.is-disabled {
+      background-color: var(--uc-info-1);
+      &:active,
+      &:hover {
+        background-color: var(--uc-info-1);
+      }
+    }
+    &.is-plain {
+      color: var(--uc-info-1);
+      border: solid 0.02rem var(--uc-info-1);
+      background-color: var(--uc-info-light-7);
+      &:hover {
+        color: var(--uc-text-9);
+        background-color: var(--uc-info-1);
+      }
+      &:active {
+        background-color: var(--uc-info-2);
+      }
+    }
+  }
+
+  &.is-link {
+    color: var(--uc-primary-1);
+    background-color: transparent;
+    border: none;
+    padding: 0.16rem 0 !important;
+    &:hover {
+      color: var(--uc-primary);
+      background-color: transparent;
+    }
+    &:active {
+      color: var(--uc-primary-2);
+    }
+  }
+
+  &.is-loading {
+    opacity: 0.5;
+    cursor: wait;
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.is-plain {
+    color: var(--uc-text-1);
+    background-color: transparent;
+
+    &:hover {
+      border: solid 0.02rem var(--uc-primary-0);
+      color: var(--uc-primary-0);
+    }
+    &:active {
+      color: var(--uc-primary-1);
+      border: solid 0.02rem var(--uc-primary-1);
+    }
+  }
+
+  &.u-button--large {
+    font-size: 1rem; 
+    padding: 0.8rem 1.2rem;
+  }
+
+  &.u-button--default {
+    font-size: 0.8rem; 
+    padding: 0.6rem 0.8rem;
+  }
+
+  &.u-button--small {
+    font-size: 0.6rem; 
+    padding: 0.4rem 0.6rem;
+  }
+
+  &.is-round {
+    border-radius: var(--uc-border-radius-20);
+  }
+
+  &.is-circle {
+    aspect-ratio: 1 / 1; /* 保持宽高比为1:1 */
+    border-radius: var(--uc-border-radius-circle);
+
+    &.u-button--large {
+      width: 2.5rem;
+      padding: 0.8rem;
+    }
+    &.u-button--default {
+      width: 2rem;
+      padding: 0.6rem;
+    }
+    &.u-button--small {
+      width: 1.5rem;
+      padding: 0.4rem;
+    }
+  }
+}

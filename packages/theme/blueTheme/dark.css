@@ -1,5 +1,7 @@
 :root.dark {
-  /* 基础色 */
+  /* 浅色青花蓝 */
+  --uc-primary: #007bff; /* 主色 */
+  --uc-primary-0: #0069d9; /* 浅主色 */
   --uc-primary-1: #1E50A2; /* 青花蓝 */
   --uc-primary-2: #17418C; /* 深青花蓝 */
   --uc-primary-3: #113075; /* 更深青花蓝 */
@@ -7,6 +9,7 @@
   --uc-primary-5: #041247; /* 最深青花蓝 */
 
   /* 副色 */
+  --uc-secondary: #6C757D; /* 深灰 */
   --uc-secondary-1: #2B2B2B; /* 墨黑 */
   --uc-secondary-2: #1C1C1C; /* 深墨黑 */
   --uc-secondary-3: #151515; /* 更深墨黑 */
@@ -28,11 +31,11 @@
   --uc-background-5: #5A5A5A; /* 最深灰 */
 
   /* 文字色 */
-  --uc-text-1: #F4F4F8; /* 雪青 */
-  --uc-text-2: #B0B0B0; /* 中灰 */
+  --uc-text-5: #F4F4F8; /* 雪青 */
+  --uc-text-4: #B0B0B0; /* 中灰 */
   --uc-text-3: #8A8D91; /* 烟灰 */
-  --uc-text-4: #666666; /* 更深灰 */
-  --uc-text-5: #444444; /* 最深灰 */
+  --uc-text-2: #666666; /* 更深灰 */
+  --uc-text-1: #444444; /* 最深灰 */
 
   /* 链接色 */
   --uc-link-1: #8A8D91; /* 烟灰 */
@@ -48,19 +51,6 @@
   --uc-border-4: #666666; /* 近黑灰 */
   --uc-border-5: #8A8D91; /* 烟灰 */
 
-  /* 按钮色 */
-  --uc-button-primary-bg-1: #1E50A2; /* 青花蓝 */
-  --uc-button-primary-bg-2: #17418C; /* 深青花蓝 */
-  --uc-button-primary-bg-3: #113075; /* 更深青花蓝 */
-  --uc-button-primary-bg-4: #0A1F5E; /* 近黑青花蓝 */
-  --uc-button-primary-bg-5: #041247; /* 最深青花蓝 */
-  
-  --uc-button-primary-text: #F4F4F8; /* 雪青 */
-  --uc-button-secondary-bg-1: #2B2B2B; /* 墨黑 */
-  --uc-button-secondary-bg-2: #1C1C1C; /* 深墨黑 */
-  --uc-button-secondary-text-1: #8A8D91; /* 烟灰 */
-  --uc-button-secondary-text-2: #666666; /* 深灰 */
-
   /* 状态色 */
   --uc-success-1: #28A745; /* 绿色 */
   --uc-success-2: #218838; /* 深绿色 */
@@ -74,11 +64,11 @@
   --uc-warning-4: #8F6600; /* 近黑黄色 */
   --uc-warning-5: #5C4400; /* 最深黄色 */
 
-  --uc-error-1: #DC3545; /* 红色 */
-  --uc-error-2: #C82333; /* 深红色 */
-  --uc-error-3: #A91B2C; /* 更深红色 */
-  --uc-error-4: #7C1324; /* 近黑红色 */
-  --uc-error-5: #500B17; /* 最深红色 */
+  --uc-danger-1: #DC3545; /* 红色 */
+  --uc-danger-2: #C82333; /* 深红色 */
+  --uc-danger-3: #A91B2C; /* 更深红色 */
+  --uc-danger-4: #7C1324; /* 近黑红色 */
+  --uc-danger-5: #500B17; /* 最深红色 */
 
   --uc-info-1: #17A2B8; /* 蓝色 */
   --uc-info-2: #138496; /* 深蓝色 */

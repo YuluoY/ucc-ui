@@ -4,16 +4,19 @@ declare const _default: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_T
     padding: number;
     gap: number;
     col: number;
+    fit: boolean;
 }>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToOption<UlayoutProps>, {
     mode: string;
     padding: number;
     gap: number;
     col: number;
+    fit: boolean;
 }>>>, {
-    col: number;
-    mode: import('../types/const').LayoutMode;
-    padding: number;
     gap: number;
+    padding: number;
+    mode: import('../types/const').LayoutMode;
+    col: number;
+    fit: boolean;
 }, {}>;
 export default _default;
 type __VLS_WithDefaults<P, D> = {

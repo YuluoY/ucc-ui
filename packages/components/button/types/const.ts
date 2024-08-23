@@ -4,20 +4,19 @@ export const TYPE = {
   WARNING: 'warning',
   DANGER: 'danger',
   INFO: 'info',
-  TEXT: 'text',
-  LINK: 'link',
+  LINK: 'link'
 } as const;
 
 export const SIZE = {
   SMALL: 'small',
-  MEDIUM: 'medium',
+  DEFAULT: 'default',
   LARGE: 'large',
-}
+} as const;
 
 export const ICON_POSITION = {
   LEFT: 'left',
   RIGHT: 'right',
-}
+} as const;
 
 export type ButtonSize = typeof SIZE[keyof typeof SIZE];
 export type ButtonType = typeof TYPE[keyof typeof TYPE];

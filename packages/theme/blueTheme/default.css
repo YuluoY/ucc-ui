@@ -1,12 +1,27 @@
 :root {
-  /* 基础色 */
+   /* 颜色 */
+  --uc-primary: #007bff; /* 浅主色 */
+  --uc-primary-0: #0069d9; /* 主色 */
   --uc-primary-1: #1E50A2; /* 青花蓝 */
   --uc-primary-2: #17418C; /* 深青花蓝 */
   --uc-primary-3: #113075; /* 更深青花蓝 */
   --uc-primary-4: #0A1F5E; /* 近黑青花蓝 */
   --uc-primary-5: #041247; /* 最深青花蓝 */
 
+   /* 主色的渐变层次 */
+   --uc-primary-light-1: #007bff;   /* 最不透明，原色 */
+   --uc-primary-light-2: #339aff;   /* 次不透明 */
+   --uc-primary-light-3: #66b8ff;   /* 渐浅 */
+   --uc-primary-light-4: #99d5ff;   /* 更浅 */
+   --uc-primary-light-5: #cceeff;   /* 接近白色 */
+   --uc-primary-light-6: #e5f5ff;   /* 极浅 */
+   --uc-primary-light-7: #f0faff;   /* 几乎透明 */
+   --uc-primary-light-8: #f9fdff;   /* 轻微着色 */
+   --uc-primary-light-9: #fcfeff;   /* 微不可见 */
+   --uc-primary-light-10: #ffffff;  /* 完全白色 */
+
   /* 副色 */
+  --uc-secondary: #6c757d; /* 次色 */
   --uc-secondary-1: #F4F4F8; /* 雪青 */
   --uc-secondary-2: #E0E0E5; /* 深雪青 */
   --uc-secondary-3: #CBCBD0; /* 更深雪青 */
@@ -33,6 +48,10 @@
   --uc-text-3: #999999; /* 浅灰 */
   --uc-text-4: #CCCCCC; /* 更浅灰 */
   --uc-text-5: #E5E5E5; /* 最浅灰 */
+  --uc-text-6: #F0F0F0; /* 极浅灰 */
+  --uc-text-7: #F5F5F5; /* 超浅灰 */
+  --uc-text-8: #FAFAFA; /* 近乎白色 */
+  --uc-text-9: #FCFCFC; /* 纯白稍浅 */
 
   /* 链接色 */
   --uc-link-1: #1E50A2; /* 青花蓝 */
@@ -48,43 +67,78 @@
   --uc-border-4: #666666; /* 更深灰 */
   --uc-border-5: #444444; /* 最深灰 */
 
-  /* 按钮色 */
-  --uc-button-primary-bg-1: #1E50A2; /* 青花蓝 */
-  --uc-button-primary-bg-2: #17418C; /* 深青花蓝 */
-  --uc-button-primary-bg-3: #113075; /* 更深青花蓝 */
-  --uc-button-primary-bg-4: #0A1F5E; /* 近黑青花蓝 */
-  --uc-button-primary-bg-5: #041247; /* 最深青花蓝 */
-  
-  --uc-button-primary-text: #FFFFFF; /* 白色 */
-  --uc-button-secondary-bg-1: #F4F4F8; /* 雪青 */
-  --uc-button-secondary-bg-2: #E0E0E5; /* 深雪青 */
-  --uc-button-secondary-text-1: #1E50A2; /* 青花蓝 */
-  --uc-button-secondary-text-2: #113075; /* 深青花蓝 */
-
   /* 状态色 */
+  --uc-success: #2ebe50; /* 绿色 */
   --uc-success-1: #28A745; /* 绿色 */
   --uc-success-2: #218838; /* 深绿色 */
   --uc-success-3: #1A6E2D; /* 更深绿色 */
   --uc-success-4: #144622; /* 近黑绿色 */
   --uc-success-5: #0D2D17; /* 最深绿色 */
 
+  --uc-success-light-1: #2ebe50;   /* 最不透明，原色 */
+  --uc-success-light-2: #54cc73;   /* 次不透明 */
+  --uc-success-light-3: #7ad995;   /* 渐浅 */
+  --uc-success-light-4: #9fe7b8;   /* 更浅 */
+  --uc-success-light-5: #c5f4da;   /* 接近白色 */
+  --uc-success-light-6: #e0faeb;   /* 极浅 */
+  --uc-success-light-7: #eafdf2;   /* 几乎透明 */
+  --uc-success-light-8: #f4fef8;   /* 轻微着色 */
+  --uc-success-light-9: #f9fefb;   /* 微不可见 */
+  --uc-success-light-10: #ffffff;  /* 完全白色 */
+
+  --uc-warning: #FFDD6B;
   --uc-warning-1: #FFC107; /* 黄色 */
   --uc-warning-2: #E0A800; /* 深黄色 */
   --uc-warning-3: #B68900; /* 更深黄色 */
   --uc-warning-4: #8F6600; /* 近黑黄色 */
   --uc-warning-5: #5C4400; /* 最深黄色 */
 
-  --uc-error-1: #DC3545; /* 红色 */
-  --uc-error-2: #C82333; /* 深红色 */
-  --uc-error-3: #A91B2C; /* 更深红色 */
-  --uc-error-4: #7C1324; /* 近黑红色 */
-  --uc-error-5: #500B17; /* 最深红色 */
+  --uc-warning-light-1: #FFDD6B;  /* 最不透明，原色 */
+  --uc-warning-light-2: #ffe086;  /* 次不透明 */
+  --uc-warning-light-3: #ffe3a0;  /* 渐浅 */
+  --uc-warning-light-4: #ffe6ba;  /* 更浅 */
+  --uc-warning-light-5: #ffeed6;  /* 接近白色 */
+  --uc-warning-light-6: #fff4e5;  /* 极浅 */
+  --uc-warning-light-7: #fff7ed;  /* 几乎透明 */
+  --uc-warning-light-8: #fffaf4;  /* 轻微着色 */
+  --uc-warning-light-9: #fefcf8;  /* 微不可见 */
+  --uc-warning-light-10: #ffffff; /* 完全白色 */
 
+  --uc-danger: #F57373;
+  --uc-danger-1: #DC3545; /* 红色 */
+  --uc-danger-2: #C82333; /* 深红色 */
+  --uc-danger-3: #A91B2C; /* 更深红色 */
+  --uc-danger-4: #7C1324; /* 近黑红色 */
+  --uc-danger-5: #500B17; /* 最深红色 */
+
+  --uc-danger-light-1: #f57373;   /* 最不透明，原色 */
+  --uc-danger-light-2: #f79494;   /* 次不透明 */
+  --uc-danger-light-3: #f9b4b4;   /* 渐浅 */
+  --uc-danger-light-4: #fbd5d5;   /* 更浅 */
+  --uc-danger-light-5: #fde5e5;   /* 接近白色 */
+  --uc-danger-light-6: #fee5e5;   /* 极浅 */
+  --uc-danger-light-7: #fef2f2;   /* 几乎透明 */
+  --uc-danger-light-8: #fef7f7;   /* 轻微着色 */
+  --uc-danger-light-9: #fefbfb;   /* 微不可见 */
+  --uc-danger-light-10: #ffffff;  /* 完全白色 */
+
+  --uc-info: #66D1E0;
   --uc-info-1: #17A2B8; /* 蓝色 */
   --uc-info-2: #138496; /* 深蓝色 */
   --uc-info-3: #0F6674; /* 更深蓝色 */
   --uc-info-4: #0B4953; /* 近黑蓝色 */
   --uc-info-5: #072E36; /* 最深蓝色 */
+
+  --uc-info-light-1: #66D1E0;    /* 最不透明，原色 */
+  --uc-info-light-2: #84dcea;    /* 次不透明 */
+  --uc-info-light-3: #a1e5f0;    /* 渐浅 */
+  --uc-info-light-4: #bfeff6;    /* 更浅 */
+  --uc-info-light-5: #dbf8fb;    /* 接近白色 */
+  --uc-info-light-6: #e5fcfd;    /* 极浅 */
+  --uc-info-light-7: #effdfe;    /* 几乎透明 */
+  --uc-info-light-8: #f7fefe;    /* 轻微着色 */
+  --uc-info-light-9: #fcfefe;    /* 微不可见 */
+  --uc-info-light-10: #ffffff;   /* 完全白色 */
 
   /* 表单元素 */
   --uc-input-bg: #FFFFFF; /* 白色 */
