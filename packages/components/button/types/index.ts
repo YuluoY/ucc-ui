@@ -22,9 +22,9 @@ export interface UButtonProps {
   autoInsertSpace?: boolean; // 是否自动插入空格
   color?: string; // 按钮颜色
   dark?: boolean; // 是否深色按钮
-  icon?: string;      // 按钮图标
+  icon?: UIconProps['icon'];      // 按钮图标
   iconStyle?: Partial<CSSProperties>; // 按钮图标样式
-  iconProps?: UIconProps | Omit<UIconProps, 'icon'>; // 按钮图标属性
+  iconProps?: UIconProps; // 按钮图标属性
   iconPosition?: ButtonIconPosition; // 按钮图标位置
   useThrottle?: boolean; // 是否使用节流
   throttleTime?: number; // 节流时间

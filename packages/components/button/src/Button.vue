@@ -31,6 +31,7 @@
       ]"
       :style="iconStyle ?? {}"
       size="sm"
+      :icon="icon"
       v-bind="_iconProps"
     />
     <span v-if="$slots.default">
@@ -45,6 +46,7 @@
       ]"
       :style="iconStyle ?? {}"
       size="sm"
+      :icon="icon"
       v-bind="_iconProps"
     />
   </component>
@@ -55,7 +57,6 @@ import { computed, ref } from 'vue';
 import type { UButtonEmits, UButtonInstance, UButtonProps } from '../types';
 import { throttle, debounce } from 'lodash-es'
 import { CIconPosition } from '../types/const';
-import type { UIconProps } from '../../icon/types';
 
   defineOptions({
     name: 'UButton'
@@ -86,9 +87,9 @@ import type { UIconProps } from '../../icon/types';
   const handleThrottleClick = throttle(handleClick, props.throttleTime)
   const handleDebounceClick = debounce(handleClick, props.debounceTime)
 
-  const _iconProps = computed<UIconProps>(() => Object.assign(props.iconProps, {
+  const _iconProps = computed<UButtonProps['iconProps']>(() => Object.assign(props.iconProps, {
     spin: props.loading || props.iconProps.spin, 
-    icon: props.loading ? props.loadingIcon || props.icon || props.iconProps.icon : props.icon || props.iconProps.icon
+    icon: (props.loading ? props.loadingIcon || props.icon || props.iconProps.icon : props.icon || props.iconProps.icon) || ''
   }))
 
   defineExpose<UButtonInstance>({
