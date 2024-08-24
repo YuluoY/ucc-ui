@@ -21,6 +21,7 @@
       margin: 0;
       border-radius: 0;
     }
+
     .u-button:first-child {
       border-top-left-radius: var(--uc-border-radius-4);
       border-bottom-left-radius: var(--uc-border-radius-4);

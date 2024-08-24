@@ -7,7 +7,7 @@
   cursor: pointer;
   color: var(--uc-text-1); 
   background-color: transparent;
-  border: solid 0.02rem var(--uc-border-1);
+  border: solid 0.01rem var(--uc-border-1);
   border-radius: var(--uc-border-radius-4);
   transition: all var(--uc-animation-delay-2) var(--uc-animation-ease-in-out);
   overflow: hidden;
@@ -24,17 +24,10 @@
   [class*=u-button__icon--right]+span{
     margin-right: 0.4rem;
   }
-  
-  /* .u-button__icon--left {
-    margin-right: 0.4rem;
-  }
-  .u-button__icon--right {
-    margin-left: 0.4rem;
-  } */
 
   &:hover {
     background-color: var(--uc-primary-light-7);
-    border: 0.02rem solid var(--uc-primary-light-4);
+    border: 0.01rem solid var(--uc-primary-light-4);
     color: var(--uc-primary);
   }
 
@@ -44,6 +37,7 @@
   
 
   &.u-button--primary { 
+    border: solid 0.01rem var(--uc-primary-0);
     background-color: var(--uc-primary-0); 
     &:hover {
       background-color: var(--uc-primary);
@@ -61,14 +55,16 @@
     }
     &.is-plain {
       color: var(--uc-primary-0);
-      border: solid 0.02rem var(--uc-primary-0);
+      border: solid 0.01rem var(--uc-primary-0);
       background-color: var(--uc-primary-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-primary-0);
+        border: solid 0.01rem var(--uc-primary-0);
       }
       &:active {
         background-color: var(--uc-primary-1);
+        border: solid 0.01rem var(--uc-primary-0);
       }
     }
   }
@@ -98,15 +94,17 @@
       }
     }
     &.is-plain {
+      border: solid 0.01rem var(--uc-success-2);
       color: var(--uc-success-1);
-      border: solid 0.02rem var(--uc-success-1);
       background-color: var(--uc-success-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-success-1);
+        border: solid 0.01rem var(--uc-success-1);
       }
       &:active {
-        background-color: var(--uc-success-2)
+        background-color: var(--uc-success-2);
+        border: solid 0.01rem var(--uc-success-2);
       }
     }
   }
@@ -129,15 +127,17 @@
       }
     }
     &.is-plain {
+      border: solid 0.01rem var(--uc-warning-4);
       color: var(--uc-warning-3);
-      border: solid 0.02rem var(--uc-warning-3);
       background-color: var(--uc-warning-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-warning-3);
+        border: solid 0.01rem var(--uc-warning-3);
       }
       &:active {
         background-color: var(--uc-warning-4);
+        border: solid 0.01rem var(--uc-warning-4);
       }
     }
   }
@@ -160,15 +160,17 @@
       }
     }
     &.is-plain {
+      border: solid 0.01rem var(--uc-danger-2);
       color: var(--uc-danger-1);
-      border: solid 0.02rem var(--uc-danger-1);
       background-color: var(--uc-danger-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-danger-1);
+        border: solid 0.01rem var(--uc-danger-1);
       }
       &:active {
         background-color: var(--uc-danger-2);
+        border: solid 0.01rem var(--uc-danger-2);
       }
     }
   }
@@ -191,15 +193,17 @@
       }
     }
     &.is-plain {
+      border: solid 0.01rem var(--uc-info-2);
       color: var(--uc-info-1);
-      border: solid 0.02rem var(--uc-info-1);
       background-color: var(--uc-info-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-info-1);
+        border: solid 0.01rem var(--uc-info-1);
       }
       &:active {
         background-color: var(--uc-info-2);
+        border: solid 0.01rem var(--uc-info-2);
       }
     }
   }
@@ -233,27 +237,27 @@
     background-color: transparent;
 
     &:hover {
-      border: solid 0.02rem var(--uc-primary-0);
+      border: solid 0.01rem var(--uc-primary-0);
       color: var(--uc-primary-0);
     }
     &:active {
       color: var(--uc-primary-1);
-      border: solid 0.02rem var(--uc-primary-1);
+      border: solid 0.01rem var(--uc-primary-1);
     }
   }
 
   &.u-button--large {
-    font-size: 1rem; 
+    font-size: var(--uc-font-size-lg); 
     padding: 0.8rem 1.2rem;
   }
 
   &.u-button--default {
-    font-size: 0.8rem; 
+    font-size: var(--uc-font-size-base); 
     padding: 0.6rem 0.8rem;
   }
 
   &.u-button--small {
-    font-size: 0.6rem; 
+    font-size: var(--uc-font-size-xs); 
     padding: 0.4rem 0.6rem;
   }
 

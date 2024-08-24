@@ -1,9 +1,9 @@
 import { Fragment, isVNode, useSlots, type CSSProperties, type Slots, type VNode } from "vue"
-import type { UlayoutProps } from "../types"
+import type { ULayoutProps } from "../types"
 import { CLayoutMode, CRegion, type RegionType  } from "../types/const"
 import RegionVue from '../src/Region.vue'
 
-export default function useLayout<P extends UlayoutProps> ({
+export default function useLayout<P extends ULayoutProps> ({
   props
 }:{
   props: P
@@ -37,7 +37,7 @@ export default function useLayout<P extends UlayoutProps> ({
   /**
    * 根据根元素的字体大小计算
    */
-  const rootFontSize = parseInt(document.documentElement.style.fontSize) || 16 as number
+  const rootFontSize = parseInt(document.documentElement.style.fontSize) || (window.innerWidth / 100) as number
 
   /**
    * 对插槽子元素做处理
@@ -80,6 +80,7 @@ export default function useLayout<P extends UlayoutProps> ({
    */
   const regionValuesFlat = Object.values(regionGroup).flat(Infinity) as VNode[]
   let restSlots: VNode[] | null = null, restLens: number | null = null
+  let index = 0
   const handleComProps = (item: VNode) =>
   {
     if (props.mode === CLayoutMode.DEFAULT)
@@ -90,9 +91,11 @@ export default function useLayout<P extends UlayoutProps> ({
     restLens === null && (restLens = ortherRegions.length ? slotsArr.length % props.col! : regionValuesFlat.length % props.col!)
     restSlots === null && (restSlots = ortherRegions.length ? ortherRegions.slice(-restLens) : regionValuesFlat.slice(-restLens))
 
+    const gap = ++index % props.col! === 0 || index === slotsArr.length ? '0px' : styles.gap
+
     return restLens && restSlots?.some(v => v === item) ? 
-    { width: `calc(${100 / restLens}% - ${styles.gap})` }  : 
-    { width: `calc(${100 / props.col!}% - ${styles.gap})` }
+    { width: `calc(${100 / restLens}% - ${gap})` }  : 
+    { width: `calc(${100 / props.col!}% - ${gap})` }
   }
 
   return {

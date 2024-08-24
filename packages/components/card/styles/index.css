@@ -1,0 +1,33 @@
+.u-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: var(--uc-font-size-base);
+  overflow: hidden;
+  border-radius: var(--uc-border-radius-4);
+  transition: box-shadow var(--uc-animation-duration) var(--uc-animation-ease-in-out);
+  
+  &.u-card--hover,
+  &.u-card--active,
+  &.u-card--always,
+  &.u-card--never {
+    border: 0.02rem solid var(--uc-border-1);
+  }
+
+  &.u-card--hover:hover,
+  &.u-card--active:active,
+  &.u-card--always {
+    box-shadow: var(--uc-shadow-3);
+  }
+
+  &.u-card--never {
+    box-shadow: none;
+  }
+
+  .u-card-header {
+    border-bottom: 0.02rem solid var(--uc-border-1);
+  }
+  .u-card-footer {
+    border-top: 0.02rem solid var(--uc-border-1);
+  }
+}

@@ -2,8 +2,8 @@
   <main 
     :class="[
       'u-layout', 
-      `u-layout__${props.mode}`, 
-      { 'u-layout__fit': props.fit },
+      `u-layout__${mode}`, 
+      { 'u-layout__fit': fit },
       'u-container',
     ]"
     :style="styles"
@@ -13,7 +13,7 @@
         v-for="(item, i) in regionGroup[region as RegionType]" 
         :is="item" 
         :key="`${item}-${index}-${i}`" 
-        :mode="props.mode" 
+        :mode="mode" 
         v-bind="handleComProps(item)"
       >
       </component>
@@ -24,12 +24,12 @@
 
 <script setup lang="ts">
 import { provide } from 'vue';
-import type { UlayoutProps } from '../types';
+import type { ULayoutProps } from '../types';
 import type { RegionType } from '../types/const';
 import useLayout from '../hooks/useLayout';
 
   defineOptions({ name: 'ULayout' });
-  const props = withDefaults(defineProps<UlayoutProps>(), {
+  const props = withDefaults(defineProps<ULayoutProps>(), {
     mode: 'default',
     padding: 14,  
     gap: 10,

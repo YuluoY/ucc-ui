@@ -1,10 +1,10 @@
 <template>
-  <div 
+  <section 
     :class="['u-region', `u-region__${region}`, 'u-region-container']" 
     :style="regionStyles"
   >
     <slot></slot>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

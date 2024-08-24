@@ -154,4 +154,15 @@
   --uc-table-row-bg-2: #F4F4F8; /* 雪青 */
   --uc-table-row-hover-bg-1: #E8E8E8; /* 更浅灰 */
   --uc-table-row-hover-bg-2: #CBCBD0; /* 更深雪青 */
+
+  /* 阴影 */
+  --uc-shadow-1: 0px 0px 0.4rem rgba(0, 0, 0, 0.1); 
+  --uc-shadow-2: 0px 0px 0.8rem rgba(0, 0, 0, 0.1); 
+  --uc-shadow-3: 0px 0px 1.2rem rgba(0, 0, 0, 0.1); 
+  --uc-shadow-4: 0px 0px 1.6rem rgba(0, 0, 0, 0.2); 
+  --uc-shadow-5: 0px 0px 2rem rgba(0, 0, 0, 0.2); 
+  --uc-shadow-6: 0px 0px 2.4rem rgba(0, 0, 0, 0.2); 
+  --uc-shadow-7: 0px 0px 2.8rem rgba(0, 0, 0, 0.3); 
+  --uc-shadow-8: 0px 0px 3.2rem rgba(0, 0, 0, 0.3); 
+  --uc-shadow-9: 0px 0px 3.6rem rgba(0, 0, 0, 0.3); 
 }

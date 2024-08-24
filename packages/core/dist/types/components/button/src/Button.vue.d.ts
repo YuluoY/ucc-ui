@@ -1,5 +1,4 @@
 import { UButtonProps } from '../types';
-import { UIconProps } from '../../icon/types';
 declare function __VLS_template(): Readonly<Record<string, any>> & Record<string, any>;
 declare const __VLS_component: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToOption<UButtonProps>, {
     tag: string;
@@ -38,13 +37,13 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_WithDefaults<
 }>>> & {
     onClick?: ((val: MouseEvent) => any) | undefined;
 }, {
-    size: import('../types/const').ButtonSize;
     tag: string;
+    size: import('../types/const').ButtonSize;
     loading: boolean;
     loadingIcon: string;
     autofocus: boolean;
     nativeType: string;
-    iconProps: UIconProps | Omit<UIconProps, "icon">;
+    iconProps: import('../../icon/types').UIconProps;
     iconPosition: import('../types/const').ButtonIconPosition;
     useThrottle: boolean;
     throttleTime: number;

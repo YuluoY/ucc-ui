@@ -1,5 +1,5 @@
 import { RegionType, LayoutMode } from './const';
-export interface UlayoutProps {
+export interface ULayoutProps {
     mode?: LayoutMode;
     padding?: number;
     gap?: number;

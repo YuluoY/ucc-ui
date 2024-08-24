@@ -1,11 +1,11 @@
-import { UlayoutProps } from '../types';
-declare const _default: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToOption<UlayoutProps>, {
+import { ULayoutProps } from '../types';
+declare const _default: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToOption<ULayoutProps>, {
     mode: string;
     padding: number;
     gap: number;
     col: number;
     fit: boolean;
-}>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToOption<UlayoutProps>, {
+}>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToOption<ULayoutProps>, {
     mode: string;
     padding: number;
     gap: number;

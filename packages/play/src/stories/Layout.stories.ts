@@ -1,7 +1,7 @@
 import { ULayout, URegion } from "ucc-ui";
 import { container } from "./utils";
 import type { Meta } from "@storybook/vue3";
-import type { URegionProps, UlayoutProps } from "../../../components/layout/types";
+import type { URegionProps, ULayoutProps } from "../../../components/layout/types";
 import type { Story } from "./types";
 import { CLayoutMode, CRegion } from "../../../components/layout/types/const";
 
@@ -37,13 +37,13 @@ export const Default: Story<typeof ULayout & typeof URegion > = {
     }
   },
   args: {
-    mode: "vertical",
+    mode: "horizontal",
     col: 3,
     padding: 10,
-    gap: 10,
+    gap: 20,
     fit: false,
   },
-  render: (args: UlayoutProps & URegionProps) => ({
+  render: (args: ULayoutProps & URegionProps) => ({
     components: { ULayout, URegion },
     setup() {
       const regions = Object.values(CRegion);

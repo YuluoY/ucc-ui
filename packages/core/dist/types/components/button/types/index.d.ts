@@ -18,9 +18,9 @@ export interface UButtonProps {
     autoInsertSpace?: boolean;
     color?: string;
     dark?: boolean;
-    icon?: string;
+    icon?: UIconProps['icon'];
     iconStyle?: Partial<CSSProperties>;
-    iconProps?: UIconProps | Omit<UIconProps, 'icon'>;
+    iconProps?: UIconProps;
     iconPosition?: ButtonIconPosition;
     useThrottle?: boolean;
     throttleTime?: number;
