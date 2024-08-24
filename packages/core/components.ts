@@ -5,7 +5,10 @@ import {
   ULayout, 
   URegion, 
   UIcon,
-  UCard
+  UCard,
+  UInput,
+  UText,
+  UTag
 } from '@ucc-ui/components'
 
 export default [
@@ -14,5 +17,8 @@ export default [
   ULayout,
   URegion,
   UIcon,
-  UCard
+  UCard,
+  UInput,
+  UText,
+  UTag
 ] as Plugin[]
