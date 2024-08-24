@@ -22,35 +22,40 @@
       handleClick(e)
     )"
   >
-    <template v-if="loading">
-      <slot name="loading">
-        <u-icon 
-          class="u-button__loading" 
-          :icon="loadingIcon ?? 'spinner'"
-          :pull="iconPosition ?? 'left'"
-          :style="iconStyle ?? {}"
-          size='sm'
-          spin
-          v-bind="iconProps"
-        />
-      </slot>
-    </template>
     <u-icon
-      v-if="icon && !loading"
-      class="u-button__icon"
-      :icon="icon"
+      v-if="icon && iconPosition === CIconPosition.LEFT"
+      :class="[
+        'u-button__icon',
+        'u-button__icon--left',
+        { 'u-button__icon--loading': loading }
+      ]"
       :style="iconStyle ?? {}"
-      size='sm'
-      v-bind="iconProps"
+      size="sm"
+      v-bind="_iconProps"
     />
-    <slot></slot>
+    <span v-if="$slots.default">
+      <slot></slot>
+    </span>
+    <u-icon
+      v-if="icon && iconPosition === CIconPosition.RIGHT"
+      :class="[
+        'u-button__icon',
+        'u-button__icon--right',
+        { 'u-button__icon--loading': loading }
+      ]"
+      :style="iconStyle ?? {}"
+      size="sm"
+      v-bind="_iconProps"
+    />
   </component>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import type { UButtonEmits, UButtonInstance, UButtonProps } from '../types';
 import { throttle, debounce } from 'lodash-es'
+import { CIconPosition } from '../types/const';
+import type { UIconProps } from '../../icon/types';
 
   defineOptions({
     name: 'UButton'
@@ -66,7 +71,12 @@ import { throttle, debounce } from 'lodash-es'
     useDebounce: false,
     debounceTime: 400,
     autofocus: false,
-    iconProps: void 0
+    loading: false,
+    loadingIcon: 'spinner',
+    iconPosition: 'left',
+    iconProps: () => ({
+      icon: ''
+    })
   })
   
   const slots = defineSlots()
@@ -75,6 +85,11 @@ import { throttle, debounce } from 'lodash-es'
   const handleClick = (e: MouseEvent) => emits('click', e)
   const handleThrottleClick = throttle(handleClick, props.throttleTime)
   const handleDebounceClick = debounce(handleClick, props.debounceTime)
+
+  const _iconProps = computed<UIconProps>(() => Object.assign(props.iconProps, {
+    spin: props.loading || props.iconProps.spin, 
+    icon: props.loading ? props.loadingIcon || props.icon || props.iconProps.icon : props.icon || props.iconProps.icon
+  }))
 
   defineExpose<UButtonInstance>({
     ref: _ref

@@ -1,12 +1,11 @@
 import type { Meta } from '@storybook/vue3'
-import { expect, fn, userEvent, within } from '@storybook/test'
 
 import { UIcon } from 'ucc-ui'
 import 'ucc-ui/dist/index.css'
-import type { ExtraContent, Story, StoryPlus } from './types'
+import type { Story } from './types'
 import { container } from './utils'
 import type { UIconProps } from '../../../components/icon/types'
-import { IconFlip, IconPull, IconRotation, IconSize, IconType } from '../../../components/icon/types/const'
+import { CIconFlip, CIconPull, CIconRotation, CIconSize, CIconType } from '../../../components/icon/types/const'
 
 
 const meta: Meta<typeof UIcon> = {
@@ -20,7 +19,7 @@ export const Default: Story<typeof UIcon> = {
   argTypes: {
     pulse: {
       control: 'boolean',
-      description: '是否闪烁',
+      description: '是否脉动的方式旋转',
     },
     spin: {
       control: 'boolean',
@@ -29,27 +28,27 @@ export const Default: Story<typeof UIcon> = {
     flip: {
       control: 'select',
       description: '图标翻转',
-      options: IconFlip
+      options: CIconFlip
     },
     size: {
       control: 'select',
       description: '图标大小',
-      options: IconSize
+      options: CIconSize
     },
     type: {
       control: 'select',
       description: '图标类型',
-      options: IconType
+      options: CIconType
     },
     pull: {
       control: 'select',
-      description: '图标位置',
-      options: IconPull
+      description: '图标位置<br>有多余宽时生效',
+      options: CIconPull
     },
     rotation:{
       control: 'select',
       description: '图标旋转角度',
-      options: IconRotation
+      options: CIconRotation
     },
     color: {
       control: 'color',
@@ -73,7 +72,7 @@ export const Default: Story<typeof UIcon> = {
     },
     spinReverse: {
       control: 'boolean',
-      description: '是否反向旋转',
+      description: '是否反向旋转<br>spin为true时生效',
     },
     bounce: {
       control: 'boolean',

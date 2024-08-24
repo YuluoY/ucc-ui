@@ -1,4 +1,4 @@
-export const TYPE = {
+export const CButtonType = {
   PRIMARY: 'primary',
   SUCCESS: 'success',
   WARNING: 'warning',
@@ -7,17 +7,18 @@ export const TYPE = {
   LINK: 'link'
 } as const;
 
-export const SIZE = {
+export const CButtonSize = {
   SMALL: 'small',
   DEFAULT: 'default',
   LARGE: 'large',
 } as const;
 
-export const ICON_POSITION = {
+export const CIconPosition = {
   LEFT: 'left',
   RIGHT: 'right',
+  DEFAULT: 'default' // left
 } as const;
 
-export type ButtonSize = typeof SIZE[keyof typeof SIZE];
-export type ButtonType = typeof TYPE[keyof typeof TYPE];
-export type ButtonIconPosition = typeof ICON_POSITION[keyof typeof ICON_POSITION];
+export type ButtonSize = typeof CButtonSize[keyof typeof CButtonSize];
+export type ButtonType = typeof CButtonType[keyof typeof CButtonType];
+export type ButtonIconPosition = typeof CIconPosition[keyof typeof CIconPosition];

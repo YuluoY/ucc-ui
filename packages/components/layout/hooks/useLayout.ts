@@ -1,6 +1,6 @@
 import { Fragment, isVNode, useSlots, type CSSProperties, type Slots, type VNode } from "vue"
 import type { UlayoutProps } from "../types"
-import { LAYOUT_MODE, REGION, type RegionType  } from "../types/const"
+import { CLayoutMode, CRegion, type RegionType  } from "../types/const"
 import RegionVue from '../src/Region.vue'
 
 export default function useLayout<P extends UlayoutProps> ({
@@ -46,13 +46,13 @@ export default function useLayout<P extends UlayoutProps> ({
   const slotsArr = processSlots((slots.default && slots.default()) || [])
 
   let ortherRegions: VNode[] = []
-  const regions = Object.values(REGION)
+  const regions = Object.values(CRegion)
   const regionGroup = {
-    [REGION.TOP]: [],
-    [REGION.LEFT]: [],
-    [REGION.CENTER]: [],
-    [REGION.RIGHT]: [],
-    [REGION.BOTTOM]: [],
+    [CRegion.TOP]: [],
+    [CRegion.LEFT]: [],
+    [CRegion.CENTER]: [],
+    [CRegion.RIGHT]: [],
+    [CRegion.BOTTOM]: [],
   } as Record<RegionType, VNode[]>
   for (let item of slotsArr)
   {
@@ -70,7 +70,7 @@ export default function useLayout<P extends UlayoutProps> ({
     padding: `${props.padding! / rootFontSize}rem`,
     gap: `${props.gap! / rootFontSize}rem`,
   }
-  if (props.mode === LAYOUT_MODE.VERTICAL && !props.fit)
+  if (props.mode === CLayoutMode.VERTICAL && !props.fit)
   {
     styles.gridTemplateColumns = `repeat(${props.col}, 1fr)`
   }
@@ -82,7 +82,7 @@ export default function useLayout<P extends UlayoutProps> ({
   let restSlots: VNode[] | null = null, restLens: number | null = null
   const handleComProps = (item: VNode) =>
   {
-    if (props.mode === LAYOUT_MODE.DEFAULT)
+    if (props.mode === CLayoutMode.DEFAULT)
       return {}
     if (props.col === 1)
       return { width: 'inherit' }

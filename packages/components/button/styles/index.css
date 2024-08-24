@@ -18,9 +18,19 @@
   align-items: center;
   justify-content: center;
 
-  .u-button__loading {
+  [class*=u-button__icon--left]+span{
+    margin-left: 0.4rem;
+  }
+  [class*=u-button__icon--right]+span{
     margin-right: 0.4rem;
   }
+  
+  /* .u-button__icon--left {
+    margin-right: 0.4rem;
+  }
+  .u-button__icon--right {
+    margin-left: 0.4rem;
+  } */
 
   &:hover {
     background-color: var(--uc-primary-light-7);

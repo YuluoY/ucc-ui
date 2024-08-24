@@ -10,7 +10,6 @@ export interface UButtonProps {
     bg?: boolean;
     type?: ButtonType;
     size?: ButtonSize;
-    iconPosition?: ButtonIconPosition;
     disabled?: boolean;
     loading?: boolean;
     loadingIcon?: string;
@@ -21,7 +20,8 @@ export interface UButtonProps {
     dark?: boolean;
     icon?: string;
     iconStyle?: Partial<CSSProperties>;
-    iconProps?: Partial<UIconProps>;
+    iconProps?: UIconProps | Omit<UIconProps, 'icon'>;
+    iconPosition?: ButtonIconPosition;
     useThrottle?: boolean;
     throttleTime?: number;
     useDebounce?: boolean;

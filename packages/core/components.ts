@@ -1,8 +1,9 @@
 import type { Plugin } from 'vue'
-import { UButton, ULayout, URegion, UIcon } from '@ucc-ui/components'
+import { UButton, UButtonGroup, ULayout, URegion, UIcon } from '@ucc-ui/components'
 
 export default [
   UButton,
+  UButtonGroup,
   ULayout,
   URegion,
   UIcon

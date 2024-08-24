@@ -3,7 +3,7 @@ import { container } from "./utils";
 import type { Meta } from "@storybook/vue3";
 import type { URegionProps, UlayoutProps } from "../../../components/layout/types";
 import type { Story } from "./types";
-import { LAYOUT_MODE, REGION } from "../../../components/layout/types/const";
+import { CLayoutMode, CRegion } from "../../../components/layout/types/const";
 
 const meta: Meta<typeof ULayout> = {
  title: 'Components/Layout',
@@ -17,7 +17,7 @@ export const Default: Story<typeof ULayout & typeof URegion > = {
     mode: {
       control: 'select',
       description: '布局模式',
-      options: Object.values(LAYOUT_MODE),
+      options: Object.values(CLayoutMode),
     },
     col: {
       control: 'number',
@@ -25,7 +25,7 @@ export const Default: Story<typeof ULayout & typeof URegion > = {
     },
     fit: {
       control: 'boolean',
-      description: `是否自适应宽度（只有在mode为${LAYOUT_MODE.VERTICAL}时生效）`,
+      description: `是否自适应宽度（只有在mode为${CLayoutMode.VERTICAL}时生效）`,
     },
     padding: {
       control: 'number',
@@ -46,7 +46,7 @@ export const Default: Story<typeof ULayout & typeof URegion > = {
   render: (args: UlayoutProps & URegionProps) => ({
     components: { ULayout, URegion },
     setup() {
-      const regions = Object.values(REGION);
+      const regions = Object.values(CRegion);
       return { args, regions }
     },
     template: container(`

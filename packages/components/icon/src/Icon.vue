@@ -8,13 +8,12 @@
     :style="iconStyles"
     v-bind="$attrs"
   >
-    <!-- @vue-ignore -->
     <font-awesome-icon v-bind="filterProps"></font-awesome-icon>
   </i>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, type CSSProperties } from 'vue';
 import type { UIconProps } from '../types';
 import { omit } from 'lodash-es';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -24,9 +23,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
     inheritAttrs: false
   })
 
-  const props = withDefaults(defineProps<UIconProps>(), {})
-  const filterProps = computed(() => omit(props, ['type', 'color']))
-  const iconStyles = computed(() => ({ color: props.color ?? void 0 }))
+  const props = defineProps<UIconProps>()
+  const filterProps = computed<any>(() => omit(props, ['type', 'color']))
+  const iconStyles = computed<CSSProperties>(() => ({ color: props.color ?? void 0 }))
+
 </script>
 
 <style>

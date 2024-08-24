@@ -14,7 +14,6 @@ export interface UButtonProps {
   type?: ButtonType;  // 按钮类型
   size?: ButtonSize;  // 按钮大小
   
-  iconPosition?: ButtonIconPosition; // 按钮图标位置
   disabled?: boolean; // 按钮禁用
   loading?: boolean;  // 按钮加载
   loadingIcon?: string; // 按钮加载图标
@@ -25,7 +24,8 @@ export interface UButtonProps {
   dark?: boolean; // 是否深色按钮
   icon?: string;      // 按钮图标
   iconStyle?: Partial<CSSProperties>; // 按钮图标样式
-  iconProps?: Partial<UIconProps>; // 按钮图标属性
+  iconProps?: UIconProps | Omit<UIconProps, 'icon'>; // 按钮图标属性
+  iconPosition?: ButtonIconPosition; // 按钮图标位置
   useThrottle?: boolean; // 是否使用节流
   throttleTime?: number; // 节流时间
   useDebounce?: boolean; // 是否使用防抖

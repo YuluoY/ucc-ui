@@ -7,13 +7,13 @@ export declare const ULayout: import('../../utils/core').SFCWithInstall<import('
         type: import('vue').PropType<number>;
         default: number;
     };
-    mode: {
-        type: import('vue').PropType<import('./types/const').LayoutMode>;
-        default: string;
-    };
     col: {
         type: import('vue').PropType<number>;
         default: number;
+    };
+    mode: {
+        type: import('vue').PropType<import('./types/const').LayoutMode>;
+        default: string;
     };
     fit: {
         type: import('vue').PropType<boolean>;
@@ -28,13 +28,13 @@ export declare const ULayout: import('../../utils/core').SFCWithInstall<import('
         type: import('vue').PropType<number>;
         default: number;
     };
-    mode: {
-        type: import('vue').PropType<import('./types/const').LayoutMode>;
-        default: string;
-    };
     col: {
         type: import('vue').PropType<number>;
         default: number;
+    };
+    mode: {
+        type: import('vue').PropType<import('./types/const').LayoutMode>;
+        default: string;
     };
     fit: {
         type: import('vue').PropType<boolean>;
@@ -43,8 +43,8 @@ export declare const ULayout: import('../../utils/core').SFCWithInstall<import('
 }>>, {
     gap: number;
     padding: number;
-    mode: import('./types/const').LayoutMode;
     col: number;
+    mode: import('./types/const').LayoutMode;
     fit: boolean;
 }, {}>>;
 export declare const URegion: import('../../utils/core').SFCWithInstall<{

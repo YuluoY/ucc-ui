@@ -1,4 +1,4 @@
-export const REGION = {
+export const CRegion = {
   LEFT: 'left',
   RIGHT: 'right',
   TOP: 'top',
@@ -7,12 +7,12 @@ export const REGION = {
 } as const;
 
 
-export const LAYOUT_MODE = {
+export const CLayoutMode = {
   HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical',
   DEFAULT: 'default',
 } as const;
 
 
-export type RegionType = typeof REGION[keyof typeof REGION];
-export type LayoutMode = typeof LAYOUT_MODE[keyof typeof LAYOUT_MODE];
+export type RegionType = typeof CRegion[keyof typeof CRegion];
+export type LayoutMode = typeof CLayoutMode[keyof typeof CLayoutMode];

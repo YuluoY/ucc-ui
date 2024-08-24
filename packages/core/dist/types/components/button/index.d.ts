@@ -3,6 +3,19 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
         link: {
             type: import('vue').PropType<boolean>;
         };
+        icon: {
+            type: import('vue').PropType<string>;
+        };
+        size: {
+            type: import('vue').PropType<import('./types/const').ButtonSize>;
+            default: string;
+        };
+        type: {
+            type: import('vue').PropType<import('./types/const').ButtonType>;
+        };
+        color: {
+            type: import('vue').PropType<string>;
+        };
         tag: {
             type: import('vue').PropType<string>;
             default: string;
@@ -19,24 +32,16 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
         bg: {
             type: import('vue').PropType<boolean>;
         };
-        type: {
-            type: import('vue').PropType<import('./types/const').ButtonType>;
-        };
-        size: {
-            type: import('vue').PropType<import('./types/const').ButtonSize>;
-            default: string;
-        };
-        iconPosition: {
-            type: import('vue').PropType<import('./types/const').ButtonIconPosition>;
-        };
         disabled: {
             type: import('vue').PropType<boolean>;
         };
         loading: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
         };
         loadingIcon: {
             type: import('vue').PropType<string>;
+            default: string;
         };
         autofocus: {
             type: import('vue').PropType<boolean>;
@@ -49,21 +54,21 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
         autoInsertSpace: {
             type: import('vue').PropType<boolean>;
         };
-        color: {
-            type: import('vue').PropType<string>;
-        };
         dark: {
             type: import('vue').PropType<boolean>;
-        };
-        icon: {
-            type: import('vue').PropType<string>;
         };
         iconStyle: {
             type: import('vue').PropType<Partial<import('vue').CSSProperties>>;
         };
         iconProps: {
-            type: import('vue').PropType<Partial<import('../icon/types').UIconProps>>;
-            default: undefined;
+            type: import('vue').PropType<import('../icon/types').UIconProps | Omit<import('../icon/types').UIconProps, "icon">>;
+            default: () => {
+                icon: string;
+            };
+        };
+        iconPosition: {
+            type: import('vue').PropType<import('./types/const').ButtonIconPosition>;
+            default: string;
         };
         useThrottle: {
             type: import('vue').PropType<boolean>;
@@ -94,6 +99,19 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
         link: {
             type: import('vue').PropType<boolean>;
         };
+        icon: {
+            type: import('vue').PropType<string>;
+        };
+        size: {
+            type: import('vue').PropType<import('./types/const').ButtonSize>;
+            default: string;
+        };
+        type: {
+            type: import('vue').PropType<import('./types/const').ButtonType>;
+        };
+        color: {
+            type: import('vue').PropType<string>;
+        };
         tag: {
             type: import('vue').PropType<string>;
             default: string;
@@ -110,24 +128,16 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
         bg: {
             type: import('vue').PropType<boolean>;
         };
-        type: {
-            type: import('vue').PropType<import('./types/const').ButtonType>;
-        };
-        size: {
-            type: import('vue').PropType<import('./types/const').ButtonSize>;
-            default: string;
-        };
-        iconPosition: {
-            type: import('vue').PropType<import('./types/const').ButtonIconPosition>;
-        };
         disabled: {
             type: import('vue').PropType<boolean>;
         };
         loading: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
         };
         loadingIcon: {
             type: import('vue').PropType<string>;
+            default: string;
         };
         autofocus: {
             type: import('vue').PropType<boolean>;
@@ -140,21 +150,21 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
         autoInsertSpace: {
             type: import('vue').PropType<boolean>;
         };
-        color: {
-            type: import('vue').PropType<string>;
-        };
         dark: {
             type: import('vue').PropType<boolean>;
-        };
-        icon: {
-            type: import('vue').PropType<string>;
         };
         iconStyle: {
             type: import('vue').PropType<Partial<import('vue').CSSProperties>>;
         };
         iconProps: {
-            type: import('vue').PropType<Partial<import('../icon/types').UIconProps>>;
-            default: undefined;
+            type: import('vue').PropType<import('../icon/types').UIconProps | Omit<import('../icon/types').UIconProps, "icon">>;
+            default: () => {
+                icon: string;
+            };
+        };
+        iconPosition: {
+            type: import('vue').PropType<import('./types/const').ButtonIconPosition>;
+            default: string;
         };
         useThrottle: {
             type: import('vue').PropType<boolean>;
@@ -178,11 +188,14 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
     }>> & {
         onClick?: ((val: MouseEvent) => any) | undefined;
     }, {
-        tag: string;
         size: import('./types/const').ButtonSize;
+        tag: string;
+        loading: boolean;
+        loadingIcon: string;
         autofocus: boolean;
         nativeType: string;
-        iconProps: Partial<import('../icon/types').UIconProps>;
+        iconProps: import('../icon/types').UIconProps | Omit<import('../icon/types').UIconProps, "icon">;
+        iconPosition: import('./types/const').ButtonIconPosition;
         useThrottle: boolean;
         throttleTime: number;
         useDebounce: boolean;
@@ -197,6 +210,19 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
     }, Readonly<import('vue').ExtractPropTypes<{
         link: {
             type: import('vue').PropType<boolean>;
+        };
+        icon: {
+            type: import('vue').PropType<string>;
+        };
+        size: {
+            type: import('vue').PropType<import('./types/const').ButtonSize>;
+            default: string;
+        };
+        type: {
+            type: import('vue').PropType<import('./types/const').ButtonType>;
+        };
+        color: {
+            type: import('vue').PropType<string>;
         };
         tag: {
             type: import('vue').PropType<string>;
@@ -214,24 +240,16 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
         bg: {
             type: import('vue').PropType<boolean>;
         };
-        type: {
-            type: import('vue').PropType<import('./types/const').ButtonType>;
-        };
-        size: {
-            type: import('vue').PropType<import('./types/const').ButtonSize>;
-            default: string;
-        };
-        iconPosition: {
-            type: import('vue').PropType<import('./types/const').ButtonIconPosition>;
-        };
         disabled: {
             type: import('vue').PropType<boolean>;
         };
         loading: {
             type: import('vue').PropType<boolean>;
+            default: boolean;
         };
         loadingIcon: {
             type: import('vue').PropType<string>;
+            default: string;
         };
         autofocus: {
             type: import('vue').PropType<boolean>;
@@ -244,21 +262,21 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
         autoInsertSpace: {
             type: import('vue').PropType<boolean>;
         };
-        color: {
-            type: import('vue').PropType<string>;
-        };
         dark: {
             type: import('vue').PropType<boolean>;
-        };
-        icon: {
-            type: import('vue').PropType<string>;
         };
         iconStyle: {
             type: import('vue').PropType<Partial<import('vue').CSSProperties>>;
         };
         iconProps: {
-            type: import('vue').PropType<Partial<import('../icon/types').UIconProps>>;
-            default: undefined;
+            type: import('vue').PropType<import('../icon/types').UIconProps | Omit<import('../icon/types').UIconProps, "icon">>;
+            default: () => {
+                icon: string;
+            };
+        };
+        iconPosition: {
+            type: import('vue').PropType<import('./types/const').ButtonIconPosition>;
+            default: string;
         };
         useThrottle: {
             type: import('vue').PropType<boolean>;
@@ -284,11 +302,14 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
     }, {
         ref: import('vue').Ref<HTMLButtonElement | void>;
     }, {}, {}, {}, {
-        tag: string;
         size: import('./types/const').ButtonSize;
+        tag: string;
+        loading: boolean;
+        loadingIcon: string;
         autofocus: boolean;
         nativeType: string;
-        iconProps: Partial<import('../icon/types').UIconProps>;
+        iconProps: import('../icon/types').UIconProps | Omit<import('../icon/types').UIconProps, "icon">;
+        iconPosition: import('./types/const').ButtonIconPosition;
         useThrottle: boolean;
         throttleTime: number;
         useDebounce: boolean;
@@ -300,6 +321,19 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
 } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
     link: {
         type: import('vue').PropType<boolean>;
+    };
+    icon: {
+        type: import('vue').PropType<string>;
+    };
+    size: {
+        type: import('vue').PropType<import('./types/const').ButtonSize>;
+        default: string;
+    };
+    type: {
+        type: import('vue').PropType<import('./types/const').ButtonType>;
+    };
+    color: {
+        type: import('vue').PropType<string>;
     };
     tag: {
         type: import('vue').PropType<string>;
@@ -317,24 +351,16 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
     bg: {
         type: import('vue').PropType<boolean>;
     };
-    type: {
-        type: import('vue').PropType<import('./types/const').ButtonType>;
-    };
-    size: {
-        type: import('vue').PropType<import('./types/const').ButtonSize>;
-        default: string;
-    };
-    iconPosition: {
-        type: import('vue').PropType<import('./types/const').ButtonIconPosition>;
-    };
     disabled: {
         type: import('vue').PropType<boolean>;
     };
     loading: {
         type: import('vue').PropType<boolean>;
+        default: boolean;
     };
     loadingIcon: {
         type: import('vue').PropType<string>;
+        default: string;
     };
     autofocus: {
         type: import('vue').PropType<boolean>;
@@ -347,21 +373,21 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
     autoInsertSpace: {
         type: import('vue').PropType<boolean>;
     };
-    color: {
-        type: import('vue').PropType<string>;
-    };
     dark: {
         type: import('vue').PropType<boolean>;
-    };
-    icon: {
-        type: import('vue').PropType<string>;
     };
     iconStyle: {
         type: import('vue').PropType<Partial<import('vue').CSSProperties>>;
     };
     iconProps: {
-        type: import('vue').PropType<Partial<import('../icon/types').UIconProps>>;
-        default: undefined;
+        type: import('vue').PropType<import('../icon/types').UIconProps | Omit<import('../icon/types').UIconProps, "icon">>;
+        default: () => {
+            icon: string;
+        };
+    };
+    iconPosition: {
+        type: import('vue').PropType<import('./types/const').ButtonIconPosition>;
+        default: string;
     };
     useThrottle: {
         type: import('vue').PropType<boolean>;
@@ -389,15 +415,35 @@ export declare const UButton: import('../../utils').SFCWithInstall<{
 }, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     click: (val: MouseEvent) => void;
 }, string, {
-    tag: string;
     size: import('./types/const').ButtonSize;
+    tag: string;
+    loading: boolean;
+    loadingIcon: string;
     autofocus: boolean;
     nativeType: string;
-    iconProps: Partial<import('../icon/types').UIconProps>;
+    iconProps: import('../icon/types').UIconProps | Omit<import('../icon/types').UIconProps, "icon">;
+    iconPosition: import('./types/const').ButtonIconPosition;
     useThrottle: boolean;
     throttleTime: number;
     useDebounce: boolean;
     debounceTime: number;
 }, {}, string, {}> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
     $slots: Readonly<Record<string, any>> & Record<string, any>;
+})>;
+export declare const UButtonGroup: import('../../utils').SFCWithInstall<{
+    new (...args: any[]): import('vue').CreateComponentPublicInstance<Readonly<import('vue').ExtractPropTypes<{}>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & Readonly<import('vue').ExtractPropTypes<{}>>, {}, true, {}, {}, {
+        P: {};
+        B: {};
+        D: {};
+        C: {};
+        M: {};
+        Defaults: {};
+    }, Readonly<import('vue').ExtractPropTypes<{}>>, {}, {}, {}, {}, {}>;
+    __isFragment?: never;
+    __isTeleport?: never;
+    __isSuspense?: never;
+} & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{}>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
+    $slots: {
+        default?(_: {}): any;
+    };
 })>;

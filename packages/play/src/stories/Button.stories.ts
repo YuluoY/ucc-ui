@@ -1,10 +1,10 @@
 import type { Meta } from '@storybook/vue3'
 import { expect, fn, userEvent, within } from '@storybook/test'
 
-import { UButton } from 'ucc-ui'
+import { UButton, UIcon } from 'ucc-ui'
 import 'ucc-ui/dist/index.css'
 import type { UButtonProps } from '../../../components/button/types'
-import { ICON_POSITION, SIZE, TYPE } from '../../../components/button/types/const'
+import { CIconPosition, CButtonSize, CButtonType } from '../../../components/button/types/const'
 import type { ExtraContent, StoryPlus } from './types'
 import { container } from './utils'
 
@@ -15,12 +15,12 @@ const meta: Meta<typeof UButton> = {
  argTypes: {
    type: {
      control: 'select',
-     options: Object.values(TYPE),
+     options: Object.values(CButtonType),
      description: '按钮类型'
    },
    size: {
      control: 'select',
-     options: Object.values(SIZE),
+     options: Object.values(CButtonSize),
      description: '按钮大小'
    },
    icon: {
@@ -28,12 +28,12 @@ const meta: Meta<typeof UButton> = {
      description: '按钮图标'
    },
    iconStyle: {
-     control: 'text',
+     control: 'object',
      description: '图标样式'
    },
    iconPosition: {
      control: 'select',
-     options: Object.values(ICON_POSITION),
+     options: Object.values(CIconPosition),
      description: '图标位置'
    },
    color: { 
@@ -101,14 +101,14 @@ export const Default: StoryPlus<typeof UButton> = {
     }
   },
   args: {
-    content: "Primary",
+    content: "",
     nativeType: 'button',
     tag: "button",
     type: "primary",
     size: "default",
-    iconStyle: {},
     icon: "phone",
-    iconPosition: 'left',
+    iconPosition: "left",
+    iconStyle: {},
     circle: false,
     disabled: false,
     round: false,
@@ -122,12 +122,16 @@ export const Default: StoryPlus<typeof UButton> = {
     color: "#705353",
   },
   render: (args: UButtonProps & ExtraContent) => ({
-    components: { UButton },
+    components: { UButton, UIcon },
     setup() {
       return { args }
     },
     template: container(`
-      <UButton v-bind="args">${args.content}</UButton>
+      <UButton v-bind="args">
+        <UIcon :icon="args.icon" :style="args.iconStyle" v-if="${args.iconPosition === CIconPosition.LEFT}" style="margin-right: 10px"/>
+        ${args.content}
+        <UIcon :icon="args.icon" :style="args.iconStyle" v-if="${args.iconPosition === CIconPosition.RIGHT}" style="margin-left: 10px" />
+      </UButton>
     `),
   }),
 

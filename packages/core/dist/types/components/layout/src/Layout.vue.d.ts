@@ -14,8 +14,8 @@ declare const _default: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_T
 }>>>, {
     gap: number;
     padding: number;
-    mode: import('../types/const').LayoutMode;
     col: number;
+    mode: import('../types/const').LayoutMode;
     fit: boolean;
 }, {}>;
 export default _default;

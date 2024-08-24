@@ -1,4 +1,5 @@
 import { UButtonProps } from '../types';
+import { UIconProps } from '../../icon/types';
 declare function __VLS_template(): Readonly<Record<string, any>> & Record<string, any>;
 declare const __VLS_component: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToOption<UButtonProps>, {
     tag: string;
@@ -9,7 +10,12 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_WithDefaults<
     useDebounce: boolean;
     debounceTime: number;
     autofocus: boolean;
-    iconProps: undefined;
+    loading: boolean;
+    loadingIcon: string;
+    iconPosition: string;
+    iconProps: () => {
+        icon: string;
+    };
 }>, {
     ref: import('vue').Ref<HTMLButtonElement | void>;
 }, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
@@ -23,15 +29,23 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_WithDefaults<
     useDebounce: boolean;
     debounceTime: number;
     autofocus: boolean;
-    iconProps: undefined;
+    loading: boolean;
+    loadingIcon: string;
+    iconPosition: string;
+    iconProps: () => {
+        icon: string;
+    };
 }>>> & {
     onClick?: ((val: MouseEvent) => any) | undefined;
 }, {
-    tag: string;
     size: import('../types/const').ButtonSize;
+    tag: string;
+    loading: boolean;
+    loadingIcon: string;
     autofocus: boolean;
     nativeType: string;
-    iconProps: Partial<import('../../icon/types').UIconProps>;
+    iconProps: UIconProps | Omit<UIconProps, "icon">;
+    iconPosition: import('../types/const').ButtonIconPosition;
     useThrottle: boolean;
     throttleTime: number;
     useDebounce: boolean;

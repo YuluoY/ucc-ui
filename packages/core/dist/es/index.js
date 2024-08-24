@@ -1,22 +1,25 @@
-import { _ as t } from "./Button-iIXclw7e.js";
-import { w as o, m as s } from "./utils-DqzV52Hi.js";
-import { _ as m } from "./Layout-C76dcD9C.js";
-import { _ as a } from "./Region-RH8zNPdx.js";
-import { _ as n } from "./Icon-CfGJNHx9.js";
-import { library as r } from "@fortawesome/fontawesome-svg-core";
-import { fas as i } from "@fortawesome/free-solid-svg-icons";
-const f = o(t), c = o(m), _ = o(a), p = o(n), l = [
-  f,
-  c,
+import { _ as t } from "./Button-CBW-XRvl.js";
+import { _ as s } from "./ButtonGroup-Bth7Fk8n.js";
+import { w as o, m } from "./utils-DqzV52Hi.js";
+import { _ as a } from "./Layout-CZOgDq8P.js";
+import { _ as n } from "./Region-RH8zNPdx.js";
+import { _ as r } from "./Icon-CfGJNHx9.js";
+import { library as i } from "@fortawesome/fontawesome-svg-core";
+import { fas as f } from "@fortawesome/free-solid-svg-icons";
+const _ = o(t), c = o(s), p = o(a), l = o(n), e = o(r), u = [
   _,
-  p
+  c,
+  p,
+  l,
+  e
 ];
-r.add(i);
-const y = s(l);
+i.add(f);
+const g = m(u);
 export {
-  f as UButton,
-  p as UIcon,
-  c as ULayout,
-  _ as URegion,
-  y as default
+  _ as UButton,
+  c as UButtonGroup,
+  e as UIcon,
+  p as ULayout,
+  l as URegion,
+  g as default
 };

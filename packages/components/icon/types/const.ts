@@ -1,4 +1,4 @@
-export const IconSize = [
+export const CIconSize = [
   '2xs',
   'xs',
   'sm',
@@ -18,7 +18,7 @@ export const IconSize = [
   '10x'
 ] as const;
 
-export const IconRotation = [
+export const CIconRotation = [
   '90',
   '180',
   '270',
@@ -29,7 +29,7 @@ export const IconRotation = [
 ] as const;
 
 
-export const IconType = [
+export const CIconType = [
   'success',
   'warning',
   'danger',
@@ -38,21 +38,21 @@ export const IconType = [
   'default'
 ] as const;
 
-export const IconFlip = [
+export const CIconFlip = [
   'horizontal',
   'vertical',
   'both',
   'default'
 ] as const;
 
-export const IconPull = [
+export const CIconPull = [
   'left',
   'right',
   'default'
 ] as const;
 
-export type UIconSize = typeof IconSize[number]
-export type UIconRotation = typeof IconRotation[number]
-export type UIconType = typeof IconType[number]
-export type UIconFlip = typeof IconFlip[number]
-export type UIconPull = typeof IconPull[number]
+export type UIconSize = typeof CIconSize[number]
+export type UIconRotation = typeof CIconRotation[number]
+export type UIconType = typeof CIconType[number]
+export type UIconFlip = typeof CIconFlip[number]
+export type UIconPull = typeof CIconPull[number]
