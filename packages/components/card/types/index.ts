@@ -5,4 +5,6 @@ export interface UCardProps {
   footer?: string
   shadow?: CardShadow
   padding?: number
+  bodyStyle?: import('vue').CSSProperties
+  bodyClass?: string
 }

@@ -1,28 +1,37 @@
-import { _ as t } from "./Button-CI6nR5Fx.js";
-import { _ as s } from "./ButtonGroup-Bth7Fk8n.js";
+import { _ as s } from "./Button-CI6nR5Fx.js";
+import { _ as t } from "./ButtonGroup-Bth7Fk8n.js";
 import { w as o, m } from "./utils-DqzV52Hi.js";
 import { _ as a } from "./Layout-CNmsbmEl.js";
-import { _ as r } from "./Region-Djt7M0r-.js";
-import { _ as n } from "./Icon-CfGJNHx9.js";
-import { _ as i } from "./Card-mkvB0_Lw.js";
-import { library as _ } from "@fortawesome/fontawesome-svg-core";
-import { fas as f } from "@fortawesome/free-solid-svg-icons";
-const c = o(t), p = o(s), l = o(a), e = o(r), U = o(n), u = o(i), $ = [
-  c,
-  p,
+import { _ as n } from "./Region-Djt7M0r-.js";
+import { _ as r } from "./Icon-CfGJNHx9.js";
+import { _ } from "./Card-Dt5iIR6i.js";
+import { _ as i } from "./Input-D2ZJMEqb.js";
+import { _ as f } from "./Text-CIQLS-_8.js";
+import { _ as c } from "./Tag-HLsZq_yn.js";
+import { library as p } from "@fortawesome/fontawesome-svg-core";
+import { fas as U } from "@fortawesome/free-solid-svg-icons";
+const l = o(s), $ = o(t), e = o(a), u = o(n), d = o(r), I = o(_), g = o(i), w = o(f), x = o(c), y = [
   l,
+  $,
   e,
-  U,
-  u
+  u,
+  d,
+  I,
+  g,
+  w,
+  x
 ];
-_.add(f);
-const x = m($);
+p.add(U);
+const z = m(y);
 export {
-  c as UButton,
-  p as UButtonGroup,
-  u as UCard,
-  U as UIcon,
-  l as ULayout,
-  e as URegion,
-  x as default
+  l as UButton,
+  $ as UButtonGroup,
+  I as UCard,
+  d as UIcon,
+  g as UInput,
+  e as ULayout,
+  u as URegion,
+  x as UTag,
+  w as UText,
+  z as default
 };

@@ -5,14 +5,18 @@
       'u-card',
       { [`u-card--${shadow}`]: shadow }
     ]">
-    <header v-if="$slots.header" class="u-card-header">
-      <slot name="header"></slot>
+    <header v-if="$slots.header || header" class="u-card-header">
+      <slot name="header">
+        <span>{{ header }}</span>
+      </slot>
     </header>
-    <main v-if="$slots.default" class="u-card-body">
+    <main v-if="$slots.default" :class="['u-card-body', bodyClass]" :style="bodyStyle">
       <slot></slot>
     </main>
-    <footer v-if="$slots.footer" class="u-card-footer">
-      <slot name="footer"></slot>
+    <footer v-if="$slots.footer || footer" class="u-card-footer">
+      <slot name="footer">
+        <span>{{ footer }}</span>
+      </slot>
     </footer>
   </div>
 </template>
