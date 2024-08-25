@@ -10,14 +10,13 @@
     box-sizing: border-box;
   }
 
+  /* 处理input size */
   &.u-input--large:not(.u-textarea) {
     height: var(--uc-height-26);
   }
-
   &.u-input--default:not(.u-textarea) {
     height: var(--uc-height-base);
   }
-
   &.u-input--small:not(.u-textarea) {
     height: var(--uc-height-14);
 
@@ -32,6 +31,7 @@
     height: fit-content !important;
   }
 
+  /* input wapper */
   .u-input__wapper {
     width: inherit;
     display: inline-flex;
@@ -57,6 +57,7 @@
       height: fit-content;
     }
 
+    /* 前后icon */
     .u-input__prefix-wrapper:not(:empty),
     .u-input__suffix-wrapper:not(:empty) {
       display: inline-flex;
@@ -64,7 +65,6 @@
       gap: 0.4rem;
       margin: 0.4rem;
     }
-
     .u-input__prefix,
     .u-input__suffix {
       display: inline-flex;
@@ -72,10 +72,12 @@
       margin-top: -0.1rem;
     }
 
+    /* password类型 */
     .u-input__password {
       cursor: pointer;
     }
 
+    /* 清除clear icon功能 */
     .u-input__clear {
       display: inline-flex;
       align-items: center;
@@ -90,6 +92,7 @@
       }
     }
     
+    /* input */
     .u-input__inner {
       width: inherit;
       color: inherit;
@@ -101,6 +104,7 @@
       border: none;
     }
 
+    /* textarea类型、count */
     .u-textarea {
       padding: 0.4rem;
       resize: vertical;

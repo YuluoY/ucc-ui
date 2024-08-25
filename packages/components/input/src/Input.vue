@@ -11,6 +11,7 @@
     }"    
   >
     <div class="u-input__wapper">
+      
       <div class="u-input__prefix-wrapper" v-if="!isTextArea">
         <div v-if="$slots.prepend" class="u-input__prepend">
           <slot name="prepend"></slot>
@@ -21,17 +22,19 @@
           </slot>
         </div>
       </div>
+
       <input 
         v-if="!isTextArea"
-        :value="value"
+        :value="_value"
         class="u-input__inner"
         v-bind="props"
-        :type="inputType"
+        :type="_type"
         @input="onInput"
         @focus="onFocus"
         @blur="onBlur"
         @change="onChange"
       />
+
       <div class="u-input__suffix-wrapper" v-if="!isTextArea">
         <div v-if="$slots.suffix || suffixIcon" class="u-input__suffix">
           <slot name="suffix">
@@ -42,24 +45,23 @@
           <slot name="append"></slot>
         </div>
         <u-icon 
-          v-if="value" 
+          v-if="isPassword && isValue" 
           class="u-input__password" 
-          :icon="eyeIcon"
+          :icon="_icon"
           @click="passwordVisible = !passwordVisible"
         />
         <u-icon 
-          v-if="clearable && value" 
+          v-if="clearable && isValue" 
           class="u-input__clear" 
           icon="close"
           @click="onClear"
         />
       </div>
       
-      
       <textarea 
         v-if="isTextArea" 
         class="u-input__inner u-textarea"
-        :value="value" 
+        :value="_value" 
         v-bind="props"
         @input="onInput"
         @focus="onFocus"
@@ -68,7 +70,7 @@
       >
       </textarea>
       <span v-if="isTextArea" class="u-textarea__count">
-        {{ (value +'').length }} / {{ maxLength }}
+        {{ (_value +'').length }} / {{ maxLength }}
       </span>
     </div>
   </div>
@@ -88,14 +90,26 @@ import { CInputType } from '../types/const';
     min: 0,
     showPassword: false
   })
-
   const emits = defineEmits<UInputEmits>()
-  const value = computed(() => props.modelValue)
+
+  /**
+   * 处理双向绑定的值
+   */
+  const _value = computed(() => props.modelValue)
+  const isValue = computed(() => !!_value.value || _value.value === 0)
+
+  /**
+   * 处理textarea类型
+   */
   const isTextArea = computed(() => props.type === CInputType.TEXTAREA)
 
-  const passwordVisible = ref(false)
-  const eyeIcon = computed(() => passwordVisible.value ? 'eye' : 'eye-slash')
-  const inputType = computed(() => passwordVisible.value ? 'text' : props.type)
+  /**
+   * 处理password类型
+   */
+  const passwordVisible = ref(isValue.value)
+  const isPassword = computed(() => props.type === CInputType.PASSWORD && props.showPassword)
+  const _icon = computed(() => passwordVisible.value ? 'eye' : 'eye-slash')
+  const _type = computed(() => passwordVisible.value ? CInputType.TEXT : props.type)
   
   
   const onInput = (evt: Event) => {
