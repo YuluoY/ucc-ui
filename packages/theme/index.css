@@ -35,6 +35,40 @@
   --uc-border-radius-16: 1.6rem; /* 超超超超大边框圆角 */
   --uc-border-radius-20: 2rem; /* 超超超超超大边框圆角 */
   --uc-border-radius-circle: 50%; /* 圆形边框圆角 */
+  --uc-border-width-base: 0.06rem;
+  --uc-border-width-2: 0.02rem;
+  --uc-border-width-4: 0.04rem;
+  --uc-border-width-6: 0.06rem;
+  --uc-border-width-8: 0.08rem;
+  --uc-border-width-10: 0.1rem;
+  --uc-border-width-12: 0.12rem;
+  --uc-border-width-14: 0.14rem;
+  --uc-border-width-16: 0.16rem;
+  --uc-border-width-18: 0.18rem;
+  --uc-border-width-20: 0.2rem;
+  --uc-height-base: 2rem;
+  --uc-height-10: 1rem;
+  --uc-height-12: 1.2rem;
+  --uc-height-14: 1.4rem;
+  --uc-height-16: 1.6rem;
+  --uc-height-18: 1.8rem;
+  --uc-height-20: 2rem;
+  --uc-height-22: 2.2rem;
+  --uc-height-24: 2.4rem;
+  --uc-height-26: 2.6rem;
+  --uc-height-28: 2.8rem;
+  --uc-height-30: 3rem;
+  --uc-height-32: 3.2rem;
+  --uc-height-34: 3.4rem;
+  --uc-height-36: 3.6rem;
+  --uc-height-38: 3.8rem;
+  --uc-height-40: 4rem;
+  --uc-height-42: 4.2rem;
+  --uc-height-44: 4.4rem;
+  --uc-height-46: 4.6rem;
+  --uc-height-48: 4.8rem;
+  --uc-height-50: 5rem;
+  --uc-height-0: 0;
   /* 字体 */
   --uc-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 字体族 */
   /* 动画相关 */

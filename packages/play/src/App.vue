@@ -1,7 +1,3 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
   <div class="mt-20 gap-20 flex f-wrap">
     <u-button type="primary" size="small">default</u-button>
@@ -38,10 +34,25 @@
   <u-text class="w-100" ellipsis type="danger">
     danger测试textasdasdasdasdasdasdasdasdasd
   </u-text>
-  <u-text class="w-100" ellipsis type="info">
+  <u-text class="w-100" ellipsis type="info" @click="count++">
     info测试textasdasdasdasdasdasdasdasdasd
   </u-text>
+
+  <div class="flex f-wrap gap-20">
+    <u-input type="text" prefix-icon="home" clearable suffix-icon="phone" v-model="count2"  max="9" size="small" ></u-input>
+    <u-input type="number"  prefix-icon="home" clearable suffix-icon="phone" v-model="count" max="9" size="default"></u-input>
+    <u-input type="password" showPassword v-model="count" clearable max="9" size="large"></u-input>
+    <u-input type="textarea" v-model="count" maxLength="90" :rows="2" showWordLimit size="large"></u-input>
+  </div>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const count = ref(0)
+const count2 = ref('啊实打实')
+
+</script>
 
 <style>
 
