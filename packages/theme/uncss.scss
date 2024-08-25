@@ -62,14 +62,6 @@
     padding: $gap2-calcul * 1rem;
   }
 
-  .w-#{$gap2} {
-    width: $gap2-calcul * 1rem;
-  }
-
-  .h-#{$gap2} {
-    height: $gap2-calcul * 1rem;
-  }
-
   @if $i <= 10 {
     $percent: $i * 10;
 
@@ -80,5 +72,19 @@
     .h-p-#{$percent} {
       height: $percent * 1%;
     }
+  }
+}
+
+@for $i from 0 through 100 {
+  $gap2: $i * 2;
+
+  $gap2-calcul: calc($gap2 / 10);
+
+  .w-#{$gap2} {
+    width: $gap2-calcul * 1rem;
+  }
+
+  .h-#{$gap2} {
+    height: $gap2-calcul * 1rem;
   }
 }
