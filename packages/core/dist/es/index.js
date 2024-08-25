@@ -7,7 +7,7 @@ import { _ as r } from "./Icon-CfGJNHx9.js";
 import { _ } from "./Card-Dt5iIR6i.js";
 import { _ as i } from "./Input-D2ZJMEqb.js";
 import { _ as f } from "./Text-CIQLS-_8.js";
-import { _ as c } from "./Tag-HLsZq_yn.js";
+import { _ as c } from "./Tag-CZuAmNHV.js";
 import { library as p } from "@fortawesome/fontawesome-svg-core";
 import { fas as U } from "@fortawesome/free-solid-svg-icons";
 const l = o(s), $ = o(t), e = o(a), u = o(n), d = o(r), I = o(_), g = o(i), w = o(f), x = o(c), y = [

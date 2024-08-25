@@ -7,6 +7,7 @@
   --uc-font-size-base: 0.8rem; /* 基础字体大小 */
   --uc-font-size-xs: 0.6rem; /* 超小字体 */
   --uc-font-size-sm: 0.7rem; /* 小字体 */
+  --uc-font-size-md: 0.9rem; /* 中字体 */
   --uc-font-size-lg: 1rem; /* 大字体 */
   --uc-font-size-xl: 1.2rem; /* 超大字体 */
   --uc-font-size-xxl: 1.4rem; /* 超超大字体 */
@@ -27,6 +28,7 @@
   --uc-gray: #F0F0F0; /* 灰色 */
 
   /* 边框圆角 */
+  --uc-border-radius-base: 0.4rem;
   --uc-border-radius-2: 0.2rem; /* 小边框圆角 */
   --uc-border-radius-4: 0.4rem; /* 默认边框圆角 */
   --uc-border-radius-6: 0.6rem; /* 大边框圆角 */
