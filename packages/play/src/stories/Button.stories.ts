@@ -12,6 +12,7 @@ import { container } from './utils'
 const meta: Meta<typeof UButton> = {
  title: 'Components/Button',
  component: UButton,
+ tags: ['autodocs'],
  argTypes: {
    type: {
      control: 'select',
@@ -101,13 +102,13 @@ export const Default: StoryPlus<typeof UButton> = {
     }
   },
   args: {
-    content: "",
+    content: "按钮组件",
     nativeType: 'button',
     tag: "button",
     type: "primary",
     size: "default",
     icon: "phone",
-    iconPosition: "left",
+    iconPosition: 'default',
     iconStyle: {},
     circle: false,
     disabled: false,
@@ -128,9 +129,9 @@ export const Default: StoryPlus<typeof UButton> = {
     },
     template: container(`
       <UButton v-bind="args">
-        <UIcon :icon="args.icon" :style="args.iconStyle" v-if="${args.iconPosition === CIconPosition.LEFT}" style="margin-right: 10px"/>
+        <UIcon :icon="args.icon" :style="args.iconStyle" v-if="${args.iconPosition === CIconPosition.LEFT}" />
         ${args.content}
-        <UIcon :icon="args.icon" :style="args.iconStyle" v-if="${args.iconPosition === CIconPosition.RIGHT}" style="margin-left: 10px" />
+        <UIcon :icon="args.icon" :style="args.iconStyle" v-if="${args.iconPosition === CIconPosition.RIGHT}" />
       </UButton>
     `),
   }),

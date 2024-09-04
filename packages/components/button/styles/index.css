@@ -14,7 +14,6 @@
   overflow: hidden;
   margin: 0 0.16rem;
   user-select: none;
-              
   font-family: inherit;
   display: inline-flex;
   align-items: center;
@@ -23,7 +22,7 @@
   [class*=u-button__icon--left]+span{
     margin-left: 0.4rem;
   }
-  [class*=u-button__icon--right]+span{
+  span+[class*=u-button__icon--right]{
     margin-right: 0.4rem;
   }
 
@@ -32,12 +31,11 @@
     border: 0.01rem solid var(--uc-primary-light-4);
     color: var(--uc-primary);
   }
-
+  
   &:active {
     border-color: var(--uc-primary-light-2);
   }
   
-
   &.u-button--primary { 
     background-color: var(--uc-primary-0); 
     &:hover {

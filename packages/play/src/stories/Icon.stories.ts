@@ -11,9 +11,7 @@ import { CIconFlip, CIconPull, CIconRotation, CIconSize, CIconType } from '../..
 const meta: Meta<typeof UIcon> = {
  title: 'Components/Icon',
  component: UIcon,
- argTypes: {
-    
- }
+ tags: ['autodocs']
 }
 export const Default: Story<typeof UIcon> = {
   argTypes: {

@@ -7,7 +7,8 @@ import { CCardShadow } from "../../../components/card/types/const";
 
 const meta: Meta<typeof UCard> = {
  title: 'Components/Card',
- component: UCard
+ component: UCard,
+ tags: ['autodocs']
 }
 
 export const Default: Story<typeof UCard> = {

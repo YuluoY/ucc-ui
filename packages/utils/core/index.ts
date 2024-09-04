@@ -9,7 +9,12 @@ export function makeInstaller(components: Plugin[]): Plugin {
   }
 }
 
-export function withInstall<T>(component: T) {
-  (component as SFCWithInstall<T>).install = (app: App) => app.component((component as any).name, component as Plugin)
+export function withInstall<T>(component: T, onBeforeInstall?: (app: App) => void) {
+  (component as SFCWithInstall<T>).install = (app: App) => {
+    if (onBeforeInstall) {
+      onBeforeInstall(app)
+    }
+    return app.component((component as any).name, component as Plugin)
+  }
   return component as SFCWithInstall<T>
 }

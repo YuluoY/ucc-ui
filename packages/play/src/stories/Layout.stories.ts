@@ -8,8 +8,7 @@ import { CLayoutMode, CRegion } from "../../../components/layout/types/const";
 const meta: Meta<typeof ULayout> = {
  title: 'Components/Layout',
  component: ULayout,
- argTypes: {
- }
+ tags: ['autodocs']
 }
 
 export const Default: Story<typeof ULayout & typeof URegion > = {
@@ -37,9 +36,9 @@ export const Default: Story<typeof ULayout & typeof URegion > = {
     }
   },
   args: {
-    mode: "horizontal",
-    col: 3,
-    padding: 10,
+    mode: "vertical",
+    col: 2,
+    padding: 25,
     gap: 20,
     fit: false,
   },

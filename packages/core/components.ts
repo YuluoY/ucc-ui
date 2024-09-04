@@ -8,7 +8,12 @@ import {
   UCard,
   UInput,
   UText,
-  UTag
+  UTag,
+  UDropDown,
+  UDropDownMenu,
+  UDropDownItem,
+  UCollaspe,
+  UCollaspeItem
 } from '@ucc-ui/components'
 
 export default [
@@ -20,5 +25,10 @@ export default [
   UCard,
   UInput,
   UText,
-  UTag
+  UTag,
+  UDropDown,
+  UDropDownMenu,
+  UDropDownItem,
+  UCollaspe,
+  UCollaspeItem
 ] as Plugin[]
