@@ -39,9 +39,9 @@
   </u-text>
 
   <div class="flex f-wrap gap-20">
-    <u-input type="text" prefix-icon="home" clearable suffix-icon="phone" v-model="count2"  max="9" size="small" ></u-input>
-    <u-input type="number"  prefix-icon="home" clearable suffix-icon="phone" v-model="count" max="9" size="default"></u-input>
-    <u-input type="password" showPassword v-model="count" clearable max="9" size="large"></u-input>
+    <u-input type="text" disabled prefix-icon="home" clearable suffix-icon="phone" v-model="count2"  size='small' ></u-input>
+    <u-input type="number" disabled prefix-icon="home" clearable suffix-icon="phone" v-model="count" size="default"></u-input>
+    <u-input type="password" showPassword v-model="count" clearable size="large"></u-input>
     <u-input type="textarea" v-model="count" maxLength="90" :rows="2" showWordLimit size="large"></u-input>
   </div>
 </template>

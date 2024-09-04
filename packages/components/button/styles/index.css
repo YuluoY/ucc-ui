@@ -13,6 +13,7 @@
   transition: all var(--uc-animation-delay-2) var(--uc-animation-ease-in-out);
   overflow: hidden;
   margin: 0 0.16rem;
+  user-select: none;
               
   font-family: inherit;
   display: inline-flex;

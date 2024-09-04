@@ -27,8 +27,18 @@
         v-if="!isTextArea"
         :value="_value"
         class="u-input__inner"
-        v-bind="props"
         :type="_type"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        :autocomplete="autocomplete"
+        :readonly="readonly"
+        :name="name"
+        :max="max"
+        :min="type === 'number' ? 0 : min"
+        :autofocus="autofocus"
+        :aria-label="ariaLabel"
+        :tabindex="tabindex"
+        :style="inputStyle"
         @input="onInput"
         @focus="onFocus"
         @blur="onBlur"
@@ -87,8 +97,10 @@ import { CInputType } from '../types/const';
   
   const props = withDefaults(defineProps<UInputProps>(), {
     type: CInputType.TEXT,
-    min: 0,
-    showPassword: false
+    size: 'default',
+    showPassword: false,
+    autocomplete: 'off',
+    tabindex: 0
   })
   const emits = defineEmits<UInputEmits>()
 

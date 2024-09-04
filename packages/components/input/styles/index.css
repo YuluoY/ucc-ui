@@ -10,6 +10,18 @@
     box-sizing: border-box;
   }
 
+  /* 禁用 */
+  &.u-input--disabled {
+    cursor: not-allowed;
+    user-select: none;
+
+    .u-input__wapper {
+      background-color: var(--uc-background-2);
+      border-color: var(--uc-border-1);
+      pointer-events: none;
+    }
+  }
+
   /* 处理input size */
   &.u-input--large:not(.u-textarea) {
     height: var(--uc-height-26);
@@ -22,6 +34,9 @@
 
     .u-input__wapper {
       .u-input__inner {
+        font-size: var(--uc-font-size-sm);
+      }
+      .u-icon {
         font-size: var(--uc-font-size-sm);
       }
     }
@@ -102,6 +117,10 @@
       font-weight: var(--uc-font-weight-regular);
       outline: none;
       border: none;
+
+      &:not(.u-textarea) {
+        line-height: var(--uc-height-26);
+      }
     }
 
     /* textarea类型、count */
