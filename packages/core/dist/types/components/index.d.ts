@@ -7,3 +7,4 @@ export * from './text';
 export * from './tag';
 export * from './dropdown';
 export * from './collapse';
+export * from './dynamic-component';

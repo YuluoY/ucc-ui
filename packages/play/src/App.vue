@@ -44,13 +44,57 @@
     <u-input type="password" showPassword v-model="count" clearable size="large"></u-input>
     <u-input type="textarea" v-model="count" maxLength="90" :rows="2" showWordLimit size="large"></u-input>
   </div>
+  <u-dynamic-component v-bind="_structTabs" />
+  <u-dynamic-component v-bind="activeStruct">
+    <!-- <template #formSlot>
+      <u-button type="primary" size="small">formSlot</u-button>
+    </template> -->
+  </u-dynamic-component>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { getCurrentInstance, onMounted, reactive, ref, watchEffect } from 'vue'
+import { ElTabPane, ElTable, ElTabs } from 'element-plus';
+import tableStruct from './test_3/tableStruct';
+import formStruct from './test_3/formStruct';
 
 const count = ref(0)
 const count2 = ref('啊实打实')
+
+
+const tabpanes = [tableStruct._name, formStruct._name]
+const active = ref(tabpanes.at(-1))
+
+const struct = reactive({
+  [tableStruct._name]: tableStruct,
+  [formStruct._name]: formStruct
+})
+
+const activeStruct = ref(struct[active.value as string] || {})
+
+watchEffect(() => {
+  activeStruct.value = struct[active.value as string] || {}
+})
+
+const _structTabs = {
+  type: ElTabs.name,
+  props: {
+    modelValue: active.value,
+    type: 'card'
+  },
+  events: {
+    tabClick:(e: any) => {
+      active.value = e.paneName
+    }
+  },
+  children: tabpanes.map((name) => {
+    return {
+      type: ElTabPane.name,
+      props: { label: name, name }
+    }
+  })
+} as any
+
 
 </script>
 

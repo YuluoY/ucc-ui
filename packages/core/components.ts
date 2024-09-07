@@ -13,7 +13,8 @@ import {
   UDropDownMenu,
   UDropDownItem,
   UCollapse,
-  UCollapseItem
+  UCollapseItem,
+  UDynamicComponent
 } from '@ucc-ui/components'
 
 export default [
@@ -30,5 +31,6 @@ export default [
   UDropDownMenu,
   UDropDownItem,
   UCollapse,
-  UCollapseItem
+  UCollapseItem,
+  UDynamicComponent
 ] as Plugin[]
