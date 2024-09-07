@@ -1,51 +1,64 @@
 <template>
-  <component
-    v-if="props.modelValue" 
-    :class="[be('component')]" 
-    :is="type" 
-    v-bind="{...props, ...extraProps}"
-    v-on="events"
-    v-model="modelValue"
+  <template
+    v-if="directiveMap.isExist"
+    v-show="directiveMap.isShow"
   >
-    <template v-if="isEffectArray(children)">
-      <u-dynamic-component :class="[be('children')]" v-bind="child" v-for="(child, index) in children" :key="`children-${index}`" />
-    </template>
-    <template v-else-if="isEffectObject(children)">
-      <u-dynamic-component :class="[be('children')]" v-bind="(children as object)" />
-    </template>
-    <template v-else-if="isString(children)">
-      {{ children }}
-    </template>
+    <component
+      v-if="props.modelValue"
+      :class="[be('component')]" 
+      :is="type" 
+      v-bind="Vbind"
+      v-on="events"
+      v-model="modelValue"
+    >
+      <template v-if="isEffectArray(children)">
+        <u-dynamic-component :class="[be('children')]" v-bind="child" v-for="(child, index) in children" :key="`${uid}-children-${index}`" />
+      </template>
+      <template v-else-if="isEffectObject(children)">
+        <u-dynamic-component :class="[be('children')]" v-bind="(children as object)" />
+      </template>
+      <template v-else-if="isString(children)">
+        {{ children }}
+      </template>
 
-    <template #[slotName]="data" v-for="(val, slotName, index) in slots" :key="`${slotName}-${index}`">
-      <u-dynamic-component :class="[be('slots')]" v-if="isFunction(val)" v-bind="val(data)" />
-      <u-dynamic-component :class="[be('slots')]" v-else v-bind="val" />
-    </template>
-  </component>
+      <template #[slotName]="data" v-for="(val, slotName, index) in slots" :key="`${uid}-${slotName}-${index}`">
+        <u-dynamic-component :class="[be('slots')]" v-if="isFunction(val)" v-bind="val(data)" />
+        <u-dynamic-component :class="[be('slots')]" v-else v-bind="val" />
+      </template>
+    </component>
 
-  <component v-else :class="[be('component')]" :is="type" v-bind="{...props, ...extraProps}" v-on="events">
-    <template v-if="isEffectArray(children)">
-      <u-dynamic-component :class="[be('children')]" v-bind="child" v-for="(child, index) in children" :key="`children-${index}`" />
-    </template>
-    <template v-else-if="isEffectObject(children)">
-      <u-dynamic-component :class="[be('children')]" v-bind="(children as object)" />
-    </template>
-    <template v-else-if="isString(children)">
-      {{ children }}
-    </template>
+    <component 
+      v-else
+      :class="[be('component')]" 
+      :is="type" 
+      v-bind="Vbind" 
+      v-on="events"
+    >
+      <template v-if="isEffectArray(children)">
+        <u-dynamic-component :class="[be('children')]" v-bind="child" v-for="(child, index) in children" :key="`${uid}-children-${index}`" />
+      </template>
+      <template v-else-if="isEffectObject(children)">
+        <u-dynamic-component :class="[be('children')]" v-bind="(children as object)" />
+      </template>
+      <template v-else-if="isString(children)">
+        {{ children }}
+      </template>
 
-    <template #[name]="data" v-for="(val, name, index) in slots" :key="`${name}-${index}`">
-      <u-dynamic-component :class="[be('slots')]" v-if="isFunction(val)" v-bind="val(data)" />
-      <u-dynamic-component :class="[be('slots')]" v-else v-bind="val" />
-    </template>
-  </component>
+      <template #[name]="data" v-for="(val, name, index) in slots" :key="`${uid}-${name}-${index}`">
+        <u-dynamic-component :class="[be('slots')]" v-if="isFunction(val)" v-bind="val(data)" />
+        <u-dynamic-component :class="[be('slots')]" v-else v-bind="val" />
+      </template>
+    </component>
+  </template>
 </template>
 
 <script lang="ts" setup>
-import { isEffectArray, isEffectObject, isFunction, isString, parseJson, setObjByPath } from '@ucc-ui/utils';
 import type { UDynamicComponentEmits, UDynamicComponentExpose, UDynamicComponentProps } from '../types'
-import { watch, inject, onBeforeUnmount, provide, reactive, ref, getCurrentInstance, readonly } from 'vue';
 import type { ComponentInternalInstance, Reactive, Ref, WatchStopHandle } from 'vue';
+
+import { isEffectArray, isEffectObject, isFunction, isString, parseJson, setObjByPath } from '@ucc-ui/utils';
+import { watch, inject, onBeforeUnmount, provide, reactive, ref, getCurrentInstance, readonly, markRaw, useAttrs, computed } from 'vue';
+import useDVueDirectives from '../hooks/useDVueDirectives';
 
   defineOptions({
     inheritAttrs: false,
@@ -54,17 +67,27 @@ import type { ComponentInternalInstance, Reactive, Ref, WatchStopHandle } from '
 
   const emits = defineEmits<UDynamicComponentEmits>()
   const instance = getCurrentInstance()
+  const uid = instance?.uid
   const _props = withDefaults(defineProps<UDynamicComponentProps>(), {
     type: 'div',
     props: () => ({}),
     events: () => ({}),
-    slots: () => ({}),
-    directives: () => ({})
+    slots: () => ({})
   })
 
-  const extraProps = {
-    uid: instance?.uid
-  }
+  const {
+    extraProps = {},
+    directiveMap = {
+      isExist: true,
+      isShow: true
+    }
+  } = useDVueDirectives({
+    instance, 
+    key: _props.__D_V_KEY__ || uid,
+    directives: _props.directives
+  })
+
+  const Vbind = computed(() => ({ ..._props.props, ...extraProps, ...useAttrs() }))
 
   // 处理events this指向
   Object.keys(_props.events).forEach(key => (_props.events[key] = _props.events[key].bind(instance)))
@@ -134,8 +157,11 @@ import type { ComponentInternalInstance, Reactive, Ref, WatchStopHandle } from '
   
   defineExpose<UDynamicComponentExpose>({
     root,
+    uid,
+    instance,
     modelValue,
-    modelValues: readonly(modelValues || {})
+    modelValues: readonly(modelValues || {}),
+    directiveMap: readonly(directiveMap as any)
   })
 
 </script>
