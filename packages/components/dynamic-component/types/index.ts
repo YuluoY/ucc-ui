@@ -35,5 +35,7 @@ export interface UDynamicComponentExpose {
   modelValue: Ref<any> | null | undefined,
   modelValues: Readonly<Record<string, Ref<any>>>,
   directiveMap: Readonly<Result['directiveMap']>
-  directiveEvents?: Readonly<Result['directiveEvents']>
+  // directiveEvents?: Readonly<Result['directiveEvents']>
 }
+
+// ModelComponent.vue

@@ -64,7 +64,7 @@ import useDVueDirectives from '../hooks/useDVueDirectives';
     inheritAttrs: false,
     name: 'UDynamicComponent'
   })
-
+  const be = (str: string): string => 'h-dynamic-' + str
   const emits = defineEmits<UDynamicComponentEmits>()
   const instance = getCurrentInstance()
   const uid = instance?.uid
@@ -152,8 +152,6 @@ import useDVueDirectives from '../hooks/useDVueDirectives';
     modelValuesWatcher && modelValuesWatcher()
     modelValueWatcher && modelValueWatcher()
   })
-
-  const be = (str: string): string => 'h-dynamic-' + str
   
   defineExpose<UDynamicComponentExpose>({
     root,
