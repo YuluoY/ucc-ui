@@ -42,19 +42,20 @@ export function parseJson(str: string, def: any = {}): any {
 
 /**
  * 设置对象值 - 默认是新增属性，如果属性已存在则替换
- * @param   obj     对象
- * @param   path    属性路径
- * @param   val     值
+ * @param   obj         对象
+ * @param   path        属性路径
+ * @param   val         值
+ * @param   splitter    分隔符  默认 .
  */
-export function setObjByPath(obj: any, path: string | string[], val: any) {
-  // 如果 path 是字符串，且不包含'.'，直接赋值
+export function setDeepValue(obj: any, path: string | string[], val: any, splitter: string = '.') {
+  // 如果 path 是字符串，且不包含splitter，直接赋值
   if (typeof path === 'string') {
-    if (path.indexOf('.') === -1) {
+    if (path.indexOf(splitter) === -1) {
       obj[path] = val;
       return obj;
     }
-    // 如果包含'.'，则将字符串按'.'分割成数组
-    path = path.split('.');
+    // 如果包含splitter，则将字符串按splitter分割成数组
+    path = path.split(splitter);
   }
 
   let active = obj; // active 指向当前操作的对象
@@ -71,5 +72,5 @@ export function setObjByPath(obj: any, path: string | string[], val: any) {
   // 如果最后一个 key 对应的是数组，则将值加入数组；否则直接赋值
   Array.isArray(active[lastKey]) ? active[lastKey].push(val) : (active[lastKey] = val);
 
-  return obj; // 返回修改后的对象
+  return [active, lastKey]; // 返回修改后的对象
 }

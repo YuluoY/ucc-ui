@@ -44,12 +44,10 @@
     <u-input type="password" showPassword v-model="count" clearable size="large"></u-input>
     <u-input type="textarea" v-model="count" maxLength="90" :rows="2" showWordLimit size="large"></u-input>
   </div>
-  <u-dynamic-component v-bind="_structTabs" />
-  <u-dynamic-component v-bind="activeStruct">
-    <!-- <template #formSlot>
-      <u-button type="primary" size="small">formSlot</u-button>
-    </template> -->
-  </u-dynamic-component>
+  <!-- <u-dynamic-component v-bind="_structTabs" /> -->
+  <!-- <u-dynamic-component v-bind="activeStruct" /> -->
+  <u-model-component v-bind="activeStruct" />
+  
 </template>
 
 <script setup lang="ts">
@@ -70,7 +68,7 @@ const struct = reactive({
   [formStruct._name]: formStruct
 })
 
-const activeStruct = ref(struct[active.value as string] || {})
+const activeStruct = ref(struct[active.value as string] || {}) as any
 
 watchEffect(() => {
   activeStruct.value = struct[active.value as string] || {}

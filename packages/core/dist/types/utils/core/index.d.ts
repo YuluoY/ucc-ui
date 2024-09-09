@@ -15,8 +15,9 @@ export declare function withInstall<T>(component: T, onBeforeInstall?: (app: App
 export declare function parseJson(str: string, def?: any): any;
 /**
  * 设置对象值 - 默认是新增属性，如果属性已存在则替换
- * @param   obj     对象
- * @param   path    属性路径
- * @param   val     值
+ * @param   obj         对象
+ * @param   path        属性路径
+ * @param   val         值
+ * @param   splitter    分隔符  默认 .
  */
-export declare function setObjByPath(obj: any, path: string | string[], val: any): any;
+export declare function setDeepValue(obj: any, path: string | string[], val: any, splitter?: string): any;
