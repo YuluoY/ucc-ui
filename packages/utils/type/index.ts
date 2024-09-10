@@ -59,4 +59,4 @@ export const isUndefined = (val: any): val is undefined => val === undefined
  * @param     {any}     val
  * @returns   {boolean}
  */
-export const isValue = (val: any): val is boolean => !!(val && typeof val !== 'undefined' && typeof val !== 'null' as any)
+export const isValue = (val: any): val is boolean => val !== undefined && val !== null

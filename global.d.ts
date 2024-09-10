@@ -5,11 +5,11 @@ declare module 'vue' {
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
     UCard: typeof import('ucc-ui')['UCard'];
+    UCollapse: typeof import('ucc-ui')['UCollapse'];
+    UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UDropDown: typeof import('ucc-ui')['UDropDown'];
     UDropDownItem: typeof import('ucc-ui')['UDropDownItem'];
     UDropDownMenu: typeof import('ucc-ui')['UDropDownMenu'];
-    UCollapse: typeof import('ucc-ui')['UCollapse'];
-    UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UIcon: typeof import('ucc-ui')['UIcon'];
     UInput: typeof import('ucc-ui')['UInput'];
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];

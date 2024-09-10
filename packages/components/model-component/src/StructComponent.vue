@@ -5,7 +5,9 @@
    v-on="events"
  >
 
-   <u-model-component v-if="isEffectArray(children)" v-bind="child" v-for="(child, index) in children" :key="`${String(instance?.uid)}-${index}`" />
+   <template v-if="isEffectArray(children)">
+      <u-model-component v-bind="child" v-for="(child, index) in children" :key="`${String(instance?.uid)}-${index}`" />
+   </template>
    <u-model-component v-else-if="isEffectObject(children)" v-bind="(children as unknown as object)" />
    <span v-else-if="isString(children)">{{ children }}</span>
 
@@ -18,15 +20,15 @@
 </template>
 
 <script setup lang="ts">
-import UModelComponent from './ModelComponent.vue'
 import { isEffectArray, isEffectObject, isFunction, isString } from '@ucc-ui/utils';
-import { getCurrentInstance, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onErrorCaptured, onMounted, onUpdated } from 'vue';
+import { defineAsyncComponent, getCurrentInstance, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onErrorCaptured, onMounted, onUpdated } from 'vue';
 import type { UStructComponentProps } from '../types';
 
   defineOptions({
     name: 'UStructComponent'
   })
 
+  const UModelComponent = defineAsyncComponent(() => import('./ModelComponent.vue'))
   const instance = getCurrentInstance()
   const _props = withDefaults(defineProps<UStructComponentProps>(), {
     type: 'div',

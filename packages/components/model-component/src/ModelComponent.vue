@@ -2,7 +2,7 @@
 <template>
   <template v-if="vif">
     <u-struct-component
-      v-if="props.modelValue"
+      v-if="isValue(props.modelValue)"
       :data-uid="instance?.uid"
       v-bind="VBinds"
       v-model="modelValue"
@@ -16,15 +16,15 @@
 </template>
 
 <script setup lang="ts">
-import { isBoolean, isEffectObject, isFunction, isString, parseJson, setDeepValue } from '@ucc-ui/utils';
-import { computed, getCurrentInstance, inject, onBeforeUnmount, provide, reactive, readonly, ref, useAttrs, watch, type ComponentInternalInstance, type Reactive, type WatchStopHandle } from 'vue';
+import { isBoolean, isEffectObject, isFunction, isString, isValue, parseJson, setDeepValue } from '@ucc-ui/utils';
+import { computed, defineAsyncComponent, getCurrentInstance, inject, onBeforeUnmount, provide, reactive, readonly, ref, useAttrs, watch, type ComponentInternalInstance, type Reactive, type WatchStopHandle } from 'vue';
 import type { UModelComponentEmits, UModelComponentExpose, UModelComponentProps, UStructComponentProps } from '../types';
-import UStructComponent from './StructComponent.vue'
 
   defineOptions({
     name: 'UModelComponent'
   })
 
+  const UStructComponent = defineAsyncComponent(() => import('./StructComponent.vue'))
   const instance = getCurrentInstance()
   const emits = defineEmits<UModelComponentEmits>()
   const _props = withDefaults(defineProps<UModelComponentProps>(), {
@@ -37,8 +37,9 @@ import UStructComponent from './StructComponent.vue'
     directives: () => ({})
   })
 
-  // 处理events this指向
-  Object.keys(_props.events).forEach(key => isFunction(_props.events[key]) && (_props.events[key] = _props.events[key].bind(instance)))
+  // 处理events this指向 
+  const newEvents = {} as any
+  Object.keys(_props.events).forEach(key => (newEvents[key] = isFunction(_props.events[key]) ? _props.events[key].bind(instance) : _props.events[key]))
 
   // v-bind
   const VBinds = computed<UStructComponentProps>(() => ({
@@ -48,7 +49,7 @@ import UStructComponent from './StructComponent.vue'
     slots: _props.slots,
     hooks: _props.hooks,
     directives: _props.directives,
-    events: _props.events,
+    events: newEvents,
     ...useAttrs()
   }))
   
