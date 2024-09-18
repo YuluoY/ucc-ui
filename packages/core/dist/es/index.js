@@ -12,7 +12,7 @@ import { _ as p } from "./DropDown-Bh1_hb_D.js";
 import { _ as e } from "./DropDownMenu-DMTqYG84.js";
 import { _ as U } from "./DropDownItem-tN_9M1Bo.js";
 import { _ as $ } from "./Collapse-D2dtQilI.js";
-import { _ as l } from "./CollapseItem-CPHyL7jj.js";
+import { _ as l } from "./CollapseItem-CUkteYmY.js";
 import u from "./ModelComponent-CtQQDxJa.js";
 import d from "./StructComponent-BnU6ODtN.js";
 import { library as D } from "@fortawesome/fontawesome-svg-core";

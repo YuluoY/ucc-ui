@@ -12,7 +12,7 @@
         :key="index" 
         :is="item" 
         :class="{
-          'is-active': activeName === item.props?.name || activeName?.includes(item.props?.name),
+          'is-active': activeNames === item.props?.name || activeNames?.includes(item.props?.name),
         }"
       />
     </template>
@@ -20,8 +20,9 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, toRef, watchEffect } from 'vue';
+import { onBeforeUnmount, provide, toRef, watch } from 'vue';
 import type { UCollapseEmits, UCollapseProps } from '../types';
+import { COLLAPSE_CTX_KEY } from '../types/const';
 
   defineOptions({
     name: 'UCollapse'
@@ -34,18 +35,38 @@ import type { UCollapseEmits, UCollapseProps } from '../types';
   const slots = defineSlots()
   const defaultSlots = Array.isArray(slots.default()) ? slots.default() : [slots.default()]
 
-  const activeName = toRef(props, 'modelValue')
-  const valueWatcherEffect = watchEffect(() => {
-    emit('update:modelValue', activeName.value)
-    emit('change', activeName.value)
+  const activeNames = toRef(props, 'modelValue', [])
+
+  const updateActiveNames = (names: string[]): void => {
+    activeNames.value = names
+    emit('update:modelValue', names)
+    emit('change', names)
+  }
+  const modelValueWatcher = watch(() => props.modelValue, (newVal) => updateActiveNames(newVal as string[]))
+
+  const handleItemClick = (name: string): void => {
+    if (props.accordion) {
+      updateActiveNames(activeNames.value.includes(name) ? [] : [name])
+      return
+    }
+    if (activeNames.value.includes(name)) {
+      updateActiveNames(activeNames.value.filter((item) => item !== name))
+    } else {
+      updateActiveNames([...activeNames.value, name])
+    }
+  }
+
+  provide(COLLAPSE_CTX_KEY, {
+    activeNames,
+    handleItemClick
   })
 
   onBeforeUnmount(() => {
-    valueWatcherEffect()
+    modelValueWatcher()
   })
   
 </script>
 
 <style>
-
+ @import '../styles/index.css';
 </style>

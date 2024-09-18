@@ -6,29 +6,53 @@
       'is-disabled': disabled
     }"
   >
-    <div class="u-collapse-item__header" v-if="$slots.title" @click="onClick">
-      <slot name="title">
-        {{ title }}
-      </slot>
+    <div class="u-collapse-item__header" @click="onClick">
+      <div class="u-collapse-item__title">
+        <slot name="title">
+          {{ title }}
+        </slot>
+      </div>
+      <div class="u-collapse-item__arrow">
+        <slot name="icon">
+          <u-icon :icon="['fasds', isActive ? 'chevron-down' : 'angle-right']" />
+        </slot>
+      </div>
     </div>
-    <div class="u-collapse-item__content" v-if="$slots.default">
-      <slot></slot>
-    </div>
+    <UCollapseTransition>
+      <div class="u-collapse-item__wrap" v-show="isActive">
+        <div 
+          class="u-collapse-item__content" 
+          v-if="$slots.default"
+          :aria-hidden="!isActive"
+        >
+          <slot></slot>
+        </div>
+      </div>
+    </UCollapseTransition>
   </div>
 </template>
 
 <script setup lang="ts">
-import type { UCollapseItemProps } from '../types';
+import { computed, inject } from 'vue';
+import type { UCollapseContext, UCollapseItemProps } from '../types';
+import { COLLAPSE_CTX_KEY } from '../types/const';
+import UCollapseTransition from './CollapseTransition.vue';
 
   defineOptions({
     name: 'UCollapseItem'
   })
   const props = withDefaults(defineProps<UCollapseItemProps>(), {})
-  const onClick = () => {
-    
-  }
-</script>
+  const ctx = inject(COLLAPSE_CTX_KEY) as UCollapseContext
 
+  const isActive = computed(() => ctx.activeNames.value.includes(props.name))
+
+  const onClick = () => {
+    if (props.disabled) 
+      return
+    ctx.handleItemClick(props.name)
+  }
+
+</script>
 <style>
 
 </style>
