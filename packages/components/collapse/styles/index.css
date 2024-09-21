@@ -23,15 +23,15 @@
     }
 
   .u-collapse-item ~ .u-collapse-item {
-    border-top: 1px solid var(--uc-border-1);
+    border-top: var(--uc-border-width-6) solid var(--uc-border-1);
   }
 
   .u-collapse-item:first-child {
-    border-top: 1px solid var(--uc-border-1);
+    border-top: var(--uc-border-width-6) solid var(--uc-border-1);
   }
 
   .u-collapse-item:last-child {
-    border-bottom: 1px solid var(--uc-border-1);
+    border-bottom: var(--uc-border-width-6) solid var(--uc-border-1);
   }
     
   .u-collapse-item {
