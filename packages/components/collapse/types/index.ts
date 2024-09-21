@@ -1,4 +1,5 @@
 import type { Ref } from "vue"
+import type { UIconProps } from "../../icon/types"
 
 export interface UCollapseProps {
   modelValue?: Array<string>
@@ -14,6 +15,7 @@ export interface UCollapseItemProps {
   name: string              // 唯一标识
   title?: string            // 标题
   disabled?: boolean        // 是否禁用
+  iconProps?: Partial<UIconProps>    // 自定义图标
 }
 
 

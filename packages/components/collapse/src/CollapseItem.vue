@@ -14,7 +14,7 @@
       </div>
       <div class="u-collapse-item__arrow">
         <slot name="icon">
-          <u-icon :icon="['fasds', isActive ? 'chevron-down' : 'angle-right']" />
+          <u-icon icon="angle-right" v-bind="iconProps ?? void 0" />
         </slot>
       </div>
     </div>

@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, provide, toRef, watch } from 'vue';
+import { onBeforeUnmount, provide, ref, toRef, watch } from 'vue';
 import type { UCollapseEmits, UCollapseProps } from '../types';
 import { COLLAPSE_CTX_KEY } from '../types/const';
 
@@ -35,7 +35,7 @@ import { COLLAPSE_CTX_KEY } from '../types/const';
   const slots = defineSlots()
   const defaultSlots = Array.isArray(slots.default()) ? slots.default() : [slots.default()]
 
-  const activeNames = toRef(props, 'modelValue', [])
+  const activeNames = ref(props.modelValue || [])
 
   const updateActiveNames = (names: string[]): void => {
     activeNames.value = names

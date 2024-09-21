@@ -1,5 +1,5 @@
 <template>
-  <transition name="collapse-transition" v-on="on">
+  <transition name="u-collapse-transition" v-on="on">
     <slot />
   </transition>
 </template>

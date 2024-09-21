@@ -37,10 +37,13 @@
 
   /* 背景色 */
   --uc-background-1: #FFFFFF; /* 白色 */
-  --uc-background-2: #F0F2F5; /* 浅灰 */
-  --uc-background-3: #E8E8EA; /* 更浅灰 */
-  --uc-background-4: #D0D0D3; /* 近黑浅灰 */
-  --uc-background-5: #B8B8BB; /* 最浅灰 */
+  --uc-background-2: #F8F8F8; /* 略浅白 */
+  --uc-background-3: #F0F2F5; /* 浅灰 */
+  --uc-background-4: #E8E8EA; /* 更浅灰 */
+  --uc-background-5: #D0D0D3; /* 近黑浅灰 */
+  --uc-background-6: #B8B8BB; /* 最浅灰 */
+
+  --uc-background-disabled: #F8F8F8; /* 略浅灰 */
 
   /* 文字色 */
   --uc-text-1: #333333; /* 深灰 */

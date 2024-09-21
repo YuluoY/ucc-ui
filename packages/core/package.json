@@ -33,17 +33,24 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "@popperjs/core": "^2.11.8",
     "async-validator": "^4.2.5"
   },
   "devDependencies": {
-    "vite-plugin-dts": "^4.0.2",
-    "@ucc-ui/components": "workspace:*"
+    "@ucc-ui/components": "workspace:*",
+    "vite-plugin-dts": "^4.0.2"
   },
   "peerDependencies": {
     "vue": "^3.4.19"
   },
-  "keywords": ["ucc", "ucc-ui", "ui", "vue3"]
+  "keywords": [
+    "ucc",
+    "ucc-ui",
+    "ui",
+    "vue3"
+  ]
 }
