@@ -21,3 +21,12 @@ export declare function parseJson(str: string, def?: any): any;
  * @param   splitter    分隔符  默认 .
  */
 export declare function setDeepValue(obj: any, path: string | string[], val: any, splitter?: string): any;
+/**
+ * px转rem
+ * @param   {number}  px   px值
+ * @returns rem值
+ * ```js
+ * pxToRem(10) // 0.1rem
+ * ```
+ */
+export declare function pxToRem(px: number): string;

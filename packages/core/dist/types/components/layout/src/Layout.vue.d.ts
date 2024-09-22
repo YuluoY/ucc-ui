@@ -12,9 +12,9 @@ declare const _default: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_T
     col: number;
     fit: boolean;
 }>>>, {
+    col: number;
     gap: number;
     padding: number;
-    col: number;
     mode: import('../types/const').LayoutMode;
     fit: boolean;
 }, {}>;

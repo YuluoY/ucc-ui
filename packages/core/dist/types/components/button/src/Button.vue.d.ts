@@ -37,8 +37,8 @@ declare const __VLS_component: import('vue').DefineComponent<__VLS_WithDefaults<
 }>>> & {
     onClick?: ((val: MouseEvent) => any) | undefined;
 }, {
-    tag: string;
     size: import('../types/const').ButtonSize;
+    tag: string;
     loading: boolean;
     loadingIcon: string;
     autofocus: boolean;

@@ -16,11 +16,18 @@
   <u-icon icon="home" transform="shrink-4 right-1" title="sss"></u-icon>
   <u-button disabled icon="check">asds</u-button>
   <u-input prefix-icon="home" suffix-icon="check"></u-input>
+  <u-tooltip v-model:visible="visible">
+    <template #content>
+      <div>123</div>
+    </template>
+    <u-button>123</u-button>
+  </u-tooltip>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
+const visible = ref(false)
 
 const def = ref(['1'])
 

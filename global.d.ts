@@ -7,6 +7,7 @@ declare module 'vue' {
     UCard: typeof import('ucc-ui')['UCard'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
+    UCollapseTransition: typeof import('ucc-ui')['UCollapseTransition'];
     UDropDown: typeof import('ucc-ui')['UDropDown'];
     UDropDownItem: typeof import('ucc-ui')['UDropDownItem'];
     UDropDownMenu: typeof import('ucc-ui')['UDropDownMenu'];
@@ -20,8 +21,8 @@ declare module 'vue' {
     UStructComponent: typeof import('ucc-ui')['UStructComponent'];
     USlider: typeof import('ucc-ui')['USlider'];
     UTag: typeof import('ucc-ui')['UTag'];
-    UTooltip: typeof import('ucc-ui')['UTooltip'];
     UText: typeof import('ucc-ui')['UText'];
+    UTooltip: typeof import('ucc-ui')['UTooltip'];
 	}
 }
 

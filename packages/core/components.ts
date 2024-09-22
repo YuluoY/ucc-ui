@@ -14,6 +14,8 @@ import {
   UDropDownItem,
   UCollapse,
   UCollapseItem,
+  UTooltip,
+  
   UModelComponent,
   UStructComponent
 } from '@ucc-ui/components'
@@ -33,6 +35,8 @@ export default [
   UDropDownItem,
   UCollapse,
   UCollapseItem,
+  UTooltip,
+  
   UModelComponent,
   UStructComponent
 ] as Plugin[]

@@ -10,5 +10,6 @@ export declare const CLayoutMode: {
     readonly VERTICAL: "vertical";
     readonly DEFAULT: "default";
 };
+export declare const CLayoutContext: unique symbol;
 export type RegionType = typeof CRegion[keyof typeof CRegion];
 export type LayoutMode = typeof CLayoutMode[keyof typeof CLayoutMode];

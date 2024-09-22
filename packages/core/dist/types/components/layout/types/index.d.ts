@@ -7,7 +7,9 @@ export interface ULayoutProps {
     fit?: boolean;
 }
 export interface URegionProps {
-    mode?: LayoutMode;
-    region: RegionType;
+    region?: RegionType;
     width?: number | string;
+}
+export interface ULayoutContext {
+    mode: LayoutMode;
 }
