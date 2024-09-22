@@ -3,7 +3,7 @@
     :class="[
       'u-layout', 
       `u-layout__${mode}`, 
-      { 'u-layout__fit': fit },
+      { 'is-fit': fit, [`u-layout--${col}-col`]: col },
       'u-container',
     ]"
     :style="styles"
@@ -13,7 +13,6 @@
         v-for="(item, i) in regionGroup[region as RegionType]" 
         :is="item" 
         :key="`${item}-${index}-${i}`" 
-        :mode="mode" 
         v-bind="handleComProps(item)"
       >
       </component>
@@ -23,7 +22,6 @@
 </template>
 
 <script setup lang="ts">
-import { provide } from 'vue';
 import type { ULayoutProps } from '../types';
 import type { RegionType } from '../types/const';
 import useLayout from '../hooks/useLayout';
@@ -41,13 +39,10 @@ import useLayout from '../hooks/useLayout';
     styles,
     regionGroup,
     ortherRegions,
-    rootFontSize,
     handleComProps
   } = useLayout<typeof props>({
     props
   })
-
-  provide('rootFontSize', rootFontSize)
 
 </script>
 

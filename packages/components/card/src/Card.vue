@@ -3,9 +3,9 @@
   <div 
     :class="[
       'u-card',
-      { [`u-card--${shadow}`]: shadow }
+      { [`u-card--shadow-${shadow}`]: shadow }
     ]">
-    <header v-if="$slots.header || header" class="u-card-header">
+    <header v-if="$slots.header || header" class="u-card-header" :style="{ padding: _padding }">
       <slot name="header">
         <span>{{ header }}</span>
       </slot>
@@ -13,7 +13,7 @@
     <main v-if="$slots.default" :class="['u-card-body', bodyClass]" :style="bodyStyle">
       <slot></slot>
     </main>
-    <footer v-if="$slots.footer || footer" class="u-card-footer">
+    <footer v-if="$slots.footer || footer" class="u-card-footer" :style="{ padding: _padding }">
       <slot name="footer">
         <span>{{ footer }}</span>
       </slot>
@@ -24,29 +24,19 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import type { UCardProps } from '../types';
+import { pxToRem } from '../../../utils';
 
   defineOptions({
     name: 'UCard'
   })
   const props = withDefaults(defineProps<UCardProps>(), {
-    padding: 16
+    padding: 16,
+    bodyStyle: () => ({})
   })
-  const rootFontSize = parseInt(document.documentElement.style.fontSize) || (window.innerWidth / 100) as number
-  const _padding = computed(() => props.padding / rootFontSize + 'rem')
-
+  const _padding = computed(() =>  pxToRem(props.padding))
+  props.bodyStyle.padding = _padding.value
 </script>
 
 <style lang="scss">
 @import '../styles/index.css';
-
-.u-card {
-  .u-card-header,
-  .u-card-footer {
-    padding: v-bind(_padding);
-  }
- 
-  .u-card-body {
-    padding: v-bind(_padding);
-  }
-}
 </style>

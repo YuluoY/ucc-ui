@@ -15,6 +15,7 @@ import useRegion from '../hooks/useRegion';
     name: 'URegion',
   })
   const props = withDefaults(defineProps<URegionProps>(), {
+    region: 'center'
   })
 
   const {

@@ -1,7 +1,8 @@
-import { Fragment, isVNode, useSlots, type CSSProperties, type Slots, type VNode } from "vue"
+import { Fragment, isVNode, provide, useSlots, type CSSProperties, type Slots, type VNode } from "vue"
 import type { ULayoutProps } from "../types"
-import { CLayoutMode, CRegion, type RegionType  } from "../types/const"
+import { CLayoutContext, CLayoutMode, CRegion, type RegionType  } from "../types/const"
 import RegionVue from '../src/Region.vue'
+import { pxToRem } from "../../../utils"
 
 export default function useLayout<P extends ULayoutProps> ({
   props
@@ -9,6 +10,8 @@ export default function useLayout<P extends ULayoutProps> ({
   props: P
 })
 {
+  provide(CLayoutContext, { mode: props.mode })
+
   /**
    * 处理插槽
    */
@@ -33,11 +36,6 @@ export default function useLayout<P extends ULayoutProps> ({
     // 非 Fragment 的节点可以直接返回或处理
     return [slots];
   }
-
-  /**
-   * 根据根元素的字体大小计算
-   */
-  const rootFontSize = parseInt(document.documentElement.style.fontSize) || (window.innerWidth / 100) as number
 
   /**
    * 对插槽子元素做处理
@@ -67,8 +65,8 @@ export default function useLayout<P extends ULayoutProps> ({
    * 组件样式
    */
   const styles: CSSProperties = {
-    padding: `${props.padding! / rootFontSize}rem`,
-    gap: `${props.gap! / rootFontSize}rem`,
+    padding: pxToRem(props.padding!),
+    gap: pxToRem(props.gap!)
   }
   if (props.mode === CLayoutMode.VERTICAL && !props.fit)
   {
@@ -102,7 +100,6 @@ export default function useLayout<P extends ULayoutProps> ({
     styles,
     regionGroup,
     ortherRegions,
-    rootFontSize,
     handleComProps
   }
 }

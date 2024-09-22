@@ -3,6 +3,7 @@
   <div 
     class="u-collapse-item"
     :class="{
+      'is-active': isActive,
       'is-disabled': disabled
     }"
   >
@@ -37,6 +38,7 @@ import { computed, inject } from 'vue';
 import type { UCollapseContext, UCollapseItemProps } from '../types';
 import { COLLAPSE_CTX_KEY } from '../types/const';
 import UCollapseTransition from './CollapseTransition.vue';
+import { UIcon } from '../../icon'
 
   defineOptions({
     name: 'UCollapseItem'

@@ -12,7 +12,8 @@
     "docs": "pnpm --filter @ucc-ui/docs dev",
     "docs:build": "pnpm --filter @ucc-ui/docs build",
     "publish": "pnpm --filter ucc-ui publish",
-    "test": "echo todo"
+    "test": "pnpm --filter @ucc-ui/components test",
+    "test:w": "pnpm --filter @ucc-ui/components test:w"
   },
   "keywords": [],
   "author": "",
@@ -46,6 +47,9 @@
     "@ucc-ui/utils": "workspace:*",
     "lodash-es": "^4.17.21",
     "ucc-ui": "workspace:*",
-    "vue": "^3.4.19"
+    "vue": "^3.4.19",
+    "@vitest/coverage-v8": "^1.6.0",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^24.1.1"
   }
 }

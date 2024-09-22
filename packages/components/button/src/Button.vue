@@ -16,6 +16,7 @@
       'is-loading': loading,
       'is-circle': circle
     }"
+    :style="{ backgroundColor: color }"
     @click="(e: MouseEvent) => (
       useThrottle ? handleThrottleClick(e) : 
       useDebounce ? handleDebounceClick(e) :
@@ -57,6 +58,7 @@ import { computed, ref } from 'vue';
 import type { UButtonEmits, UButtonInstance, UButtonProps } from '../types';
 import { throttle, debounce } from 'lodash-es'
 import { CIconPosition } from '../types/const';
+import { UIcon } from '../../icon'
 
   defineOptions({
     name: 'UButton'

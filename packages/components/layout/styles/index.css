@@ -41,7 +41,7 @@
     flex-direction: unset;
   }
   
-  &.u-layout__fit {
+  &.is-fit {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

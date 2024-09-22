@@ -1,5 +1,6 @@
-import { inject, type CSSProperties } from "vue";
+import { type CSSProperties } from "vue";
 import type { URegionProps } from "../types";
+import { pxToRem } from "../../../utils";
 
 export default function useRegion<P extends URegionProps>({
   props
@@ -7,10 +8,8 @@ export default function useRegion<P extends URegionProps>({
   props: P
 })
 {
-  const rootFontSize = inject('rootFontSize') as number
-
   const regionStyles: CSSProperties = {}
-  regionStyles.width = props.width && String(props.width).endsWith('px') ? `${parseInt(props.width + '') / rootFontSize}rem` : props.width
+  regionStyles.width = props.width && String(props.width).endsWith('px') ? pxToRem(parseInt(props.width + '')) : props.width
 
   return {
     regionStyles

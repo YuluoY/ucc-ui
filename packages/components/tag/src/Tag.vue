@@ -12,6 +12,7 @@
       'is-transition': transition
     },
   ]"
+  :style="{backgroundColor: color}"
    @click="onClick"
   >
     <span 
@@ -42,6 +43,7 @@
 import { computed } from 'vue';
 import type { UTagEmits, UTagProps } from '../types';
 import { CTagClosePosition, CTagEffect, CTagSize, CTagType } from '../types/const';
+import { UIcon } from '../../icon'
 
   defineOptions({
     name: 'UTag'

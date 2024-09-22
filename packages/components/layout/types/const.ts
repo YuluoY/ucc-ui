@@ -14,5 +14,7 @@ export const CLayoutMode = {
 } as const;
 
 
+export const CLayoutContext = Symbol('CLayoutContext');
+
 export type RegionType = typeof CRegion[keyof typeof CRegion];
 export type LayoutMode = typeof CLayoutMode[keyof typeof CLayoutMode];

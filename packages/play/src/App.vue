@@ -13,6 +13,9 @@
       asdasdsd
     </u-collapse-item>
   </u-collapse>  
+  <u-icon icon="home" transform="shrink-4 right-1" title="sss"></u-icon>
+  <u-button disabled icon="check">asds</u-button>
+  <u-input prefix-icon="home" suffix-icon="check"></u-input>
 </template>
 
 <script setup lang="ts">

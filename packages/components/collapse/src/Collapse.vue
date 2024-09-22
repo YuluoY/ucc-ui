@@ -6,7 +6,8 @@
       'is-accordion': accordion
     }"
   >
-    <template v-if="slots.default">
+  <slot></slot>
+    <!-- <template v-if="slots.default">
       <component 
         v-for="(item, index) in defaultSlots" 
         :key="index" 
@@ -15,12 +16,12 @@
           'is-active': activeNames === item.props?.name || activeNames?.includes(item.props?.name),
         }"
       />
-    </template>
+    </template> -->
   </div>
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, provide, ref, toRef, watch } from 'vue';
+import { onBeforeUnmount, provide, ref, watch } from 'vue';
 import type { UCollapseEmits, UCollapseProps } from '../types';
 import { COLLAPSE_CTX_KEY } from '../types/const';
 
@@ -32,8 +33,6 @@ import { COLLAPSE_CTX_KEY } from '../types/const';
     accordion: false
   })
   const emit = defineEmits<UCollapseEmits>()
-  const slots = defineSlots()
-  const defaultSlots = Array.isArray(slots.default()) ? slots.default() : [slots.default()]
 
   const activeNames = ref(props.modelValue || [])
 
@@ -63,6 +62,11 @@ import { COLLAPSE_CTX_KEY } from '../types/const';
 
   onBeforeUnmount(() => {
     modelValueWatcher()
+  })
+
+  defineExpose({
+    activeNames,
+    updateActiveNames
   })
   
 </script>

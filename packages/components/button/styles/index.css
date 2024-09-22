@@ -8,7 +8,7 @@
   color: var(--uc-text-1); 
   font-size: var(--uc-font-size-base);
   background-color: transparent;
-  border: solid 0.01rem var(--uc-border-1);
+  border: solid var(--uc-border-width-base) var(--uc-border-1);
   border-radius: var(--uc-border-radius-4);
   transition: all var(--uc-animation-delay-2) var(--uc-animation-ease-in-out);
   overflow: hidden;
@@ -28,7 +28,7 @@
 
   &:hover {
     background-color: var(--uc-primary-light-7);
-    border: 0.01rem solid var(--uc-primary-light-4);
+    border: var(--uc-border-width-base) solid var(--uc-primary-light-4);
     color: var(--uc-primary);
   }
   
@@ -54,16 +54,16 @@
     }
     &.is-plain {
       color: var(--uc-primary-0);
-      border: solid 0.01rem var(--uc-primary-0);
+      border: solid var(--uc-border-width-base) var(--uc-primary-0);
       background-color: var(--uc-primary-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-primary-0);
-        border: solid 0.01rem var(--uc-primary-0);
+        border: solid var(--uc-border-width-base) var(--uc-primary-0);
       }
       &:active {
         background-color: var(--uc-primary-1);
-        border: solid 0.01rem var(--uc-primary-0);
+        border: solid var(--uc-border-width-base) var(--uc-primary-0);
       }
     }
   }
@@ -93,17 +93,17 @@
       }
     }
     &.is-plain {
-      border: solid 0.01rem var(--uc-success-2);
+      border: solid var(--uc-border-width-base) var(--uc-success-2);
       color: var(--uc-success-1);
       background-color: var(--uc-success-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-success-1);
-        border: solid 0.01rem var(--uc-success-1);
+        border: solid var(--uc-border-width-base) var(--uc-success-1);
       }
       &:active {
         background-color: var(--uc-success-2);
-        border: solid 0.01rem var(--uc-success-2);
+        border: solid var(--uc-border-width-base) var(--uc-success-2);
       }
     }
   }
@@ -126,17 +126,17 @@
       }
     }
     &.is-plain {
-      border: solid 0.01rem var(--uc-warning-4);
+      border: solid var(--uc-border-width-base) var(--uc-warning-4);
       color: var(--uc-warning-3);
       background-color: var(--uc-warning-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-warning-3);
-        border: solid 0.01rem var(--uc-warning-3);
+        border: solid var(--uc-border-width-base) var(--uc-warning-3);
       }
       &:active {
         background-color: var(--uc-warning-4);
-        border: solid 0.01rem var(--uc-warning-4);
+        border: solid var(--uc-border-width-base) var(--uc-warning-4);
       }
     }
   }
@@ -159,17 +159,17 @@
       }
     }
     &.is-plain {
-      border: solid 0.01rem var(--uc-danger-2);
+      border: solid var(--uc-border-width-base) var(--uc-danger-2);
       color: var(--uc-danger-1);
       background-color: var(--uc-danger-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-danger-1);
-        border: solid 0.01rem var(--uc-danger-1);
+        border: solid var(--uc-border-width-base) var(--uc-danger-1);
       }
       &:active {
         background-color: var(--uc-danger-2);
-        border: solid 0.01rem var(--uc-danger-2);
+        border: solid var(--uc-border-width-base) var(--uc-danger-2);
       }
     }
   }
@@ -192,17 +192,17 @@
       }
     }
     &.is-plain {
-      border: solid 0.01rem var(--uc-info-2);
+      border: solid var(--uc-border-width-base) var(--uc-info-2);
       color: var(--uc-info-1);
       background-color: var(--uc-info-light-7);
       &:hover {
         color: var(--uc-text-9);
         background-color: var(--uc-info-1);
-        border: solid 0.01rem var(--uc-info-1);
+        border: solid var(--uc-border-width-base) var(--uc-info-1);
       }
       &:active {
         background-color: var(--uc-info-2);
-        border: solid 0.01rem var(--uc-info-2);
+        border: solid var(--uc-border-width-base) var(--uc-info-2);
       }
     }
   }
@@ -227,8 +227,11 @@
   }
 
   &.is-disabled {
-    opacity: 0.5;
+    opacity: 0.6;
     cursor: not-allowed;
+    background-color: var(--uc-background-disabled);
+    border: solid var(--uc-border-width-base) var(--uc-border-1);
+    color: var(--uc-text-1);
   }
 
   &.is-plain {
@@ -236,12 +239,12 @@
     background-color: transparent;
 
     &:hover {
-      border: solid 0.01rem var(--uc-primary-0);
+      border: solid var(--uc-border-width-base) var(--uc-primary-0);
       color: var(--uc-primary-0);
     }
     &:active {
       color: var(--uc-primary-1);
-      border: solid 0.01rem var(--uc-primary-1);
+      border: solid var(--uc-border-width-base) var(--uc-primary-1);
     }
   }
 

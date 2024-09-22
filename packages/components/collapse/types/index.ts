@@ -23,3 +23,8 @@ export interface UCollapseContext {
   activeNames: Ref<string[]>
   handleItemClick: (names: string) => void
 }
+
+export interface UCollapseExposes {
+  activeNames: Ref<string[]>
+  updateActiveNames: (names: string[]) => void
+}

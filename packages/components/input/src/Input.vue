@@ -5,8 +5,8 @@
     :class="{
       'u-input--suffix': $slots.suffix,
       'u-input--prefix': $slots.prefix,
-      'u-input--disabled': disabled,
-      'u-input--readonly': readonly,
+      'is-disabled': disabled,
+      'is-readonly': readonly,
       [`u-input--${size}`]: size
     }"    
   >
@@ -90,6 +90,7 @@
 import { computed, ref } from 'vue';
 import type { UInputEmits, UInputProps } from '../types';
 import { CInputType } from '../types/const';
+import { UIcon } from '../../icon'
 
   defineOptions({
     name: 'UInput'

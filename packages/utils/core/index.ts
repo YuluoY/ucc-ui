@@ -74,3 +74,17 @@ export function setDeepValue(obj: any, path: string | string[], val: any, splitt
 
   return [active, lastKey]; // 返回修改后的对象
 }
+
+const rootFontSize = parseInt(document.documentElement.style.fontSize) || (window.innerWidth / 100)
+/**
+ * px转rem
+ * @param   {number}  px   px值
+ * @returns rem值
+ * ```js
+ * pxToRem(10) // 0.1rem
+ * ```
+ */
+export function pxToRem(px: number): string {
+  if (px === 0) return '0'
+  return `${px / rootFontSize}rem`
+}
