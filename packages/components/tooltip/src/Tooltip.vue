@@ -1,10 +1,15 @@
 
 <template>
-  <div class="u-tooltip" ref="containerRef" v-on="outerEvents">
+  <div 
+    :class="['u-tooltip', `u-tooltip--${effect}`]" 
+    ref="containerRef" 
+    v-on="outerEvents"
+  >
     <div
+      :data-popper-id="instance?.uid"
       v-if="!virtualTriggering"
       class="u-tooltip__trigger"
-      ref="triggerRef"
+      ref="_triggerRef"
       v-on="events"
     >
       <slot></slot>
@@ -14,7 +19,7 @@
     <transition :name="transition" @after-leave="destoryPopperInstance">
       <div
         v-if="visible"
-        class="u-tooltip__popper"
+        :class="['u-tooltip__popper', `u-tooltip__popper--${placement}`, `u-id-${instance?.uid}`]"
         ref="popperRef"
         v-on="dropdownEvents"
       >
@@ -28,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref, watch, watchEffect, type Ref } from 'vue';
+import { computed, getCurrentInstance, isRef, onBeforeUnmount, ref, watch, watchEffect, type Ref } from 'vue';
 import type { UTooltipEmits, UTooltipExposes, UTooltipProps } from '../types';
 import { type Options, type Instance, createPopper } from '@popperjs/core';
 import { debounce, type DebouncedFunc, bind, isNil } from 'lodash-es'
@@ -37,6 +42,8 @@ import { useClickOutside } from '../../../hooks';
   defineOptions({
     name: 'UTooltip'
   })
+
+  const instance = getCurrentInstance()
 
   const props = withDefaults(defineProps<UTooltipProps>(), {
     placement: 'bottom',
@@ -51,8 +58,14 @@ import { useClickOutside } from '../../../hooks';
   const visible = ref<boolean>(!!props.visible) // 是否显示
 
   const containerRef = ref<HTMLDivElement | null>(null)
-  const triggerRef = ref<HTMLDivElement | null>(null)
+  const _triggerRef = ref<HTMLDivElement | null>(null)
   const popperRef = ref<HTMLDivElement | null>(null)
+
+  const triggerRef = computed(() => {
+    if (props.virtualTriggering)
+      return (isRef(props.virtualRef) ? props.virtualRef.value : props.virtualRef) ?? triggerRef.value
+    return _triggerRef.value as HTMLElement
+  }) as Ref<HTMLElement | null>
 
   type IEvent = Ref<Record<string, EventListener>>
   const events: IEvent = ref({})

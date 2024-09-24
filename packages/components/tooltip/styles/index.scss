@@ -1,0 +1,72 @@
+.u-tooltip {
+  position: relative;
+  display: inline-flex;  
+
+  .u-tooltip__popper {
+    position: relative;
+    z-index: var(--uc-z-index-popover);
+    font-size: var(--uc-font-size-base);
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--uc-border-radius-base);
+
+    #arrow {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+    }
+  }
+
+  @function tooltip-styles($text-color, $bg-color) {
+    @return (
+      color: $text-color,
+      background-color: $bg-color
+    );
+  }
+  
+  @mixin renderTooltipArrow($bg-color) {
+    @each $direction in top, bottom, left, right {
+      &.u-tooltip__popper--#{$direction},
+      &.u-tooltip__popper--#{$direction}-start,
+      &.u-tooltip__popper--#{$direction}-end {
+        #arrow {
+          #{$direction}: 100%;
+          @if $direction == top or $direction == bottom {
+            border-left: 0.4rem solid transparent;
+            border-right: 0.4rem solid transparent;
+          }
+          @if $direction == left or $direction == right {
+            border-top: 0.4rem solid transparent;
+            border-bottom: 0.4rem solid transparent;
+          }
+          border-#{$direction}: 0.4rem solid $bg-color;
+        }
+      }
+    }
+  }
+  
+  &.u-tooltip--dark {
+    .u-tooltip__popper {
+      @include renderTooltipArrow(var(--uc-background-dark-2));
+      @include tooltip-styles(var(--uc-text-7), var(--uc-background-dark-2));
+    }
+  }
+  
+  &.u-tooltip--light {
+    .u-tooltip__popper {
+      @include renderTooltipArrow(var(--uc-background-1));
+      @include tooltip-styles(var(--uc-text-1), var(--uc-background-1));
+      box-shadow: var(--uc-shadow-4);
+    }
+  }
+}
+
+/* Transition component fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

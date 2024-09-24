@@ -43,6 +43,11 @@
   --uc-background-5: #D0D0D3; /* 近黑浅灰 */
   --uc-background-6: #B8B8BB; /* 最浅灰 */
 
+  --uc-background-dark-1: #000000; /* 黑色 */
+  --uc-background-dark-2: #1A1A1A; /* 略浅黑 */
+  --uc-background-dark-3: #333333; /* 深黑 */
+  --uc-background-dark-4: #4D4D4D; /* 更深黑 */
+
   --uc-background-disabled: #F8F8F8; /* 略浅灰 */
 
   /* 文字色 */
@@ -168,4 +173,15 @@
   --uc-shadow-7: 0px 0px 2.8rem rgba(0, 0, 0, 0.3); 
   --uc-shadow-8: 0px 0px 3.2rem rgba(0, 0, 0, 0.3); 
   --uc-shadow-9: 0px 0px 3.6rem rgba(0, 0, 0, 0.3); 
+
+  /* 亮阴影 */
+  --uc-shadow-light-1: 0px 0px 0.4rem rgba(255, 255, 255, 0.1); 
+  --uc-shadow-light-2: 0px 0px 0.8rem rgba(255, 255, 255, 0.1); 
+  --uc-shadow-light-3: 0px 0px 1.2rem rgba(255, 255, 255, 0.1);
+  --uc-shadow-light-4: 0px 0px 1.6rem rgba(255, 255, 255, 0.2); 
+  --uc-shadow-light-5: 0px 0px 2rem rgba(255, 255, 255, 0.2); 
+  --uc-shadow-light-6: 0px 0px 2.4rem rgba(255, 255, 255, 0.2);
+  --uc-shadow-light-7: 0px 0px 2.8rem rgba(255, 255, 255, 0.3); 
+  --uc-shadow-light-8: 10px 0px 3.2rem rgba(255, 255, 255, 0.2); 
+  --uc-shadow-light-9: 0px 0px 3.6rem rgba(255, 255, 255, 0.3);
 }

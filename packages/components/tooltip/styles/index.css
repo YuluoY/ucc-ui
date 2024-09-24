@@ -1,11 +1,76 @@
 .u-tooltip {
   position: relative;
-  display: inline-flex;  
-
-  &__content {
-    
-  }
-
+  display: inline-flex;
+}
+.u-tooltip .u-tooltip__popper {
+  position: relative;
+  z-index: var(--uc-z-index-popover);
+  font-size: var(--uc-font-size-base);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--uc-border-radius-base);
+}
+.u-tooltip .u-tooltip__popper #arrow {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+}
+.u-tooltip.u-tooltip--dark .u-tooltip__popper {
+  color: var(--uc-text-7);
+  background-color: var(--uc-background-dark-2);
+}
+.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top-start #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top-end #arrow {
+  top: 100%;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  border-top: 0.4rem solid var(--uc-background-dark-2);
+}
+.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom-start #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom-end #arrow {
+  bottom: 100%;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid var(--uc-background-dark-2);
+}
+.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left-start #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left-end #arrow {
+  left: 100%;
+  border-top: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  border-left: 0.4rem solid var(--uc-background-dark-2);
+}
+.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right-start #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right-end #arrow {
+  right: 100%;
+  border-top: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  border-right: 0.4rem solid var(--uc-background-dark-2);
+}
+.u-tooltip.u-tooltip--light .u-tooltip__popper {
+  color: var(--uc-text-1);
+  background-color: var(--uc-background-1);
+  box-shadow: var(--uc-shadow-4);
+}
+.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top-start #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top-end #arrow {
+  top: 100%;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  border-top: 0.4rem solid var(--uc-background-1);
+}
+.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom-start #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom-end #arrow {
+  bottom: 100%;
+  border-left: 0.4rem solid transparent;
+  border-right: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid var(--uc-background-1);
+}
+.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left-start #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left-end #arrow {
+  left: 100%;
+  border-top: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  border-left: 0.4rem solid var(--uc-background-1);
+}
+.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right-start #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right-end #arrow {
+  right: 100%;
+  border-top: 0.4rem solid transparent;
+  border-bottom: 0.4rem solid transparent;
+  border-right: 0.4rem solid var(--uc-background-1);
 }
 
 /* Transition component fade */
@@ -13,7 +78,8 @@
 .fade-leave-active {
   transition: opacity 0.5s;
 }
+
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-}
+}/*# sourceMappingURL=index.css.map */

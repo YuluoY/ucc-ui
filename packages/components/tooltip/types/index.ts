@@ -8,7 +8,7 @@ export interface UTooltipProps {
   content?: string                     // 提示内容
   rawContent?: boolean                 // 是否使用原生html
   placement?: Placement                // 弹出位置
-  visible: boolean                    // 是否显示
+  visible: boolean                     // 是否显示
   disabled?: boolean                   // 是否禁用
   offset?: number                      // 偏移量
   showTimeout?: number                 // 延迟显示，单位为毫秒
@@ -19,6 +19,7 @@ export interface UTooltipProps {
   popperOptions?: Partial<Options>     // popper.js的配置项
   trigger?: UTooltipTrigger            // 触发方式
   virtualTriggering?: boolean          // 是否使用虚拟触发器
+  virtualRef?: Ref<HTMLElement> | HTMLElement | null        // 虚拟触发器
   triggerKeys?: string[]               // 触发器键值
   persistent?: boolean                 // 是否持久显示，当组件长时间不被触发且为false时，popconfirm会被删除
   ariaLabel?: string                   // 提示框的aria-label属性
