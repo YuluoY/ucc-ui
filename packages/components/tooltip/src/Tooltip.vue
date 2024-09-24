@@ -24,7 +24,8 @@
         v-on="dropdownEvents"
       >
         <slot name="content">
-          {{ content }}
+          <span v-if="rawContent" v-html="content" />
+          <template v-else>{{ content }}</template>
         </slot>
         <div id="arrow" data-popper-arrow></div>
       </div>

@@ -8,38 +8,28 @@
     font-size: var(--uc-font-size-base);
     padding: 0.4rem 0.6rem;
     border-radius: var(--uc-border-radius-base);
-
-    #arrow {
-      position: absolute;
-      content: "";
-      width: 0;
-      height: 0;
-    }
+    border: var(--uc-border-width-2) solid var(--uc-border-1);
   }
 
-  @function tooltip-styles($text-color, $bg-color) {
-    @return (
-      color: $text-color,
-      background-color: $bg-color
-    );
+  @mixin tooltip-styles($text-color, $bg-color) {
+    color: $text-color;
+    background-color: $bg-color;
   }
   
   @mixin renderTooltipArrow($bg-color) {
-    @each $direction in top, bottom, left, right {
+    @each $direction, $polygon in (top: polygon(50% 100%, 0% 0%, 100% 0%), 
+                                   bottom: polygon(50% 0%, 0% 100%, 100% 100%), 
+                                   left: polygon(100% 50%, 0% 0%, 0% 100%), 
+                                   right: polygon(0% 50%, 100% 0%, 100% 100%)) {
       &.u-tooltip__popper--#{$direction},
       &.u-tooltip__popper--#{$direction}-start,
       &.u-tooltip__popper--#{$direction}-end {
         #arrow {
+          clip-path: $polygon;
+          background-color: $bg-color;
+          width: 0.8rem;
+          height: 0.4rem;
           #{$direction}: 100%;
-          @if $direction == top or $direction == bottom {
-            border-left: 0.4rem solid transparent;
-            border-right: 0.4rem solid transparent;
-          }
-          @if $direction == left or $direction == right {
-            border-top: 0.4rem solid transparent;
-            border-bottom: 0.4rem solid transparent;
-          }
-          border-#{$direction}: 0.4rem solid $bg-color;
         }
       }
     }
