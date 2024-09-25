@@ -9,7 +9,7 @@
   font-size: var(--uc-font-size-base);
   background-color: transparent;
   border: solid var(--uc-border-width-base) var(--uc-border-1);
-  border-radius: var(--uc-border-radius-4);
+  border-radius: var(--uc-border-radius-3);
   transition: all var(--uc-animation-delay-2) var(--uc-animation-ease-in-out);
   overflow: hidden;
   margin: 0 0.16rem;

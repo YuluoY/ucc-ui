@@ -4,9 +4,9 @@
 
   .u-tooltip__popper {
     position: relative;
-    z-index: var(--uc-z-index-popover);
+    z-index: var(--uc-z-index-tooltip);
     font-size: var(--uc-font-size-base);
-    padding: 0.4rem 0.6rem;
+    padding: 0.8rem;
     border-radius: var(--uc-border-radius-base);
     border: var(--uc-border-width-2) solid var(--uc-border-1);
   }
@@ -24,7 +24,7 @@
       &.u-tooltip__popper--#{$direction},
       &.u-tooltip__popper--#{$direction}-start,
       &.u-tooltip__popper--#{$direction}-end {
-        #arrow {
+        .u-tooltip__popper--arrow {
           clip-path: $polygon;
           background-color: $bg-color;
           width: 0.8rem;
@@ -36,6 +36,9 @@
   }
   
   &.u-tooltip--dark {
+    @each $direction in (top, bottom, left, right) {
+      #{$direction}: -0.1rem;
+    }
     .u-tooltip__popper {
       @include renderTooltipArrow(var(--uc-background-dark-2));
       @include tooltip-styles(var(--uc-text-7), var(--uc-background-dark-2));

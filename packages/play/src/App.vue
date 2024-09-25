@@ -24,6 +24,13 @@
       <u-button>123</u-button>
     </u-tooltip>
   </div>
+  <div class="flex ai-center jc-center">
+    <u-popconfirm title="Are you sure to delete this?">
+      <template #reference>
+        <u-button>测试弹出确认</u-button>
+      </template>
+    </u-popconfirm>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -27,7 +27,7 @@
           <span v-if="rawContent" v-html="content" />
           <template v-else>{{ content }}</template>
         </slot>
-        <div id="arrow" data-popper-arrow></div>
+        <div class="u-tooltip__popper--arrow" data-popper-arrow></div>
       </div>
     </transition>
   </div>
@@ -49,6 +49,7 @@ import { useClickOutside } from '../../../hooks';
   const props = withDefaults(defineProps<UTooltipProps>(), {
     placement: 'bottom',
     trigger: 'hover',
+    effect: 'dark',
     transition: 'fade',
     showTimeout: 0,
     hideTimeout: 200,
@@ -111,6 +112,7 @@ import { useClickOutside } from '../../../hooks';
     if (props.disabled) return
     visible.value = val
     emits('visible-change', val)
+    emits('update:visible', val)
   }
 
   let popperInstance: Instance | null = null

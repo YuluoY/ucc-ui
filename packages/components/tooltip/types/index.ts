@@ -30,6 +30,7 @@ export interface UTooltipProps {
 export interface UTooltipEmits {
   (e: 'visible-change', value: boolean): void  // 显示状态改变时触发
   (e: 'click-outside'): void  // 点击外部时触发
+  (e: 'update:visible', value: boolean): void  // 显示状态改变时触发
 }
 
 export interface UTooltipExposes {

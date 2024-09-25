@@ -8,7 +8,3 @@
     name: 'UDropDownItem'
   })
 </script>
-
-<style scoped lang="scss">
-
-</style>

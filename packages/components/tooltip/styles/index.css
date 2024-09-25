@@ -4,17 +4,23 @@
 }
 .u-tooltip .u-tooltip__popper {
   position: relative;
-  z-index: var(--uc-z-index-popover);
+  z-index: var(--uc-z-index-tooltip);
   font-size: var(--uc-font-size-base);
-  padding: 0.4rem 0.6rem;
+  padding: 0.8rem;
   border-radius: var(--uc-border-radius-base);
   border: var(--uc-border-width-2) solid var(--uc-border-1);
+}
+.u-tooltip.u-tooltip--dark {
+  top: -0.1rem;
+  bottom: -0.1rem;
+  left: -0.1rem;
+  right: -0.1rem;
 }
 .u-tooltip.u-tooltip--dark .u-tooltip__popper {
   color: var(--uc-text-7);
   background-color: var(--uc-background-dark-2);
 }
-.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top-start #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top-end #arrow {
+.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top-start .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--top-end .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
           clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
   background-color: var(--uc-background-dark-2);
@@ -22,7 +28,7 @@
   height: 0.4rem;
   top: 100%;
 }
-.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom-start #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom-end #arrow {
+.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom-start .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--bottom-end .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   background-color: var(--uc-background-dark-2);
@@ -30,7 +36,7 @@
   height: 0.4rem;
   bottom: 100%;
 }
-.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left-start #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left-end #arrow {
+.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left-start .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--left-end .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
           clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
   background-color: var(--uc-background-dark-2);
@@ -38,7 +44,7 @@
   height: 0.4rem;
   left: 100%;
 }
-.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right-start #arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right-end #arrow {
+.u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right-start .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper.u-tooltip__popper--right-end .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
           clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
   background-color: var(--uc-background-dark-2);
@@ -51,7 +57,7 @@
   background-color: var(--uc-background-1);
   box-shadow: var(--uc-shadow-4);
 }
-.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top-start #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top-end #arrow {
+.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top-start .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--top-end .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
           clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
   background-color: var(--uc-background-1);
@@ -59,7 +65,7 @@
   height: 0.4rem;
   top: 100%;
 }
-.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom-start #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom-end #arrow {
+.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom-start .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--bottom-end .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   background-color: var(--uc-background-1);
@@ -67,7 +73,7 @@
   height: 0.4rem;
   bottom: 100%;
 }
-.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left-start #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left-end #arrow {
+.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left-start .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--left-end .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
           clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
   background-color: var(--uc-background-1);
@@ -75,7 +81,7 @@
   height: 0.4rem;
   left: 100%;
 }
-.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right-start #arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right-end #arrow {
+.u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right-start .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper.u-tooltip__popper--right-end .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
           clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
   background-color: var(--uc-background-1);

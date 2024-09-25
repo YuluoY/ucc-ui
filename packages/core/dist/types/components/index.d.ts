@@ -8,4 +8,5 @@ export * from './tag';
 export * from './dropdown';
 export * from './collapse';
 export * from './tooltip';
+export * from './popconfirm';
 export * from './model-component';
