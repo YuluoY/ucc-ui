@@ -16,7 +16,7 @@ export interface UPopconfirmProps {
   hideTimeout?: number
   teleported?: boolean
   persistent?: boolean
-  width?: string | number
+  width?: number
   tooltipProps?: UTooltipProps
 }
 

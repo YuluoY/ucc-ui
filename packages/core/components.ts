@@ -16,6 +16,7 @@ import {
   UCollapseItem,
   UTooltip,
   UPopconfirm,
+  UCodeEditor,
   
   UModelComponent,
   UStructComponent
@@ -38,6 +39,7 @@ export default [
   UCollapseItem,
   UTooltip,
   UPopconfirm,
+  UCodeEditor,
   
   UModelComponent,
   UStructComponent

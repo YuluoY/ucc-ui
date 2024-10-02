@@ -4,6 +4,7 @@
 }
 .u-tooltip .u-tooltip__popper {
   position: relative;
+  text-align: center;
   z-index: var(--uc-z-index-tooltip);
   font-size: var(--uc-font-size-base);
   padding: 0.8rem;
@@ -93,7 +94,7 @@
 /* Transition component fade */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity var(--uc-animation-delay-5);
 }
 
 .fade-enter-from,

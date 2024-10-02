@@ -51,7 +51,7 @@ import type { UTooltipExposes } from '../../tooltip/types';
   const visible = ref(false)
   const emits = defineEmits<UPopconfirmEmits>()
   const tooltipRef = ref<UTooltipExposes | null>(null)
-  const minWidth = computed(() => pxToRem(+props.width ?? 150))
+  const minWidth = computed(() => pxToRem<string>(props.width))
 
   const cancelText = computed(() => props.cancelButtonText ?? '取消')
   const confirmText = computed(() => props.confirmButtonText ?? '确定')

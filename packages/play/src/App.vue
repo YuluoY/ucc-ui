@@ -31,14 +31,18 @@
       </template>
     </u-popconfirm>
   </div>
+  <u-code-editor v-model:value="code" @change="onChange"></u-code-editor>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
 const visible = ref(false)
-
 const def = ref(['1'])
+const code = ref('')
+const onChange = (evt: any) => {
+  // console.log(code.value);
+}
 
 </script>
 

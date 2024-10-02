@@ -1,17 +1,22 @@
 .u-icon {
-  display: inline-block;
+  display: inline-flex;
   width: 1em;
   height: 1em;
   font-size: inherit;
   vertical-align: middle;
-
-  &.u-icon--primary {
-    color: var(--uc-primary);
-  }
-
-  @each $val in primary, info, success, warning, danger {
-    &.u-icon--$(val) {
-      color: var(--uc-$val);
-    }
-  }
 }
+.u-icon.u-icon--primary {
+  color: var(--uc-primary);
+}
+.u-icon.u-icon--info {
+  color: var(--uc-info);
+}
+.u-icon.u-icon--success {
+  color: var(--uc-success);
+}
+.u-icon.u-icon--warning {
+  color: var(--uc-warning);
+}
+.u-icon.u-icon--danger {
+  color: var(--uc-danger);
+}/*# sourceMappingURL=index.css.map */

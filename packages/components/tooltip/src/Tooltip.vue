@@ -21,6 +21,7 @@
         v-if="visible"
         :class="['u-tooltip__popper', `u-tooltip__popper--${placement}`, `u-id-${instance?.uid}`]"
         ref="popperRef"
+        :style="{ minWidth }"
         v-on="dropdownEvents"
       >
         <slot name="content">
@@ -39,6 +40,7 @@ import type { UTooltipEmits, UTooltipExposes, UTooltipProps } from '../types';
 import { type Options, type Instance, createPopper } from '@popperjs/core';
 import { debounce, type DebouncedFunc, bind, isNil } from 'lodash-es'
 import { useClickOutside } from '../../../hooks';
+import { pxToRem } from '../../../utils';
 
   defineOptions({
     name: 'UTooltip'
@@ -47,16 +49,18 @@ import { useClickOutside } from '../../../hooks';
   const instance = getCurrentInstance()
 
   const props = withDefaults(defineProps<UTooltipProps>(), {
+    width: 200,
     placement: 'bottom',
     trigger: 'hover',
     effect: 'dark',
     transition: 'fade',
     showTimeout: 0,
-    hideTimeout: 200,
+    hideTimeout: 300,
     popperOptions: () => ({})
   })
   const emits = defineEmits<UTooltipEmits>()
   
+  const minWidth = computed(() => pxToRem<string>(props.width))
   const visible = ref<boolean>(!!props.visible) // 是否显示
 
   const containerRef = ref<HTMLDivElement | null>(null)

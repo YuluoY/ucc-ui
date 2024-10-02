@@ -25,6 +25,7 @@ export interface UTooltipProps {
   ariaLabel?: string                   // 提示框的aria-label属性
   transition?: string                  // 过渡动画
   manual?: boolean                     // 是否手动控制显示状态
+  width?: number                       // 宽度
 }
 
 export interface UTooltipEmits {
