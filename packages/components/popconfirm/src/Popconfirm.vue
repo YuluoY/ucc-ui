@@ -18,8 +18,8 @@
         </div>
         <div class="u-popconfirm__actions">
           <slot name="actions" :confirm="onConfirm" :cancel="onCancel">
-            <u-button size="small" :type="cancelType" v-bind="cancelButtonProps" @click="onCancel">{{ cancelText }}</u-button>
-            <u-button size="small" :type="confirmType" v-bind="confirmButtonProps" @click="onConfirm">{{ confirmText }}</u-button>
+            <u-button class="u-popconfirm__cancel" size="small" :type="cancelType" v-bind="cancelButtonProps" @click="onCancel">{{ cancelText }}</u-button>
+            <u-button class="u-popconfirm__confirm" size="small" :type="confirmType" v-bind="confirmButtonProps" @click="onConfirm">{{ confirmText }}</u-button>
           </slot>
         </div>
       </main>

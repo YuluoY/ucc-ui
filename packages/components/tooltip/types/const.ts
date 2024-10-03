@@ -1,3 +1,4 @@
+export const CTooltipContainerId = 'u-popper-container'
 
 export const CTooltipEffect = {
   DARK: 'dark',

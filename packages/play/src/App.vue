@@ -1,4 +1,11 @@
 <template>
+  <u-layout>
+    <u-region region="center" class="flex ai-center jc-center">
+      <u-dropdown :data="dropdownData">
+        <u-button>测试下拉菜单</u-button>
+      </u-dropdown>
+    </u-region>
+  </u-layout>
   <u-collapse v-model="def" accordion>
     <u-collapse-item name="1" title="标题1">
       <template #title>
@@ -35,7 +42,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
+import type { UDropdownItemProps } from '../../components/dropdown/types';
 
 const visible = ref(false)
 const def = ref(['1'])
@@ -43,6 +51,12 @@ const code = ref('')
 const onChange = (evt: any) => {
   // console.log(code.value);
 }
+
+const dropdownData = reactive<UDropdownItemProps[]>([
+  { label: 'Action 1', command: 'command1' },
+  { label: 'Action 2', command: 'command2' },
+  { label: 'Action 3', command: 'command3' },
+])
 
 </script>
 

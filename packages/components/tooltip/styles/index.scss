@@ -5,10 +5,10 @@
   .u-tooltip__popper {
     position: relative;
     text-align: center;
+    overflow: hidden;
     z-index: var(--uc-z-index-tooltip);
     font-size: var(--uc-font-size-base);
-    padding: 0.8rem;
-    border-radius: var(--uc-border-radius-base);
+    border-radius: var(--uc-border-radius-2);
     border: var(--uc-border-width-2) solid var(--uc-border-1);
   }
 

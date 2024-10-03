@@ -10,21 +10,21 @@ declare module 'vue' {
     UCollapseTransition: typeof import('ucc-ui')['UCollapseTransition'];
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCodeEditorToolbox: typeof import('ucc-ui')['UCodeEditorToolbox'];
-    UDropDown: typeof import('ucc-ui')['UDropDown'];
-    UDropDownItem: typeof import('ucc-ui')['UDropDownItem'];
-    UDropDownMenu: typeof import('ucc-ui')['UDropDownMenu'];
+    UDropdown: typeof import('ucc-ui')['UDropdown'];
+    UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
+    UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
     UIcon: typeof import('ucc-ui')['UIcon'];
     UInput: typeof import('ucc-ui')['UInput'];
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
-    UMessage: typeof import('ucc-ui')['UMessage'];
-    UModelComponent: typeof import('ucc-ui')['UModelComponent'];
-    UStructComponent: typeof import('ucc-ui')['UStructComponent'];
     UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
-    UTag: typeof import('ucc-ui')['UTag'];
+    UMessage: typeof import('ucc-ui')['UMessage'];
     USlider: typeof import('ucc-ui')['USlider'];
     UText: typeof import('ucc-ui')['UText'];
+    UModelComponent: typeof import('ucc-ui')['UModelComponent'];
+    UStructComponent: typeof import('ucc-ui')['UStructComponent'];
+    UTag: typeof import('ucc-ui')['UTag'];
     UTooltip: typeof import('ucc-ui')['UTooltip'];
 	}
 }
