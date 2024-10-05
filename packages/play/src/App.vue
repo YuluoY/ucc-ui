@@ -56,6 +56,13 @@ const dropdownData = reactive<UDropdownItemProps[]>([
   { label: 'Action 1', command: 'command1' },
   { label: 'Action 2', command: 'command2' },
   { label: 'Action 3', command: 'command3' },
+  { label: 'Action 4', command: 'command4' },
+  { label: 'Action 5', command: 'command5' },
+  { label: 'Action 6', command: 'command6' },
+  { label: 'Action 7', command: 'command7' },
+  { label: 'Action 8', command: 'command8' },
+  { label: 'Action 9', command: 'command9' },
+  { label: 'Action 10', command: 'command10' },
 ])
 
 </script>

@@ -5,7 +5,6 @@
 .u-tooltip .u-tooltip__popper {
   position: relative;
   text-align: center;
-  overflow: hidden;
   z-index: var(--uc-z-index-tooltip);
   font-size: var(--uc-font-size-base);
   border-radius: var(--uc-border-radius-2);

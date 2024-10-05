@@ -12,6 +12,7 @@
       :transition-props="{
         onBeforeEnter: beforeEnter,
         onEnter: enter,
+        onAfterEnter: afterEnter,
         onLeave: leave
       }"
       :visible="visible"
@@ -95,13 +96,18 @@ function doHide() {
 }
 
 function beforeEnter(el: HTMLElement) {
+  el.style.overflow = 'hidden';
   el.style.height = '0'; // 进入之前高度为 0
 }
 function enter(el: HTMLElement) {
   el.style.height = el.scrollHeight + 'px'; // 进入时高度变为内容高度
   el.style.transition = 'height var(--uc-animation-delay-2) var(--uc-animation-ease-in)'; // 设置过渡效果
 }
+function afterEnter(el: HTMLElement) {
+  el.style.overflow = 'unset'
+}
 function leave(el: HTMLElement) {
+  el.style.overflow = 'hidden';
   el.style.height = '0'; // 离开时高度变为 0
   el.style.transition = 'height var(--uc-animation-delay-2) var(--uc-animation-ease-in)'; // 设置过渡效果
 }
