@@ -17,7 +17,7 @@ import monaco from './monaco';
 import type { UCodeEditor, UCodeEditorChangeEvent, UCodeEditorEmits, UCodeEditorMinimap, UCodeEditorModel, UCodeEditorProps } from '../types';
 import { pxToRem, rootFontSize } from '../../../utils';
 import { cloneDeep, debounce } from 'lodash-es';
-import CodeEditorToolbox from './CodeEditorToolbox.vue';
+import CodeEditorToolbox from '../components/CodeEditorToolbox.vue';
 import { CCodeEditorCtx } from '../types/const';
 
 defineOptions({

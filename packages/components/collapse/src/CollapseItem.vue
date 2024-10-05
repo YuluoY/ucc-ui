@@ -37,7 +37,7 @@
 import { computed, inject } from 'vue';
 import type { UCollapseContext, UCollapseItemProps } from '../types';
 import { COLLAPSE_CTX_KEY } from '../types/const';
-import UCollapseTransition from './CollapseTransition.vue';
+import UCollapseTransition from '../components/CollapseTransition.vue';
 import { UIcon } from '../../icon'
 
   defineOptions({
