@@ -37,6 +37,7 @@
   --uc-border-radius-20: 2rem; /* 超超超超超大边框圆角 */
   --uc-border-radius-circle: 50%; /* 圆形边框圆角 */
   --uc-border-width-base: 0.06rem;
+  --uc-border-width-1: 0.01rem;
   --uc-border-width-2: 0.02rem;
   --uc-border-width-4: 0.04rem;
   --uc-border-width-6: 0.06rem;
@@ -101,6 +102,7 @@
   /* ease-in-out-back */
   --uc-animation-ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   /* 其他 */
+  --uc-z-index-message: 1080; /* 消息的 z-index */
   --uc-z-index-modal: 1050; /* 模态框的 z-index */
   --uc-z-index-tooltip: 1060; /* 工具提示的 z-index */
   --uc-z-index-popover: 1070; /* 弹出框的 z-index */
@@ -116,4 +118,4 @@
   --uc-z-index-navbar-sticky-bottom: 1030; /* 粘性在底部的导航栏的 z-index */
   --uc-z-index-navbar-static-top: 1030; /* 静态在顶部的导航栏的 z-index */
   --uc-z-index-navbar-static-bottom: 1030; /* 静态在底部的导航栏的 z-index */
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */

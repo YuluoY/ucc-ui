@@ -1,4 +1,4 @@
-export declare const UButton: import('@ucc-ui/utils/core').SFCWithInstall<{
+export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
     new (...args: any[]): import('vue').CreateComponentPublicInstance<Readonly<import('vue').ExtractPropTypes<{
         link: {
             type: import('vue').PropType<boolean>;
@@ -430,7 +430,7 @@ export declare const UButton: import('@ucc-ui/utils/core').SFCWithInstall<{
 }, {}, string, {}> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
     $slots: Readonly<Record<string, any>> & Record<string, any>;
 })>;
-export declare const UButtonGroup: import('@ucc-ui/utils/core').SFCWithInstall<{
+export declare const UButtonGroup: import('@ucc-ui/utils/install').SFCWithInstall<{
     new (...args: any[]): import('vue').CreateComponentPublicInstance<Readonly<import('vue').ExtractPropTypes<{}>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & Readonly<import('vue').ExtractPropTypes<{}>>, {}, true, {}, {}, {
         P: {};
         B: {};

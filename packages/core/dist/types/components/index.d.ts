@@ -10,4 +10,5 @@ export * from './collapse';
 export * from './tooltip';
 export * from './popconfirm';
 export * from './code-editor';
+export * from './message';
 export * from './model-component';

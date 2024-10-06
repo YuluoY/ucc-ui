@@ -1,4 +1,4 @@
-export declare const ULayout: import('@ucc-ui/utils/core').SFCWithInstall<import('vue').DefineComponent<{
+export declare const ULayout: import('@ucc-ui/utils/install').SFCWithInstall<import('vue').DefineComponent<{
     col: {
         type: import('vue').PropType<number>;
         default: number;
@@ -47,7 +47,7 @@ export declare const ULayout: import('@ucc-ui/utils/core').SFCWithInstall<import
     mode: import('./types/const').LayoutMode;
     fit: boolean;
 }, {}>>;
-export declare const URegion: import('@ucc-ui/utils/core').SFCWithInstall<{
+export declare const URegion: import('@ucc-ui/utils/install').SFCWithInstall<{
     new (...args: any[]): import('vue').CreateComponentPublicInstance<Readonly<import('vue').ExtractPropTypes<{
         width: {
             type: import('vue').PropType<string | number>;

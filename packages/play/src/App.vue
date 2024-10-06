@@ -6,6 +6,7 @@
       </u-dropdown>
     </u-region>
   </u-layout>
+  <u-button @click="openSuccessMsg">success</u-button>
   <u-collapse v-model="def" accordion>
     <u-collapse-item name="1" title="标题1">
       <template #title>
@@ -44,6 +45,8 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import type { UDropdownItemProps } from '../../components/dropdown/types';
+// import { UMessage } from 'ucc-ui';
+import {UMessage} from '../../components/message';
 
 const visible = ref(false)
 const def = ref(['1'])
@@ -64,6 +67,14 @@ const dropdownData = reactive<UDropdownItemProps[]>([
   { label: 'Action 9', command: 'command9' },
   { label: 'Action 10', command: 'command10' },
 ])
+
+let index = 0
+const openSuccessMsg = () => {
+  UMessage({
+    message: 'asdasdasd' + index++,
+    type: 'success'
+  })
+}
 
 </script>
 

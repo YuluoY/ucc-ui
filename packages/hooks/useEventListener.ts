@@ -3,7 +3,7 @@ import { isRef, onBeforeUnmount, onMounted, unref, watch, type MaybeRef, type Wa
 export default function useEventListener (
   target: MaybeRef<EventTarget | HTMLElement | void>,
   event: string,
-  handler: (e: Event) => any
+  handler: (e: any) => any
 ){
 
   let targetWatcher: WatchStopHandle | void;

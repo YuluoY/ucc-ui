@@ -16,14 +16,13 @@ declare module 'vue' {
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
-    UMessage: typeof import('ucc-ui')['UMessage'];
     UModelComponent: typeof import('ucc-ui')['UModelComponent'];
     UStructComponent: typeof import('ucc-ui')['UStructComponent'];
     UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
     USlider: typeof import('ucc-ui')['USlider'];
     UTag: typeof import('ucc-ui')['UTag'];
-    UTooltip: typeof import('ucc-ui')['UTooltip'];
     UText: typeof import('ucc-ui')['UText'];
+    UTooltip: typeof import('ucc-ui')['UTooltip'];
 	}
 }
 

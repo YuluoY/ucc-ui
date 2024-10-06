@@ -17,6 +17,7 @@ import {
   UTooltip,
   UPopconfirm,
   UCodeEditor,
+  UMessage,
   
   UModelComponent,
   UStructComponent
@@ -40,6 +41,7 @@ export default [
   UTooltip,
   UPopconfirm,
   UCodeEditor,
+  UMessage,
   
   UModelComponent,
   UStructComponent

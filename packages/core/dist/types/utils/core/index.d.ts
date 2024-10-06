@@ -1,12 +1,3 @@
-import { App, Plugin } from 'vue';
-export type SFCWithInstall<T> = T & Plugin;
-export declare function makeInstaller(components: Plugin[]): Plugin;
-/**
- * 添加vue install方法
- * @param   component         组件
- * @param   onBeforeInstall   install前回调
- */
-export declare function withInstall<T>(component: T, onBeforeInstall?: (app: App) => void): SFCWithInstall<T>;
 /**
  * 解析JSON
  * @param   str   字符串
