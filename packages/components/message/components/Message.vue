@@ -53,7 +53,7 @@ const props = withDefaults(defineProps<UMessageProps>(), {
   type: 'info',
   plain: false,
   showClose: true,
-  offset: 14,
+  offset: 10,
   duration: 3000,
   center: false,
   transitionName: 'fade-up'

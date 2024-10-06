@@ -14,7 +14,7 @@
   font-size: var(--uc-font-size-base);
   border-radius: var(--uc-border-radius-2);
   z-index: var(--uc-z-index-message);
-  transition: all 0.3s;
+  transition: top var(--uc-animation-duration) var(--uc-animation-ease-in-out), opacity var(--uc-animation-duration) var(--uc-animation-ease-in-out), transform var(--uc-animation-duration) var(--uc-animation-ease-in-out);
 }
 .u-message.u-message--info {
   background-color: var(--uc-info-light-5);

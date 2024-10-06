@@ -18,7 +18,7 @@ const instances: UMessageInstance[] = shallowReactive([]);
 const defaultOptions: ICreateMessageProps = {
   type: "info",
   duration: 3000,
-  offset: 14,
+  offset: 10,
   transitionName: 'fade-up'
 }
 
@@ -74,7 +74,6 @@ export const Message: UMessageFn & Partial<UMessage> = (options = {}): UMessageH
 
 export function getLastBottomOffset(this: UMessageProps) {
   const idx = findIndex(instances, { id: this.id })
-  
   if (idx <= 0) return 0
   return get(instances, [idx - 1, 'vm', 'exposed', 'bottomOffset', 'value'])
 }

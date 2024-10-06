@@ -4,8 +4,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
-    UCard: typeof import('ucc-ui')['UCard'];
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
+    UCard: typeof import('ucc-ui')['UCard'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
