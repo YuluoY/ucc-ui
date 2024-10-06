@@ -1,36 +1,39 @@
 <template>
-  <transition 
-    :name="transitionName" 
-    @after-leave="!visible && isFunction(onDestory) && onDestory()"
-  >
-    <div 
-      v-show="visible"
-      ref="messageRef"
-      role="alert"
-      class="u-message"
-      :style="messageStyle"
-      :class="[
-        `u-message--${type}`,
-        { 'is-plain': plain },
-        { 'is-center': center },
-        customClass
-      ]"
-      @mouseenter="clearTimer"
-      @mouseleave="startTimer"
+  <Teleport to="body">
+    <Transition 
+      appear
+      :name="transitionName" 
+      @after-leave="!visible && isFunction(onDestory) && onDestory()"
     >
-      <div class="u-message-icon">
-        <u-icon :icon="_icon" />
+      <div 
+        v-show="visible"
+        ref="messageRef"
+        role="alert"
+        class="u-message"
+        :style="messageStyle"
+        :class="[
+          `u-message--${type}`,
+          { 'is-plain': plain },
+          { 'is-center': center },
+          customClass
+        ]"
+        @mouseenter="clearTimer"
+        @mouseleave="startTimer"
+      >
+        <div class="u-message-icon">
+          <u-icon :icon="_icon" />
+        </div>
+        <div class="u-message-content">
+          <slot>
+            <RenderVNode v-if="message" :vnode="message" />
+          </slot>
+        </div>
+        <div class="u-message-close" v-if="showClose">
+          <u-icon icon="close" @click.stop="onClose" />
+        </div>
       </div>
-      <div class="u-message-content">
-        <slot>
-          <RenderVNode v-if="message" :vnode="message" />
-        </slot>
-      </div>
-      <div class="u-message-close" v-if="showClose">
-        <u-icon icon="close" @click.stop="onClose" />
-      </div>
-    </div>
-  </transition>
+    </Transition>
+  </Teleport>
 </template>
 
 <script setup lang="ts">

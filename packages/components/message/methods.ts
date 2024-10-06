@@ -48,7 +48,7 @@ const createMessage = (props: ICreateMessageProps): UMessageInstance => {
 
   const vnode = h(UMessageSFC, _props)
   render(vnode, container)
-  document.body.appendChild(container.firstElementChild!)
+  // document.body.appendChild(container.firstElementChild!)
 
   const vm = vnode.component!
   const handler: UMessageHandler = {
