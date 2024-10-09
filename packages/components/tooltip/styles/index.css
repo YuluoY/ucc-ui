@@ -33,7 +33,7 @@
   color: var(--uc-text-7);
   background-color: var(--uc-background-dark-2);
 }
-.u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=top] .u-tooltip__popper--arrow {
+.u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=top] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=top-start] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=top-end] .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
           clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
   background-color: var(--uc-background-dark-2);
@@ -41,7 +41,7 @@
   height: 0.4rem;
   top: 100%;
 }
-.u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=bottom] .u-tooltip__popper--arrow {
+.u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=bottom] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=bottom-start] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=bottom-end] .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   background-color: var(--uc-background-dark-2);
@@ -49,7 +49,7 @@
   height: 0.4rem;
   bottom: 100%;
 }
-.u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=left] .u-tooltip__popper--arrow {
+.u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=left] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=left-start] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=left-end] .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
           clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
   background-color: var(--uc-background-dark-2);
@@ -57,7 +57,7 @@
   height: 0.4rem;
   left: 100%;
 }
-.u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=right] .u-tooltip__popper--arrow {
+.u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=right] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=right-start] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--dark .u-tooltip__popper[data-popper-placement=right-end] .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
           clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
   background-color: var(--uc-background-dark-2);
@@ -70,7 +70,7 @@
   background-color: var(--uc-background-1);
   box-shadow: var(--uc-shadow-4);
 }
-.u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=top] .u-tooltip__popper--arrow {
+.u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=top] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=top-start] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=top-end] .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
           clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
   background-color: var(--uc-background-1);
@@ -78,7 +78,7 @@
   height: 0.4rem;
   top: 100%;
 }
-.u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=bottom] .u-tooltip__popper--arrow {
+.u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=bottom] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=bottom-start] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=bottom-end] .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   background-color: var(--uc-background-1);
@@ -86,7 +86,7 @@
   height: 0.4rem;
   bottom: 100%;
 }
-.u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=left] .u-tooltip__popper--arrow {
+.u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=left] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=left-start] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=left-end] .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
           clip-path: polygon(100% 50%, 0% 0%, 0% 100%);
   background-color: var(--uc-background-1);
@@ -94,7 +94,7 @@
   height: 0.4rem;
   left: 100%;
 }
-.u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=right] .u-tooltip__popper--arrow {
+.u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=right] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=right-start] .u-tooltip__popper--arrow, .u-tooltip.u-tooltip--light .u-tooltip__popper[data-popper-placement=right-end] .u-tooltip__popper--arrow {
   -webkit-clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
           clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
   background-color: var(--uc-background-1);

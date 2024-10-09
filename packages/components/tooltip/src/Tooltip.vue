@@ -11,7 +11,7 @@
     <slot name="default" v-else></slot>
 
     <teleport :to="`#${CTooltipContainerId}`">
-      <div :id="`popper-uid-${instance?.uid}`" :class="['u-tooltip', `u-tooltip--${effect}`]">
+      <div ref="popperContainerRef" :id="`popper-uid-${instance?.uid}`" :class="['u-tooltip', `u-tooltip--${effect}`]">
         <transition :name="transition" @after-leave="destoryPopperInstance" v-bind="transitionProps ?? void 0">
           <div 
             v-if="visible" 
@@ -70,6 +70,7 @@ const visible = ref<boolean>(!!props.visible) // 是否显示
 const containerRef = ref<HTMLDivElement | null>(null)
 const _triggerRef = ref<HTMLDivElement | null>(null)
 const popperRef = ref<HTMLDivElement | null>(null)
+const popperContainerRef = ref<HTMLDivElement | null>(null)
 
 const triggerRef = computed(() => {
   if (props.virtualTriggering)
@@ -105,6 +106,8 @@ function onOpen() {
 }
 
 function onClose() {
+  console.log('onClose');
+  
   onOpenDebounce?.cancel()
   onCloseDebounce?.()
 }
@@ -166,7 +169,7 @@ function updatePopper() {
   }
 }
 
-useClickOutside(containerRef, () => {
+useClickOutside(popperContainerRef, () => {
   if (props.trigger === 'hover' || props.manual) return
   visible.value && onClose()
 })

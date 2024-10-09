@@ -36,7 +36,9 @@
                                    bottom: polygon(50% 0%, 0% 100%, 100% 100%), 
                                    left: polygon(100% 50%, 0% 0%, 0% 100%), 
                                    right: polygon(0% 50%, 100% 0%, 100% 100%)) {
-      &[data-popper-placement="#{$direction}"] {
+      &[data-popper-placement="#{$direction}"],
+      &[data-popper-placement="#{$direction}-start"],
+      &[data-popper-placement="#{$direction}-end"] {
         .u-tooltip__popper--arrow {
           clip-path: $polygon;
           background-color: $bg-color;

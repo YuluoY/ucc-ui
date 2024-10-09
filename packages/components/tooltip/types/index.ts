@@ -28,7 +28,6 @@ export interface UTooltipProps {
   width?: number                       // 宽度
   padding?: number                     // 内边距
   transitionProps?: Record<string, any>  // 过渡动画属性
-  // autoWidth?: boolean                  // 是否自动宽度
 }
 
 export interface UTooltipEmits {
