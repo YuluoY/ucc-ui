@@ -18,6 +18,7 @@ import {
   UPopconfirm,
   UCodeEditor,
   UMessage,
+  USlider,
   
   UModelComponent,
   UStructComponent
@@ -42,6 +43,7 @@ export default [
   UPopconfirm,
   UCodeEditor,
   UMessage,
+  USlider,
   
   UModelComponent,
   UStructComponent

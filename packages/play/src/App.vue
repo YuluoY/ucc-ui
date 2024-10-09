@@ -1,12 +1,22 @@
 <template>
-  <u-layout>
+
+
+  <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
       <u-dropdown :data="dropdownData">
         <u-button>测试下拉菜单</u-button>
       </u-dropdown>
     </u-region>
+    <u-region>
+      <u-slider v-model="sliderVal"></u-slider>
+    </u-region>
   </u-layout>
-  <u-button @click="openSuccessMsg">success</u-button>
+  <u-button @click="openMessage('success')">success</u-button>
+  <u-button @click="openMessage('info')">info</u-button>
+  <u-button @click="openMessage('warning')">warning</u-button>
+  <u-button @click="openMessage('error')">error</u-button>
+  <u-button @click="openMessage('primary')">primary</u-button>
+
   <u-collapse v-model="def" accordion>
     <u-collapse-item name="1" title="标题1">
       <template #title>
@@ -69,12 +79,14 @@ const dropdownData = reactive<UDropdownItemProps[]>([
 ])
 
 let index = 0
-const openSuccessMsg = () => {
+const openMessage = (type: any) => {
   UMessage({
     message: 'asdasdasd' + index++,
-    type: 'success'
+    type
   })
 }
+
+const sliderVal = ref(0)
 
 </script>
 

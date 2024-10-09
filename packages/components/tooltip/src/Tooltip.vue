@@ -2,7 +2,10 @@
   <div :class="['u-tooltip', `u-tooltip--${effect}`]" ref="containerRef" v-on="outerEvents">
     <div :data-popper-uid="instance?.uid" v-if="!virtualTriggering" class="u-tooltip__trigger" ref="_triggerRef"
       v-on="events">
-      <slot></slot>
+      <slot>
+        <span v-if="rawContent" v-html="content" class="u-tooltip__trigger-content"/>
+        <span v-else class="u-tooltip__trigger-content">{{ content }}</span>
+      </slot>
     </div>
 
     <slot name="default" v-else></slot>
@@ -46,6 +49,7 @@ const instance = getCurrentInstance()
 
 const props = withDefaults(defineProps<UTooltipProps>(), {
   width: 200,
+  rawContent: false,
   padding: 14,
   placement: 'bottom',
   trigger: 'hover',
@@ -93,6 +97,8 @@ let onCloseDebounce: DebouncedFunc<() => void> | void
 const openDelay = computed(() => props.trigger === 'hover' ? props.showTimeout : 0)
 const closeDelay = computed(() => props.trigger === 'hover' ? props.hideTimeout : 0)
 
+let popperInstance: Ref<Instance | null> = ref(null)
+
 function onOpen() {
   onCloseDebounce?.cancel()
   onOpenDebounce?.()
@@ -119,11 +125,10 @@ function setVisible(val: boolean) {
   emits('update:visible', val)
 }
 
-let popperInstance: Instance | null = null
 function destoryPopperInstance() {
-  if (isNil(popperInstance)) return
-  popperInstance.destroy()
-  popperInstance = null
+  if (isNil(popperInstance.value)) return
+  popperInstance.value.destroy()
+  popperInstance.value = null
 }
 
 function onAttachEvents() {
@@ -132,6 +137,7 @@ function onAttachEvents() {
     events.value['mouseenter'] = onOpen
     outerEvents.value['mouseleave'] = onClose
     dropdownEvents.value['mouseenter'] = onOpen
+    dropdownEvents.value['mouseleave'] = onClose
     return
   }
   if (props.trigger === 'click') {
@@ -154,6 +160,12 @@ function resetEvents() {
   onAttachEvents()
 }
 
+function updatePopper() {
+  if (popperInstance.value) {
+    popperInstance.value.update()
+  }
+}
+
 useClickOutside(containerRef, () => {
   if (props.trigger === 'hover' || props.manual) return
   visible.value && onClose()
@@ -162,7 +174,7 @@ useClickOutside(containerRef, () => {
 const visibleWatch = watch(visible, val => {
   if (!val) return
   if (triggerRef.value && popperRef.value) {
-    popperInstance = createPopper(
+    popperInstance.value = createPopper(
       triggerRef.value,
       popperRef.value,
       popperOptions.value
@@ -198,10 +210,14 @@ onBeforeUnmount(() => {
   destoryPopperInstance()
 })
 
-defineExpose<Partial<UTooltipExposes>>({
+defineExpose<UTooltipExposes>({
   onOpen,
   onClose,
-  hide: onHide
+  hide: onHide,
+  updatePopper,
+  popperRef: popperInstance,
+  contentRef: ref(null),
+  isFocusInsideContent: () => void 0
 })
 
 </script>
