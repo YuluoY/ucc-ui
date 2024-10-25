@@ -1,6 +1,5 @@
 <template>
-
-
+  <u-dynamic-comp v-bind="a"></u-dynamic-comp>
   <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
       <u-dropdown :data="dropdownData">
@@ -53,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { h, reactive, ref } from 'vue';
 import type { UDropdownItemProps } from '../../components/dropdown/types';
 // import { UMessage } from 'ucc-ui';
 import {UMessage} from '../../components/message';
@@ -63,6 +62,14 @@ const def = ref(['1'])
 const code = ref('')
 const onChange = (evt: any) => {
   // console.log(code.value);
+}
+
+const a = {
+  type: 'UButton',
+  props: {
+    icon: 'home'
+  },
+  children: '123'
 }
 
 const dropdownData = reactive<UDropdownItemProps[]>([

@@ -4,14 +4,6 @@
  * @param   def   默认值
  */
 export declare function parseJson(str: string, def?: any): any;
-/**
- * 设置对象值 - 默认是新增属性，如果属性已存在则替换
- * @param   obj         对象
- * @param   path        属性路径
- * @param   val         值
- * @param   splitter    分隔符  默认 .
- */
-export declare function setDeepValue(obj: any, path: string | string[], val: any, splitter?: string): any;
 export declare const rootFontSize: number;
 /**
  * px转rem
@@ -23,3 +15,33 @@ export declare const rootFontSize: number;
  * ```
  */
 export declare function pxToRem<T = string | number>(px: number, isNumber?: boolean): T;
+/**
+ * 是否是Vue组件
+ * @author      Yuluo
+ * @link        https://github.com/YuluoY
+ * @date        2024-10-15
+ * @param       {any}         obj       - 要检查的对象
+ * @return      {boolean}
+ * @example
+ * ```ts
+ * isVueComponent({ render: () => {} }) // true
+ * isVueComponent({ setup: () => {} }) // true
+ * isVueComponent({}) // false
+ * ```
+ */
+export declare const isVueComponent: (obj: any) => boolean;
+/**
+ * 还原字符串的类型值
+ * @param   {string}  str
+ * @returns {any}
+ * ```js
+ * restoreValue('null') // null
+ * restoreValue('undefined') // undefined
+ * restoreValue('true') // true
+ * restoreValue('false') // false
+ * restoreValue('[1,2,3]') // [1,2,3]
+ * restoreValue('{a:1}') // {a:1}
+ * restoreValue('123') // 123
+ * ```
+ */
+export declare const restoreValue: <T = any>(str: string) => T;

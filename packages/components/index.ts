@@ -12,5 +12,3 @@ export * from './popconfirm'
 export * from './code-editor'
 export * from './message'
 export * from './slider'
-
-export * from './model-component'

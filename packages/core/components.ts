@@ -19,9 +19,7 @@ import {
   UCodeEditor,
   UMessage,
   USlider,
-  
-  UModelComponent,
-  UStructComponent
+
 } from '@ucc-ui/components'
 
 export default [
@@ -45,6 +43,4 @@ export default [
   UMessage,
   USlider,
   
-  UModelComponent,
-  UStructComponent
 ] as Plugin[]
