@@ -184,4 +184,33 @@
   --uc-shadow-light-7: 0px 0px 2.8rem rgba(255, 255, 255, 0.3); 
   --uc-shadow-light-8: 10px 0px 3.2rem rgba(255, 255, 255, 0.2); 
   --uc-shadow-light-9: 0px 0px 3.6rem rgba(255, 255, 255, 0.3);
+
+  /* 遮罩层颜色 */
+  --uc-modal-color-1: rgba(0, 0, 0, 0.5); /* 半透明黑 */
+  --uc-modal-color-2: rgba(0, 0, 0, 0.7); /* 更深的半透明黑 */
+  --uc-modal-color-3: rgba(255, 255, 255, 0.2); /* 半透明白 */
+  --uc-modal-color-4: rgba(255, 255, 255, 0.5); /* 更浅的半透明白 */
+  --uc-modal-color-5: rgba(0, 0, 0, 0.3); /* 轻微的半透明黑 */
+  --uc-modal-color-6: rgba(0, 0, 0, 0.01); /* 极浅的半透明黑 */
+
+  /* 用于不同状态的遮罩色 */
+  --uc-modal-success: rgba(46, 190, 80, 0.5); /* 成功状态 */
+  --uc-modal-warning: rgba(255, 221, 107, 0.5); /* 警告状态 */
+  --uc-modal-danger: rgba(253, 115, 115, 0.5); /* 危险状态 */
+  --uc-modal-info: rgba(102, 209, 224, 0.5); /* 信息状态 */
+}
+
+.custom-scollbar::-webkit-scrollbar {
+  width: 0.2rem;
+  height: 0.2rem;
+}
+
+.custom-scollbar::-webkit-scrollbar-thumb {
+  border-radius: 2rem;
+  background-color: var(--uc-primary-light-2);
+}
+
+.custom-scollbar::-webkit-scrollbar-track {
+  border-radius: 2rem;
+  background-color: var(--uc-background-3)
 }

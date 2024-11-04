@@ -1,6 +1,9 @@
 <template>
-  <u-dynamic-comp v-bind="a"></u-dynamic-comp>
-  <u-layout mode='vertical'>
+  <u-dialog>
+    asdasd
+  </u-dialog>
+  asdasd
+  <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
       <u-dropdown :data="dropdownData">
         <u-button>测试下拉菜单</u-button>
@@ -48,7 +51,7 @@
       </template>
     </u-popconfirm>
   </div>
-  <u-code-editor v-model:value="code" @change="onChange"></u-code-editor>
+  <u-code-editor v-model:value="code" @change="onChange"></u-code-editor> -->
 </template>
 
 <script setup lang="ts">

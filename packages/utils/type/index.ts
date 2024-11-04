@@ -60,3 +60,10 @@ export const isUndefined = (val: any): val is undefined => val === undefined
  * @returns   {boolean}
  */
 export const isValue = (val: any): val is boolean => val !== undefined && val !== null
+
+/**
+ * 是否是小数
+ * @param     {any}     val
+ * @returns   {boolean}
+ */
+export const isDecimal = (val: any): val is boolean => !!(isNumber(val) && val % 1 !== 0)

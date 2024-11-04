@@ -8,6 +8,7 @@ declare module 'vue' {
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
+    UDialog: typeof import('ucc-ui')['UDialog'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
@@ -16,8 +17,8 @@ declare module 'vue' {
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
-    UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
     USlider: typeof import('ucc-ui')['USlider'];
+    UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
     UTag: typeof import('ucc-ui')['UTag'];
     UText: typeof import('ucc-ui')['UText'];
     UTooltip: typeof import('ucc-ui')['UTooltip'];
