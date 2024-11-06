@@ -6,6 +6,7 @@ export default function useEventListener (
   handler: (e: any) => any
 ){
 
+  console.log(target)
   let targetWatcher: WatchStopHandle | void;
 
   if (isRef(target)) {

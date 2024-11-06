@@ -2,63 +2,56 @@
 <template>
   <Teleport :to="props.appendTo">
     <div
-      v-if="v"
+      v-if="visible"
       class="u-dialog-overlay"
       :class="{ 'is-overlay': props.modal }"
+      :style="{zIndex: zIndex}"
     >
       <div 
-        :style="dialogStyles"
+        ref="dialogRef"
         class="u-dialog"
         role="dialog" 
         :aria-describedby="uid" 
       >
-        <div class="u-dialog-resize u-resize__top"></div>
-        <div class="u-dialog-resize u-resize__right"></div>
-        <div class="u-dialog-resize u-resize__bottom"></div>
-        <div class="u-dialog-resize u-resize__left"></div>
-
-        <div class="u-dialog-resize u-resize__top-left"></div>
-        <div class="u-dialog-resize u-resize__top-right"></div>
-        <div class="u-dialog-resize u-resize__bottom-left"></div>
-        <div class="u-dialog-resize u-resize__bottom-right"></div>
-
-        <div class="u-dialog__header">
-          <span class="u-dialog__title">{{ props.title }}</span>
+        <div ref="dialogHeaderRef" class="u-dialog__header">
+          <div class="u-dialog__title" :title="props.title">
+            <span>{{ props.title }}</span>
+          </div>
           <div class="u-dialog__header-actions">
             <u-icon 
               class="u-dialog__minimize" 
-              :icon="['fas', 'chevron-up']" 
+              :icon="['fas', isCollapsed ? 'chevron-up' : 'chevron-down']" 
+              @click="onCollapse"
             />
             <u-icon 
               class="u-dialog__close" 
               icon="close" 
+              @click="close"
             />
           </div>
         </div>
         <div class="u-dialog__body">
-          <p>Greetings, one and all!</p>
+          <span v-html="content" v-if="isString(content)"></span>
+          <component v-else :is="content"></component>
         </div>
         <div class="u-dialog__footer custom-scollbar">
           <u-button type="primary">确认</u-button>
-          <u-button plain>取消</u-button>
+          <u-button plain @click="close">取消</u-button>
         </div>
       </div>
     </div>
-    <!-- <div style="position: absolute;z-index: 999999;pointer-events: all;">
-      <button @click="openDebounce">打开</button>
-      <button @click="closeDebounce">关闭</button>
-    </div> -->
   </Teleport>
 </template>
 
 <script setup lang="ts">
-import { computed, getCurrentInstance, ref, type CSSProperties } from 'vue';
+import { onMounted, ref, useAttrs } from 'vue';
 import type { UDialogEmits, UDialogProps } from '../types';
-import { debounce } from 'lodash-es';
 import { useId } from '@ucc-ui/hooks';
 import { UIcon } from '../../icon';
 import { UButton } from '../../button';
-import { isDecimal } from '@ucc-ui/utils';
+import useResize from '@ucc-ui/hooks/useResize';
+import useDraggle from '@ucc-ui/hooks/useDraggle';
+import { isFunction, isString } from 'lodash-es';
 
 defineOptions({
   name: 'UDialog',
@@ -66,51 +59,88 @@ defineOptions({
 })
 
 const uid = useId('u-dialog')
-const instance = getCurrentInstance()
 const props = withDefaults(defineProps<UDialogProps>(), {
-  content: '',
+  content: 'Greetings, one and all!',
   openDelay: 0,
   closeDelay: 0,
   appendTo: 'body',
   modal: false,
   width: 0.4,
   height: 0.2,
-  title: '标题'
+  title: '标题',
+  zIndex: 2000
 })
-const emits = defineEmits<UDialogEmits>()
 
-const v = ref<boolean>(props.modelValue || true)
+const emits = defineEmits<UDialogEmits>()
+const dialogRef = ref<HTMLDivElement | null>(null)
+const dialogHeaderRef = ref<HTMLDivElement | null>(null)
+
+const isCollapsed = ref(false)
+const visible = ref<boolean>(props.modelValue || true)
 const w = ref(props.width)
 const h = ref(props.height)
 
 const tW = document.documentElement.clientWidth
 const tH = document.documentElement.clientHeight
 
-const dialogStyles = computed<CSSProperties>(() => {
-  if (isDecimal(w.value) || w.value === 1) {
+const attrs = useAttrs()
+
+const open = () => {
+  attrs.open && isFunction(attrs.open) && attrs.open()
+  visible.value = true
+}
+
+const close = () => {
+  attrs.close && isFunction(attrs.close) && attrs.close()
+  visible.value = false
+}
+
+onMounted(() => {
+  const rect = dialogHeaderRef.value?.getBoundingClientRect()
+  initDialogPos()
+  useResize({
+    el: dialogRef,
+    minWidth: 100,
+    minHeight: rect?.height,
+    resizing: (width, height) => {
+      w.value = width
+      h.value = height
+      isCollapsed.value = false
+    }
+  })
+  useDraggle({
+    el: dialogRef,
+    dragEl: dialogHeaderRef
+  })
+})
+
+function initDialogPos() {
+  if (w.value <= 1)
     w.value = tW * w.value
-  }
-  if (isDecimal(h.value) || h.value === 1) {
+  if (h.value <= 1)
     h.value = tH * h.value
-  }
-  return {
-    width: `${w.value}px`,
-    height: `${h.value}px`,
-    top: `${(tH - h.value) / 3}px`,
-    left: `${(tW - w.value) / 2}px`
-  }
-}) 
-
-function open() {
-  v.value = true
-}
-function close() {
-  v.value = false
+  const top = tH - h.value < 0 ? 0 : (tH - h.value) / 3
+  const left = tW - w.value < 0 ? 0 : (tW - w.value) / 2
+  window.requestAnimationFrame(() => {
+    dialogRef.value?.style.setProperty('top', `${top}px`)
+    dialogRef.value?.style.setProperty('left', `${left}px`)
+    dialogRef.value?.style.setProperty('width', `${w.value}px`)
+    dialogRef.value?.style.setProperty('height', `${h.value}px`)
+  })
 }
 
-const openDebounce = debounce(open, props.openDelay)
-const closeDebounce = debounce(close, props.closeDelay)
+function onCollapse() {
+  isCollapsed.value = !isCollapsed.value
+  const height = isCollapsed.value ? (dialogHeaderRef.value?.getBoundingClientRect().height || 0) + 10 : h.value
+  window.requestAnimationFrame(() => {
+    dialogRef.value?.style.setProperty('height', `${height}px`)
+  })
+}
 
+defineExpose({
+  open,
+  close
+})
 
 </script>
 

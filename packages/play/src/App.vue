@@ -1,8 +1,8 @@
 <template>
-  <u-dialog>
+  <!-- <u-dialog>
     asdasd
-  </u-dialog>
-  asdasd
+  </u-dialog> -->
+  <u-button @click="openDialog">打开对话框</u-button>
   <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
       <u-dropdown :data="dropdownData">
@@ -59,6 +59,11 @@ import { h, reactive, ref } from 'vue';
 import type { UDropdownItemProps } from '../../components/dropdown/types';
 // import { UMessage } from 'ucc-ui';
 import {UMessage} from '../../components/message';
+import UDialog from '../../components/dialog/methods';
+
+const openDialog = () => {
+  UDialog({ mode: 'multi' })
+}
 
 const visible = ref(false)
 const def = ref(['1'])

@@ -34,66 +34,9 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-}
-.u-dialog .u-dialog-resize {
-  position: absolute;
-  z-index: 9999;
-}
-.u-dialog .u-dialog-resize.u-resize__top {
-  cursor: n-resize;
-  top: 0;
-  left: 0.3rem;
-  width: calc(100% - 0.6rem);
-  height: 0.3rem;
-}
-.u-dialog .u-dialog-resize.u-resize__right {
-  cursor: e-resize;
-  top: 0.3rem;
-  right: 0;
-  width: 0.3rem;
-  height: calc(100% - 0.6rem);
-}
-.u-dialog .u-dialog-resize.u-resize__bottom {
-  cursor: s-resize;
-  bottom: 0;
-  left: 0.3rem;
-  width: calc(100% - 0.6rem);
-  height: 0.3rem;
-}
-.u-dialog .u-dialog-resize.u-resize__left {
-  cursor: w-resize;
-  top: 0.3rem;
-  left: 0;
-  width: 0.3rem;
-  height: calc(100% - 0.6rem);
-}
-.u-dialog .u-dialog-resize.u-resize__top-left {
-  cursor: nw-resize;
-  top: 0;
-  left: 0;
-  width: 0.3rem;
-  height: 0.3rem;
-}
-.u-dialog .u-dialog-resize.u-resize__top-right {
-  cursor: ne-resize;
-  top: 0;
-  right: 0;
-  width: 0.3rem;
-  height: 0.3rem;
-}
-.u-dialog .u-dialog-resize.u-resize__bottom-left {
-  cursor: sw-resize;
-  bottom: 0;
-  left: 0;
-  width: 0.3rem;
-  height: 0.3rem;
-}
-.u-dialog .u-dialog-resize.u-resize__bottom-right {
-  cursor: se-resize;
-  bottom: 0;
-  right: 0;
-  width: 0.3rem;
-  height: 0.3rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .u-dialog .u-dialog__header {
   width: 100%;
@@ -107,7 +50,18 @@
   gap: 0.8rem;
 }
 .u-dialog .u-dialog__header .u-dialog__title {
+  width: calc(100% - 3rem);
   white-space: nowrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.u-dialog .u-dialog__header .u-dialog__title span {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 .u-dialog .u-dialog__header .u-dialog__header-actions {
   display: flex;
@@ -129,7 +83,7 @@
   border-top: var(--dialog-footer-border-width) solid var(--dialog-footer-border-color);
   box-sizing: border-box;
   display: flex;
-  padding: 0.8rem;
+  padding: 0.8rem 0;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;

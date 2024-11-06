@@ -6,7 +6,7 @@ export interface UDialogProps {
    * @type {boolean}
    * @default false
    */
-  modelValue: boolean
+  modelValue?: boolean
 
   /**
    * @description 标题
@@ -112,6 +112,13 @@ export interface UDialogProps {
    * @default true
    */
   showCloseIcon?: boolean
+
+  /**
+   * @description 层级
+   * @type {number}
+   * @default 2000
+   */
+  zIndex?: number
 }
 
 export interface UDialogEmits {

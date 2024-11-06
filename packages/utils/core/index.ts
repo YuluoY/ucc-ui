@@ -74,31 +74,30 @@ export const isVueComponent = (obj: any): boolean => {
  * restoreValue('123') // 123
  * ```
  */
-export const restoreValue = <T = any>(str: string): T =>
+export const restoreValue = <T = any>(str: string): T => {
+  if (typeof str !== 'string')
+    return str
+
+  if (str === 'null')
+    return null as T
+  else if (str === 'undefined')
+    return undefined as T
+  else if (str === 'true')
+    return true as T
+  else if (str === 'false')
+    return false as T
+  else if (typeof str === 'string')
   {
-    if (typeof str !== 'string')
-      return str
-  
-    if (str === 'null')
-      return null as T
-    else if (str === 'undefined')
-      return undefined as T
-    else if (str === 'true')
-      return true as T
-    else if (str === 'false')
-      return false as T
-    else if (typeof str === 'string')
+    try
     {
-      try
-      {
-        // eslint-disable-next-line no-new-func
-        return new Function(`return ${str}`)()
-      }
-      catch (error)
-      {
-        return str as T
-      }
+      // eslint-disable-next-line no-new-func
+      return new Function(`return ${str}`)()
     }
-    else
-      return str
+    catch (error)
+    {
+      return str as T
+    }
   }
+  else
+    return str
+}

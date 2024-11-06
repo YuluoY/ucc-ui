@@ -1,41 +1,41 @@
-import { _ as L, U as A, a as V } from "./Dropdown-D53d46xx.js";
-import { _ as F } from "./Layout-CbYA7gB6.js";
-import { _ as q } from "./Region-Bdgn49Q_.js";
-import { w as t, p as j, a as b, m as G } from "./utils-CFhk3g2K.js";
-import { U as h } from "./Button-DrRdvqwy.js";
-import { _ as H } from "./Card-BhwzkYAd.js";
-import { _ as P } from "./Input-BaI5ex4E.js";
-import { _ as W } from "./Text-DecIS8op.js";
-import { _ as Z } from "./Tag-BoEOycFs.js";
-import { _ as Y } from "./DropdownMenu-CHycqHx6.js";
-import { _ as J } from "./DropdownItem-Cl4VMrUS.js";
-import { _ as K } from "./Collapse-RsZZjbKX.js";
-import { _ as Q } from "./CollapseItem-1T_YX1jK.js";
-import { _ as X, U as ee } from "./CodeEditor-DH09GeWV.js";
-import { _ as oe } from "./Popconfirm-BfbKLJd_.js";
-import { defineComponent as N, computed as B, ref as _, watch as se, onMounted as te, onBeforeUnmount as ne, openBlock as g, createBlock as M, Teleport as ae, createVNode as v, Transition as re, unref as f, withCtx as ie, withDirectives as ce, createElementVNode as y, normalizeClass as le, normalizeStyle as me, renderSlot as fe, createCommentVNode as R, createElementBlock as ue, withModifiers as de, vShow as pe, shallowReactive as _e, isVNode as ge, h as ve, render as k } from "vue";
-import { b as ye, c as he, d as Ue, u as $e } from "./hooks-BwG80JHT.js";
-import { g as Ie, u as we, j as Ce, k as O, h as S, s as Be, n as Me, p as T, q as Re, r as ke, v as be } from "./vendors-DyaD4XE9.js";
-import { _ as Ne } from "./Slider-Bg6K17lN.js";
-import { _ as D } from "./Dialog-D8Nl4fC3.js";
-import { library as Oe } from "@fortawesome/fontawesome-svg-core";
-import { fas as Se } from "@fortawesome/free-solid-svg-icons";
-const Te = t(F), De = t(q), xe = t(H), Ee = t(P), ze = t(W), Le = t(Z), Ae = t(L), Ve = t(Y), Fe = t(J), qe = t(K), je = t(Q), Ge = t(oe), He = t(X), Pe = {
+import { _ as x, a as q, U as F } from "./Dialog-BH2x6DLk.js";
+import { _ as j } from "./Layout-CjasGXdr.js";
+import { _ as G } from "./Region-Dnc6n2Al.js";
+import { w as s, p as H, a as S, m as P } from "./utils-CkIBsyjP.js";
+import { U as w } from "./Button-BSnUPrjm.js";
+import { _ as W } from "./Card-B8yf3pFu.js";
+import { _ as Z } from "./Input-HialSdtn.js";
+import { _ as Y } from "./Text-DecIS8op.js";
+import { _ as J } from "./Tag-DY_pIkcU.js";
+import { _ as K } from "./Dropdown-CL4YK6bS.js";
+import { _ as Q } from "./DropdownMenu-CHycqHx6.js";
+import { _ as X } from "./DropdownItem-E2onDVsQ.js";
+import { _ as ee } from "./Collapse-RsZZjbKX.js";
+import { _ as oe } from "./CollapseItem-BTPAIfgB.js";
+import { _ as ne, U as te } from "./CodeEditor-CsPJWRBL.js";
+import { _ as se } from "./Popconfirm-DvrsXAAK.js";
+import { defineComponent as k, computed as D, ref as h, watch as ae, onMounted as ie, onBeforeUnmount as ce, openBlock as U, createBlock as T, Teleport as re, createVNode as $, Transition as le, unref as p, withCtx as me, withDirectives as fe, createElementVNode as I, normalizeClass as ue, normalizeStyle as de, renderSlot as _e, createCommentVNode as B, createElementBlock as pe, withModifiers as ge, vShow as ve, shallowReactive as ye, isVNode as he, h as N, render as g } from "vue";
+import { d as Ue, e as $e, f as Ie, u as we } from "./hooks-CxCLWkqB.js";
+import { j as Ce, u as Me, r as be, g as O, q as z, s as De, i as E, v as L, w as Te, d as R, x as Be, y as Re } from "./vendors-DU5T3Hvp.js";
+import { _ as xe } from "./Slider-CdSkoLUg.js";
+import { library as Se } from "@fortawesome/fontawesome-svg-core";
+import { fas as ke } from "@fortawesome/free-solid-svg-icons";
+const Ne = s(j), Oe = s(G), ze = s(W), Ee = s(Z), Le = s(Y), Ae = s(J), Ve = s(K), qe = s(Q), Fe = s(X), je = s(ee), Ge = s(oe), He = s(se), Pe = s(ne), We = {
   info: ["fas", "circle-info"],
   success: ["fas", "circle-check"],
   warning: ["fas", "circle-exclamation"],
   error: ["fas", "circle-xmark"],
   primary: ["fas", "circle-question"]
-}, We = {
+}, Ze = {
   INFO: "info",
   SUCCESS: "success",
   WARNING: "warning",
   ERROR: "error",
   PRIMARY: "primary"
-}, Ze = { class: "u-message-icon" }, Ye = { class: "u-message-content" }, Je = {
+}, Ye = { class: "u-message-icon" }, Je = { class: "u-message-content" }, Ke = {
   key: 0,
   class: "u-message-close"
-}, Ke = /* @__PURE__ */ N({
+}, Qe = /* @__PURE__ */ k({
   name: "UMessage",
   __name: "Message",
   props: {
@@ -58,131 +58,131 @@ const Te = t(F), De = t(q), xe = t(H), Ee = t(P), ze = t(W), Le = t(Z), Ae = t(L
     transitionName: { default: "fade-up" }
   },
   setup(e, { expose: o }) {
-    const n = e, d = B(() => n.icon ?? Pe[n.type]), a = _(!0), r = _(null), i = _(0), {
-      topOffset: U,
-      bottomOffset: $
-    } = ye({
-      boxHeight: i,
-      offset: n.offset,
-      getLastBottomOffset: Ie(oo, n)
-    }), l = B(() => ({
-      top: j(U.value),
-      zIndex: n.zIndex
-    })), E = se(a, (s) => {
-      s || (i.value = -n.offset);
+    const a = e, l = D(() => a.icon ?? We[a.type]), n = h(!0), i = h(null), c = h(0), {
+      topOffset: u,
+      bottomOffset: m
+    } = Ue({
+      boxHeight: c,
+      offset: a.offset,
+      getLastBottomOffset: Ce(no, a)
+    }), r = D(() => ({
+      top: H(u.value),
+      zIndex: a.zIndex
+    })), d = ae(n, (t) => {
+      t || (c.value = -a.offset);
     });
-    he(document, "keydown", (s) => {
-      s.key === "Escape" && a.value && m();
-    }), we(r, () => {
-      i.value = r.value.getBoundingClientRect().height ?? 0;
-    }), te(() => {
-      z(), I();
-    }), ne(() => {
-      w(), E();
+    $e(document, "keydown", (t) => {
+      t.key === "Escape" && n.value && _();
+    }), Me(i, () => {
+      c.value = i.value.getBoundingClientRect().height ?? 0;
+    }), ie(() => {
+      V(), C();
+    }), ce(() => {
+      M(), d();
     });
-    function m() {
-      a.value = !1;
+    function _() {
+      n.value = !1;
     }
-    function z() {
-      a.value = !0;
+    function V() {
+      n.value = !0;
     }
-    let p = null;
-    function I() {
-      n.duration > 0 && (p = Ce(m, n.duration));
+    let y = null;
+    function C() {
+      a.duration > 0 && (y = be(_, a.duration));
     }
-    function w() {
-      p && clearTimeout(p);
+    function M() {
+      y && clearTimeout(y);
     }
     return o({
-      close: m,
-      bottomOffset: $
-    }), (s, C) => (g(), M(ae, { to: "body" }, [
-      v(re, {
+      close: _,
+      bottomOffset: m
+    }), (t, b) => (U(), T(re, { to: "body" }, [
+      $(le, {
         appear: "",
-        name: s.transitionName,
-        onAfterLeave: C[0] || (C[0] = (co) => !a.value && f(O)(s.onDestory) && s.onDestory())
+        name: t.transitionName,
+        onAfterLeave: b[0] || (b[0] = (fo) => !n.value && p(O)(t.onDestory) && t.onDestory())
       }, {
-        default: ie(() => [
-          ce(y("div", {
+        default: me(() => [
+          fe(I("div", {
             ref_key: "messageRef",
-            ref: r,
+            ref: i,
             role: "alert",
-            class: le(["u-message", [
-              `u-message--${s.type}`,
-              { "is-plain": s.plain },
-              { "is-center": s.center },
-              s.customClass
+            class: ue(["u-message", [
+              `u-message--${t.type}`,
+              { "is-plain": t.plain },
+              { "is-center": t.center },
+              t.customClass
             ]]),
-            style: me(l.value),
-            onMouseenter: w,
-            onMouseleave: I
+            style: de(r.value),
+            onMouseenter: M,
+            onMouseleave: C
           }, [
-            y("div", Ze, [
-              v(f(h), { icon: d.value }, null, 8, ["icon"])
+            I("div", Ye, [
+              $(p(w), { icon: l.value }, null, 8, ["icon"])
             ]),
-            y("div", Ye, [
-              fe(s.$slots, "default", {}, () => [
-                s.message ? (g(), M(f(to), {
+            I("div", Je, [
+              _e(t.$slots, "default", {}, () => [
+                t.message ? (U(), T(p(so), {
                   key: 0,
-                  vnode: s.message
-                }, null, 8, ["vnode"])) : R("", !0)
+                  vnode: t.message
+                }, null, 8, ["vnode"])) : B("", !0)
               ])
             ]),
-            s.showClose ? (g(), ue("div", Je, [
-              v(f(h), {
+            t.showClose ? (U(), pe("div", Ke, [
+              $(p(w), {
                 icon: "close",
-                onClick: de(m, ["stop"])
+                onClick: ge(_, ["stop"])
               })
-            ])) : R("", !0)
+            ])) : B("", !0)
           ], 38), [
-            [pe, a.value]
+            [ve, n.value]
           ])
         ]),
         _: 3
       }, 8, ["name"])
     ]));
   }
-}), { nextZIndex: Qe } = Ue(), c = _e([]), Xe = {
+}), { nextZIndex: Xe } = Ie(), f = ye([]), eo = {
   type: "info",
   duration: 3e3,
   offset: 10,
   transitionName: "fade-up"
-}, x = (e) => {
-  const o = !e || ge(e) || Me(e) ? { message: e } : e;
-  return { ...Xe, ...o };
-}, eo = (e) => {
-  const o = $e().value, n = document.createElement("div"), d = () => {
-    const l = T(c, { id: o });
-    l !== -1 && (c.splice(l, 1), k(null, n));
-  }, a = {
+}, A = (e) => {
+  const o = !e || he(e) || E(e) ? { message: e } : e;
+  return { ...eo, ...o };
+}, oo = (e) => {
+  const o = we().value, a = document.createElement("div"), l = () => {
+    const r = L(f, { id: o });
+    r !== -1 && (f.splice(r, 1), g(null, a));
+  }, n = {
     ...e,
     id: o,
-    zIndex: Qe(),
-    onDestory: d
-  }, r = ve(Ke, a);
-  k(r, n);
-  const i = r.component;
+    zIndex: Xe(),
+    onDestory: l
+  }, i = N(Qe, n);
+  g(i, a);
+  const c = i.component;
   return {
     id: o,
-    props: a,
+    props: n,
     handler: {
-      close: () => i.exposed.close()
+      close: () => c.exposed.close()
     },
-    vm: i,
-    vnode: r
+    vm: c,
+    vnode: i
   };
-}, u = (e = {}) => {
-  e = x(e);
-  const o = eo(e);
-  return c.push(o), o.handler;
+}, v = (e = {}) => {
+  e = A(e);
+  const o = oo(e);
+  return f.push(o), o.handler;
 };
-function oo() {
-  const e = T(c, { id: this.id });
-  return e <= 0 ? 0 : Re(c, [e - 1, "vm", "exposed", "bottomOffset", "value"]);
+function no() {
+  const e = L(f, { id: this.id });
+  return e <= 0 ? 0 : Te(f, [e - 1, "vm", "exposed", "bottomOffset", "value"]);
 }
-S(We, (e) => Be(u, e, (o = {}) => u({ ...x(o), type: e })));
-function so(e) {
-  S(c, (o) => {
+z(Ze, (e) => De(v, e, (o = {}) => v({ ...A(o), type: e })));
+function to(e) {
+  z(f, (o) => {
     if (o.props.type === e) {
       o.handler.close();
       return;
@@ -190,8 +190,8 @@ function so(e) {
     o.handler.close();
   });
 }
-u.closeAll = so;
-const to = N({
+v.closeAll = to;
+const so = k({
   props: {
     vnode: {
       type: [String, Object, Function],
@@ -201,52 +201,80 @@ const to = N({
   setup(e) {
     return () => O(e.vnode) ? e.vnode() : e.vnode;
   }
-}), no = b(u, "$message"), ao = t(Ne), So = b(D, "$dialog"), ro = t(D), io = [
-  A,
-  V,
-  Te,
-  De,
-  h,
-  xe,
-  Ee,
+}), ao = S(v, "$message"), io = s(xe);
+let co = 2006;
+const ro = (e) => {
+  const o = Math.random() * 200 + 200, a = Math.random() * 200 + 200, l = (e == null ? void 0 : e.mode) === "multi";
+  let n = (E(e == null ? void 0 : e.appendTo) ? document.querySelector(e.appendTo) : e == null ? void 0 : e.appendTo) || document.body;
+  if (l) {
+    const d = document.createElement("div");
+    n.appendChild(d), n = d;
+  }
+  const i = R(m, (e == null ? void 0 : e.openDelay) || 100), c = R(r, (e == null ? void 0 : e.closeDelay) || 100), u = {
+    ...e,
+    zIndex: co++,
+    open: i,
+    close: c,
+    width: o,
+    height: a
+  };
+  function m() {
+    g(N(x, u), n), l && n.remove();
+  }
+  function r() {
+    g(null, n);
+  }
+  return !l && r(), m(), {
+    open: m,
+    close: r
+  };
+};
+S(ro, "$dialog");
+const lo = s(x), mo = [
+  q,
+  F,
+  Ne,
+  Oe,
+  w,
   ze,
+  Ee,
   Le,
   Ae,
   Ve,
-  Fe,
   qe,
+  Fe,
   je,
-  ee,
   Ge,
+  te,
   He,
-  no,
+  Pe,
   ao,
-  ro
+  io,
+  lo
 ];
-Oe.add(Se, ke, be);
-const To = G(io);
+Se.add(ke, Be, Re);
+const Oo = P(mo);
 export {
-  to as RenderVNode,
-  A as UButton,
-  V as UButtonGroup,
-  xe as UCard,
-  He as UCodeEditor,
-  qe as UCollapse,
-  je as UCollapseItem,
-  ro as UDialog,
-  So as UDialog2,
-  Ae as UDropdown,
+  so as RenderVNode,
+  q as UButton,
+  F as UButtonGroup,
+  ze as UCard,
+  Pe as UCodeEditor,
+  je as UCollapse,
+  Ge as UCollapseItem,
+  lo as UDialog,
+  Ve as UDropdown,
   Fe as UDropdownItem,
-  Ve as UDropdownMenu,
-  h as UIcon,
+  qe as UDropdownMenu,
+  w as UIcon,
   Ee as UInput,
-  Te as ULayout,
-  no as UMessage,
-  Ge as UPopconfirm,
-  De as URegion,
-  ao as USlider,
-  Le as UTag,
-  ze as UText,
-  ee as UTooltip,
-  To as default
+  Ne as ULayout,
+  ao as UMessage,
+  He as UPopconfirm,
+  Oe as URegion,
+  io as USlider,
+  Ae as UTag,
+  Le as UText,
+  te as UTooltip,
+  Oo as default
 };
