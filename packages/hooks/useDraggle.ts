@@ -35,8 +35,6 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
 
   window.requestAnimationFrame(() => {
     target.style.position = 'relative'
-    target.style.userSelect = 'none'
-    target.style.touchAction = 'none'
     draggleTarget!.style.cursor = 'move'
     const willChangeArr = target.style.willChange.split(',')
     if (!willChangeArr.includes('left'))

@@ -131,15 +131,32 @@ export interface UDialogEmits {
 
   /**
    * @description 打开/关闭时触发
-   * @param {boolean} value
    * @returns {void}
    */
-  (e: 'open', value: boolean): void
+  (e: 'open'): void
 
   /**
-   * @description 关闭时触发
+   * @description 折叠时触发
    * @param {boolean} value
    * @returns {void}
    */
-  (e: 'close', value: boolean): void
+  (e: 'collapse', value: boolean): void
+
+  /**
+   * @description 点击确认按钮触发
+   * @returns {void}
+   */
+  (e: 'confirm'): void
+
+  /**
+   * @description 点击取消按钮触发
+   * @returns {void}
+   */
+  (e: 'cancel'): void
+
+  /**
+   * @description 点击遮罩层触发
+   * @returns {void}
+   */
+  (e: 'click-modal'): void
 }

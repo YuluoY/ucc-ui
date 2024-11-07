@@ -1,8 +1,10 @@
 <template>
   <!-- <u-dialog>
-    asdasd
+    <Test />
   </u-dialog> -->
+  <Test />
   <u-button @click="openDialog">打开对话框</u-button>
+
   <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
       <u-dropdown :data="dropdownData">
@@ -55,14 +57,20 @@
 </template>
 
 <script setup lang="ts">
-import { h, reactive, ref } from 'vue';
+import { getCurrentInstance, h, reactive, ref, resolveComponent } from 'vue';
 import type { UDropdownItemProps } from '../../components/dropdown/types';
 // import { UMessage } from 'ucc-ui';
 import {UMessage} from '../../components/message';
 import UDialog from '../../components/dialog/methods';
+import Test from './Test.vue';
+import { UButton } from 'ucc-ui';
+
+const instance = getCurrentInstance()
+const Btn = resolveComponent(String(UButton.name))
+const comp = () => h(Btn, null, '啊哈哈哈')
 
 const openDialog = () => {
-  UDialog({ mode: 'multi' })
+  UDialog({ single: false, content: comp, modal: false })
 }
 
 const visible = ref(false)

@@ -1,12 +1,15 @@
 import { isRef, onBeforeUnmount, onMounted, unref, watch, type MaybeRef, type WatchStopHandle } from "vue";
 
 export default function useEventListener (
-  target: MaybeRef<EventTarget | HTMLElement | void>,
+  target: MaybeRef<EventTarget | HTMLElement | null | void>,
   event: string,
   handler: (e: any) => any
 ){
 
-  console.log(target)
+  if (!target) {
+    return;
+  }
+
   let targetWatcher: WatchStopHandle | void;
 
   if (isRef(target)) {

@@ -4,11 +4,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
-    UDialog: typeof import('ucc-ui')['UDialog'];
-    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCard: typeof import('ucc-ui')['UCard'];
+    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
+    UDialog: typeof import('ucc-ui')['UDialog'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
@@ -17,11 +17,11 @@ declare module 'vue' {
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
+    USlider: typeof import('ucc-ui')['USlider'];
     UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
-    UText: typeof import('ucc-ui')['UText'];
     UTag: typeof import('ucc-ui')['UTag'];
     UTooltip: typeof import('ucc-ui')['UTooltip'];
-    USlider: typeof import('ucc-ui')['USlider'];
+    UText: typeof import('ucc-ui')['UText'];
 	}
 }
 
