@@ -26,7 +26,6 @@
         <div class="u-dialog__body">
           <span v-html="content" v-if="isString(content)"></span>
           <component v-else :is="content"></component>
-          <slot></slot>
         </div>
         <div class="u-dialog__footer custom-scollbar">
           <u-button type="primary" @click="onConfirm">确认</u-button>

@@ -4,8 +4,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
-    UCard: typeof import('ucc-ui')['UCard'];
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
+    UCard: typeof import('ucc-ui')['UCard'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UDialog: typeof import('ucc-ui')['UDialog'];
@@ -17,11 +17,11 @@ declare module 'vue' {
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
-    USlider: typeof import('ucc-ui')['USlider'];
     UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
+    USlider: typeof import('ucc-ui')['USlider'];
     UTag: typeof import('ucc-ui')['UTag'];
-    UTooltip: typeof import('ucc-ui')['UTooltip'];
     UText: typeof import('ucc-ui')['UText'];
+    UTooltip: typeof import('ucc-ui')['UTooltip'];
 	}
 }
 

@@ -67,7 +67,7 @@ import { UButton } from 'ucc-ui';
 
 const instance = getCurrentInstance()
 const Btn = resolveComponent(String(UButton.name))
-const comp = () => h(Btn, null, '啊哈哈哈')
+const comp = () => h(Btn, null, {default: () => '啊哈哈哈'})
 
 const openDialog = () => {
   UDialog({ single: false, content: comp, modal: false })
@@ -76,9 +76,6 @@ const openDialog = () => {
 const visible = ref(false)
 const def = ref(['1'])
 const code = ref('')
-const onChange = (evt: any) => {
-  // console.log(code.value);
-}
 
 const a = {
   type: 'UButton',
