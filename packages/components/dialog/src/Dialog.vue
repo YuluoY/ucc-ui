@@ -5,7 +5,7 @@
       v-if="visible"
       class="u-dialog-overlay"
       :class="{ [modalClass || 'is-overlay']: modal }"
-      :style="{zIndex: zIndex}"
+      :style="{zIndex: _zIndex}"
       @click.self.prevent="onOverlayClick"
     >
       <div 
@@ -14,7 +14,7 @@
         role="dialog" 
         :aria-describedby="uid" 
       >
-        <div ref="dialogHeaderRef" class="u-dialog__header">
+        <div ref="dialogHeaderRef" class="u-dialog__header" @click="onActive">
           <div class="u-dialog__title" :title="title">
             <span>{{ title }}</span>
           </div>
@@ -45,6 +45,7 @@ import { UButton } from '../../button';
 import useResize from '@ucc-ui/hooks/useResize';
 import useDraggle from '@ucc-ui/hooks/useDraggle';
 import { isFunction, isString } from 'lodash-es';
+import { cacheZIndex, getNextZIndex, getZIndexs, isExistBiggerZIndex } from '../cache';
 
 defineOptions({
   name: 'UDialog',
@@ -65,6 +66,8 @@ const props = withDefaults(defineProps<UDialogProps>(), {
   showCloseIcon: true
 })
 
+cacheZIndex(props.zIndex)
+
 const emits = defineEmits<UDialogEmits>()
 const dialogRef = ref<HTMLDivElement | null>(null)
 const dialogHeaderRef = ref<HTMLDivElement | null>(null)
@@ -81,6 +84,7 @@ const attrs = useAttrs()
 
 const _closeIcon = computed(() => props.closeIcon || 'close')
 const _collapseIcon = computed(() => props.collapseIcon || ['fas', 'chevron-down'])
+const _zIndex = ref(props.zIndex)
 
 const visibleWatchHandle = watch(visible, (val) => {
   emits('update:modelValue', val)
@@ -124,6 +128,16 @@ const onOverlayClick = () => {
     close()
   }
   emits('click-modal')
+}
+
+/**
+ * 激活弹窗
+ */
+const onActive = () => {
+  if (getZIndexs().length < 2 || !isExistBiggerZIndex(_zIndex.value))
+    return 
+  _zIndex.value = getNextZIndex()
+  cacheZIndex(_zIndex.value)
 }
 
 /**

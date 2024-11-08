@@ -2,6 +2,7 @@ import { h, render } from 'vue'
 import DialogSFC from './src/Dialog.vue'
 import type { UDialogProps } from './types'
 import { debounce, isString } from 'lodash-es'
+import { getNextZIndex } from './cache'
 
 interface UDialogFnProps {
   single?: boolean
@@ -11,7 +12,6 @@ interface UDialogFnReturn {
   close: () => void
 }
 
-let zIndex = 2006
 const UDialog = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn => {
   const isSingle = props?.single ?? true
 
@@ -28,7 +28,7 @@ const UDialog = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn => 
 
   const _props = { 
     ...props, 
-    zIndex: zIndex++,
+    zIndex: getNextZIndex(),
     open: openDebounce,
     close: closeDebounce
   } as any
