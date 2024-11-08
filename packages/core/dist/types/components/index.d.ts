@@ -13,3 +13,4 @@ export * from './code-editor';
 export * from './message';
 export * from './slider';
 export * from './dialog';
+export * from './top';

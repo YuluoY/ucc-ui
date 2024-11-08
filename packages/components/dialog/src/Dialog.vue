@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, useAttrs } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, useAttrs, watch } from 'vue';
 import type { UDialogEmits, UDialogProps } from '../types';
 import { useEventListener, useId } from '@ucc-ui/hooks';
 import { UIcon } from '../../icon';
@@ -81,6 +81,14 @@ const attrs = useAttrs()
 
 const _closeIcon = computed(() => props.closeIcon || 'close')
 const _collapseIcon = computed(() => props.collapseIcon || ['fas', 'chevron-down'])
+
+const visibleWatchHandle = watch(visible, (val) => {
+  emits('update:modelValue', val)
+})
+
+onBeforeUnmount(() => {
+  visibleWatchHandle()
+})
 
 /**
  * 打开弹窗事件

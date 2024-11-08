@@ -6,18 +6,21 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         icon: {
             type: import('vue').PropType<string | object | string[] | import('@fortawesome/fontawesome-svg-core').IconDefinition>;
         };
-        size: {
-            type: import('vue').PropType<import('./types/const').ButtonSize>;
-            default: string;
+        disabled: {
+            type: import('vue').PropType<boolean>;
         };
         type: {
             type: import('vue').PropType<import('./types/const').ButtonType>;
         };
-        color: {
-            type: import('vue').PropType<string>;
-        };
         circle: {
             type: import('vue').PropType<boolean>;
+        };
+        size: {
+            type: import('vue').PropType<import('./types/const').ButtonSize>;
+            default: string;
+        };
+        color: {
+            type: import('vue').PropType<string>;
         };
         onClick: {
             type: import('vue').PropType<(e: MouseEvent) => void>;
@@ -33,9 +36,6 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
             type: import('vue').PropType<boolean>;
         };
         bg: {
-            type: import('vue').PropType<boolean>;
-        };
-        disabled: {
             type: import('vue').PropType<boolean>;
         };
         loading: {
@@ -102,18 +102,21 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         icon: {
             type: import('vue').PropType<string | object | string[] | import('@fortawesome/fontawesome-svg-core').IconDefinition>;
         };
-        size: {
-            type: import('vue').PropType<import('./types/const').ButtonSize>;
-            default: string;
+        disabled: {
+            type: import('vue').PropType<boolean>;
         };
         type: {
             type: import('vue').PropType<import('./types/const').ButtonType>;
         };
-        color: {
-            type: import('vue').PropType<string>;
-        };
         circle: {
             type: import('vue').PropType<boolean>;
+        };
+        size: {
+            type: import('vue').PropType<import('./types/const').ButtonSize>;
+            default: string;
+        };
+        color: {
+            type: import('vue').PropType<string>;
         };
         onClick: {
             type: import('vue').PropType<(e: MouseEvent) => void>;
@@ -129,9 +132,6 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
             type: import('vue').PropType<boolean>;
         };
         bg: {
-            type: import('vue').PropType<boolean>;
-        };
-        disabled: {
             type: import('vue').PropType<boolean>;
         };
         loading: {
@@ -214,18 +214,21 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         icon: {
             type: import('vue').PropType<string | object | string[] | import('@fortawesome/fontawesome-svg-core').IconDefinition>;
         };
-        size: {
-            type: import('vue').PropType<import('./types/const').ButtonSize>;
-            default: string;
+        disabled: {
+            type: import('vue').PropType<boolean>;
         };
         type: {
             type: import('vue').PropType<import('./types/const').ButtonType>;
         };
-        color: {
-            type: import('vue').PropType<string>;
-        };
         circle: {
             type: import('vue').PropType<boolean>;
+        };
+        size: {
+            type: import('vue').PropType<import('./types/const').ButtonSize>;
+            default: string;
+        };
+        color: {
+            type: import('vue').PropType<string>;
         };
         onClick: {
             type: import('vue').PropType<(e: MouseEvent) => void>;
@@ -241,9 +244,6 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
             type: import('vue').PropType<boolean>;
         };
         bg: {
-            type: import('vue').PropType<boolean>;
-        };
-        disabled: {
             type: import('vue').PropType<boolean>;
         };
         loading: {
@@ -325,18 +325,21 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
     icon: {
         type: import('vue').PropType<string | object | string[] | import('@fortawesome/fontawesome-svg-core').IconDefinition>;
     };
-    size: {
-        type: import('vue').PropType<import('./types/const').ButtonSize>;
-        default: string;
+    disabled: {
+        type: import('vue').PropType<boolean>;
     };
     type: {
         type: import('vue').PropType<import('./types/const').ButtonType>;
     };
-    color: {
-        type: import('vue').PropType<string>;
-    };
     circle: {
         type: import('vue').PropType<boolean>;
+    };
+    size: {
+        type: import('vue').PropType<import('./types/const').ButtonSize>;
+        default: string;
+    };
+    color: {
+        type: import('vue').PropType<string>;
     };
     onClick: {
         type: import('vue').PropType<(e: MouseEvent) => void>;
@@ -352,9 +355,6 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         type: import('vue').PropType<boolean>;
     };
     bg: {
-        type: import('vue').PropType<boolean>;
-    };
-    disabled: {
         type: import('vue').PropType<boolean>;
     };
     loading: {

@@ -9,20 +9,20 @@ export default function useEventListener (
   if (!target) {
     return;
   }
-
-  let targetWatcher: WatchStopHandle | void;
+  console.log(target, 'target')
+  let targetWatchHandle: WatchStopHandle | void;
 
   if (isRef(target)) {
-    targetWatcher = watch(target, (newVal, oldVal) => {
+    targetWatchHandle = watch(target, (newVal, oldVal) => {
       oldVal?.removeEventListener(event, handler);
       newVal?.addEventListener(event, handler);
-    })
+    }, { immediate: true })
   } else {
     onMounted(() => target?.addEventListener(event, handler))
   }
 
   onBeforeUnmount(() => {
-    targetWatcher && targetWatcher();
+    targetWatchHandle && targetWatchHandle();
     unref(target)?.removeEventListener(event, handler);
   })
 }

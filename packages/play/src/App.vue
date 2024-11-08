@@ -1,10 +1,8 @@
 <template>
-  <!-- <u-dialog>
-    <Test />
-  </u-dialog> -->
-  <Test />
   <u-button @click="openDialog">打开对话框</u-button>
-
+  <u-top v-model="visible" :size="20" :offset="100">
+    <div>🚀</div>
+  </u-top>
   <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
       <u-dropdown :data="dropdownData">
@@ -62,7 +60,6 @@ import type { UDropdownItemProps } from '../../components/dropdown/types';
 // import { UMessage } from 'ucc-ui';
 import {UMessage} from '../../components/message';
 import UDialog from '../../components/dialog/methods';
-import Test from './Test.vue';
 import { UButton } from 'ucc-ui';
 
 const instance = getCurrentInstance()
@@ -111,5 +108,7 @@ const sliderVal = ref(0)
 </script>
 
 <style>
-
+body {
+  height: 200vh;
+}
 </style>

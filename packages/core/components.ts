@@ -20,7 +20,8 @@ import {
   UMessage,
   USlider,
   UDialog,
-  UDialogFn
+  UDialogFn,
+  UTop
 } from '@ucc-ui/components'
 
 export default [
@@ -44,5 +45,6 @@ export default [
   UMessage,
   USlider,
   UDialog,
-  UDialogFn
+  UDialogFn,
+  UTop
 ] as Plugin[]
