@@ -21,7 +21,8 @@ import {
   USlider,
   UDialog,
   UDialogFn,
-  UTop
+  UTop,
+  UBadge
 } from '@ucc-ui/components'
 
 export default [
@@ -46,5 +47,6 @@ export default [
   USlider,
   UDialog,
   UDialogFn,
-  UTop
+  UTop,
+  UBadge
 ] as Plugin[]

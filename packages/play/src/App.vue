@@ -3,6 +3,18 @@
   <u-top v-model="visible" :size="20" :offset="100">
     <div>🚀</div>
   </u-top>
+  <br><br>
+  <u-badge value="98" type="primary">
+    <u-button>
+      爱啥啥
+    </u-button>
+  </u-badge>
+  <br><br>
+  <u-badge value="98" is-dot type="success">
+    <u-button>
+      爱啥啥
+    </u-button>
+  </u-badge>
   <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
       <u-dropdown :data="dropdownData">
