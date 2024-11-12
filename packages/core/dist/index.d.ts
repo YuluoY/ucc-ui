@@ -3,12 +3,13 @@ import { App } from 'vue'
 declare module 'vue' {
   export interface GlobalComponents {
     UBadge: typeof import('ucc-ui')['UBadge'];
+    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCard: typeof import('ucc-ui')['UCard'];
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
-    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
+    UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
     UDialog: typeof import('ucc-ui')['UDialog'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];

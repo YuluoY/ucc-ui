@@ -44,6 +44,8 @@ export default defineConfig({
             return 'utils'
           if (id.includes('/packages/hooks'))
             return 'hooks'
+          if (id.includes('/packages/locale'))
+            return 'locale'
     
           const name = basename(id, extname(id))
           if (components.includes(name))

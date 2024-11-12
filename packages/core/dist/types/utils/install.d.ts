@@ -1,6 +1,7 @@
 import { App, Plugin } from 'vue';
+import { UConfigProviderProps } from '../components/config-provider/types';
 export type SFCWithInstall<T> = T & Plugin;
-export declare function makeInstaller(components: Plugin[]): Plugin;
+export declare function makeInstaller(components: Plugin[], opts?: UConfigProviderProps): Plugin;
 /**
  * 添加vue install方法
  * @param   component         组件

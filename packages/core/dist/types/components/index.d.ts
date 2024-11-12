@@ -16,3 +16,5 @@ export * from './dialog';
 export * from './top';
 export * from './badge';
 export * from './read-progress';
+export * from './notification';
+export * from './config-provider';

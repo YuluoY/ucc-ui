@@ -11,6 +11,9 @@ importers:
       '@ucc-ui/hooks':
         specifier: workspace:*
         version: link:packages/hooks
+      '@ucc-ui/locale':
+        specifier: workspace:*
+        version: link:packages/locale
       '@ucc-ui/theme':
         specifier: workspace:*
         version: link:packages/theme
@@ -44,6 +47,9 @@ importers:
       vue:
         specifier: ^3.4.19
         version: 3.4.37(typescript@5.5.4)
+      vue3-i18n:
+        specifier: ^1.1.5
+        version: 1.1.5(vue@3.4.37(typescript@5.5.4))
     devDependencies:
       '@fortawesome/fontawesome-svg-core':
         specifier: ^6.5.1
@@ -152,6 +158,8 @@ importers:
         version: 1.0.0-rc.44(@algolia/client-search@4.24.0)(@types/node@20.14.14)(@types/react@18.3.3)(async-validator@4.2.5)(postcss@8.4.41)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)(search-insights@2.16.1)(typescript@5.5.4)
 
   packages/hooks: {}
+
+  packages/locale: {}
 
   packages/play:
     devDependencies:
@@ -4605,6 +4613,9 @@ packages:
   vue-component-type-helpers@2.0.29:
     resolution: {integrity: sha512-58i+ZhUAUpwQ+9h5Hck0D+jr1qbYl4voRt5KffBx8qzELViQ4XdT/Tuo+mzq8u63teAG8K0lLaOiL5ofqW38rg==}
 
+  vue-component-type-helpers@2.1.10:
+    resolution: {integrity: sha512-lfgdSLQKrUmADiSV6PbBvYgQ33KF3Ztv6gP85MfGaGaSGMTXORVaHT1EHfsqCgzRNBstPKYDmvAV9Do5CmJ07A==}
+
   vue-component-type-helpers@2.1.6:
     resolution: {integrity: sha512-ng11B8B/ZADUMMOsRbqv0arc442q7lifSubD0v8oDXIFoMg/mXwAPUunrroIDkY+mcD0dHKccdaznSVp8EoX3w==}
 
@@ -4643,6 +4654,11 @@ packages:
     hasBin: true
     peerDependencies:
       typescript: '>=5.0.0'
+
+  vue3-i18n@1.1.5:
+    resolution: {integrity: sha512-DN5XfE0z6BnFxjbP/qW8AKI5QCex97L2l8z7G76ccTkfTsJ18n4mXGCy4K9H2rm4FlzDx/USPlPqQK64yXQqDg==}
+    peerDependencies:
+      vue: ^3.0.0
 
   vue@3.4.37:
     resolution: {integrity: sha512-3vXvNfkKTBsSJ7JP+LyR7GBuwQuckbWvuwAid3xbqK9ppsKt/DUvfqgZ48fgOLEfpy1IacL5f8QhUVl77RaI7A==}
@@ -6474,7 +6490,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.4.37(typescript@5.5.4)
-      vue-component-type-helpers: 2.1.6
+      vue-component-type-helpers: 2.1.10
 
   '@sxzz/popperjs-es@2.11.7': {}
 
@@ -9864,6 +9880,8 @@ snapshots:
 
   vue-component-type-helpers@2.0.29: {}
 
+  vue-component-type-helpers@2.1.10: {}
+
   vue-component-type-helpers@2.1.6: {}
 
   vue-demi@0.14.10(vue@3.4.37(typescript@5.5.4)):
@@ -9908,6 +9926,10 @@ snapshots:
       '@vue/language-core': 2.0.29(typescript@5.5.4)
       semver: 7.6.3
       typescript: 5.5.4
+
+  vue3-i18n@1.1.5(vue@3.4.37(typescript@5.5.4)):
+    dependencies:
+      vue: 3.4.37(typescript@5.5.4)
 
   vue@3.4.37(typescript@5.5.4):
     dependencies:

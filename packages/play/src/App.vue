@@ -10,11 +10,13 @@
     </u-button>
   </u-badge>
   <br><br>
-  <u-badge value="98" is-dot type="success">
-    <u-button>
-      爱啥啥
-    </u-button>
-  </u-badge>
+  <u-config-provider :locale="locale">
+    <u-badge value="98" is-dot type="success">
+      <u-button @click="onChange1">
+        爱啥啥{{ t('colorpicker.defaultLabel') }} {{getLocale()}}
+      </u-button>
+    </u-badge>
+  </u-config-provider>
   <!-- <u-read-progress></u-read-progress> -->
   <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
@@ -68,12 +70,33 @@
 </template>
 
 <script setup lang="ts">
-import { getCurrentInstance, h, reactive, ref, resolveComponent } from 'vue';
+import { computed, getCurrentInstance, h, reactive, ref, resolveComponent } from 'vue';
 import type { UDropdownItemProps } from '../../components/dropdown/types';
 // import { UMessage } from 'ucc-ui';
 import {UMessage} from '../../components/message';
 import UDialog from '../../components/dialog/methods';
 import { UButton } from 'ucc-ui';
+import { useLocale } from '@ucc-ui/hooks';
+import { zhCn, en } from 'ucc-ui';
+
+const { t, setLocale, getLocale } = useLocale()
+
+const map = {
+  zhCn,
+  en
+} as any
+const language = ref('zh-cn') as any
+
+const locale = computed(() => map[language.value]) as any
+
+const onChange1 = () => {
+  if (language.value === 'en')
+    language.value = 'zhCn'
+  else
+    language.value = 'en'
+  setLocale(language.value)
+}
+
 
 const instance = getCurrentInstance()
 const Btn = resolveComponent(String(UButton.name))

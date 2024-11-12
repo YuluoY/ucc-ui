@@ -12,4 +12,5 @@ library.add(fas, far, fab);
 const install = makeInstaller(components);
 
 export * from "../components";
+export * from '../locale'
 export default install;

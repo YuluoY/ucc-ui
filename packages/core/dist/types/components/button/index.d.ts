@@ -15,6 +15,10 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         circle: {
             type: import('vue').PropType<boolean>;
         };
+        loading: {
+            type: import('vue').PropType<boolean>;
+            default: boolean;
+        };
         size: {
             type: import('vue').PropType<import('./types/const').ButtonSize>;
             default: string;
@@ -37,10 +41,6 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         };
         bg: {
             type: import('vue').PropType<boolean>;
-        };
-        loading: {
-            type: import('vue').PropType<boolean>;
-            default: boolean;
         };
         loadingIcon: {
             type: import('vue').PropType<string>;
@@ -111,6 +111,10 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         circle: {
             type: import('vue').PropType<boolean>;
         };
+        loading: {
+            type: import('vue').PropType<boolean>;
+            default: boolean;
+        };
         size: {
             type: import('vue').PropType<import('./types/const').ButtonSize>;
             default: string;
@@ -133,10 +137,6 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         };
         bg: {
             type: import('vue').PropType<boolean>;
-        };
-        loading: {
-            type: import('vue').PropType<boolean>;
-            default: boolean;
         };
         loadingIcon: {
             type: import('vue').PropType<string>;
@@ -188,9 +188,9 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
     }>> & {
         onClick?: ((val: MouseEvent) => any) | undefined;
     }, {
+        loading: boolean;
         size: import('./types/const').ButtonSize;
         tag: string;
-        loading: boolean;
         loadingIcon: string;
         autofocus: boolean;
         nativeType: string;
@@ -223,6 +223,10 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         circle: {
             type: import('vue').PropType<boolean>;
         };
+        loading: {
+            type: import('vue').PropType<boolean>;
+            default: boolean;
+        };
         size: {
             type: import('vue').PropType<import('./types/const').ButtonSize>;
             default: string;
@@ -245,10 +249,6 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
         };
         bg: {
             type: import('vue').PropType<boolean>;
-        };
-        loading: {
-            type: import('vue').PropType<boolean>;
-            default: boolean;
         };
         loadingIcon: {
             type: import('vue').PropType<string>;
@@ -302,9 +302,9 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
     }, {
         ref: import('vue').Ref<HTMLButtonElement | void>;
     }, {}, {}, {}, {
+        loading: boolean;
         size: import('./types/const').ButtonSize;
         tag: string;
-        loading: boolean;
         loadingIcon: string;
         autofocus: boolean;
         nativeType: string;
@@ -334,6 +334,10 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
     circle: {
         type: import('vue').PropType<boolean>;
     };
+    loading: {
+        type: import('vue').PropType<boolean>;
+        default: boolean;
+    };
     size: {
         type: import('vue').PropType<import('./types/const').ButtonSize>;
         default: string;
@@ -356,10 +360,6 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
     };
     bg: {
         type: import('vue').PropType<boolean>;
-    };
-    loading: {
-        type: import('vue').PropType<boolean>;
-        default: boolean;
     };
     loadingIcon: {
         type: import('vue').PropType<string>;
@@ -415,9 +415,9 @@ export declare const UButton: import('@ucc-ui/utils/install').SFCWithInstall<{
 }, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     click: (val: MouseEvent) => void;
 }, string, {
+    loading: boolean;
     size: import('./types/const').ButtonSize;
     tag: string;
-    loading: boolean;
     loadingIcon: string;
     autofocus: boolean;
     nativeType: string;

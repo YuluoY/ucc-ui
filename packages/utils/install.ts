@@ -1,12 +1,16 @@
 import { each } from "lodash-es";
 import type { App, Plugin } from "vue";
+import type { UConfigProviderProps } from "../components/config-provider/types";
+import { provideGlobalConfig } from "../components/config-provider/hooks";
 
 export type SFCWithInstall<T> = T & Plugin;
 
-export function makeInstaller(components: Plugin[]): Plugin {
-  return (app: App) => {
+export function makeInstaller(components: Plugin[], opts?: UConfigProviderProps): Plugin {
+  return ((app: App) => {
     each(components, component => app.use(component))
-  }
+    if (opts)
+      provideGlobalConfig(opts, app, true)
+  }) as Plugin
 }
 
 /**

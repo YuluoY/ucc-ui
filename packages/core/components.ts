@@ -25,7 +25,8 @@ import {
   UBadge,
   UReadProgress,
   UReadProgressFn,
-  UNotificationFn
+  UNotificationFn,
+  UConfigProvider
 } from '@ucc-ui/components'
 
 export default [
@@ -54,5 +55,6 @@ export default [
   UBadge,
   UReadProgress,
   UReadProgressFn,
-  UNotificationFn
+  UNotificationFn,
+  UConfigProvider
 ] as Plugin[]
