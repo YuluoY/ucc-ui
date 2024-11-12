@@ -19,19 +19,19 @@
 import { computed, type CSSProperties } from 'vue';
 import type { UTextProps } from '../types';
 
-  defineOptions({
-    name: 'UText'
-  })
-  const props = withDefaults(defineProps<UTextProps>(), {
-    type: 'primary',
-    size: 'default',
-    ellipsis: false,
-    tag: 'span'
-  })
-  const styles = computed<CSSProperties>(() => props.maxLine ? {
-    'line-clamp': props.maxLine,
-    '-webkit-line-clamp': props.maxLine
-  } : {})
+defineOptions({
+  name: 'UText'
+})
+const props = withDefaults(defineProps<UTextProps>(), {
+  type: 'primary',
+  size: 'default',
+  ellipsis: false,
+  tag: 'span'
+})
+const styles = computed<CSSProperties>(() => props.maxLine ? {
+  'line-clamp': props.maxLine,
+  '-webkit-line-clamp': props.maxLine
+} : {})
 </script>
 
 <style>

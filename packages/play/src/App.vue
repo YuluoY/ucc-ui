@@ -15,6 +15,7 @@
       爱啥啥
     </u-button>
   </u-badge>
+  <!-- <u-read-progress></u-read-progress> -->
   <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
       <u-dropdown :data="dropdownData">
@@ -80,6 +81,7 @@ const comp = () => h(Btn, null, {default: () => '啊哈哈哈'})
 
 const openDialog = () => {
   UDialog({ single: false, content: comp, modal: false })
+  instance?.proxy?.$progress()
 }
 
 const visible = ref(false)

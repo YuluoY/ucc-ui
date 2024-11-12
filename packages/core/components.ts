@@ -22,7 +22,9 @@ import {
   UDialog,
   UDialogFn,
   UTop,
-  UBadge
+  UBadge,
+  UReadProgress,
+  UReadProgressFn
 } from '@ucc-ui/components'
 
 export default [
@@ -48,5 +50,7 @@ export default [
   UDialog,
   UDialogFn,
   UTop,
-  UBadge
+  UBadge,
+  UReadProgress,
+  UReadProgressFn
 ] as Plugin[]

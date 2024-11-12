@@ -3,9 +3,9 @@ import { App } from 'vue'
 declare module 'vue' {
   export interface GlobalComponents {
     UBadge: typeof import('ucc-ui')['UBadge'];
+    UCard: typeof import('ucc-ui')['UCard'];
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
-    UCard: typeof import('ucc-ui')['UCard'];
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
@@ -19,6 +19,7 @@ declare module 'vue' {
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
     UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
+    UReadProgress: typeof import('ucc-ui')['UReadProgress'];
     USlider: typeof import('ucc-ui')['USlider'];
     UTag: typeof import('ucc-ui')['UTag'];
     UText: typeof import('ucc-ui')['UText'];

@@ -15,3 +15,4 @@ export * from './slider';
 export * from './dialog';
 export * from './top';
 export * from './badge';
+export * from './read-progress';
