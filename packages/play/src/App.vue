@@ -17,6 +17,9 @@
       </u-button>
     </u-badge>
   </u-config-provider>
+  <u-button size="small">哈哈</u-button>
+  <u-button size="default">哈哈</u-button>
+  <u-button size="large">哈哈</u-button>
   <!-- <u-read-progress></u-read-progress> -->
   <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">

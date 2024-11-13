@@ -5,8 +5,10 @@ import useRootFontSize from '../../hooks/useRootFontSize'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
-import UccUI, { zhCn } from 'ucc-ui'
-import 'ucc-ui/dist/index.css'
+import UccUI, { zhCn } from '../../core/index'
+
+// import UccUI, { zhCn } from 'ucc-ui'
+// import 'ucc-ui/dist/index.css'
 
 const app = createApp(App)
 app.use(ElementPlus)

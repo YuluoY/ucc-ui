@@ -60,43 +60,43 @@ import { throttle, debounce } from 'lodash-es'
 import { CIconPosition } from '../types/const';
 import { UIcon } from '../../icon'
 
-  defineOptions({
-    name: 'UButton'
+defineOptions({
+  name: 'UButton'
+})
+
+const emits = defineEmits<UButtonEmits>();
+const props = withDefaults(defineProps<UButtonProps>(), {
+  tag: 'button',
+  size: 'default',
+  nativeType: 'button',
+  useThrottle: false,
+  throttleTime: 400,
+  useDebounce: false,
+  debounceTime: 400,
+  autofocus: false,
+  loading: false,
+  loadingIcon: 'spinner',
+  iconPosition: 'left',
+  iconProps: () => ({
+    icon: ''
   })
+})
 
-  const emits = defineEmits<UButtonEmits>();
-  const props = withDefaults(defineProps<UButtonProps>(), {
-    tag: 'button',
-    size: 'default',
-    nativeType: 'button',
-    useThrottle: false,
-    throttleTime: 400,
-    useDebounce: false,
-    debounceTime: 400,
-    autofocus: false,
-    loading: false,
-    loadingIcon: 'spinner',
-    iconPosition: 'left',
-    iconProps: () => ({
-      icon: ''
-    })
-  })
-  
-  const slots = defineSlots()
-  const _ref = ref<HTMLButtonElement>()
+const slots = defineSlots()
+const _ref = ref<HTMLButtonElement>()
 
-  const handleClick = (e: MouseEvent) => emits('click', e)
-  const handleThrottleClick = throttle(handleClick, props.throttleTime)
-  const handleDebounceClick = debounce(handleClick, props.debounceTime)
+const handleClick = (e: MouseEvent) => emits('click', e)
+const handleThrottleClick = throttle(handleClick, props.throttleTime)
+const handleDebounceClick = debounce(handleClick, props.debounceTime)
 
-  const _iconProps = computed<UButtonProps['iconProps']>(() => Object.assign(props.iconProps, {
-    spin: props.loading || props.iconProps.spin, 
-    icon: (props.loading ? props.loadingIcon || props.icon || props.iconProps.icon : props.icon || props.iconProps.icon) || ''
-  }))
+const _iconProps = computed<UButtonProps['iconProps']>(() => Object.assign(props.iconProps, {
+  spin: props.loading || props.iconProps.spin, 
+  icon: (props.loading ? props.loadingIcon || props.icon || props.iconProps.icon : props.icon || props.iconProps.icon) || ''
+}))
 
-  defineExpose<UButtonInstance>({
-    ref: _ref
-  })
+defineExpose<UButtonInstance>({
+  ref: _ref
+})
 </script>
 
 <style>

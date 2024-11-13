@@ -70,8 +70,8 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
     const rect = target.getBoundingClientRect()
     left.value = rect.left + e.movementX
     top.value = rect.top + e.movementY
-    if (left.value < 0 || top.value < 0)
-      return
+    // if (left.value < 0 || top.value < 0)
+    //   return
     window.requestAnimationFrame(() => {
       opts.moving?.(moveX.value, moveY.value)
       target.style.left = `${left.value}px`

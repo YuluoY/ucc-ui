@@ -7,6 +7,10 @@
   --dialog-radius: var(--uc-border-radius-4);
   --dialog-footer-border-color: var(--uc-border-1);
   --dialog-footer-border-width: var(--uc-border-width-6);
+  --dialog-title-color: var(--uc-text-9);
+  --dialog-title-font-size: var(--uc-font-size-base);
+  --dialog-header-icon-color: var(--uc-text-9);
+  --dialog-header-icon-hover-color: var(--uc-text-1);
 }
 
 .u-dialog-overlay {
@@ -45,6 +49,9 @@
   justify-content: space-between;
   align-items: center;
   gap: 0.8rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .u-dialog .u-dialog__header .u-dialog__title {
   width: calc(100% - 3rem);
@@ -52,6 +59,7 @@
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  font-size: var(--dialog-title-font-size);
 }
 .u-dialog .u-dialog__header .u-dialog__title span {
   display: inline-block;
@@ -59,6 +67,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
+  color: var(--dialog-title-color);
 }
 .u-dialog .u-dialog__header .u-dialog__header-actions {
   display: flex;
@@ -68,19 +77,25 @@
 }
 .u-dialog .u-dialog__header .u-dialog__header-actions .u-icon {
   cursor: pointer;
+  color: var(--dialog-header-icon-color);
+  transition: var(--uc-transition);
+}
+.u-dialog .u-dialog__header .u-dialog__header-actions .u-icon:hover {
+  color: var(--dialog-header-icon-hover-color);
 }
 .u-dialog .u-dialog__body {
   flex: 1;
   width: 100%;
   box-sizing: border-box;
   padding: 0.8rem;
+  font-size: var(--uc-font-size-base);
 }
 .u-dialog .u-dialog__footer {
   width: 100%;
   border-top: var(--dialog-footer-border-width) solid var(--dialog-footer-border-color);
   box-sizing: border-box;
   display: flex;
-  padding: 0.8rem 0;
+  padding: 0.5rem 0;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;

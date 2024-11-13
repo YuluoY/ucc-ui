@@ -3,9 +3,9 @@
     export interface GlobalComponents {
     UBadge: typeof import('ucc-ui')['UBadge'];
     UCard: typeof import('ucc-ui')['UCard'];
-    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
+    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
@@ -14,12 +14,12 @@
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
     UIcon: typeof import('ucc-ui')['UIcon'];
-    ULayout: typeof import('ucc-ui')['ULayout'];
-    URegion: typeof import('ucc-ui')['URegion'];
     UInput: typeof import('ucc-ui')['UInput'];
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
-    UReadProgress: typeof import('ucc-ui')['UReadProgress'];
+    ULayout: typeof import('ucc-ui')['ULayout'];
+    URegion: typeof import('ucc-ui')['URegion'];
     UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
+    UReadProgress: typeof import('ucc-ui')['UReadProgress'];
     USlider: typeof import('ucc-ui')['USlider'];
     UTag: typeof import('ucc-ui')['UTag'];
     UText: typeof import('ucc-ui')['UText'];

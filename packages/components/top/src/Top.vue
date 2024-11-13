@@ -4,7 +4,6 @@
     <Transition appear :name="animationClass">
       <div 
         class="u-top"
-        :aria-describedby="uid"
         v-show="visible"
         :style="topStyles"
         @click.prevent="handleClick"
@@ -20,7 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { useId } from '@ucc-ui/hooks';
 import { type UTopProps, type UTopEmits, type UTopExposes } from '../types';
 import { computed, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue';
 import { pxToRem } from '@ucc-ui/utils';
@@ -32,7 +30,6 @@ defineOptions({
   name: 'UTop'
 })
 
-const uid = useId('u-top')
 const props = withDefaults(defineProps<UTopProps>(), {
   size: 40,
   offset: 50,

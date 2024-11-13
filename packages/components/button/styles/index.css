@@ -251,16 +251,19 @@
   &.u-button--large {
     padding: 0 1.4rem;
     height: 2.4rem;
+    font-size: var(--uc-font-size-lg);
   }
 
   &.u-button--default {
     padding: 0 0.8rem;
     height: 2rem;
+    font-size: var(--uc-font-size-base);
   }
 
   &.u-button--small {
     padding: 0 0.6rem;
     height: 1.6rem;
+    font-size: var(--uc-font-size-base);
   }
 
   &.is-round {

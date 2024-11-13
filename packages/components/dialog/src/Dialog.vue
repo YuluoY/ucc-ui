@@ -15,21 +15,25 @@
         :aria-describedby="uid" 
       >
         <div ref="dialogHeaderRef" class="u-dialog__header" @click="onActive">
-          <div class="u-dialog__title" :title="title">
-            <span>{{ title }}</span>
+          <div class="u-dialog__title">
+            <span :title="title">{{ title }}</span>
           </div>
           <div class="u-dialog__header-actions">
             <u-icon v-if="showCollapseIcon" class="u-dialog__minimize" :icon="_collapseIcon" @click="onCollapse" :rotation="isCollapsed ? 180 : 'default'"/>
             <u-icon v-if="showCloseIcon" class="u-dialog__close" :icon="_closeIcon" @click="close" />
           </div>
         </div>
-        <div class="u-dialog__body">
-          <span v-html="content" v-if="isString(content)"></span>
-          <component v-else :is="content"></component>
+        <div :id="uid" class="u-dialog__body">
+          <slot>
+            <span v-if="isString(content)" v-html="content"></span>
+            <component v-else :is="content"></component>
+          </slot>
         </div>
-        <div class="u-dialog__footer custom-scollbar">
-          <u-button type="primary" @click="onConfirm">确认</u-button>
-          <u-button plain @click="close">取消</u-button>
+        <div v-if="showFooter" class="u-dialog__footer custom-scollbar">
+          <slot name="footer">
+            <u-button type="primary" @click="onConfirm" size="small">确认</u-button>
+            <u-button plain @click="close" size="small">取消</u-button>
+          </slot>
         </div>
       </div>
     </div>
@@ -38,7 +42,7 @@
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, useAttrs, watch } from 'vue';
-import type { UDialogEmits, UDialogProps } from '../types';
+import type { UDialogEmits, UDialogExposes, UDialogProps } from '../types';
 import { useEventListener, useId } from '@ucc-ui/hooks';
 import { UIcon } from '../../icon';
 import { UButton } from '../../button';
@@ -60,10 +64,11 @@ const props = withDefaults(defineProps<UDialogProps>(), {
   appendTo: 'body',
   modal: false,
   width: 0.4,
-  height: 0.2,
+  height: 0.4,
   title: '标题',
   zIndex: 2000,
-  showCloseIcon: true
+  showCloseIcon: true,
+  showFooter: true
 })
 
 cacheZIndex(props.zIndex)
@@ -165,7 +170,13 @@ props.closeOnPressEscape && useEventListener(document, 'keydown', (e: KeyboardEv
 
 onMounted(() => {
   const rect = dialogHeaderRef.value?.getBoundingClientRect()
+  /**
+   * 初始化位置
+   */
   initDialogPos()
+  /**
+   * 改变弹窗大小
+   */
   useResize({
     el: dialogRef,
     minWidth: 100,
@@ -176,6 +187,9 @@ onMounted(() => {
       isCollapsed.value = false
     }
   })
+  /**
+   * 拖拽移动弹窗
+   */
   useDraggle({
     el: dialogRef,
     dragEl: dialogHeaderRef
@@ -200,10 +214,11 @@ function initDialogPos() {
   })
 }
 
-defineExpose({
+defineExpose<UDialogExposes>({
   open,
   close,
-  initDialogPos
+  collapse: onCollapse,
+  resetPosition: initDialogPos
 })
 
 </script>

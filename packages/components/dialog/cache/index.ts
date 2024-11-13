@@ -1,5 +1,7 @@
+import { DIALOG_DEF_INDEX } from "../types/const"
+
 const zIndexs: number[] = []
-const zIndex = 2006
+const zIndex = DIALOG_DEF_INDEX
 
 export const cacheZIndex = (zIndex: number) => {
   if (zIndexs.includes(zIndex))

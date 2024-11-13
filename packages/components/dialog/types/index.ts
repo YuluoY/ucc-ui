@@ -119,6 +119,13 @@ export interface UDialogProps {
    * @default 2000
    */
   zIndex?: number
+
+  /**
+   * @description 是否显示底部按钮
+   * @type {boolean}
+   * @default true
+   */
+  showFooter?: boolean
 }
 
 export interface UDialogEmits {
@@ -159,4 +166,26 @@ export interface UDialogEmits {
    * @returns {void}
    */
   (e: 'click-modal'): void
+}
+
+export interface UDialogExposes {
+  /**
+   * @description 打开弹窗
+   */
+  open: () => void
+
+  /**
+   * @description 关闭弹窗
+   */
+  close: () => void
+
+  /**
+   * @description 折叠弹窗
+   */
+  collapse: () => void
+
+  /**
+   * @description 重置弹窗位置
+   */
+  resetPosition: () => void
 }
