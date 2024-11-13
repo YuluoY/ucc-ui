@@ -44,6 +44,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 0.8rem;
+    user-select: none;
 
     .u-dialog__title {
       width: calc(100% - 3rem);

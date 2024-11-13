@@ -17,16 +17,17 @@ import {
   UTooltip,
   UPopconfirm,
   UCodeEditor,
-  UMessage,
   USlider,
   UDialog,
-  UDialogFn,
   UTop,
   UBadge,
   UReadProgress,
+  UConfigProvider,
+
+  UMessageFn,
+  UDialogFn,
   UReadProgressFn,
-  UNotificationFn,
-  UConfigProvider
+  UNotificationFn
 } from '@ucc-ui/components'
 
 export default [
@@ -47,14 +48,15 @@ export default [
   UTooltip,
   UPopconfirm,
   UCodeEditor,
-  UMessage,
   USlider,
   UDialog,
-  UDialogFn,
   UTop,
   UBadge,
   UReadProgress,
+  UConfigProvider,
+
+  UMessageFn,
+  UDialogFn,
   UReadProgressFn,
-  UNotificationFn,
-  UConfigProvider
+  UNotificationFn
 ] as Plugin[]

@@ -4,15 +4,15 @@ import type { UDialogProps } from './types'
 import { debounce, isString } from 'lodash-es'
 import { getNextZIndex } from './cache'
 
-interface UDialogFnProps {
+export interface UDialogFnProps {
   single?: boolean
 }
 
-interface UDialogFnReturn {
+export interface UDialogFnReturn {
   close: () => void
 }
 
-const UDialog = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn => {
+const DialogFn = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn => {
   const isSingle = props?.single ?? true
 
   let container = (isString(props?.appendTo) ? document.querySelector(props.appendTo) : props?.appendTo) || document.body
@@ -50,4 +50,10 @@ const UDialog = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn => 
   }
 }
 
-export default UDialog
+export default DialogFn
+// export default (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn => {
+
+//   return {
+//     close: () => {}
+//   }
+// }

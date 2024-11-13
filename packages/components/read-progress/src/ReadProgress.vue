@@ -28,10 +28,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, type CSSProperties } from 'vue';
+import { computed, type CSSProperties } from 'vue';
 import type { UReadProgressEmits, UReadProgressProps } from '../types';
 import { pxToRem } from '@ucc-ui/utils';
-import { useEventListener } from '@ucc-ui/hooks';
+import { useEventListener, useWatchRef } from '@ucc-ui/hooks';
 import { UText } from '../../text'
 import { CReadProgress } from '../types/const';
 
@@ -50,15 +50,14 @@ const props = withDefaults(defineProps<UReadProgressProps>(), {
 })
 const emits = defineEmits<UReadProgressEmits>()
 
-const progress = ref(props.modelValue || 0)
-const showProgress = ref(props.show)
+const progress = useWatchRef(props.modelValue || 0, () => props.modelValue)
+const showProgress = useWatchRef(props.show, () => props.show)
 
+const _content = computed(() => props.content ? props.content : `${Math.round(progress.value)}%`)
 const progressStyle = computed<CSSProperties>(() => ({
   height: pxToRem(props.height as number),
   backgroundColor: props.backgroundColor,
 }))
-
-const _content = computed(() => props.content ? props.content : `${Math.round(progress.value)}%`)
 
 useEventListener(document, 'scroll', () => {
   window.requestAnimationFrame(() => {

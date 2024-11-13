@@ -65,7 +65,7 @@ const createMessage = (props: ICreateMessageProps): UMessageInstance => {
   return instance
 }
 
-export const Message: UMessageFn & Partial<UMessage> = (options = {}): UMessageHandler => {
+export const MessageFn: UMessageFn & Partial<UMessage> = (options = {}): UMessageHandler => {
   options = normalizeOptions(options)
   const instance = createMessage(options)
   instances.push(instance)
@@ -79,7 +79,7 @@ export function getLastBottomOffset(this: UMessageProps) {
 }
 
 // 将设置的type覆盖默认的type
-each(CMessageType, type => set(Message, type, (opts = {}) => Message({ ...normalizeOptions(opts), type })))
+each(CMessageType, type => set(MessageFn, type, (opts = {}) => MessageFn({ ...normalizeOptions(opts), type })))
 
 export function closeAll (type?: UMessageType) {
   each(instances, (ins) => {
@@ -91,5 +91,5 @@ export function closeAll (type?: UMessageType) {
   })
 }
 
-Message.closeAll = closeAll
-export default Message as UMessage
+MessageFn.closeAll = closeAll
+export default MessageFn as UMessage

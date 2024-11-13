@@ -1,9 +1,8 @@
 import { withInstall } from "@ucc-ui/utils";
 import Tooltip from "./src/Tooltip.vue";
 import { CTooltipContainerId } from "./types/const";
+import { h, render } from "vue";
 
 export const UTooltip = withInstall(Tooltip, _ => {
-  const tooltipContainer = document.createElement("div");
-  tooltipContainer.setAttribute('id', CTooltipContainerId)
-  document.body.appendChild(tooltipContainer);
+  return render(h('div', {id: CTooltipContainerId}), document.body);
 });

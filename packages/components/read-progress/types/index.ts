@@ -1,4 +1,4 @@
-import type { Ref } from "vue"
+import type { Ref, VNode } from "vue"
 import type { UTextProps } from "../../text/types"
 import type { UReadProgressType } from "./const"
 
@@ -81,7 +81,7 @@ export interface UReadProgressSlots {
   /**
    * @description 自定义内容
    */
-  default?: () => JSX.Element
+  default?: () => VNode | VNode[]
 }
 
 export interface UReadProgressExposes {

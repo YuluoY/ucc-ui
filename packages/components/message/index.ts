@@ -1,8 +1,8 @@
 import { withInstallFunc } from "@ucc-ui/utils";
 import { defineComponent } from "vue";
 import { isFunction } from "lodash-es";
-import Message from "./methods";
-import { MESSAGE_VAR } from "../constants";
+import MessageFn from "./methods";
+import { Global_Vars } from "../constants";
 
 export const RenderVNode = defineComponent({
   props: {
@@ -16,5 +16,5 @@ export const RenderVNode = defineComponent({
   }
 })
 
-export const UMessage = withInstallFunc(Message, MESSAGE_VAR)
+export const UMessageFn = withInstallFunc(MessageFn, Global_Vars.MESSAGE)
 

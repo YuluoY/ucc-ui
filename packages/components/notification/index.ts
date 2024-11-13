@@ -1,5 +1,5 @@
 import { withInstallFunc } from "@ucc-ui/utils"
 import NotificationFn from "./methods"
-import { NOTIFICATION_VAR } from "../constants"
+import { Global_Vars } from "../constants"
 
-export const UNotificationFn = withInstallFunc(NotificationFn, NOTIFICATION_VAR)
+export const UNotificationFn = withInstallFunc(NotificationFn, Global_Vars.NOTIFICATION)

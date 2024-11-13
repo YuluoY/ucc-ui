@@ -1,7 +1,7 @@
 import { withInstall, withInstallFunc } from "@ucc-ui/utils";
-import Dialog from "./methods";
-import DialogSFC from "./src/Dialog.vue";
-import { DIALOG_VAR } from "../constants";
+import Dialog from "./src/Dialog.vue";
+import { Global_Vars } from "../constants.ts";
+import DialogFn from "./methods";
 
-export const UDialogFn = withInstallFunc(Dialog, DIALOG_VAR)
-export const UDialog = withInstall(DialogSFC)
+export const UDialog = withInstall(Dialog)
+export const UDialogFn = withInstallFunc(DialogFn, Global_Vars.DIALOG)

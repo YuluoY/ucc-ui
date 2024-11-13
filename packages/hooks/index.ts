@@ -7,6 +7,7 @@ import useDraggle from "./useDraggle";
 import useResize from "./useResize";
 import useScrollTo from "./useScrollTo";
 import useLocale from "./useLocale";
+import useWatchRef from "./useWatchRef";
 
 export {
   useClickOutside,
@@ -17,5 +18,6 @@ export {
   useDraggle,
   useResize,
   useScrollTo,
-  useLocale
+  useLocale,
+  useWatchRef
 }

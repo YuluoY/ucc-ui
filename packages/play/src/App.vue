@@ -72,10 +72,7 @@
 <script setup lang="ts">
 import { computed, getCurrentInstance, h, reactive, ref, resolveComponent } from 'vue';
 import type { UDropdownItemProps } from '../../components/dropdown/types';
-// import { UMessage } from 'ucc-ui';
-import {UMessage} from '../../components/message';
-import UDialog from '../../components/dialog/methods';
-import { UButton } from 'ucc-ui';
+import { UButton, UDialogFn } from 'ucc-ui';
 import { useLocale } from '@ucc-ui/hooks';
 import { zhCn, en } from 'ucc-ui';
 
@@ -103,8 +100,8 @@ const Btn = resolveComponent(String(UButton.name))
 const comp = () => h(Btn, null, {default: () => '啊哈哈哈'})
 
 const openDialog = () => {
-  UDialog({ single: false, content: comp, modal: false })
-  instance?.proxy?.$progress()
+  UDialogFn({ single: false, content: comp, modal: false })
+  window._ins = instance
 }
 
 const visible = ref(false)
