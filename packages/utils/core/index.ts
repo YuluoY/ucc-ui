@@ -1,6 +1,3 @@
-import type { App, Plugin } from 'vue'
-import { each } from 'lodash-es'
-
 /**
  * 解析JSON
  * @param   str   字符串
@@ -9,7 +6,7 @@ import { each } from 'lodash-es'
 export function parseJson(str: string, def: any = {}): any {
   // 如果 str 不是字符串或者是空字符串，直接返回默认值 def
   if (typeof str !== 'string' || str.trim() === '')
-    return typeof str === 'undefined' || str === null ? def : str;
+    return typeof str === 'undefined' || str === null || str === '' ? def : str;
   try {
     return JSON.parse(str)
   } catch (e) {
