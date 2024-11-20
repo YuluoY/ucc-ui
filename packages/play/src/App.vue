@@ -79,19 +79,19 @@ import { UButton, UDialogFn } from 'ucc-ui';
 import { useLocale } from '@ucc-ui/hooks';
 import { zhCn, en } from 'ucc-ui';
 
-const { t, setLocale, getLocale } = useLocale()
 
 const map = {
-  zhCn,
+  'zh-cn': zhCn,
   en
 } as any
 const language = ref('zh-cn') as any
 
 const locale = computed(() => map[language.value]) as any
+const { t, setLocale, getLocale } = useLocale()
 
 const onChange1 = () => {
   if (language.value === 'en')
-    language.value = 'zhCn'
+    language.value = 'zh-cn'
   else
     language.value = 'en'
   setLocale(language.value)

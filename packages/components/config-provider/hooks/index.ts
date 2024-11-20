@@ -3,7 +3,9 @@ import { configProviderContextKey, type ConfigProviderContext } from "../constan
 import { merge } from "lodash-es";
 import type { TranslatePair } from "@ucc-ui/locale";
 import { createI18n, i18nSymbol } from "vue3-i18n";
-import En from '@ucc-ui/locale/lang/en'
+import DefLang from '@ucc-ui/locale/lang/zh-cn'
+
+const DEFAULT_LANG = 'zh-cn'
 
 const globalConfig = ref<ConfigProviderContext>()
 
@@ -29,24 +31,24 @@ const _createI18n = (opts?: ConfigProviderContext) => {
   if (!opts?.locale)
   {
     return createI18n({
-      locale: 'en',
+      locale: DEFAULT_LANG,
       messages: mergeMsg({
-        en: En.el
+        DEFAULT_LANG: DefLang.el
       })
     })
   }
 
   return createI18n({
-    locale: opts.locale?.name || 'en',
+    locale: opts.locale?.name || DEFAULT_LANG,
     messages: mergeMsg({
-      en: En.el,
+      [DEFAULT_LANG]: DefLang.el,
       [opts.locale?.name]: opts.locale?.el ?? {}
     })
   })
 }
 
 export function provideGlobalConfig(
-  config: MaybeRef<ConfigProviderContext> = { locale: En },
+  config: MaybeRef<ConfigProviderContext> = { locale: DefLang },
   app?: App,
   global = false
 ) {

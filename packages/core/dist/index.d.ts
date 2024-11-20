@@ -2,16 +2,16 @@
   declare module 'vue' {
     export interface GlobalComponents {
     UBadge: typeof import('ucc-ui')['UBadge'];
-    UCard: typeof import('ucc-ui')['UCard'];
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
+    UCard: typeof import('ucc-ui')['UCard'];
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
     UDialog: typeof import('ucc-ui')['UDialog'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
-    UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
+    UDropDownItem: typeof import('ucc-ui')['UDropDownItem'];
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
     UIcon: typeof import('ucc-ui')['UIcon'];
     UInput: typeof import('ucc-ui')['UInput'];
