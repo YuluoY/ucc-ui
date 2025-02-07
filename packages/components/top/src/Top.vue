@@ -1,4 +1,3 @@
-
 <template>
   <Teleport :to="appendTo">
     <Transition appear :name="animationClass">
@@ -186,7 +185,10 @@ defineExpose<UTopExposes>({
   scrollToTop,
   scrollToBottom,
   scrollToElement,
-  vaildate
+  vaildate,
+  get visible() {
+    return visible.value
+  }
 })
 
 </script>

@@ -1,4 +1,4 @@
-import { isFunction, isString } from "lodash-es";
+import { isString } from "lodash-es";
 import { computed, isRef, onBeforeUnmount, ref, type Ref } from "vue";
 
 interface UseDraggleOptions {

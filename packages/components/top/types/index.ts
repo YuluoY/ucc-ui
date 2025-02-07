@@ -95,4 +95,11 @@ export interface UTopExposes {
    * @description 滚动到指定元素
    */
   scrollToElement: (element: HTMLElement) => void
+
+  /**
+   * @description 组件是否可见
+   */
+  visible: boolean
 }
+
+export type UTopInstance = UTopProps & UTopExposes

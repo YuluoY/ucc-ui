@@ -51,9 +51,3 @@ const DialogFn = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn =>
 }
 
 export default DialogFn
-// export default (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn => {
-
-//   return {
-//     close: () => {}
-//   }
-// }

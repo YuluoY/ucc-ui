@@ -23,6 +23,8 @@ import {
   UBadge,
   UReadProgress,
   UConfigProvider,
+  UForm,
+  UFormItem,
 
   UMessageFn,
   UDialogFn,
@@ -54,6 +56,8 @@ export default [
   UBadge,
   UReadProgress,
   UConfigProvider,
+  UForm,
+  UFormItem,
 
   UMessageFn,
   UDialogFn,

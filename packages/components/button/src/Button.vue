@@ -8,7 +8,7 @@
     :disabled="disabled || loading ? true : void 0"
     :class="{
       [`u-button--${type}`]: type,
-      [`u-button--${size}`]: size,
+      [`u-button--${_size}`]: _size,
       'is-plain': plain,
       'is-link': link,
       'is-disabled': disabled,
@@ -54,11 +54,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, inject } from 'vue';
 import type { UButtonEmits, UButtonInstance, UButtonProps } from '../types';
 import { throttle, debounce } from 'lodash-es'
 import { CIconPosition } from '../types/const';
 import { UIcon } from '../../icon'
+import { FORM_ITEM_SIZE_INJECTION_KEY } from '../../form/types/const'
 
 defineOptions({
   name: 'UButton'
@@ -81,6 +82,12 @@ const props = withDefaults(defineProps<UButtonProps>(), {
     icon: ''
   })
 })
+
+// 注入form-item的size
+const formItemSize = inject(FORM_ITEM_SIZE_INJECTION_KEY)
+
+// 计算最终的size
+const _size = computed(() => formItemSize?.value || props.size)
 
 const slots = defineSlots()
 const _ref = ref<HTMLButtonElement>()

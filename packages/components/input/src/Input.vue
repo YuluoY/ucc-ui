@@ -1,4 +1,3 @@
-
 <template>
   <div 
     class="u-input"
@@ -7,7 +6,7 @@
       'u-input--prefix': $slots.prefix,
       'is-disabled': disabled,
       'is-readonly': readonly,
-      [`u-input--${size}`]: size
+      [`u-input--${_size}`]: _size
     }"    
   >
     <div class="u-input__wapper">
@@ -87,75 +86,82 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, inject, type ComputedRef } from 'vue';
 import type { UInputEmits, UInputProps } from '../types';
 import { CInputType } from '../types/const';
 import { UIcon } from '../../icon'
+import { FORM_ITEM_SIZE_INJECTION_KEY } from '../../form/types/const'
 
-  defineOptions({
-    name: 'UInput'
-  })
-  
-  const props = withDefaults(defineProps<UInputProps>(), {
-    type: CInputType.TEXT,
-    size: 'default',
-    showPassword: false,
-    autocomplete: 'off',
-    tabindex: 0
-  })
-  const emits = defineEmits<UInputEmits>()
+defineOptions({
+  name: 'UInput'
+})
 
-  /**
-   * 处理双向绑定的值
-   */
-  const _value = computed(() => props.modelValue)
-  const isValue = computed(() => !!_value.value || _value.value === 0)
+const props = withDefaults(defineProps<UInputProps>(), {
+  type: CInputType.TEXT,
+  size: 'default',
+  showPassword: false,
+  autocomplete: 'off',
+  tabindex: 0
+})
 
-  /**
-   * 处理textarea类型
-   */
-  const isTextArea = computed(() => props.type === CInputType.TEXTAREA)
+// 注入form-item的size
+const formItemSize = inject(FORM_ITEM_SIZE_INJECTION_KEY)
 
-  /**
-   * 处理password类型
-   */
-  const passwordVisible = ref(isValue.value)
-  const isPassword = computed(() => props.type === CInputType.PASSWORD && props.showPassword)
-  const _icon = computed(() => passwordVisible.value ? 'eye' : 'eye-slash')
-  const _type = computed(() => passwordVisible.value ? CInputType.TEXT : props.type)
-  
-  
-  const onInput = (evt: Event) => {
-    let v = (evt.target as HTMLInputElement).value as any
-    v = handleBoundaryValue(v)
-    emits('update:modelValue', v)
-    emits('input', evt)
-  }
-  const onFocus = (evt: Event) => {
-    emits('focus', evt)
-  }
-  const onBlur = (evt: Event) => {
-    emits('blur', evt)
-  }
-  const onChange = (evt: Event) => {
-    emits('change', (evt.target as HTMLInputElement).value as any)
-  }
-  const onClear = (evt: Event) => {
-    emits('update:modelValue', '')
-    emits('clear', evt)
-  }
- 
-  /**
-   * 处理边界值
-   */
-  function handleBoundaryValue(v: string | number): string | number {
-    if (props.type === CInputType.NUMBER) {
-      props.max && (v = Math.min(+v!, +props.max))
-      props.min && (v = Math.max(+v!, +props.min))
-    }
-    return v
-  }
+// 计算最终的size
+const _size = computed(() => formItemSize?.value || props.size)
 
+const emits = defineEmits<UInputEmits>()
+
+/**
+ * 处理双向绑定的值
+ */
+const _value = computed(() => props.modelValue)
+const isValue = computed(() => !!_value.value || _value.value === 0)
+
+/**
+ * 处理textarea类型
+ */
+const isTextArea = computed(() => props.type === CInputType.TEXTAREA)
+
+/**
+ * 处理password类型
+ */
+const passwordVisible = ref(isValue.value)
+const isPassword = computed(() => props.type === CInputType.PASSWORD && props.showPassword)
+const _icon = computed(() => passwordVisible.value ? 'eye' : 'eye-slash')
+const _type = computed(() => passwordVisible.value ? CInputType.TEXT : props.type)
+
+
+const onInput = (evt: Event) => {
+  let v = (evt.target as HTMLInputElement).value as any
+  v = handleBoundaryValue(v)
+  emits('update:modelValue', v)
+  emits('input', evt)
+}
+const onFocus = (evt: Event) => {
+  emits('focus', evt)
+}
+const onBlur = (evt: Event) => {
+  emits('blur', evt)
+}
+const onChange = (evt: Event) => {
+  emits('change', (evt.target as HTMLInputElement).value as any)
+}
+const onClear = (evt: Event) => {
+  emits('update:modelValue', '')
+  emits('clear', evt)
+}
+
+/**
+ * 处理边界值
+ */
+function handleBoundaryValue(v: string | number): string | number {
+  if (props.type === CInputType.NUMBER) {
+    props.max && (v = Math.min(+v!, +props.max))
+    props.min && (v = Math.max(+v!, +props.min))
+  }
+  return v
+}
 </script>
 
 <style>

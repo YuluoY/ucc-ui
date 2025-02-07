@@ -1,4 +1,4 @@
-import type { Component, ComponentInternalInstance, Ref, VNode } from "vue";
+import type { App, Component, ComponentInternalInstance, Ref, VNode } from "vue";
 import type { UMessageType } from "./const";
 
 export interface UMessageProps {

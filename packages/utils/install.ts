@@ -33,9 +33,17 @@ export function withInstall<T>(component: T, onBeforeInstall?: (app: App) => voi
  * @param fn   函数
  * @param name 名称
  */
-export function withInstallFunc<T>(fn: T, name: string) {
-  (fn as SFCWithInstall<T>).install = (app: App) => {
-    return app.config.globalProperties[name] = fn
+export function withInstallFunc<T extends Function>(fn: T, name: string) {
+  const wrapped = function(this: any, ...args: any[]) {
+    return fn.apply(this, args)
+  } as T & Plugin
+
+  wrapped.install = (app: App) => {
+    app.config.globalProperties[name] = fn
   }
-  return fn as SFCWithInstall<T>
+
+  // 复制原函数的所有属性
+  Object.assign(wrapped, fn)
+  
+  return wrapped
 }
