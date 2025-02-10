@@ -84,13 +84,14 @@ const props = withDefaults(defineProps<UButtonProps>(), {
 })
 
 // 注入form-item的size
-const formItemSize = inject(FORM_ITEM_SIZE_INJECTION_KEY)
+const formItemSize = inject(FORM_ITEM_SIZE_INJECTION_KEY, null)
 
 // 计算最终的size
 const _size = computed(() => formItemSize?.value || props.size)
 
 const slots = defineSlots()
 const _ref = ref<HTMLButtonElement>()
+
 
 const handleClick = (e: MouseEvent) => emits('click', e)
 const handleThrottleClick = throttle(handleClick, props.throttleTime)

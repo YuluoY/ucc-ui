@@ -13,4 +13,4 @@ export declare function withInstall<T>(component: T, onBeforeInstall?: (app: App
  * @param fn   函数
  * @param name 名称
  */
-export declare function withInstallFunc<T>(fn: T, name: string): SFCWithInstall<T>;
+export declare function withInstallFunc<T extends Function>(fn: T, name: string): T & Plugin;

@@ -20,6 +20,7 @@
   <u-button size="small">哈哈</u-button>
   <u-button size="default">哈哈</u-button>
   <u-button size="large">哈哈</u-button>
+  <u-md-editor></u-md-editor>
   <!-- <u-read-progress></u-read-progress> -->
   <!-- <u-layout mode='vertical'>
     <u-region region="center" class="flex ai-center jc-center">
@@ -78,7 +79,6 @@ import type { UDropdownItemProps } from '../../components/dropdown/types';
 import { UButton, UDialogFn } from 'ucc-ui';
 import { useLocale } from '@ucc-ui/hooks';
 import { zhCn, en } from 'ucc-ui';
-
 
 const map = {
   'zh-cn': zhCn,

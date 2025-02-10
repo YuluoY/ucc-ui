@@ -105,7 +105,7 @@ const props = withDefaults(defineProps<UInputProps>(), {
 })
 
 // 注入form-item的size
-const formItemSize = inject(FORM_ITEM_SIZE_INJECTION_KEY)
+const formItemSize = inject(FORM_ITEM_SIZE_INJECTION_KEY, null)
 
 // 计算最终的size
 const _size = computed(() => formItemSize?.value || props.size)
