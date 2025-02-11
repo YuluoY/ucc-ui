@@ -4,10 +4,10 @@
     UBadge: typeof import('ucc-ui')['UBadge'];
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
+    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCard: typeof import('ucc-ui')['UCard'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
-    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
     UDialog: typeof import('ucc-ui')['UDialog'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
@@ -16,7 +16,6 @@
     UForm: typeof import('ucc-ui')['UForm'];
     UFormItem: typeof import('ucc-ui')['UFormItem'];
     UIcon: typeof import('ucc-ui')['UIcon'];
-    UMdEditor: typeof import('ucc-ui')['UMdEditor'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
     UInput: typeof import('ucc-ui')['UInput'];
@@ -32,9 +31,9 @@
   }
   interface ComponentCustomProperties {
     $dialog: typeof import('ucc-ui')['UDialogFn'];
+    $notification: typeof import('ucc-ui')['UNotificationFn'];
     $message: typeof import('ucc-ui')['UMessageFn'];
     $progress: typeof import('ucc-ui')['UReadProgressFn'];
-    $notification: typeof import('ucc-ui')['UNotificationFn'];
 }
   export {}
   

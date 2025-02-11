@@ -25,7 +25,6 @@ import {
   UConfigProvider,
   UForm,
   UFormItem,
-  UMdEditor,
 
   UMessageFn,
   UDialogFn,
@@ -59,8 +58,7 @@ export default [
   UConfigProvider,
   UForm,
   UFormItem,
-  UMdEditor,
-
+  
   UMessageFn,
   UDialogFn,
   UReadProgressFn,
