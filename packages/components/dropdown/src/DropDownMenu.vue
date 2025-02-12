@@ -7,6 +7,6 @@
 
 <script setup lang="ts">
   defineOptions({
-    name: 'UDropDownMenu'
+    name: 'UDropdownMenu'
   })
 </script>

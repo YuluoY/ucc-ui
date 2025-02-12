@@ -17,4 +17,3 @@ app.use(UccUI, { locale: zhCn })
 useRootFontSize({ isAuto: true })
 
 app.mount('#app')
-window._app = app

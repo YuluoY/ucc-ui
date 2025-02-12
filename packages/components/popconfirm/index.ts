@@ -1,4 +1,4 @@
-import { withInstall  } from "../../utils";
+import { withInstall, type SFCWithInstall } from "../../utils";
 import Popconfirm from "./src/Popconfirm.vue";
 
-export const UPopconfirm = withInstall(Popconfirm);
+export const UPopconfirm: SFCWithInstall<typeof Popconfirm> = withInstall<typeof Popconfirm>(Popconfirm);

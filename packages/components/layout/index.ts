@@ -1,6 +1,6 @@
 import Layout from './src/Layout.vue'
 import Region from './src/Region.vue'
-import { withInstall } from '../../utils/index'
+import { withInstall, type SFCWithInstall } from '../../utils/index'
 
-export const ULayout = withInstall(Layout) 
-export const URegion = withInstall(Region)
+export const ULayout: SFCWithInstall<typeof Layout> = withInstall<typeof Layout>(Layout) 
+export const URegion: SFCWithInstall<typeof Region> = withInstall<typeof Region>(Region)

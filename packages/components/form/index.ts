@@ -1,6 +1,6 @@
-import { withInstall } from '../../utils'
+import { withInstall, type SFCWithInstall } from '../../utils'
 import Form from './src/Form.vue'
 import FormItem from './src/FormItem.vue'
 
-export const UForm = withInstall(Form)
-export const UFormItem = withInstall(FormItem)
+export const UForm: SFCWithInstall<typeof Form> = withInstall<typeof Form>(Form)
+export const UFormItem: SFCWithInstall<typeof FormItem> = withInstall<typeof FormItem>(FormItem)

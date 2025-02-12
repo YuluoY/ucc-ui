@@ -31,7 +31,7 @@
         <DropdownMenu>
           <slot name="dropdown">
             <template v-for="item in data" :key="item.command">
-              <DropDownItem v-bind="item" />
+              <DropdownItem v-bind="item" />
             </template>
           </slot>
         </DropdownMenu>
@@ -46,7 +46,7 @@ import type { UDropdownEmits, UDropdownExposes, UDropdownItemProps, UDropdownPro
 import { CDropdownCtx } from '../types/const';
 import type { UTooltipExposes, UTooltipProps } from '../../tooltip/types';
 import type { UButtonInstance } from '../../button/types';
-import DropDownItem from './DropdownItem.vue';
+import DropdownItem from './DropdownItem.vue';
 import DropdownMenu from './DropdownMenu.vue';
 import { UTooltip } from '../../tooltip';
 import { UButtonGroup, UButton } from '../../button';

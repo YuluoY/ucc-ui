@@ -1,6 +1,6 @@
 import Button from "./src/Button.vue";
 import ButtonGroup from "./src/ButtonGroup.vue";
-import { withInstall } from "../../utils";
+import { withInstall, type SFCWithInstall } from "../../utils";
 
-export const UButton = withInstall(Button) 
-export const UButtonGroup = withInstall(ButtonGroup)
+export const UButton: SFCWithInstall<typeof Button> = withInstall<typeof Button>(Button)
+export const UButtonGroup: SFCWithInstall<typeof ButtonGroup> = withInstall<typeof ButtonGroup>(ButtonGroup)

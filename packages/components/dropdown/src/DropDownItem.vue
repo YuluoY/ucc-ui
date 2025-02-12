@@ -26,7 +26,7 @@ import { useId } from '@ucc-ui/hooks';
 import { UIcon } from '../../icon'
 
 defineOptions({
-  name: 'UDropDownItem'
+  name: 'UDropdownItem'
 })
 const props = withDefaults(defineProps<UDropdownItemProps>(), {
   disabled: false,
