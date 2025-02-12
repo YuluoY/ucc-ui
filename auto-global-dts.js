@@ -19,7 +19,9 @@ const GLOBAL_FILENAME = 'global';
   declare module 'vue' {
     export interface GlobalComponents {{0}}
   }
-  interface ComponentCustomProperties {{1}}
+  declare module '@vue/runtime-core' {
+    export interface ComponentCustomProperties {{1}}
+  }
   export {}
   `)
 
