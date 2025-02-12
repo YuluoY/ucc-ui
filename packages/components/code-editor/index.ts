@@ -1,4 +1,4 @@
-import { withInstall } from "@ucc-ui/utils";
+import { withInstall, type SFCWithInstall } from "../../utils";
 import CodeEditor from "./src/CodeEditor.vue";
 
-export const UCodeEditor = withInstall(CodeEditor);
+export const UCodeEditor: SFCWithInstall<typeof CodeEditor> = withInstall<typeof CodeEditor>(CodeEditor);

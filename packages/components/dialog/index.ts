@@ -1,4 +1,4 @@
-import { withInstall, withInstallFunc } from "@ucc-ui/utils";
+import { withInstall, withInstallFunc } from "../../utils";
 import Dialog from "./src/Dialog.vue";
 import { Global_Vars } from "../constants.ts";
 import DialogFn from "./methods";

@@ -1,4 +1,4 @@
-import { withInstall } from "@ucc-ui/utils";
+import { withInstall, type SFCWithInstall } from "../../utils";
 import Card from "./src/Card.vue";
 
-export const UCard = withInstall(Card);
+export const UCard: SFCWithInstall<typeof Card> = withInstall<typeof Card>(Card);

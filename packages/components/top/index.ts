@@ -1,4 +1,4 @@
-import { withInstall } from "@ucc-ui/utils"
+import { withInstall, type SFCWithInstall } from "../../utils";
 import Top from "./src/Top.vue"
 
-export const UTop = withInstall(Top)
+export const UTop: SFCWithInstall<typeof Top> = withInstall<typeof Top>(Top);

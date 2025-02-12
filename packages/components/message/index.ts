@@ -1,4 +1,4 @@
-import { withInstallFunc } from "@ucc-ui/utils";
+import { withInstallFunc } from "../../utils";
 import { defineComponent } from "vue";
 import { isFunction } from "lodash-es";
 import MessageFn from "./methods";

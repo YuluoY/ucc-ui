@@ -1,4 +1,4 @@
-import { withInstall } from "@ucc-ui/utils"
-import ConfigProvider from "./src/ConfigProvider.vue"
+import { withInstall, type SFCWithInstall } from "../../utils";
+import ConfigProvider from "./src/ConfigProvider.vue";
 
-export const UConfigProvider = withInstall(ConfigProvider)
+export const UConfigProvider: SFCWithInstall<typeof ConfigProvider> = withInstall<typeof ConfigProvider>(ConfigProvider);

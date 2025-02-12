@@ -1,6 +1,6 @@
-import { withInstall } from "@ucc-ui/utils";
+import { withInstall, type SFCWithInstall } from "../../utils";
 import Collapse from "./src/Collapse.vue";
 import CollapseItem from "./src/CollapseItem.vue";
 
-export const UCollapse = withInstall(Collapse)
-export const UCollapseItem = withInstall(CollapseItem)
+export const UCollapse: SFCWithInstall<typeof Collapse> = withInstall<typeof Collapse>(Collapse);
+export const UCollapseItem: SFCWithInstall<typeof CollapseItem> = withInstall<typeof CollapseItem>(CollapseItem);

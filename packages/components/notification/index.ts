@@ -1,4 +1,4 @@
-import { withInstallFunc } from "@ucc-ui/utils"
+import { withInstallFunc } from "../../utils";
 import NotificationFn from "./methods"
 import { Global_Vars } from "../constants"
 

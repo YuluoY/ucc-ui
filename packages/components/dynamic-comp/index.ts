@@ -1,4 +1,4 @@
-import { withInstall } from "@ucc-ui/utils";
+import { withInstall, type SFCWithInstall } from "../../utils";
 import DynamicComp from "./src/DynamicComp";
 
-export const UDynamicComp = withInstall(DynamicComp)
+export const UDynamicComp: SFCWithInstall<typeof DynamicComp> = withInstall<typeof DynamicComp>(DynamicComp);
