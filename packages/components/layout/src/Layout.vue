@@ -15,7 +15,7 @@
 import { useSlots, type VNode, type Slots, shallowRef, provide } from 'vue';
 import type { ULayoutProps } from '../types';
 import { CLayoutMode, CLayoutContext, type ULayoutMode, CComponentName } from '../types/const';
-import LayoutMode from './LayoutMode.vue';
+import LayoutMode from '../components/LayoutMode.vue';
 
   defineOptions({ name: CComponentName.LAYOUT });
   const props = withDefaults(defineProps<ULayoutProps>(), {
