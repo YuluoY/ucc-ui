@@ -1,3 +1,5 @@
+import { InjectionKey } from 'vue';
+import { ULayoutContext } from '.';
 export declare const CRegion: {
     readonly LEFT: "left";
     readonly RIGHT: "right";
@@ -6,10 +8,25 @@ export declare const CRegion: {
     readonly BOTTOM: "bottom";
 };
 export declare const CLayoutMode: {
-    readonly HORIZONTAL: "horizontal";
-    readonly VERTICAL: "vertical";
+    readonly ROW: "row";
+    readonly COLUMN: "column";
     readonly DEFAULT: "default";
 };
-export declare const CLayoutContext: unique symbol;
-export type RegionType = typeof CRegion[keyof typeof CRegion];
-export type LayoutMode = typeof CLayoutMode[keyof typeof CLayoutMode];
+export declare const CLayoutExtend: {
+    readonly LEFT_TOP: "left-top";
+    readonly RIGHT_TOP: "right-top";
+    readonly LEFT_BOTTOM: "left-bottom";
+    readonly RIGHT_BOTTOM: "right-bottom";
+    readonly LEFT: "left";
+    readonly RIGHT: "right";
+    readonly BOTH: "both";
+};
+export declare const CComponentName: {
+    readonly LAYOUT: "ULayout";
+    readonly REGION: "URegion";
+    readonly LAYOUT_MODE: "ULayoutMode";
+};
+export declare const CLayoutContext: InjectionKey<ULayoutContext>;
+export type URegionType = typeof CRegion[keyof typeof CRegion];
+export type ULayoutMode = typeof CLayoutMode[keyof typeof CLayoutMode];
+export type ULayoutExtend = typeof CLayoutExtend[keyof typeof CLayoutExtend];

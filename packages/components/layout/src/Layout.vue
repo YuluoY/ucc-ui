@@ -1,49 +1,35 @@
 <template>
   <main 
-    :class="[
-      'u-layout', 
-      `u-layout__${mode}`, 
-      { 'is-fit': fit, [`u-layout--${col}-col`]: col },
-      'u-container',
+    class="u-layout"
+    :class="['u-layout', `u-layout__${mode}`]"
+    :style="[
+      padding ? `padding: ${padding}px` : '',
+      gutter ? `gap: ${gutter}px` : ''
     ]"
-    :style="styles"
   >
-    <template v-for="(region, index) in Object.keys(regionGroup)" :key="`${region}-${index}`">
-      <component 
-        v-for="(item, i) in regionGroup[region as RegionType]" 
-        :is="item" 
-        :key="`${item}-${index}-${i}`" 
-        v-bind="handleComProps(item)"
-      >
-      </component>
-    </template>
-    <component class="u-region" v-for="(item, i) in ortherRegions" :is="item" :key="i" :style="handleComProps(item)"></component>
+    <LayoutMode />
   </main>
 </template>
 
 <script setup lang="ts">
+import { useSlots, type VNode, type Slots, shallowRef, provide } from 'vue';
 import type { ULayoutProps } from '../types';
-import type { RegionType } from '../types/const';
-import useLayout from '../hooks/useLayout';
+import { CLayoutMode, CLayoutContext, type ULayoutMode, CComponentName } from '../types/const';
+import LayoutMode from './LayoutMode.vue';
 
-  defineOptions({ name: 'ULayout' });
+  defineOptions({ name: CComponentName.LAYOUT });
   const props = withDefaults(defineProps<ULayoutProps>(), {
-    mode: 'default',
-    padding: 14,  
-    gap: 10,
-    col: 1,      
-    fit: false
+    mode: CLayoutMode.DEFAULT
   })
 
-  const {
-    styles,
-    regionGroup,
-    ortherRegions,
-    handleComProps
-  } = useLayout<typeof props>({
-    props
-  })
+  const slots: VNode[] = (useSlots() as Slots).default?.(props) || [];
 
+  provide(CLayoutContext, {
+    mode: props.mode as ULayoutMode,
+    extend: props.extend,
+    regions: shallowRef(slots)
+  })
+  
 </script>
 
 <style>

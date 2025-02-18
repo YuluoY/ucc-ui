@@ -1,27 +1,30 @@
 <template>
-  <section 
-    :class="['u-region', `u-region__${region}`, 'u-region-container']" 
-    :style="regionStyles"
+  <section
+    :class="['u-region', `u-region__${region}`, 'u-region-container']"
+    :style="[
+      padding ? `padding: ${pxToRem(padding)}rem;` : '',
+      span ? `--flex-size: ${span}` : '',
+    ]"
   >
     <slot></slot>
   </section>
 </template>
 
 <script setup lang="ts">
-import type { URegionProps } from '../types';
-import useRegion from '../hooks/useRegion';
+import { pxToRem } from "@ucc-ui/utils";
+import type { URegionProps } from "../types";
+import { CComponentName } from "../types/const";
 
-  defineOptions({
-    name: 'URegion',
-  })
-  const props = withDefaults(defineProps<URegionProps>(), {
-    region: 'center'
-  })
+defineOptions({
+  name: CComponentName.REGION,
+});
+withDefaults(defineProps<URegionProps>(), {
+  region: "center",
+  padding: 0
+});
 
-  const {
-    regionStyles
-  } = useRegion({
-    props
-  })
-  
 </script>
+
+<style lang="scss" scoped>
+
+</style>

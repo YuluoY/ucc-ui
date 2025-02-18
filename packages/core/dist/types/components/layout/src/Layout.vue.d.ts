@@ -1,22 +1,11 @@
 import { ULayoutProps } from '../types';
+import { ULayoutMode } from '../types/const';
 declare const _default: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToOption<ULayoutProps>, {
-    mode: string;
-    padding: number;
-    gap: number;
-    col: number;
-    fit: boolean;
+    mode: "default";
 }>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToOption<ULayoutProps>, {
-    mode: string;
-    padding: number;
-    gap: number;
-    col: number;
-    fit: boolean;
+    mode: "default";
 }>>>, {
-    col: number;
-    gap: number;
-    padding: number;
-    mode: import('../types/const').LayoutMode;
-    fit: boolean;
+    mode: ULayoutMode;
 }, {}>;
 export default _default;
 type __VLS_WithDefaults<P, D> = {
