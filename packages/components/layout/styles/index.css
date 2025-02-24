@@ -2,7 +2,6 @@
 .u-layout,
 .u-region {
   box-sizing: border-box;
-  overflow: auto;
   flex-shrink: 0;
 }
 
@@ -38,23 +37,32 @@
 }
 .u-layout .u-region__center {
   flex: 1;
-  overflow: auto;
   min-height: 0;
+}
+.u-layout.u-layout__row .u-region__top,
+.u-layout.u-layout__row .u-region__bottom,
+.u-layout.u-layout__row .u-region__left,
+.u-layout.u-layout__row .u-region__right,
+.u-layout.u-layout__row .u-region__center, .u-layout.u-layout__column .u-region__top,
+.u-layout.u-layout__column .u-region__bottom,
+.u-layout.u-layout__column .u-region__left,
+.u-layout.u-layout__column .u-region__right,
+.u-layout.u-layout__column .u-region__center {
+  width: unset;
+  height: unset;
+}
+.u-layout.u-layout__row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.u-layout.u-layout__row .u-region {
+  flex: 0 0 calc(100% / var(--u-layout-max-span) * var(--u-layout-flex-size, 1));
+}
+.u-layout.u-layout__column {
+  flex-direction: column;
 }
 .u-layout .u-layout-mode {
   display: flex;
-}
-.u-layout .u-layout-mode.u-layout-mode__row .u-region__top,
-.u-layout .u-layout-mode.u-layout-mode__row .u-region__bottom,
-.u-layout .u-layout-mode.u-layout-mode__row .u-region__left,
-.u-layout .u-layout-mode.u-layout-mode__row .u-region__right,
-.u-layout .u-layout-mode.u-layout-mode__row .u-region__center, .u-layout .u-layout-mode.u-layout-mode__column .u-region__top,
-.u-layout .u-layout-mode.u-layout-mode__column .u-region__bottom,
-.u-layout .u-layout-mode.u-layout-mode__column .u-region__left,
-.u-layout .u-layout-mode.u-layout-mode__column .u-region__right,
-.u-layout .u-layout-mode.u-layout-mode__column .u-region__center {
-  width: unset;
-  height: unset;
 }
 .u-layout .u-layout-mode.u-layout-mode__extend {
   height: 100%;
@@ -101,14 +109,5 @@
   flex-direction: row;
 }
 .u-layout .u-layout-mode.u-layout-mode__extend.both .u-layout__body {
-  flex-direction: column;
-}
-.u-layout .u-layout-mode.u-layout-mode__row {
-  flex-wrap: wrap;
-}
-.u-layout .u-layout-mode.u-layout-mode__row .u-region {
-  flex: 0 0 calc(4.1666666667% * var(--flex-size, 1));
-}
-.u-layout .u-layout-mode.u-layout-mode__column {
   flex-direction: column;
 }/*# sourceMappingURL=index.css.map */

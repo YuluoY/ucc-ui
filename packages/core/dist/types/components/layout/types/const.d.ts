@@ -1,5 +1,9 @@
 import { InjectionKey } from 'vue';
 import { ULayoutContext } from '.';
+/**
+ * 最大span
+ */
+export declare const CMaxSpan: 24;
 export declare const CRegion: {
     readonly LEFT: "left";
     readonly RIGHT: "right";

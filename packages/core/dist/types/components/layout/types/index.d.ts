@@ -1,4 +1,4 @@
-import { ShallowRef, VNode } from 'vue';
+import { ComputedRef, ShallowRef, VNode } from 'vue';
 import { URegionType, ULayoutMode, ULayoutExtend } from './const';
 export interface ULayoutProps {
     /**
@@ -21,6 +21,11 @@ export interface ULayoutProps {
      * @default 10
      */
     gutter?: number;
+    /**
+     * @description 最大列数
+     * @default 24
+     */
+    maxSpan?: number;
 }
 export interface URegionProps {
     /**
@@ -44,12 +49,24 @@ export interface URegionProps {
     padding?: number;
 }
 export interface ULayoutContext {
-    mode: ULayoutMode;
-    extend?: ULayoutExtend;
-    topRegions?: ShallowRef<VNode[]>;
-    leftRegions?: ShallowRef<VNode[]>;
-    centerRegions?: ShallowRef<VNode[]>;
-    rightRegions?: ShallowRef<VNode[]>;
-    bottomRegions?: ShallowRef<VNode[]>;
-    regions?: ShallowRef<VNode[]>;
+    /**
+     * @description 布局模式
+     */
+    mode: ComputedRef<ULayoutMode>;
+    /**
+     * @description 区域延伸 - 仅在mode为default时有效
+     */
+    extend?: ComputedRef<ULayoutExtend>;
+    /**
+     * @description 最大列数
+     */
+    maxSpan?: ComputedRef<number>;
+    /**
+     * @description 添加渲染后的区域节点
+     */
+    addRegionVNode: (vnode: VNode, updated?: boolean) => void;
+    /**
+     * @description 区域节点
+     */
+    regions?: ShallowRef<VNode[]> | undefined;
 }

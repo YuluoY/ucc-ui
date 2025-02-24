@@ -1,5 +1,10 @@
-import type { InjectionKey } from "vue";
+import type { InjectionKey, Reactive } from "vue";
 import type { ULayoutContext } from ".";
+
+/**
+ * 最大span
+ */
+export const CMaxSpan = 24 as const;
 
 export const CRegion = {
   LEFT: 'left',

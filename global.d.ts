@@ -10,7 +10,7 @@
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
     UDialog: typeof import('ucc-ui')['UDialog'];
-    UDropdown: typeof import('ucc-ui')['UDropdown'];
+    UDropDown: typeof import('ucc-ui')['UDropDown'];
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
     UForm: typeof import('ucc-ui')['UForm'];
