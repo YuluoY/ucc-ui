@@ -30,7 +30,15 @@ export declare const CComponentName: {
     readonly REGION: "URegion";
     readonly LAYOUT_MODE: "ULayoutMode";
 };
+export declare const CLayoutFlexAlign: {
+    readonly START: "start";
+    readonly END: "end";
+    readonly CENTER: "center";
+    readonly BETWEEN: "between";
+    readonly AROUND: "around";
+};
 export declare const CLayoutContext: InjectionKey<ULayoutContext>;
 export type URegionType = typeof CRegion[keyof typeof CRegion];
 export type ULayoutMode = typeof CLayoutMode[keyof typeof CLayoutMode];
 export type ULayoutExtend = typeof CLayoutExtend[keyof typeof CLayoutExtend];
+export type ULayoutFlexAlign = typeof CLayoutFlexAlign[keyof typeof CLayoutFlexAlign];

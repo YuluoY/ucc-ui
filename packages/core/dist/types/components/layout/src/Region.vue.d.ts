@@ -8,14 +8,11 @@ declare function __VLS_template(): {
 };
 declare const __VLS_component: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToOption<URegionProps>, {
     region: string;
-    padding: number;
 }>, {
     updateSelf: typeof updateSelf;
 }, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToOption<URegionProps>, {
     region: string;
-    padding: number;
 }>>>, {
-    padding: number;
     region: import('../types/const').URegionType;
 }, {}>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
