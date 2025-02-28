@@ -1,5 +1,5 @@
 import type { ComputedRef, Ref, ShallowRef, VNode } from "vue";
-import type { URegionType, ULayoutMode, ULayoutExtend } from "./const";
+import type { URegionType, ULayoutMode, ULayoutExtend, ULayoutFlexAlign } from "./const";
 
 export interface ULayoutProps {
   /**
@@ -56,6 +56,18 @@ export interface URegionProps {
    * @default 0
    */
   padding?: number;
+
+  /**
+   * @description 水平对齐方式
+   * @default 'start'
+   */
+  justify?: ULayoutFlexAlign;
+
+  /**
+   * @description 垂直对齐方式
+   * @default 'start'
+   */
+  align?: ULayoutFlexAlign;
 }
 
 export interface ULayoutContext {

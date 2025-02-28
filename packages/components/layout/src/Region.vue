@@ -1,17 +1,7 @@
-<style lang="scss">
-  .u-region { 
-    --u-layout-flex-size: v-bind(span);
-    --u-layout-max-span: v-bind(maxSpan);
-  }
-</style>
-
 <template>
   <section
     :class="['u-region', `u-region__${region}`, 'u-region-container']"
-    :style="[
-      padding ? `padding: ${pxToRem(padding)}rem;` : '',
-      span ? `var(--u-layout-flex-size)` : ''
-    ]"
+    :style="regionStyle"
   >
     <slot></slot>
   </section>
@@ -20,8 +10,8 @@
 <script setup lang="ts">
 import { pxToRem } from "@ucc-ui/utils";
 import type { URegionProps, ULayoutContext } from "../types";
-import { CComponentName, CLayoutContext } from "../types/const";
-import { computed, getCurrentInstance, inject, shallowRef, type VNode, nextTick, watch, onBeforeUnmount } from "vue";
+import { CComponentName, CLayoutContext, CLayoutMode } from "../types/const";
+import { computed, getCurrentInstance, inject, shallowRef, type VNode, nextTick, watch, onBeforeUnmount, type CSSProperties } from "vue";
 import { isNil } from "lodash-es";
 
 defineOptions({
@@ -31,8 +21,7 @@ defineOptions({
 const instance = getCurrentInstance()
 
 const props = withDefaults(defineProps<URegionProps>(), {
-  region: "center",
-  padding: 0
+  region: "center"
 });
 
 /**
@@ -65,8 +54,33 @@ const siblingRegionsWithoutSpan = computed(() => siblingRegions.value.filter(ite
 const span = computed(() => {
   if (props.span)
     return props.span
+  if (siblingRegionsWithoutSpan.value.length === 0)
+    return 0
   const { surplus } = handleRowSpan(siblingRegions.value);
   return surplus / siblingRegionsWithoutSpan.value.length;
+})
+
+/**
+ * 区域样式
+ */
+const regionStyle = computed<CSSProperties>(() => {
+  const style = {} as CSSProperties
+
+  if (span.value)
+    style['--u-layout-flex-size'] = span.value
+  if (maxSpan.value && ctx?.mode.value === CLayoutMode.ROW)
+    style['--u-layout-max-span'] = maxSpan.value
+
+  if (!isNil(props.padding))
+    style.padding = pxToRem(props.padding)
+
+  if (!isNil(props.justify))
+    style.justifyContent = props.justify
+
+  if (!isNil(props.align))
+    style.alignItems = props.align
+
+  return style
 })
 
 /**

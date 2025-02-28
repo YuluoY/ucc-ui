@@ -4,6 +4,16 @@
     <u-region :span="span2" class="blue"> header-nav </u-region>
     <u-region class="green"> header-nav </u-region>
   </u-layout>
+  <u-layout class="layout-base">
+    <u-region region="top" class="layout-header">
+      <u-layout>
+        <u-region region="top">
+        </u-region>
+        <u-region region="center"> header </u-region>
+      </u-layout>
+    </u-region>
+    <u-region region="center"> content </u-region>
+  </u-layout>
 </template>
 
 <script setup lang="ts">

@@ -37,8 +37,17 @@ export const CComponentName = {
   LAYOUT_MODE: 'ULayoutMode',
 } as const;
 
+export const CLayoutFlexAlign = {
+  START: 'start',
+  END: 'end',
+  CENTER: 'center',
+  BETWEEN: 'between',
+  AROUND: 'around',
+} as const;
+
 export const CLayoutContext: InjectionKey<ULayoutContext> = Symbol('c-layout-context');
 
 export type URegionType = typeof CRegion[keyof typeof CRegion];
 export type ULayoutMode = typeof CLayoutMode[keyof typeof CLayoutMode];
 export type ULayoutExtend = typeof CLayoutExtend[keyof typeof CLayoutExtend];
+export type ULayoutFlexAlign = typeof CLayoutFlexAlign[keyof typeof CLayoutFlexAlign];
