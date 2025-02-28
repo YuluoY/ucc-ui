@@ -17,7 +17,9 @@ interface UseDraggleReturn {
   endX: Readonly<Ref<number>>,
   endY: Readonly<Ref<number>>,
   left: Readonly<Ref<number>>,
-  top: Readonly<Ref<number>>
+  top: Readonly<Ref<number>>,
+  initialLeft: Readonly<Ref<number>>,
+  initialTop: Readonly<Ref<number>>
 }
 
 export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
@@ -55,11 +57,21 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
   const left = ref(0)
   const top = ref(0)
 
+  // 记录元素的初始位置
+  const initialLeft = ref(0)
+  const initialTop = ref(0)
+
   const isDraggle = ref(false)
 
   const handleMouseDown = (e: MouseEvent) => {
     startX.value = e.clientX
     startY.value = e.clientY
+    
+    // 记录元素开始拖拽时的位置
+    const rect = target.getBoundingClientRect()
+    initialLeft.value = rect.left
+    initialTop.value = rect.top
+    
     isDraggle.value = true
   }
 
@@ -67,11 +79,18 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
     if (!isDraggle.value) 
       return
     e.preventDefault()
-    const rect = target.getBoundingClientRect()
-    left.value = rect.left + e.movementX
-    top.value = rect.top + e.movementY
-    // if (left.value < 0 || top.value < 0)
-    //   return
+    
+    // 计算鼠标移动的距离
+    moveX.value = e.clientX - startX.value
+    moveY.value = e.clientY - startY.value
+    
+    // 基于初始位置计算新位置
+    left.value = initialLeft.value + moveX.value
+    top.value = initialTop.value + moveY.value
+    
+    if (left.value < 0 || top.value < 0)
+      return
+      
     window.requestAnimationFrame(() => {
       opts.moving?.(moveX.value, moveY.value)
       target.style.left = `${left.value}px`
@@ -80,11 +99,18 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
   }
 
   const handleMouseUp = (e: MouseEvent) => {
+    if (!isDraggle.value) return
+    
     isDraggle.value = false
     endX.value = e.clientX
     endY.value = e.clientY
     moveX.value = endX.value - startX.value
     moveY.value = endY.value - startY.value
+    
+    // 确保最终位置是正确的
+    left.value = initialLeft.value + moveX.value
+    top.value = initialTop.value + moveY.value
+    
     opts.end?.(endX.value, endY.value)
   }
 
@@ -107,7 +133,9 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
     endX: computed(() => endX.value),
     endY: computed(() => endY.value),
     left: computed(() => left.value),
-    top: computed(() => top.value)
+    top: computed(() => top.value),
+    initialLeft: computed(() => initialLeft.value),
+    initialTop: computed(() => initialTop.value)
   }
 }
 

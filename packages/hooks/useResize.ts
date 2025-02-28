@@ -29,14 +29,14 @@ interface UseResizeReturn {
 const ResizeClasses: {
   [key: string]: string
 } = {
-  TOP: 'v-resize-top',
-  BOTTOM: 'v-resize-bottom',
-  LEFT: 'v-resize-left',
-  RIGHT: 'v-resize-right',
-  TOP_LEFT: 'v-resize-top-left',
-  TOP_RIGHT: 'v-resize-top-right',
-  BOTTOM_LEFT: 'v-resize-bottom-left',
-  BOTTOM_RIGHT: 'v-resize-bottom-right',
+  TOP: 'v-resize-t',
+  BOTTOM: 'v-resize-b',
+  LEFT: 'v-resize-l',
+  RIGHT: 'v-resize-r',
+  TOP_LEFT: 'v-resize-tl',
+  TOP_RIGHT: 'v-resize-tr',
+  BOTTOM_LEFT: 'v-resize-bl',
+  BOTTOM_RIGHT: 'v-resize-br',
 }
 
 const ResizeCursors: {

@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick } from 'vue';
+import { ref, nextTick, getCurrentInstance } from 'vue';
 
 const span = ref(2)
 const span2 = ref(5)
@@ -26,6 +26,14 @@ const maxSpan = ref(24)
 setTimeout(() => {
   maxSpan.value = 30
 }, 3000);
+
+const instance = getCurrentInstance()
+
+instance?.proxy?.$dialog({
+  title: '标题',
+  content: '内容',
+  showFooter: false
+})
 </script>
 
 <style>
