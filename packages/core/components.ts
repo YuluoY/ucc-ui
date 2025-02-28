@@ -25,6 +25,7 @@ import {
   UConfigProvider,
   UForm,
   UFormItem,
+  UTable,
 
   UMessageFn,
   UDialogFn,
@@ -58,6 +59,7 @@ export default [
   UConfigProvider,
   UForm,
   UFormItem,
+  UTable,
   
   UMessageFn,
   UDialogFn,
