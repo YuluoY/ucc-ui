@@ -31,8 +31,7 @@ const instance = getCurrentInstance()
 
 instance?.proxy?.$dialog({
   title: '标题',
-  content: '内容',
-  showFooter: false
+  content: '内容'
 })
 </script>
 

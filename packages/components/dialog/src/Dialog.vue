@@ -121,8 +121,7 @@ const close = () => {
  * 确认按钮
  */
 const onConfirm = () => {
-  close()
-  emits('confirm')
+  emits('confirm', () => close())
 }
 
 /**

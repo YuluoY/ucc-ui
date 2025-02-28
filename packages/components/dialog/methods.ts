@@ -1,11 +1,12 @@
 import { h, render } from 'vue'
 import DialogSFC from './src/Dialog.vue'
 import type { UDialogProps } from './types'
-import { debounce, isString } from 'lodash-es'
+import { debounce, isFunction, isString } from 'lodash-es'
 import { getNextZIndex } from './cache'
 
 export interface UDialogFnProps {
   single?: boolean
+  confirm?: () => Promise<boolean>
 }
 
 export interface UDialogFnReturn {
@@ -30,7 +31,16 @@ const DialogFn = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn =>
     ...props, 
     zIndex: getNextZIndex(),
     open: openDebounce,
-    close: closeDebounce
+    close: closeDebounce,
+    onConfirm: async (close: () => void) => {
+      if (isFunction(props.confirm))
+      {
+        const res = await props.confirm()
+        if (res) close()
+      }
+      else 
+        close()
+    }
   } as any
 
   function open() {

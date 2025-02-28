@@ -153,7 +153,7 @@ export interface UDialogEmits {
    * @description 点击确认按钮触发
    * @returns {void}
    */
-  (e: 'confirm'): void
+  (e: 'confirm', callback: () => void): void
 
   /**
    * @description 点击取消按钮触发
