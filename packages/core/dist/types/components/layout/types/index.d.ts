@@ -13,16 +13,14 @@ export interface ULayoutProps {
     extend?: ULayoutExtend;
     /**
      * @description 内边距
-     * @default 0
      */
     padding?: number;
     /**
      * @description 间距
-     * @default 10
      */
     gutter?: number;
     /**
-     * @description 最大列数
+     * @description 最大行块
      * @default 24
      */
     maxSpan?: number;

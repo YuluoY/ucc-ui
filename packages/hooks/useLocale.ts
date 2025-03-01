@@ -16,6 +16,18 @@ const globalI18n = createI18n({
   } 
 })
 
+/**
+ * 
+ * @param localeOverrides 语言包
+ * @description 用于设置语言包
+ * @example
+ * ```ts
+ * const locale = useLocale({
+ *   locale: 'en',
+ * })
+ * ```
+ * @returns 
+ */
 export default function useLocale(localeOverrides?: Ref<Language>) {
   const i18n = inject(i18nSymbol, globalI18n) as I18nInstance & {
     setLocaleMessage: (locale: string, messages: any) => void

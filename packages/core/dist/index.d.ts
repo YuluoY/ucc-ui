@@ -13,23 +13,23 @@
     UDropdown: typeof import('ucc-ui')['UDropdown'];
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
+    UIcon: typeof import('ucc-ui')['UIcon'];
     UForm: typeof import('ucc-ui')['UForm'];
     UFormItem: typeof import('ucc-ui')['UFormItem'];
-    UIcon: typeof import('ucc-ui')['UIcon'];
+    UMenu: typeof import('ucc-ui')['UMenu'];
+    UMenuItem: typeof import('ucc-ui')['UMenuItem'];
+    USubMenu: typeof import('ucc-ui')['USubMenu'];
     UInput: typeof import('ucc-ui')['UInput'];
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
-    UMenu: typeof import('ucc-ui')['UMenu'];
-    UMenuItem: typeof import('ucc-ui')['UMenuItem'];
-    USubMenu: typeof import('ucc-ui')['USubMenu'];
     UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
     UReadProgress: typeof import('ucc-ui')['UReadProgress'];
     USlider: typeof import('ucc-ui')['USlider'];
     UTable: typeof import('ucc-ui')['UTable'];
     UTag: typeof import('ucc-ui')['UTag'];
-    UTooltip: typeof import('ucc-ui')['UTooltip'];
     UText: typeof import('ucc-ui')['UText'];
+    UTooltip: typeof import('ucc-ui')['UTooltip'];
     UTop: typeof import('ucc-ui')['UTop'];
 }
   }

@@ -22,6 +22,32 @@ export interface UseScrollToReturn {
   cancel: () => void
 }
 
+/**
+ * 
+ * @param opts 
+ * @param opts.el 需要滚动的元素
+ * @param opts.to 滚动到的位置
+ * @param opts.toReferEl 滚动到的参考元素
+ * @param opts.duration 滚动时间
+ * @param opts.isAuto 是否自动滚动
+ * @param opts.scrolling 滚动过程中的回调函数
+ * @param opts.wheeling 滚动过程中的回调函数
+ * @description 用于滚动到指定位置
+ * @example
+ * ```ts
+ * const { scrollTo, cancel, scrollStart, scrollDistance, scrollDistanceSurplus, scrollProgress, isScolling } = useScrollTo({
+ *   el: '#app',
+ *   to: 100,
+ *   toReferEl: '#referEl',
+ *   duration: 300,
+ *   isAuto: true,
+ *   scrolling: (scrollTop, progress) => {
+ *     console.log(scrollTop, progress)
+ *   },
+ * })
+ * ```
+ * @returns 
+ */
 export default function useScrollTo(opts: UseScrollToOptions): UseScrollToReturn {
   let { 
     el,

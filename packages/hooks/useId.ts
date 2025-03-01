@@ -5,6 +5,17 @@ const defaultIdInjection = {
   current: 0,
 }
 
+/**
+ * 
+ * @param namespace 命名空间
+ * @returns 生成的id
+ * @description 用于生成唯一的id
+ * @example
+ * ```ts
+ * const id = useId()
+ * console.log(id)
+ * ```
+ */
 export function useId(namespace: string = 'u'): Ref<string> {
   const idRef = computed(() =>
   `${namespace}-${defaultIdInjection.prefix}-${defaultIdInjection.current++}`)

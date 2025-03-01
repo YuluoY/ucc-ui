@@ -52,6 +52,27 @@ const ResizeCursors: {
   [ResizeClasses.BOTTOM_RIGHT]: 'se-resize',
 }
 
+/**
+ * 
+ * @param opts 
+ * @param opts.el 需要调整大小的元素
+ * @param opts.angleWidth 对角控制条的宽度
+ * @param opts.barSize 控制条的大小
+ * @param opts.barZIndex 控制条的z-index
+ * @param opts.minWidth 最小宽度
+ * @param opts.minHeight 最小高度
+ * @param opts.resizing 调整大小时触发的事件
+ * @param opts.end 调整大小时触发的事件
+ * @description 用于调整元素的大小
+ * @example
+ * ```ts
+ * const { width, height, left, top, startX, startY, startWidth, startHeight, resizeType } = useResize({
+ *   el: '#app',
+ * })
+ * ```
+ * 
+ * @returns 
+ */
 export default function useResize(opts: UseResizeOptions): UseResizeReturn {
 
   const defaultOpts = merge({

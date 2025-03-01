@@ -31,5 +31,10 @@
     "packages/components/**/*.ts",
     "packages/components/**/*.tsx",
     "packages/components/**/*.vue",
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__test__/**"
   ]
 }

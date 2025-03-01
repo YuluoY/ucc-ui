@@ -22,6 +22,22 @@ interface UseDraggleReturn {
   initialTop: Readonly<Ref<number>>
 }
 
+/**
+ * 
+ * @param opts 
+ * @param opts.el 需要拖拽的元素
+ * @param opts.dragEl 拖拽的元素
+ * @param opts.moving 拖拽时触发的事件
+ * @param opts.end 拖拽结束时触发的事件
+ * @description 用于拖拽元素
+ * @example
+ * ```ts
+ * const { isDraggle, moveX, moveY, startX, startY, endX, endY, left, top, initialLeft, initialTop } = useDraggle({
+ *   el: '#app',
+ *   dragEl: '#dragEl',
+ * })
+ * ```
+ */
 export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
   
   const {

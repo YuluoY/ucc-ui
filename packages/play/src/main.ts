@@ -14,6 +14,6 @@ const app = createApp(App)
 app.use(ElementPlus)
 app.use(UccUI, { locale: zhCn })
 
-useRootFontSize({ isAuto: true })
+useRootFontSize({ immediate: true })
 
 app.mount('#app')
