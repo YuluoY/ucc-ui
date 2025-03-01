@@ -1,4 +1,4 @@
-import type { ComputedRef, Ref, ShallowRef, VNode } from "vue";
+import type { ComputedRef, ShallowRef, VNode } from "vue";
 import type { URegionType, ULayoutMode, ULayoutExtend, ULayoutFlexAlign } from "./const";
 
 export interface ULayoutProps {
@@ -16,18 +16,16 @@ export interface ULayoutProps {
  
   /**
    * @description 内边距
-   * @default 0
    */
   padding?: number;
 
   /**
    * @description 间距
-   * @default 10
    */
   gutter?: number;
   
   /**
-   * @description 最大列数
+   * @description 最大行块
    * @default 24
    */
   maxSpan?: number;

@@ -1,48 +1,52 @@
-import { g as V, _ as F, a as j, U as q } from "./Dialog-aN3zTTKb.js";
+import { g as V, _ as F, a as j, U as q } from "./Dialog-Cfi94Z9E.js";
 import { _ as W } from "./Layout-BPhzby12.js";
 import { _ as Z } from "./Region-5UaMqE_9.js";
-import { w as n, p as H, a as U, m as Y } from "./utils-BdnNggyD.js";
-import { defineComponent as M, computed as T, ref as g, watch as J, onMounted as K, onBeforeUnmount as Q, openBlock as I, createBlock as w, Teleport as X, createVNode as $, Transition as ee, unref as p, withCtx as oe, withDirectives as ne, createElementVNode as C, normalizeClass as se, normalizeStyle as te, renderSlot as ae, createCommentVNode as b, createElementBlock as ie, withModifiers as re, vShow as ce, shallowReactive as me, isVNode as le, h as O, render as u } from "vue";
+import { w as n, p as H, a as v, m as Y } from "./utils-BdnNggyD.js";
+import { defineComponent as B, computed as w, ref as g, watch as J, onMounted as K, onBeforeUnmount as Q, openBlock as $, createBlock as D, Teleport as X, createVNode as h, Transition as ee, unref as p, withCtx as oe, withDirectives as ne, createElementVNode as C, normalizeClass as se, normalizeStyle as te, renderSlot as ae, createCommentVNode as b, createElementBlock as ie, withModifiers as re, vShow as ce, shallowReactive as me, isVNode as le, h as S, render as d } from "vue";
 import { U as R } from "./Button-DGh_y5oG.js";
 import { _ as fe } from "./Card-CEVw-0G6.js";
 import { _ as ue } from "./Input-Bx6km1RG.js";
-import { _ as B, U as de } from "./ReadProgress-DtAI_ImK.js";
+import { _ as x, U as de } from "./ReadProgress-Brtzs-m6.js";
 import { _ as _e } from "./Tag-BJdyQItN.js";
-import { _ as pe } from "./DropDown-BhRKU77y.js";
+import { _ as pe } from "./Dropdown-SrmKjp5w.js";
 import { _ as ge } from "./DropdownMenu-BN1zKfi1.js";
-import { _ as ve } from "./DropdownItem-Bgy3sguh.js";
-import { _ as Ue } from "./Collapse-RsZZjbKX.js";
+import { _ as Ue } from "./DropdownItem-8gDYrFC3.js";
+import { _ as ve } from "./Collapse-RsZZjbKX.js";
 import { _ as ye } from "./CollapseItem-CEi-tBh1.js";
-import { _ as he, U as Ie } from "./CodeEditor-Df9SjpGi.js";
-import { _ as $e } from "./Popconfirm-DiuJNsX1.js";
+import { _ as Ie, U as $e } from "./CodeEditor-C4BDMM6m.js";
+import { _ as he } from "./Popconfirm-CFwEn9-W.js";
 import { _ as Ce } from "./ConfigProvider-C-6nRyrn.js";
-import { g as Re, a as Oe, h as Se, u as Ne } from "./hooks-CJb3wr_w.js";
-import { r as De, w as Te, x as we, j as x, v as k, y as be, h as A, z, p as Ee, d as E, A as Fe, B as Me } from "./vendors-PY6Ic9FA.js";
-import { _ as Be } from "./Slider-DosEtqRm.js";
-import { _ as xe } from "./Top-CqwVfcCG.js";
+import { g as Re, a as Se, h as Me, u as Oe } from "./hooks-BFz_wb0S.js";
+import { r as Ne, w as Te, x as we, j as M, v as k, y as De, h as A, z, p as be, d as E, A as Ee, B as Fe } from "./vendors-PY6Ic9FA.js";
+import { _ as Be } from "./Slider-CFCKU2Gc.js";
+import { _ as xe } from "./Top-DCoYYkQM.js";
 import { _ as ke } from "./Badge-C2s1MfLj.js";
 import { _ as Ae } from "./Form-BvTofAL7.js";
 import { _ as ze } from "./FormItem-DO5oPgB8.js";
+import { _ as Ge } from "./Table-CK7m7SRZ.js";
+import { _ as Le } from "./Menu-DRSDF4Fa.js";
+import { M as Pe } from "./MenuItem-B5YPbYtl.js";
+import { _ as Ve } from "./SubMenu-cOA-n3pH.js";
 /* empty css               */
-import { library as Ge } from "@fortawesome/fontawesome-svg-core";
-import { fas as Le } from "@fortawesome/free-solid-svg-icons";
-import { E as cn, D as mn } from "./locale-BeqhBZQs.js";
-const Pe = n(W), Ve = n(Z), je = n(fe), qe = n(ue), We = n(_e), Ze = n(pe), He = n(ge), Ye = n(ve), Je = n(Ue), Ke = n(ye), Qe = n($e), Xe = n(he), eo = {
+import { library as je } from "@fortawesome/fontawesome-svg-core";
+import { fas as qe } from "@fortawesome/free-solid-svg-icons";
+import { E as In, D as $n } from "./locale-BeqhBZQs.js";
+const We = n(W), Ze = n(Z), He = n(fe), Ye = n(ue), Je = n(_e), Ke = n(pe), Qe = n(ge), Xe = n(Ue), eo = n(ve), oo = n(ye), no = n(he), so = n(Ie), to = {
   info: ["fas", "circle-info"],
   success: ["fas", "circle-check"],
   warning: ["fas", "circle-exclamation"],
   error: ["fas", "circle-xmark"],
   primary: ["fas", "circle-question"]
-}, oo = {
+}, ao = {
   INFO: "info",
   SUCCESS: "success",
   WARNING: "warning",
   ERROR: "error",
   PRIMARY: "primary"
-}, no = { class: "u-message-icon" }, so = { class: "u-message-content" }, to = {
+}, io = { class: "u-message-icon" }, ro = { class: "u-message-content" }, co = {
   key: 0,
   class: "u-message-close"
-}, ao = /* @__PURE__ */ M({
+}, mo = /* @__PURE__ */ B({
   name: "UMessage",
   __name: "Message",
   props: {
@@ -65,25 +69,25 @@ const Pe = n(W), Ve = n(Z), je = n(fe), qe = n(ue), We = n(_e), Ze = n(pe), He =
     transitionName: { default: "fade-up" }
   },
   setup(e, { expose: o }) {
-    const s = e, l = T(() => s.icon ?? eo[s.type]), a = g(!0), i = g(null), r = g(0), {
-      topOffset: c,
-      bottomOffset: f
+    const s = e, f = w(() => s.icon ?? to[s.type]), a = g(!0), i = g(null), r = g(0), {
+      topOffset: m,
+      bottomOffset: c
     } = Re({
       boxHeight: r,
       offset: s.offset,
-      getLastBottomOffset: De(mo, s)
-    }), d = T(() => ({
-      top: H(c.value),
+      getLastBottomOffset: Ne(_o, s)
+    }), u = w(() => ({
+      top: H(m.value),
       zIndex: s.zIndex
     })), L = J(a, (t) => {
       t || (r.value = -s.offset);
     });
-    Oe(document, "keydown", (t) => {
+    Se(document, "keydown", (t) => {
       t.key === "Escape" && a.value && _();
     }), Te(i, () => {
       r.value = i.value.getBoundingClientRect().height ?? 0;
     }), K(() => {
-      P(), S();
+      P(), O();
     }), Q(() => {
       N(), L();
     });
@@ -93,21 +97,21 @@ const Pe = n(W), Ve = n(Z), je = n(fe), qe = n(ue), We = n(_e), Ze = n(pe), He =
     function P() {
       a.value = !0;
     }
-    let h = null;
-    function S() {
-      s.duration > 0 && (h = we(_, s.duration));
+    let I = null;
+    function O() {
+      s.duration > 0 && (I = we(_, s.duration));
     }
     function N() {
-      h && clearTimeout(h);
+      I && clearTimeout(I);
     }
     return o({
       close: _,
-      bottomOffset: f
-    }), (t, D) => (I(), w(X, { to: "body" }, [
-      $(ee, {
+      bottomOffset: c
+    }), (t, T) => ($(), D(X, { to: "body" }, [
+      h(ee, {
         appear: "",
         name: t.transitionName,
-        onAfterLeave: D[0] || (D[0] = (To) => !a.value && p(x)(t.onDestory) && t.onDestory())
+        onAfterLeave: T[0] || (T[0] = (ko) => !a.value && p(M)(t.onDestory) && t.onDestory())
       }, {
         default: oe(() => [
           ne(C("div", {
@@ -120,23 +124,23 @@ const Pe = n(W), Ve = n(Z), je = n(fe), qe = n(ue), We = n(_e), Ze = n(pe), He =
               { "is-center": t.center },
               t.customClass
             ]]),
-            style: te(d.value),
+            style: te(u.value),
             onMouseenter: N,
-            onMouseleave: S
+            onMouseleave: O
           }, [
-            C("div", no, [
-              $(p(R), { icon: l.value }, null, 8, ["icon"])
+            C("div", io, [
+              h(p(R), { icon: f.value }, null, 8, ["icon"])
             ]),
-            C("div", so, [
+            C("div", ro, [
               ae(t.$slots, "default", {}, () => [
-                t.message ? (I(), w(p(fo), {
+                t.message ? ($(), D(p(go), {
                   key: 0,
                   vnode: t.message
                 }, null, 8, ["vnode"])) : b("", !0)
               ])
             ]),
-            t.showClose ? (I(), ie("div", to, [
-              $(p(R), {
+            t.showClose ? ($(), ie("div", co, [
+              h(p(R), {
                 icon: "close",
                 onClick: re(_, ["stop"])
               })
@@ -149,25 +153,25 @@ const Pe = n(W), Ve = n(Z), je = n(fe), qe = n(ue), We = n(_e), Ze = n(pe), He =
       }, 8, ["name"])
     ]));
   }
-}), { nextZIndex: io } = Se(), m = me([]), ro = {
+}), { nextZIndex: lo } = Me(), l = me([]), fo = {
   type: "info",
   duration: 3e3,
   offset: 10,
   transitionName: "fade-up"
 }, G = (e) => {
   const o = !e || le(e) || A(e) ? { message: e } : e;
-  return { ...ro, ...o };
-}, co = (e) => {
-  const o = Ne().value, s = document.createElement("div"), l = () => {
-    const d = z(m, { id: o });
-    d !== -1 && (m.splice(d, 1), u(null, s));
+  return { ...fo, ...o };
+}, uo = (e) => {
+  const o = Oe().value, s = document.createElement("div"), f = () => {
+    const u = z(l, { id: o });
+    u !== -1 && (l.splice(u, 1), d(null, s));
   }, a = {
     ...e,
     id: o,
-    zIndex: io(),
-    onDestory: l
-  }, i = O(ao, a);
-  u(i, s);
+    zIndex: lo(),
+    onDestory: f
+  }, i = S(mo, a);
+  d(i, s);
   const r = i.component;
   return {
     id: o,
@@ -178,18 +182,18 @@ const Pe = n(W), Ve = n(Z), je = n(fe), qe = n(ue), We = n(_e), Ze = n(pe), He =
     vm: r,
     vnode: i
   };
-}, v = (e = {}) => {
+}, U = (e = {}) => {
   e = G(e);
-  const o = co(e);
-  return m.push(o), o.handler;
+  const o = uo(e);
+  return l.push(o), o.handler;
 };
-function mo() {
-  const e = z(m, { id: this.id });
-  return e <= 0 ? 0 : Ee(m, [e - 1, "vm", "exposed", "bottomOffset", "value"]);
+function _o() {
+  const e = z(l, { id: this.id });
+  return e <= 0 ? 0 : be(l, [e - 1, "vm", "exposed", "bottomOffset", "value"]);
 }
-k(oo, (e) => be(v, e, (o = {}) => v({ ...G(o), type: e })));
-function lo(e) {
-  k(m, (o) => {
+k(ao, (e) => De(U, e, (o = {}) => U({ ...G(o), type: e })));
+function po(e) {
+  k(l, (o) => {
     if (o.props.type === e) {
       o.handler.close();
       return;
@@ -197,7 +201,7 @@ function lo(e) {
     o.handler.close();
   });
 }
-v.closeAll = lo;
+U.closeAll = po;
 const y = {
   DIALOG: "$dialog",
   // finished
@@ -211,7 +215,7 @@ const y = {
   // undo
   PROGRESS: "$progress"
   // finished
-}, fo = M({
+}, go = B({
   props: {
     vnode: {
       type: [String, Object, Function],
@@ -219,105 +223,116 @@ const y = {
     }
   },
   setup(e) {
-    return () => x(e.vnode) ? e.vnode() : e.vnode;
+    return () => M(e.vnode) ? e.vnode() : e.vnode;
   }
-}), uo = U(v, y.MESSAGE), _o = n(Be), po = (e = {}) => {
+}), Uo = v(U, y.MESSAGE), vo = n(Be), yo = (e = {}) => {
   const o = (e == null ? void 0 : e.single) ?? !0;
   let s = (A(e == null ? void 0 : e.appendTo) ? document.querySelector(e.appendTo) : e == null ? void 0 : e.appendTo) || document.body;
   if (!o) {
-    const f = document.createElement("div");
-    s.appendChild(f), s = f;
+    const c = document.createElement("div");
+    s.appendChild(c), s = c;
   }
-  const l = E(r, (e == null ? void 0 : e.openDelay) || 100), a = E(c, (e == null ? void 0 : e.closeDelay) || 100), i = {
+  const f = E(r, (e == null ? void 0 : e.openDelay) || 100), a = E(m, (e == null ? void 0 : e.closeDelay) || 100), i = {
     ...e,
     zIndex: V(),
-    open: l,
-    close: a
+    open: f,
+    close: a,
+    onConfirm: async (c) => {
+      M(e.confirm) ? await e.confirm() && c() : c();
+    }
   };
   function r() {
-    u(O(F, i), s), !o && s.remove();
+    d(S(F, i), s), !o && s.remove();
   }
-  function c() {
-    u(null, s);
+  function m() {
+    d(null, s);
   }
-  return o && c(), r(), {
-    close: c
+  return o && m(), r(), {
+    close: m
   };
-}, go = n(F), vo = U(po, y.DIALOG), Uo = n(xe), yo = n(ke), ho = (e) => {
+}, Io = n(F), $o = v(yo, y.DIALOG), ho = n(xe), Co = n(ke), Ro = (e) => {
   const o = g(null);
-  return u(O(B, {
+  return d(S(x, {
     ...e,
     ref: (s) => o.value = s
   }), document.body), o;
-}, Io = n(B), $o = U(ho, y.PROGRESS), Co = (e) => {
-}, Ro = U(Co, y.NOTIFICATION), Oo = n(Ce), So = n(Ae), No = n(ze), Do = [
+}, So = n(x), Mo = v(Ro, y.PROGRESS), Oo = (e) => {
+}, No = v(Oo, y.NOTIFICATION), To = n(Ce), wo = n(Ae), Do = n(ze), bo = n(Ge), Eo = n(Le), Fo = n(Pe), Bo = n(Ve), xo = [
   j,
   q,
-  Pe,
-  Ve,
-  R,
-  je,
-  qe,
-  de,
   We,
   Ze,
+  R,
   He,
   Ye,
+  de,
   Je,
   Ke,
-  Ie,
   Qe,
   Xe,
-  _o,
-  go,
-  Uo,
-  yo,
-  Io,
-  Oo,
-  So,
-  No,
-  uo,
+  eo,
+  oo,
+  $e,
+  no,
+  so,
   vo,
+  Io,
+  ho,
+  Co,
+  So,
+  To,
+  wo,
+  Do,
+  bo,
+  Eo,
+  Fo,
+  Bo,
+  Uo,
   $o,
-  Ro
+  Mo,
+  No
 ];
-Ge.add(Le, Fe, Me);
-const tn = Y(Do.map((e) => {
+je.add(qe, Ee, Fe);
+const Un = Y(xo.map((e) => {
   var o;
   return { ...e, name: (o = e.name) != null && o.startsWith("U") ? e.name : `U${e.name}` };
 }));
 export {
-  fo as RenderVNode,
-  yo as UBadge,
+  go as RenderVNode,
+  Co as UBadge,
   j as UButton,
   q as UButtonGroup,
-  je as UCard,
-  Xe as UCodeEditor,
-  Je as UCollapse,
-  Ke as UCollapseItem,
-  Oo as UConfigProvider,
-  go as UDialog,
-  vo as UDialogFn,
-  Ze as UDropdown,
-  Ye as UDropdownItem,
-  He as UDropdownMenu,
-  So as UForm,
-  No as UFormItem,
+  He as UCard,
+  so as UCodeEditor,
+  eo as UCollapse,
+  oo as UCollapseItem,
+  To as UConfigProvider,
+  Io as UDialog,
+  $o as UDialogFn,
+  Ke as UDropdown,
+  Xe as UDropdownItem,
+  Qe as UDropdownMenu,
+  wo as UForm,
+  Do as UFormItem,
   R as UIcon,
-  qe as UInput,
-  Pe as ULayout,
-  uo as UMessageFn,
-  Ro as UNotificationFn,
-  Qe as UPopconfirm,
-  Io as UReadProgress,
-  $o as UReadProgressFn,
-  Ve as URegion,
-  _o as USlider,
-  We as UTag,
+  Ye as UInput,
+  We as ULayout,
+  Eo as UMenu,
+  Fo as UMenuItem,
+  Uo as UMessageFn,
+  No as UNotificationFn,
+  no as UPopconfirm,
+  So as UReadProgress,
+  Mo as UReadProgressFn,
+  Ze as URegion,
+  vo as USlider,
+  Bo as USubMenu,
+  bo as UTable,
+  Je as UTag,
   de as UText,
-  Ie as UTooltip,
-  Uo as UTop,
-  tn as default,
-  cn as en,
-  mn as zhCn
+  $e as UTooltip,
+  ho as UTop,
+  Un as default,
+  In as en,
+  $n as zhCn
 };

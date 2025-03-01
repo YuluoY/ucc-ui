@@ -55,14 +55,14 @@ export interface UDialogProps {
    * @type {string}
    * @default ''
    */
-  closeIcon?: string
+  closeIcon?: string | string[]
 
   /**
    * @description 折叠图标
-   * @type {string}
+   * @type {string | string[]}
    * @default ''
    */
-  collapseIcon?: string
+  collapseIcon?: string | string[]
 
   /**
    * @description 容器元素

@@ -19,3 +19,5 @@ export * from './read-progress';
 export * from './notification';
 export * from './config-provider';
 export * from './form';
+export * from './table';
+export * from './menu';

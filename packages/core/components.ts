@@ -26,6 +26,9 @@ import {
   UForm,
   UFormItem,
   UTable,
+  UMenu,
+  UMenuItem,
+  USubMenu,
 
   UMessageFn,
   UDialogFn,
@@ -60,7 +63,10 @@ export default [
   UForm,
   UFormItem,
   UTable,
-  
+  UMenu,
+  UMenuItem,
+  USubMenu,
+
   UMessageFn,
   UDialogFn,
   UReadProgressFn,
