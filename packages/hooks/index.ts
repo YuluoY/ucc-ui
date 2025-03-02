@@ -8,6 +8,7 @@ import useResize from "./useResize";
 import useScrollTo from "./useScrollTo";
 import useLocale from "./useLocale";
 import useWatchRef from "./useWatchRef";
+import useTransDown from "./useTransDown";
 
 export {
   useClickOutside,
@@ -19,5 +20,6 @@ export {
   useResize,
   useScrollTo,
   useLocale,
-  useWatchRef
+  useWatchRef,
+  useTransDown
 }

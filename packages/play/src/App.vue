@@ -1,22 +1,57 @@
 <template>
-  <u-menu>
-    <u-menu-item>
-      asdsad
-    </u-menu-item>
+   <el-menu
+    :default-active="activeIndex"
+    class="el-menu-demo"
+    mode="horizontal"
+    @select="handleSelect"
+  >
+    <el-menu-item index="1">Processing Center</el-menu-item>
+    <el-sub-menu index="2">
+      <template #title>Workspace</template>
+      <el-menu-item index="2-1">item one</el-menu-item>
+      <el-menu-item index="2-2">item two</el-menu-item>
+      <el-menu-item index="2-3">item three</el-menu-item>
+      <el-sub-menu index="2-4">
+        <template #title>item four</template>
+        <el-menu-item index="2-4-1">item one</el-menu-item>
+        <el-menu-item index="2-4-2">item two</el-menu-item>
+        <el-menu-item index="2-4-3">item three</el-menu-item>
+      </el-sub-menu>
+    </el-sub-menu>
+    <el-menu-item index="3">Info</el-menu-item>
+    <el-menu-item index="4">Orders</el-menu-item>
+  </el-menu>
+
+  <u-menu
+    :default-active="activeIndex"
+    class="el-menu-demo"
+    mode="horizontal"
+    @select="handleSelect"
+  >
+    <u-menu-item index="1">Processing Center</u-menu-item>
+    <u-sub-menu index="2">
+      <template #title>Workspace</template>
+      <u-menu-item index="2-1">item one</u-menu-item>
+      <u-menu-item index="2-2">item two</u-menu-item>
+      <u-menu-item index="2-3">item three</u-menu-item>
+      <u-sub-menu index="2-4">
+        <template #title>item four</template>
+        <u-menu-item index="2-4-1">item one</u-menu-item>
+        <u-menu-item index="2-4-2">item two</u-menu-item>
+        <u-menu-item index="2-4-3">item three</u-menu-item>
+      </u-sub-menu>
+    </u-sub-menu>
+    <u-menu-item index="3" disabled>Info</u-menu-item>
+    <u-menu-item index="4">Orders</u-menu-item>
   </u-menu>
-  <u-dropdown :data="dropdownItems">
-    <u-button>下拉菜单</u-button>
-  </u-dropdown>
 </template>
 
 <script setup lang="ts">
-const dropdownItems = [
-  { label: '选项1', command: 'option1' },
-  { label: '选项2', command: 'option2' },
-  { label: '选项22222222222223', disabled: true },
-  { divided: true },
-  { label: '选项4', command: 'option4' }
-]
+  import { ref } from 'vue'
+  const activeIndex = ref('1')
+  const handleSelect = (key: string, keyPath: string[]) => {
+    console.log(key, keyPath)
+  }
 </script>
 
 <style>

@@ -1,5 +1,7 @@
 <template>
-  <div class="u-sub-menu">
+  <div
+    class="u-sub-menu"
+  >
     <slot></slot>
   </div>
 </template>

@@ -98,7 +98,7 @@ export interface UDropdownProps {
    * 下拉菜单的tooltip属性
    * @type {UTooltipProps}
    */
-  tooltipProps?: UTooltipProps
+  tooltipProps?: Omit<UTooltipProps, 'visible'>
 
   /**
    * 下拉菜单是否被挂载到body上

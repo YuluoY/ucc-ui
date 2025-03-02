@@ -5,9 +5,12 @@
       transition="" 
       :virtual-triggering="splitButton" 
       :virtual-ref="virtualRef"
-      :trigger="trigger" 
+      :trigger="trigger"
       :padding="0" 
       :width="0" 
+      :hide-timeout="hideTimeout"
+      :show-timeout="showTimeout"
+      :placement="placement"
       v-bind="tooltipProps" 
       :transition-props="{
         onBeforeEnter: beforeEnter,
@@ -51,6 +54,8 @@ import DropdownMenu from './DropdownMenu.vue';
 import { UTooltip } from '../../tooltip';
 import { UButtonGroup, UButton } from '../../button';
 import { isNil } from 'lodash-es';
+import { CTooltipEffect, CTooltipTrigger } from '../../tooltip/types/const';
+import { useTransDown } from '../../../hooks';
 
 defineOptions({
   name: 'UDropdown',
@@ -60,7 +65,7 @@ defineOptions({
 const props = withDefaults(defineProps<UDropdownProps>(), {
   data: _ => ([]),
   size: 'default',
-  trigger: 'click',
+  trigger: CTooltipTrigger.CLICK,
   hideOnClick: true
 })
 const emits = defineEmits<UDropdownEmits>()
@@ -78,7 +83,7 @@ const triggerRef = ref<UButtonInstance>()
 const virtualRef = computed(() => triggerRef.value?.ref) as any
 
 const tooltipProps = computed(() => ({
-  effect: 'light',
+  effect: CTooltipEffect.LIGHT,
   ...props.tooltipProps
 }) as UTooltipProps)
 
@@ -95,22 +100,7 @@ function doHide() {
   tooltipRef.value?.onClose()
 }
 
-function beforeEnter(el: HTMLElement) {
-  el.style.overflow = 'hidden';
-  el.style.height = '0'; // 进入之前高度为 0
-}
-function enter(el: HTMLElement) {
-  el.style.height = el.scrollHeight + 'px'; // 进入时高度变为内容高度
-  el.style.transition = 'height var(--uc-animation-delay-2) var(--uc-animation-ease-in)'; // 设置过渡效果
-}
-function afterEnter(el: HTMLElement) {
-  el.style.overflow = 'unset'
-}
-function leave(el: HTMLElement) {
-  el.style.overflow = 'hidden';
-  el.style.height = '0'; // 离开时高度变为 0
-  el.style.transition = 'height var(--uc-animation-delay-2) var(--uc-animation-ease-in)'; // 设置过渡效果
-}
+const { beforeEnter, enter, afterEnter, leave } = useTransDown()
 
 defineExpose<UDropdownExposes>({
   doShow,

@@ -5,10 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import { useId } from '@ucc-ui/hooks';
+defineOptions({
+  name: "UMenu",
+});
 
 </script>
 
 <style>
-@import '../styles/index.css';
+@import "../styles/index.css";
 </style>
