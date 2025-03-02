@@ -202,10 +202,11 @@ describe('UDialog 组件测试', () => {
     
     const [confirmBtn, cancelBtn] = footer?.querySelectorAll('.u-button') || []
     
+    // 测试确认按钮 - emit会传一个参数是close函数
     await confirmBtn?.dispatchEvent(new Event('click'))
-    expect(wrapper.emitted('confirm')).toBeTruthy()
-    expect(wrapper.emitted('update:modelValue')?.[0]).toEqual([false])
+    expect(wrapper.emitted('confirm')?.[0]?.[0] as Function).toBeInstanceOf(Function)
     
+    // 测试取消按钮
     await cancelBtn?.dispatchEvent(new Event('click'))
     expect(wrapper.emitted('cancel')).toBeTruthy()
   })
