@@ -17,7 +17,7 @@ export interface ULayoutProps {
   /**
    * @description 内边距
    */
-  padding?: number;
+  padding?: number | string;
 
   /**
    * @description 间距

@@ -39,75 +39,79 @@
   flex: 1;
   min-height: 0;
 }
-.u-layout.u-layout__row .u-region__top,
-.u-layout.u-layout__row .u-region__bottom,
-.u-layout.u-layout__row .u-region__left,
-.u-layout.u-layout__row .u-region__right,
-.u-layout.u-layout__row .u-region__center, .u-layout.u-layout__column .u-region__top,
-.u-layout.u-layout__column .u-region__bottom,
-.u-layout.u-layout__column .u-region__left,
-.u-layout.u-layout__column .u-region__right,
-.u-layout.u-layout__column .u-region__center {
-  width: unset;
-  height: unset;
-}
-.u-layout.u-layout__row {
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-.u-layout.u-layout__row .u-region {
-  flex: 0 0 calc(100% / var(--u-layout-max-span) * var(--u-layout-flex-size, 1));
-}
-.u-layout.u-layout__column {
-  flex-direction: column;
-}
 .u-layout .u-layout-mode {
   display: flex;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend {
+.u-layout .u-layout-mode__extend {
   height: 100%;
   display: flex;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend .u-layout__body {
+.u-layout .u-layout-mode__extend .u-layout__body {
   display: flex;
   flex: 1;
   min-height: 0;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend .u-layout__body .u-layout__body-center {
+.u-layout .u-layout-mode__extend .u-layout__body .u-layout__body-center {
   display: flex;
   flex: 1;
   flex-shrink: 0;
   flex-direction: column;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend .u-layout__body .u-layout__body-center .u-layout__body-center-content {
+.u-layout .u-layout-mode__extend .u-layout__body .u-layout__body-center .u-layout__body-center-content {
   display: flex;
   flex: 1;
   flex-shrink: 0;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.left-top, .u-layout .u-layout-mode.u-layout-mode__extend.right-top {
+.u-layout .u-layout-mode__extend.left-top, .u-layout .u-layout-mode__extend.right-top {
   flex-direction: row;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.left-top .u-layout__body, .u-layout .u-layout-mode.u-layout-mode__extend.right-top .u-layout__body {
+.u-layout .u-layout-mode__extend.left-top .u-layout__body, .u-layout .u-layout-mode__extend.right-top .u-layout__body {
   flex-direction: column;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.left-top .u-layout__body .u-layout__body-center, .u-layout .u-layout-mode.u-layout-mode__extend.right-top .u-layout__body .u-layout__body-center {
+.u-layout .u-layout-mode__extend.left-top .u-layout__body .u-layout__body-center, .u-layout .u-layout-mode__extend.right-top .u-layout__body .u-layout__body-center {
   flex-direction: row;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.left-bottom, .u-layout .u-layout-mode.u-layout-mode__extend.right-bottom {
+.u-layout .u-layout-mode__extend.left-bottom, .u-layout .u-layout-mode__extend.right-bottom {
   flex-direction: column;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.left-bottom .u-layout__body, .u-layout .u-layout-mode.u-layout-mode__extend.right-bottom .u-layout__body {
+.u-layout .u-layout-mode__extend.left-bottom .u-layout__body, .u-layout .u-layout-mode__extend.right-bottom .u-layout__body {
   flex-direction: row;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.left, .u-layout .u-layout-mode.u-layout-mode__extend.right {
+.u-layout .u-layout-mode__extend.left, .u-layout .u-layout-mode__extend.right {
   flex-direction: row;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.left .u-layout__body, .u-layout .u-layout-mode.u-layout-mode__extend.right .u-layout__body {
+.u-layout .u-layout-mode__extend.left .u-layout__body, .u-layout .u-layout-mode__extend.right .u-layout__body {
   flex-direction: column;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.both {
+.u-layout .u-layout-mode__extend.both {
   flex-direction: row;
 }
-.u-layout .u-layout-mode.u-layout-mode__extend.both .u-layout__body {
+.u-layout .u-layout-mode__extend.both .u-layout__body {
+  flex-direction: column;
+}
+
+.u-layout__row .u-region__top,
+.u-layout__row .u-region__bottom,
+.u-layout__row .u-region__left,
+.u-layout__row .u-region__right,
+.u-layout__row .u-region__center,
+.u-layout__column .u-region__top,
+.u-layout__column .u-region__bottom,
+.u-layout__column .u-region__left,
+.u-layout__column .u-region__right,
+.u-layout__column .u-region__center {
+  width: unset;
+  height: unset;
+}
+
+.u-layout__row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.u-layout__row .u-region {
+  flex: 0 0 calc(100% / var(--u-layout-max-span) * var(--u-layout-flex-size, 1));
+}
+
+.u-layout__column {
   flex-direction: column;
 }/*# sourceMappingURL=index.css.map */

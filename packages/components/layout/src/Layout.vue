@@ -18,7 +18,7 @@ import {
   provide,
   computed,
 } from "vue";
-import { isNumber } from "lodash-es";
+import { isNumber, isNil } from "lodash-es";
 import type { ULayoutProps } from "../types";
 import {
   CLayoutMode,
@@ -43,8 +43,10 @@ const slots: VNode[] = (useSlots() as Slots).default?.(props) || [];
  */
 const layoutStyle = computed(() => {
   const style: CSSProperties = {};
-  if (props.padding) style.padding = isNumber(props.padding) ? pxToRem(props.padding, { unit: 'rem' }) : props.padding;
-  if (props.gutter) style.gap = isNumber(props.gutter) ? pxToRem(props.gutter, { unit: 'rem' }) : props.gutter;
+  if (!isNil(props.padding)) 
+    style.padding = isNumber(props.padding) ? pxToRem(props.padding, { unit: 'rem' }) : props.padding;
+  if (!isNil(props.gutter)) 
+    style.gap = isNumber(props.gutter) ? pxToRem(props.gutter, { unit: 'rem' }) : props.gutter;
   return style;
 });
 
