@@ -78,8 +78,8 @@ describe('UTop 组件测试', () => {
     await nextTick()
     
     const top = document.querySelector('.u-top') as HTMLElement
-    expect(top.style.width).toBe(pxToRem(size))
-    expect(top.style.height).toBe(pxToRem(size))
+    expect(top.style.width).toBe(pxToRem(size, { unit: 'rem' }))
+    expect(top.style.height).toBe(pxToRem(size, { unit: 'rem' }))
   })
 
   // 位置测试
@@ -92,13 +92,13 @@ describe('UTop 组件测试', () => {
     await nextTick()
     
     const top = document.querySelector('.u-top') as HTMLElement
-    expect(top.style.left).toBe(pxToRem(offset))
-    expect(top.style.bottom).toBe(pxToRem(offset))
+    expect(top.style.left).toBe(pxToRem(offset, { unit: 'rem' }))
+    expect(top.style.bottom).toBe(pxToRem(offset, { unit: 'rem' }))
 
     await wrapper.setProps({ position: 'right' })
     await nextTick()
-    expect(top.style.right).toBe(pxToRem(offset))
-    expect(top.style.bottom).toBe(pxToRem(offset))
+    expect(top.style.right).toBe(pxToRem(offset, { unit: 'rem' }))
+    expect(top.style.bottom).toBe(pxToRem(offset, { unit: 'rem' }))
   })
 
   // 滚动阈值测试

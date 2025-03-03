@@ -153,7 +153,6 @@ function onOpen() {
 }
 
 function onClose() {
-  if (props.enterable) return;
   onOpenDebounce?.cancel();
   onCloseDebounce?.();
 }

@@ -43,7 +43,7 @@ describe('UCard 组件', () => {
       }
     });
     const body = wrapper.find('.u-card-body');
-    expect(body.attributes('style')).toContain(`padding: ${pxToRem(20)};`);
+    expect(body.attributes('style')).toContain(`padding: ${pxToRem(20, { unit: 'rem' })};`);
   });
 
   it('渲染 bodyStyle 正确', () => {

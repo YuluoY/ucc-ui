@@ -7,14 +7,22 @@ export declare function parseJson(str: string, def?: any): any;
 export declare const rootFontSize: number;
 /**
  * px转rem
- * @param   {number}  px                px值
- * @param   {boolean} [isNumber=false]  是否返回数字
- * @returns rem值
+ * @param   {number}  px                                  px值
+ * @param   {object}  opts                                options
+ * @param   {number}  [opts.rootFontSize=rootFontSize]    根字体大小
+ * @param   {boolean} [opts.isReverse=false]              是否反转
+ * @param   {string}  [opts.unit]                         单位，如果存在，则返回字符串，否则返回数字
+ * @returns {string | number} rem值
  * ```js
- * pxToRem(10) // 0.1rem
+ * pxToRem(10) // 0.1
+ * pxToRem(10, { unit: 'rem' }) // 0.1rem
  * ```
  */
-export declare function pxToRem<T = string | number>(px: number, isNumber?: boolean): T;
+export declare function pxToRem<T = string | number>(px: number, opts?: Partial<{
+    isReverse: boolean;
+    unit: 'px' | 'rem';
+    rootFontSize: number;
+}>): T;
 /**
  * 是否是Vue组件
  * @author      Yuluo
