@@ -2,24 +2,24 @@
   declare module 'vue' {
     export interface GlobalComponents {
     UBadge: typeof import('ucc-ui')['UBadge'];
+    UButton: typeof import('ucc-ui')['UButton'];
+    UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
     UCard: typeof import('ucc-ui')['UCard'];
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
-    UButton: typeof import('ucc-ui')['UButton'];
-    UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
-    UDialog: typeof import('ucc-ui')['UDialog'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
+    UDialog: typeof import('ucc-ui')['UDialog'];
     UForm: typeof import('ucc-ui')['UForm'];
     UFormItem: typeof import('ucc-ui')['UFormItem'];
+    UIcon: typeof import('ucc-ui')['UIcon'];
     UInput: typeof import('ucc-ui')['UInput'];
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
-    UIcon: typeof import('ucc-ui')['UIcon'];
     UMenu: typeof import('ucc-ui')['UMenu'];
     UMenuItem: typeof import('ucc-ui')['UMenuItem'];
     USubMenu: typeof import('ucc-ui')['USubMenu'];

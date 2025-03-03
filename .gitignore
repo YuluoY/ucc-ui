@@ -1,6 +1,5 @@
 node_modules
 dist
 **/*.css.map
-**/*.css
 test_*
 **/coverage
