@@ -8,11 +8,11 @@
 </template>
 
 <script setup lang="ts">
-import { pxToRem } from "@ucc-ui/utils";
+import { pxToRem } from "../../../utils";
 import type { URegionProps, ULayoutContext } from "../types";
 import { CComponentName, CLayoutContext, CLayoutMode } from "../types/const";
 import { computed, getCurrentInstance, inject, shallowRef, type VNode, nextTick, watch, onBeforeUnmount, type CSSProperties } from "vue";
-import { isNil } from "lodash-es";
+import { isNil, isNumber } from "lodash-es";
 
 defineOptions({
   name: CComponentName.REGION,
@@ -72,7 +72,7 @@ const regionStyle = computed<CSSProperties>(() => {
     style['--u-layout-max-span'] = maxSpan.value
 
   if (!isNil(props.padding))
-    style.padding = pxToRem(props.padding)
+    style.padding = isNumber(props.padding) ? pxToRem(props.padding, { unit: 'rem' }) : props.padding
 
   if (!isNil(props.justify))
     style.justifyContent = props.justify

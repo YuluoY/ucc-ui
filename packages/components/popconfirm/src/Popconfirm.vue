@@ -31,7 +31,7 @@ import { UTooltip } from '../../tooltip'
 import { UButton } from '../../button';
 import { UIcon } from '../../icon';
 import type { UPopconfirmEmits, UPopconfirmProps } from '../types';
-import { pxToRem } from '@ucc-ui/utils';
+import { pxToRem } from '../../../utils';
 import type { UTooltipExposes } from '../../tooltip/types';
 
 defineOptions({
@@ -46,7 +46,7 @@ const props = withDefaults(defineProps<UPopconfirmProps>(), {
 const visible = ref(false)
 const emits = defineEmits<UPopconfirmEmits>()
 const tooltipRef = ref<UTooltipExposes | null>(null)
-const minWidth = computed(() => pxToRem<string>(props.width))
+const minWidth = computed(() => pxToRem<string>(props.width, { unit: 'rem' }))
 
 const cancelText = computed(() => props.cancelButtonText ?? '取消')
 const confirmText = computed(() => props.confirmButtonText ?? '确定')

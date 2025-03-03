@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { computed, type CSSProperties } from 'vue';
 import type { UReadProgressEmits, UReadProgressProps } from '../types';
-import { pxToRem } from '@ucc-ui/utils';
+import { pxToRem } from '../../../utils';
 import { useEventListener, useWatchRef } from '@ucc-ui/hooks';
 import { UText } from '../../text'
 import { CReadProgress } from '../types/const';
@@ -55,7 +55,7 @@ const showProgress = useWatchRef(props.show, () => props.show)
 
 const _content = computed(() => props.content ? props.content : `${Math.round(progress.value)}%`)
 const progressStyle = computed<CSSProperties>(() => ({
-  height: pxToRem(props.height as number),
+  height: pxToRem(props.height as number, { unit: 'rem' }),
   backgroundColor: props.backgroundColor,
 }))
 

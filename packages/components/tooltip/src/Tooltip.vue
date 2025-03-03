@@ -71,13 +71,12 @@ import {
 } from "vue";
 import type { UTooltipEmits, UTooltipExposes, UTooltipProps } from "../types";
 import { type Options, type Instance, createPopper } from "@popperjs/core";
-import { debounce, type DebouncedFunc, bind, isNil, merge } from "lodash-es";
+import { debounce, type DebouncedFunc, bind, isNil } from "lodash-es";
 import { useClickOutside } from "../../../hooks";
 import { pxToRem } from "../../../utils";
 import {
   CTooltipContainerId,
-  CTooltipTrigger,
-  CTooltipEffect,
+  CTooltipTrigger
 } from "../types/const";
 
 defineOptions({
@@ -91,8 +90,8 @@ const props = withDefaults(defineProps<UTooltipProps>(), {
   rawContent: false,
   padding: 14,
   placement: "bottom",
-  trigger: CTooltipTrigger.HOVER,
-  effect: CTooltipEffect.DARK,
+  trigger: 'hover',
+  effect: 'dark',
   transition: "fade",
   showTimeout: 0,
   hideTimeout: 300,
@@ -101,8 +100,8 @@ const props = withDefaults(defineProps<UTooltipProps>(), {
 const emits = defineEmits<UTooltipEmits>();
 
 const popperStyles = computed(() => ({
-  width: props.width ? pxToRem<string>(props.width) : "auto",
-  padding: pxToRem<string>(props.padding),
+  width: props.width ? pxToRem<string>(props.width, { unit: 'rem' }) : "auto",
+  padding: pxToRem<string>(props.padding, { unit: 'rem' }),
 }));
 const visible = ref<boolean>(!!props.visible); // 是否显示
 

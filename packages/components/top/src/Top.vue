@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { type UTopProps, type UTopEmits, type UTopExposes } from '../types';
 import { computed, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue';
-import { pxToRem } from '@ucc-ui/utils';
+import { pxToRem } from '../../../utils';
 import { isString } from 'lodash-es';
 import useScrollTo, { type UseScrollToReturn } from '@ucc-ui/hooks/useScrollTo';
 import { CTopPosition } from '../types/const';
@@ -66,17 +66,17 @@ const _scrollThreshold = computed(() => {
 })
 
 const topStyles = computed<CSSProperties>(() => {
-  const size = pxToRem(props.size)
+  const size = pxToRem(props.size, { unit: 'rem' })
 
   let offsetStyle = {
-    bottom: pxToRem(props.offset),
-    right: pxToRem(props.offset),
+    bottom: pxToRem(props.offset, { unit: 'rem' }),
+    right: pxToRem(props.offset, { unit: 'rem' }),
   } as CSSProperties
  
   if (props.position === CTopPosition.LEFT) {
     offsetStyle = {
-      bottom: pxToRem(props.offset),
-      left: pxToRem(props.offset)
+      bottom: pxToRem(props.offset, { unit: 'rem' }),
+      left: pxToRem(props.offset, { unit: 'rem' })
     }
   }
 

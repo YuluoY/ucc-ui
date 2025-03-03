@@ -1,10 +1,7 @@
 <template>
   <main 
     :class="['u-layout', `u-layout__${mode}`]" 
-    :style="[
-      padding ? `padding: ${padding}px` : '',
-      gutter ? `gap: ${gutter}px` : '',
-    ]"
+    :style="layoutStyle"
   >
     <LayoutMode v-if="mode === CLayoutMode.DEFAULT" />
     <slot v-else />
@@ -16,10 +13,12 @@ import {
   useSlots,
   type VNode,
   type Slots,
+  type CSSProperties,
   shallowRef,
   provide,
   computed,
 } from "vue";
+import { isNumber } from "lodash-es";
 import type { ULayoutProps } from "../types";
 import {
   CLayoutMode,
@@ -30,6 +29,7 @@ import {
   type ULayoutExtend,
 } from "../types/const";
 import LayoutMode from "../components/LayoutMode.vue";
+import { pxToRem } from "../../../utils";
 
 defineOptions({ name: CComponentName.LAYOUT });
 const props = withDefaults(defineProps<ULayoutProps>(), {
@@ -37,6 +37,16 @@ const props = withDefaults(defineProps<ULayoutProps>(), {
 });
 
 const slots: VNode[] = (useSlots() as Slots).default?.(props) || [];
+
+/**
+ * 布局样式
+ */
+const layoutStyle = computed(() => {
+  const style: CSSProperties = {};
+  if (props.padding) style.padding = isNumber(props.padding) ? pxToRem(props.padding, { unit: 'rem' }) : props.padding;
+  if (props.gutter) style.gap = isNumber(props.gutter) ? pxToRem(props.gutter, { unit: 'rem' }) : props.gutter;
+  return style;
+});
 
 /**
  * 缓存u-region组件

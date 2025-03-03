@@ -42,9 +42,8 @@ export interface URegionProps {
     span?: number;
     /**
      * @description 内边距
-     * @default 0
      */
-    padding?: number;
+    padding?: number | string;
     /**
      * @description 水平对齐方式
      * @default 'start'

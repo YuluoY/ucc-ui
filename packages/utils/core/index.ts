@@ -14,21 +14,37 @@ export function parseJson(str: string, def: any = {}): any {
   }
 }
 
-export const rootFontSize = parseInt(document.documentElement.style.fontSize) || (window.innerWidth / 100)
+export const rootFontSize = parseInt(document.documentElement.style.fontSize, 10) || (window.innerWidth / 100)
 /**
  * px转rem
- * @param   {number}  px                px值
- * @param   {boolean} [isNumber=false]  是否返回数字 
- * @returns rem值
+ * @param   {number}  px                                  px值
+ * @param   {object}  opts                                options
+ * @param   {number}  [opts.rootFontSize=rootFontSize]    根字体大小
+ * @param   {boolean} [opts.isReverse=false]              是否反转
+ * @param   {string}  [opts.unit]                         单位，如果存在，则返回字符串，否则返回数字
+ * @returns {string | number} rem值
  * ```js
- * pxToRem(10) // 0.1rem
+ * pxToRem(10) // 0.1
+ * pxToRem(10, { unit: 'rem' }) // 0.1rem
  * ```
  */
-export function pxToRem<T = string | number>(px: number, isNumber: boolean = false): T {
-  if (px === 0) return '0' as T
-  if (isNumber)
-    return px / rootFontSize as T
-  return `${px / rootFontSize}rem` as T
+export function pxToRem<T = string | number>(
+  px: number, 
+  opts: Partial<{ 
+    isReverse: boolean, 
+    unit: 'px' | 'rem', 
+    rootFontSize: number, 
+  }> = {}
+): T {
+  const { 
+    isReverse = false,
+    unit,
+    rootFontSize = parseInt(document.documentElement.style.fontSize, 10) || (window.innerWidth / 100)
+  } = opts
+
+  const result = isReverse ? px * rootFontSize : px / rootFontSize
+
+  return unit ? `${result}${unit}` as T : result as T
 }
 
 /**

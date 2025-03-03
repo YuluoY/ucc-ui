@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import { watch, computed, onBeforeUnmount, onMounted, ref, type CSSProperties } from 'vue';
 import type { UMessageExposes, UMessageProps } from '../types';
-import { pxToRem } from '@ucc-ui/utils';
+import { pxToRem } from '../../../utils';
 import { UIcon } from '../../icon';
 import { bind, delay, isFunction } from 'lodash-es';
 import { DefaultIconMap } from '../types/const';
@@ -79,7 +79,7 @@ const {
   getLastBottomOffset: bind(getLastBottomOffset, props)
 })
 const messageStyle = computed<CSSProperties>(() => ({
-  top: pxToRem(topOffset.value),
+  top: pxToRem(topOffset.value, { unit: 'rem' }),
   zIndex: props.zIndex
 }))
 

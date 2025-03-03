@@ -33,7 +33,7 @@ import { pxToRem } from '../../../utils';
     padding: 16,
     bodyStyle: () => ({})
   })
-  const _padding = computed(() =>  pxToRem(props.padding))
+  const _padding = computed(() =>  pxToRem(props.padding, { unit: 'rem' }))
   props.bodyStyle.padding = _padding.value
 </script>
 

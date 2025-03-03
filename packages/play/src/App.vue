@@ -44,6 +44,7 @@
     <u-menu-item index="3" disabled>Info</u-menu-item>
     <u-menu-item index="4">Orders</u-menu-item>
   </u-menu>
+  <u-button>按钮</u-button>
 </template>
 
 <script setup lang="ts">
