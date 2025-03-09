@@ -3,7 +3,7 @@
   <div 
     :class="[
       'u-card',
-      { [`u-card--shadow-${shadow}`]: shadow }
+      { [`u-card--${shadow}`]: shadow }
     ]">
     <header v-if="$slots.header || header" class="u-card-header" :style="{ padding: _padding }">
       <slot name="header">
