@@ -10,7 +10,7 @@
         <span>{{ header }}</span>
       </slot>
     </header>
-    <main v-if="$slots.default" :class="['u-card-body', bodyClass]" :style="bodyStyle">
+    <main v-if="$slots.default" :class="['u-card-body', bodyClass]" :style="_bodyStyle">
       <slot></slot>
     </main>
     <footer v-if="$slots.footer || footer" class="u-card-footer" :style="{ padding: _padding }">
@@ -34,7 +34,10 @@ import { pxToRem } from '../../../utils';
     bodyStyle: () => ({})
   })
   const _padding = computed(() =>  pxToRem(props.padding, { unit: 'rem' }))
-  props.bodyStyle.padding = _padding.value
+  const _bodyStyle = computed(() => ({
+    ...props.bodyStyle,
+    padding: _padding.value
+  }))
 </script>
 
 <style lang="scss">
