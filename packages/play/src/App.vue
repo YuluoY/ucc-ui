@@ -45,10 +45,21 @@
     <u-menu-item index="4">Orders</u-menu-item>
   </u-menu>
   <u-button>按钮</u-button>
+
+  <div :style="{
+    margin: '10px',
+  }">
+    <u-card :collapse="true" shadow='always' header="标题">
+    <template #default>
+      <span>内容</span>
+    </template>
+  </u-card>
+  </div>
 </template>
 
 <script setup lang="ts">
   import { ref } from 'vue'
+  import { UCard } from '@ucc-ui/components'
   const activeIndex = ref('1')
   const handleSelect = (key: string, keyPath: string[]) => {
     console.log(key, keyPath)

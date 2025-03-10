@@ -2,24 +2,24 @@
   declare module 'vue' {
     export interface GlobalComponents {
     UBadge: typeof import('ucc-ui')['UBadge'];
-    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
+    UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
+    UCard: typeof import('ucc-ui')['UCard'];
+    UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
+    UDialog: typeof import('ucc-ui')['UDialog'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
-    UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
-    UCard: typeof import('ucc-ui')['UCard'];
-    UDialog: typeof import('ucc-ui')['UDialog'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
     UForm: typeof import('ucc-ui')['UForm'];
     UFormItem: typeof import('ucc-ui')['UFormItem'];
     UIcon: typeof import('ucc-ui')['UIcon'];
-    ULayout: typeof import('ucc-ui')['ULayout'];
-    URegion: typeof import('ucc-ui')['URegion'];
     UInput: typeof import('ucc-ui')['UInput'];
     UInputNumber: typeof import('ucc-ui')['UInputNumber'];
+    ULayout: typeof import('ucc-ui')['ULayout'];
+    URegion: typeof import('ucc-ui')['URegion'];
     UMenu: typeof import('ucc-ui')['UMenu'];
     UMenuItem: typeof import('ucc-ui')['UMenuItem'];
     USubMenu: typeof import('ucc-ui')['USubMenu'];
@@ -27,8 +27,8 @@
     UReadProgress: typeof import('ucc-ui')['UReadProgress'];
     USlider: typeof import('ucc-ui')['USlider'];
     UTable: typeof import('ucc-ui')['UTable'];
-    UText: typeof import('ucc-ui')['UText'];
     UTag: typeof import('ucc-ui')['UTag'];
+    UText: typeof import('ucc-ui')['UText'];
     UTooltip: typeof import('ucc-ui')['UTooltip'];
     UTop: typeof import('ucc-ui')['UTop'];
 }

@@ -1,6 +1,5 @@
-
 <template>
-  <div 
+  <main 
     :class="[
       'u-card',
       { [`u-card--${shadow}`]: shadow }
@@ -8,23 +7,25 @@
     <header v-if="$slots.header || header" class="u-card-header" :style="{ padding: _padding }">
       <slot name="header">
         <span>{{ header }}</span>
+        <UIcon v-if="collapse" :icon="['fas', isCollapse ? 'chevron-down' : 'chevron-up']" @click="isCollapse = !isCollapse" />
       </slot>
     </header>
-    <main v-if="$slots.default" :class="['u-card-body', bodyClass]" :style="_bodyStyle">
+    <section v-if="$slots.default" v-show="!isCollapse" :class="['u-card-body', bodyClass]" :style="_bodyStyle">
       <slot></slot>
-    </main>
+    </section>
     <footer v-if="$slots.footer || footer" class="u-card-footer" :style="{ padding: _padding }">
       <slot name="footer">
         <span>{{ footer }}</span>
       </slot>
     </footer>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import type { UCardProps } from '../types';
 import { pxToRem } from '../../../utils';
+import { UIcon } from '../../icon';
 
   defineOptions({
     name: 'UCard'
@@ -38,8 +39,10 @@ import { pxToRem } from '../../../utils';
     ...props.bodyStyle,
     padding: _padding.value
   }))
+  
+  const isCollapse = ref(false)
 </script>
 
-<style lang="scss">
+<style>
 @import '../styles/index.css';
 </style>
