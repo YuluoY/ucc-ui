@@ -1,4 +1,5 @@
 export const CTextType = {
+  DEFAULT: 'default',
   PRIMARY: 'primary',
   SUCCESS: 'success',
   WARNING: 'warning',

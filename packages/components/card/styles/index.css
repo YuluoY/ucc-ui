@@ -37,10 +37,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
     user-select: none;
-    border-bottom: 0.02rem solid var(--uc-border-1);
+    /* border-bottom: 0.02rem solid var(--uc-border-1); */
     .u-icon {
       cursor: pointer;
+    }
+
+    &__divider {
+      position: absolute;
+      width: 100%;
+      height: 0.02rem;
+      background-color: var(--uc-border-1);
+      bottom: 0;
+      left: 0;
     }
   }
   .u-card-footer {
@@ -48,7 +58,7 @@
   }
 
   .u-card-body {
-    width: fit-content;
+    width: 100%;
     height: 100%;
   }
 }

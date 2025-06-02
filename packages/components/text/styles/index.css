@@ -16,6 +16,9 @@
     white-space: nowrap;
   }
   
+  &.u-text--default {
+    color: var(--uc-text-1);
+  }
   &.u-text--primary {
     color: var(--uc-primary-0);
   }

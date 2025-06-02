@@ -44,7 +44,19 @@
     <u-menu-item index="3" disabled>Info</u-menu-item>
     <u-menu-item index="4">Orders</u-menu-item>
   </u-menu>
-  <u-button>按钮</u-button>
+  <div style="display: flex;">
+    <u-tag 
+    v-for="item in [
+      'large',
+      'default',
+      'small',
+    ] as any" 
+    :key="item"
+    :size="item"
+  >
+    {{ item }}
+  </u-tag>
+  </div>
 
   <div :style="{
     margin: '10px',

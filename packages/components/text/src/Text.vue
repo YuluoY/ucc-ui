@@ -23,7 +23,7 @@ defineOptions({
   name: 'UText'
 })
 const props = withDefaults(defineProps<UTextProps>(), {
-  type: 'primary',
+  type: 'default',
   size: 'default',
   ellipsis: false,
   tag: 'span'

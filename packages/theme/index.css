@@ -4,14 +4,14 @@
 @import './uncss.css';
 :root {
   /* 字体大小 */
-  --uc-font-size-base: 0.8rem; /* 基础字体大小 */
-  --uc-font-size-xs: 0.6rem; /* 超小字体 */
-  --uc-font-size-sm: 0.7rem; /* 小字体 */
-  --uc-font-size-md: 0.9rem; /* 中字体 */
-  --uc-font-size-lg: 1rem; /* 大字体 */
-  --uc-font-size-xl: 1.2rem; /* 超大字体 */
-  --uc-font-size-xxl: 1.4rem; /* 超超大字体 */
-  --uc-font-size-xxxl: 1.6rem; /* 超超超大字体 */
+  --uc-font-size-xs: 0.8rem; /* 超小字体 */
+  --uc-font-size-sm: 1rem; /* 小字体 */
+  --uc-font-size-md: 1.2rem; /* 中字体 */
+  --uc-font-size-base: 1.4rem; /* 基础字体大小 */
+  --uc-font-size-lg: 1.6rem; /* 大字体 */
+  --uc-font-size-xl: 1.8rem; /* 超大字体 */
+  --uc-font-size-xxl: 2rem; /* 超超大字体 */
+  --uc-font-size-xxxl: 2.2rem; /* 超超超大字体 */
   /* 字体粗细 */
   --uc-font-weight-regular: 400; /* 常规字体 */
   --uc-font-weight-bold: 700; /* 粗体 */
