@@ -1,4 +1,4 @@
-import type { InjectionKey, Reactive } from "vue";
+import type { InjectionKey } from "vue";
 import type { ULayoutContext } from ".";
 
 /**

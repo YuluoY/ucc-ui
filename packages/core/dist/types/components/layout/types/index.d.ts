@@ -1,4 +1,4 @@
-import { ComputedRef, ShallowRef, VNode } from 'vue';
+import { ComputedRef } from 'vue';
 import { URegionType, ULayoutMode, ULayoutExtend, ULayoutFlexAlign } from './const';
 export interface ULayoutProps {
     /**
@@ -32,6 +32,11 @@ export interface URegionProps {
      */
     region?: URegionType;
     /**
+     * @description 样式
+     * @default '{}'
+     */
+    style?: import('vue').CSSProperties;
+    /**
      * @description 宽度
      * @default 'auto'
      */
@@ -61,19 +66,7 @@ export interface ULayoutContext {
      */
     mode: ComputedRef<ULayoutMode>;
     /**
-     * @description 区域延伸 - 仅在mode为default时有效
-     */
-    extend?: ComputedRef<ULayoutExtend>;
-    /**
      * @description 最大列数
      */
     maxSpan?: ComputedRef<number>;
-    /**
-     * @description 添加渲染后的区域节点
-     */
-    addRegionVNode: (vnode: VNode, updated?: boolean) => void;
-    /**
-     * @description 区域节点
-     */
-    regions?: ShallowRef<VNode[]> | undefined;
 }

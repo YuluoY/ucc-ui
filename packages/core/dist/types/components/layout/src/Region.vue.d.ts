@@ -1,16 +1,10 @@
 import { URegionProps } from '../types';
-/**
- * 更新自身组件
- */
-declare function updateSelf(): Promise<void>;
 declare function __VLS_template(): {
     default?(_: {}): any;
 };
 declare const __VLS_component: import('vue').DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToOption<URegionProps>, {
     region: string;
-}>, {
-    updateSelf: typeof updateSelf;
-}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToOption<URegionProps>, {
+}>, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToOption<URegionProps>, {
     region: string;
 }>>>, {
     region: import('../types/const').URegionType;

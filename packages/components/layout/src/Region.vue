@@ -8,11 +8,12 @@
 </template>
 
 <script setup lang="ts">
+import { isNil, isNumber } from "lodash-es";
+
 import { pxToRem } from "../../../utils";
 import type { URegionProps, ULayoutContext } from "../types";
 import { CComponentName, CLayoutContext, CLayoutMode } from "../types/const";
-import { computed, getCurrentInstance, inject, shallowRef, type VNode, nextTick, watch, onBeforeUnmount, type CSSProperties } from "vue";
-import { isNil, isNumber } from "lodash-es";
+import { type VNode, type CSSProperties, computed, getCurrentInstance, inject, shallowRef } from "vue";
 
 defineOptions({
   name: CComponentName.REGION,
@@ -33,7 +34,6 @@ const ctx = inject<ULayoutContext>(CLayoutContext)
  * 最大列数
  */
 const maxSpan = computed(() => ctx?.maxSpan?.value!)
-const maxSpanWatcher = watch(maxSpan, () => updateSelf())
 
 /**
  * 同级dom
@@ -64,7 +64,9 @@ const span = computed(() => {
  * 区域样式
  */
 const regionStyle = computed<CSSProperties>(() => {
-  const style = {} as CSSProperties
+  const style = {
+    ...props.style
+  } as CSSProperties
 
   if (span.value)
     style['--u-layout-flex-size'] = span.value
@@ -81,20 +83,6 @@ const regionStyle = computed<CSSProperties>(() => {
     style.alignItems = props.align
 
   return style
-})
-
-/**
- * 列数监听
- */
-const spanWatcher = watch(span, () => {
-  /**
-   * 添加自身组件
-   */
-  ctx?.addRegionVNode?.(instance?.vnode as VNode, true)
-  /**
-   * 添加同级区域节点
-   */
-  siblingRegions.value.forEach(item => ctx?.addRegionVNode(item, false))
 })
 
 /**
@@ -117,20 +105,4 @@ function handleRowSpan(regions: VNode[]) {
   }
 }
 
-/**
- * 更新自身组件
- */
-async function updateSelf() {
-  await nextTick()
-  siblings.value = (instance?.parent?.subTree.children as VNode[])?.[0]?.children as VNode[]
-}
-
-onBeforeUnmount(() => {
-  spanWatcher()
-  maxSpanWatcher()
-})
-
-defineExpose({
-  updateSelf
-})
 </script>
