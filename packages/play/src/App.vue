@@ -66,27 +66,6 @@
       <span>内容</span>
     </template>
   </u-card>
-  
-  <u-layout>
-    <u-region region="top" :style="topStyles">
-      AAAAAA {{ topStyles }}
-    </u-region>
-    <u-region region="center">
-      BBBBBB
-    </u-region>
-    <u-region region="bottom">
-      <u-button @click="state = !state">切换状态</u-button>
-    </u-region>
-  </u-layout>
-
-  <u-layout mode="row" :max-span="maxSpan">
-    <u-region :span="6">区域1</u-region>
-    <u-region :span="dynSpan">区域2</u-region>
-    <u-region :span="6">区域3</u-region>
-    <u-region :span="6">区域4</u-region>
-  </u-layout>
-  <u-button @click="dynSpan += 1">span + 1</u-button>
-  <u-input v-model.number="maxSpan"></u-input>
   </div>
 </template>
 
@@ -98,15 +77,7 @@
     console.log(key, keyPath)
   }
   const state = ref(true)
-  const topStyles = computed(() => {
-    return {
-      height: state.value ? '200px' : '100px',
-      color: state.value? 'red' : 'blue',
-      backgroundColor: state.value?'blue' : 'red',
-    }
-  })
-  const dynSpan = ref(6)
-  const maxSpan = ref(24)
+
 </script>
 
 <style>

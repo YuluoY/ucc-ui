@@ -29,6 +29,7 @@ import {
   UMenu,
   UMenuItem,
   USubMenu,
+  UTimeline,
 
   UMessageFn,
   UDialogFn,
@@ -66,6 +67,7 @@ export default [
   UMenu,
   UMenuItem,
   USubMenu,
+  UTimeline,
 
   UMessageFn,
   UDialogFn,
