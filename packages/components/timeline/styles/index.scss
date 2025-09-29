@@ -1,0 +1,97 @@
+.u-timeline {
+  --timeline-content-gap: var(--uc-height-6);
+}
+
+.u-timeline {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  gap: var(--timeline-gutter);
+  box-sizing: border-box;
+  padding-left: var(--timeline-margin);
+  
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &-line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.2rem;
+    height: calc(100% - var(--timeline-item-height));
+    background-color: var(--timeline-line-color);
+  }
+
+  &-item {
+    position: relative;
+
+    &-dot {
+      cursor: pointer;
+      position: absolute;
+      left: calc(var(--timeline-margin) * -1);
+      top: 0;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      transform: translateX(-50%);
+
+      &--primary {
+        background-color: var(--uc-primary);
+        &.u-timeline-item-dot--hollow {
+          border: 0.2rem solid var(--uc-primary);
+        }
+      }
+      &--success {
+        background-color: var(--uc-success);
+        &.u-timeline-item-dot--hollow {
+          border: 0.2rem solid var(--uc-success);
+        }
+      }
+      &--warning {
+        background-color: var(--uc-warning);
+        &.u-timeline-item-dot--hollow {
+          border: 0.2rem solid var(--uc-warning);
+        }
+      }
+      &--danger {
+        background-color: var(--uc-danger);
+        &.u-timeline-item-dot--hollow {
+          border: 0.2rem solid var(--uc-danger);
+        }
+      }
+      &--info {
+        background-color: var(--uc-info);
+        &.u-timeline-item-dot--hollow {
+          border: 0.2rem solid var(--uc-info);
+        }
+      }
+
+      &--hollow {
+        background-color: white;
+      }
+
+      &--normal {
+        width: 1.2rem;
+        height: 1.2rem;
+      }
+      &--large {
+        width: 1.6rem;
+        height: 1.6rem;
+      }
+    }
+    &__inner {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--timeline-content-gap);
+    }
+   &-title {
+      font-size: var(--uc-font-size-base);
+      font-weight: var(--uc-font-weight-medium);
+      color: var(--uc-text-2);
+      line-height: 1.5;
+    }
+  }
+}

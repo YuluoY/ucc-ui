@@ -56,9 +56,9 @@ const {
 const layoutStyle = computed(() => {
   const style: CSSProperties = {};
   if (!isNil(props.padding)) 
-    style.padding = isNumber(props.padding) ? pxToRem(props.padding, { unit: 'rem' }) : props.padding;
+    style.padding = isNumber(props.padding) ? pxToRem(props.padding) : props.padding;
   if (!isNil(props.gutter)) 
-    style.gap = isNumber(props.gutter) ? pxToRem(props.gutter, { unit: 'rem' }) : props.gutter;
+    style.gap = isNumber(props.gutter) ? pxToRem(props.gutter) : props.gutter;
   return style;
 });
 

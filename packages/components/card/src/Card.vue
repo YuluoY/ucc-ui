@@ -39,7 +39,7 @@ import { UIcon } from '../../icon';
     padding: 16,
     bodyStyle: () => ({})
   })
-  const _padding = computed(() =>  pxToRem(props.padding, { unit: 'rem' }))
+  const _padding = computed(() =>  pxToRem(props.padding))
   const _bodyStyle = computed(() => ({
     ...props.bodyStyle,
     padding: _padding.value

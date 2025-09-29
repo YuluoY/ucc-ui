@@ -100,8 +100,8 @@ const props = withDefaults(defineProps<UTooltipProps>(), {
 const emits = defineEmits<UTooltipEmits>();
 
 const popperStyles = computed(() => ({
-  width: props.width ? pxToRem<string>(props.width, { unit: 'rem' }) : "auto",
-  padding: pxToRem<string>(props.padding, { unit: 'rem' }),
+  width: props.width ? pxToRem<string>(props.width) : "auto",
+  padding: pxToRem<string>(props.padding),
 }));
 const visible = ref<boolean>(!!props.visible); // 是否显示
 

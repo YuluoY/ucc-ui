@@ -55,7 +55,7 @@ const showProgress = useWatchRef(props.show, () => props.show)
 
 const _content = computed(() => props.content ? props.content : `${Math.round(progress.value)}%`)
 const progressStyle = computed<CSSProperties>(() => ({
-  height: pxToRem(props.height as number, { unit: 'rem' }),
+  height: pxToRem(props.height as number),
   backgroundColor: props.backgroundColor,
 }))
 

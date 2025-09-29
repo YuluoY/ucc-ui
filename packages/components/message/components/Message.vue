@@ -79,7 +79,7 @@ const {
   getLastBottomOffset: bind(getLastBottomOffset, props)
 })
 const messageStyle = computed<CSSProperties>(() => ({
-  top: pxToRem(topOffset.value, { unit: 'rem' }),
+  top: pxToRem(topOffset.value),
   zIndex: props.zIndex
 }))
 

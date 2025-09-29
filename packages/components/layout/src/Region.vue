@@ -74,7 +74,7 @@ const regionStyle = computed<CSSProperties>(() => {
     style['--u-layout-max-span'] = maxSpan.value
 
   if (!isNil(props.padding))
-    style.padding = isNumber(props.padding) ? pxToRem(props.padding, { unit: 'rem' }) : props.padding
+    style.padding = isNumber(props.padding) ? pxToRem(props.padding) : props.padding
 
   if (!isNil(props.justify))
     style.justifyContent = props.justify

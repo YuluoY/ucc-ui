@@ -38,7 +38,7 @@ export function pxToRem<T = string | number>(
 ): T {
   const { 
     isReverse = false,
-    unit,
+    unit = 'rem',
     rootFontSize = parseInt(document.documentElement.style.fontSize, 10) || (window.innerWidth / 100)
   } = opts
 

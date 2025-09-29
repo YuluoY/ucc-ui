@@ -41,7 +41,7 @@ const props = withDefaults(defineProps<UCodeEditorProps>(), {
 const emits = defineEmits<UCodeEditorEmits>()
 
 const CodeEditorOptions = cloneDeep(toRaw(props)) as UCodeEditorProps
-const Height = computed(() => pxToRem(props.height, { unit: 'rem'}))
+const Height = computed(() => pxToRem(props.height))
 
 const resizeObserver = ref<ResizeObserver | null>(null)
 

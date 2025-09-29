@@ -21,3 +21,4 @@ export * from './config-provider';
 export * from './form';
 export * from './table';
 export * from './menu';
+export * from './timeline';

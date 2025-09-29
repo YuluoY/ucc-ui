@@ -66,17 +66,17 @@ const _scrollThreshold = computed(() => {
 })
 
 const topStyles = computed<CSSProperties>(() => {
-  const size = pxToRem(props.size, { unit: 'rem' })
+  const size = pxToRem(props.size)
 
   let offsetStyle = {
-    bottom: pxToRem(props.offset, { unit: 'rem' }),
-    right: pxToRem(props.offset, { unit: 'rem' }),
+    bottom: pxToRem(props.offset),
+    right: pxToRem(props.offset),
   } as CSSProperties
  
   if (props.position === CTopPosition.LEFT) {
     offsetStyle = {
-      bottom: pxToRem(props.offset, { unit: 'rem' }),
-      left: pxToRem(props.offset, { unit: 'rem' })
+      bottom: pxToRem(props.offset),
+      left: pxToRem(props.offset)
     }
   }
 

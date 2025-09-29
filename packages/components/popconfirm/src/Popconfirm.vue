@@ -46,7 +46,7 @@ const props = withDefaults(defineProps<UPopconfirmProps>(), {
 const visible = ref(false)
 const emits = defineEmits<UPopconfirmEmits>()
 const tooltipRef = ref<UTooltipExposes | null>(null)
-const minWidth = computed(() => pxToRem<string>(props.width, { unit: 'rem' }))
+const minWidth = computed(() => pxToRem<string>(props.width))
 
 const cancelText = computed(() => props.cancelButtonText ?? '取消')
 const confirmText = computed(() => props.confirmButtonText ?? '确定')
