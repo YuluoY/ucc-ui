@@ -190,12 +190,9 @@ importers:
       '@ucc-ui/components':
         specifier: workspace:*
         version: link:../components
-      terser:
-        specifier: ^5.44.0
-        version: 5.44.0
       vite-plugin-dts:
         specifier: ^4.0.2
-        version: 4.5.4(@types/node@20.19.19)(rollup@4.52.3)(typescript@5.9.3)(vite@5.4.20(@types/node@20.19.19)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0))
+        version: 4.5.4(@types/node@20.19.19)(rollup@4.52.3)(typescript@5.9.3)(vite@5.4.20(@types/node@20.19.19))
 
   packages/docs:
     devDependencies:
@@ -5435,6 +5432,7 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
+    optional: true
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
@@ -6790,7 +6788,8 @@ snapshots:
 
   buffer-builder@0.2.0: {}
 
-  buffer-from@1.1.2: {}
+  buffer-from@1.1.2:
+    optional: true
 
   cac@6.7.14: {}
 
@@ -6922,7 +6921,8 @@ snapshots:
 
   commander@10.0.1: {}
 
-  commander@2.20.3: {}
+  commander@2.20.3:
+    optional: true
 
   compare-versions@6.1.1: {}
 
@@ -8990,6 +8990,7 @@ snapshots:
     dependencies:
       buffer-from: 1.1.2
       source-map: 0.6.1
+    optional: true
 
   source-map@0.5.7: {}
 
@@ -9157,6 +9158,7 @@ snapshots:
       acorn: 8.15.0
       commander: 2.20.3
       source-map-support: 0.5.21
+    optional: true
 
   test-exclude@6.0.0:
     dependencies:
@@ -9388,7 +9390,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-dts@4.5.4(@types/node@20.19.19)(rollup@4.52.3)(typescript@5.9.3)(vite@5.4.20(@types/node@20.19.19)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0)):
+  vite-plugin-dts@4.5.4(@types/node@20.19.19)(rollup@4.52.3)(typescript@5.9.3)(vite@5.4.20(@types/node@20.19.19)):
     dependencies:
       '@microsoft/api-extractor': 7.52.15(@types/node@20.19.19)
       '@rollup/pluginutils': 5.3.0(rollup@4.52.3)
@@ -9401,7 +9403,7 @@ snapshots:
       magic-string: 0.30.19
       typescript: 5.9.3
     optionalDependencies:
-      vite: 5.4.20(@types/node@20.19.19)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0)
+      vite: 5.4.20(@types/node@20.19.19)
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -9410,6 +9412,16 @@ snapshots:
   vite-plugin-monaco-editor@1.1.0(monaco-editor@0.52.2):
     dependencies:
       monaco-editor: 0.52.2
+
+  vite@5.4.20(@types/node@20.19.19):
+    dependencies:
+      esbuild: 0.21.5
+      postcss: 8.5.6
+      rollup: 4.52.3
+    optionalDependencies:
+      '@types/node': 20.19.19
+      fsevents: 2.3.3
+    optional: true
 
   vite@5.4.20(@types/node@20.19.19)(sass-embedded@1.93.2)(sass@1.93.2)(terser@5.44.0):
     dependencies:

@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'node:path'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -15,7 +15,7 @@ export default defineConfig({
     dts({
       outDir: 'dist/types',
       tsconfigPath: '../../tsconfig.build.json'
-    })
+    }) as unknown as PluginOption
   ],
   css: {
     preprocessorOptions: {
@@ -26,42 +26,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist/es',
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log'],
-        // 更激进的压缩选项
-        passes: 2,
-        unsafe: true,
-        unsafe_comps: true,
-        unsafe_math: true,
-        unsafe_proto: true,
-        unsafe_regexp: true,
-        unsafe_undefined: true,
-        conditionals: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-        reduce_vars: true,
-        sequences: true,
-        side_effects: false,
-        unused: true,
-      },
-      mangle: {
-        toplevel: true,
-        properties: {
-          regex: /^_/ // 混淆以下划线开头的属性
-        }
-      },
-      format: {
-        comments: false,
-        beautify: false,
-        ascii_only: true,
-      }
-    },
     lib: {
       entry: resolve(__dirname, './index.ts'),
       name: 'UccUI',
@@ -99,9 +63,7 @@ export default defineConfig({
         assetFileNames: assetInfo =>
         {
           if (assetInfo.name === 'style.css')
-          
             return 'index.css' as string
-          
           return assetInfo.name as string
         }
       }

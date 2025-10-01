@@ -1,86 +1,67 @@
-import { _ as _sfc_main$f, g as getNextZIndex, a as UButton, U as UButtonGroup } from "./Dialog-ClXi3JgX.js";
-import { _ as _sfc_main$2 } from "./Layout-BB6JWX95.js";
-import { _ as _sfc_main$3 } from "./Region-r1NzwfJc.js";
-import { w as withInstall, p as pxToRem, a as withInstallFunc, m as makeInstaller } from "./utils-DE6NF_Rw.js";
-import { defineComponent, computed, ref, watch, onMounted, onBeforeUnmount, createBlock, openBlock, Teleport, createVNode, Transition, unref, withCtx, withDirectives, createElementVNode, normalizeStyle, normalizeClass, createElementBlock, createCommentVNode, renderSlot, withModifiers, vShow, shallowReactive, isVNode, h, render } from "vue";
-import { U as UIcon } from "./Button-z8eAX59l.js";
-import { _ as _sfc_main$4 } from "./Card-DcdZsMMR.js";
-import { _ as _sfc_main$5 } from "./Input-DWEGuuJm.js";
-import { _ as _sfc_main$i, U as UText } from "./ReadProgress-BHPbM1Ml.js";
-import { _ as _sfc_main$6 } from "./Tag-BpYp3-o3.js";
-import { _ as _sfc_main$7 } from "./Dropdown-V_LmjPwR.js";
-import { _ as _sfc_main$8 } from "./DropdownMenu-BLbBw42A.js";
-import { _ as _sfc_main$9 } from "./DropdownItem-CPIAYxwz.js";
-import { _ as _sfc_main$a } from "./Collapse-CWz9mut1.js";
-import { _ as _sfc_main$b } from "./CollapseItem-Cz2UW1fQ.js";
-import { _ as _sfc_main$d, U as UTooltip } from "./CodeEditor-_IhzSiOJ.js";
-import { _ as _sfc_main$c } from "./Popconfirm-hAP2i92j.js";
-import { _ as _sfc_main$j } from "./ConfigProvider-B-57W9eb.js";
-import { h as useOffset, a as useEventListener, i as useZIndex, u as useId } from "./hooks-DQminzJJ.js";
-import { r as bind, w as useResizeObserver, x as delay, j as isFunction, v as forEach, h as isString, y as findIndex, p as get, z as set, d as debounce, A as icons, B as icons$1 } from "./vendors-CdIIlIPX.js";
-import { _ as _sfc_main$e } from "./Slider-olqVJTUa.js";
-import { _ as _sfc_main$g } from "./Top-DpYrQjJ0.js";
-import { _ as _sfc_main$h } from "./Badge-nM8akGWN.js";
-import { _ as _sfc_main$k } from "./Form-4JXjm3Tj.js";
-import { _ as _sfc_main$l } from "./FormItem-BMKkLJ1d.js";
-import { _ as _sfc_main$m } from "./Table-CMlw7jQF.js";
-import { _ as _sfc_main$n } from "./Menu-DiNaQKjW.js";
-import { _ as _sfc_main$o } from "./MenuItem-CvZMY7ll.js";
-import { _ as _sfc_main$p } from "./SubMenu-rLcIkIwv.js";
-import { _ as _sfc_main$q } from "./Timeline-CGikh-3h.js";
-import { _ as _sfc_main$r } from "./TimelineItem-Leu5zM1y.js";
+import { _ as B, g as q, a as j, U as W } from "./Dialog-ZqpXLq4x.js";
+import { _ as Z } from "./Layout-cjKUze-J.js";
+import { _ as H } from "./Region-oH3WGcp4.js";
+import { w as o, p as Y, a as y, m as J } from "./utils-9trWAMuS.js";
+import { defineComponent as S, computed as b, ref as U, watch as K, onMounted as Q, onBeforeUnmount as X, createBlock as D, openBlock as v, Teleport as ee, createVNode as I, Transition as ne, unref as g, withCtx as oe, withDirectives as te, createElementVNode as x, normalizeStyle as se, normalizeClass as ae, createElementBlock as F, createCommentVNode as M, renderSlot as ie, withModifiers as ce, vShow as re, shallowReactive as me, isVNode as fe, h as T, render as d } from "vue";
+import { U as C } from "./Button-BBIsvXuF.js";
+import { _ as le } from "./Card-DchGPxOa.js";
+import { _ as ue } from "./Input-CggeqZhf.js";
+import { _ as k, U as de } from "./ReadProgress-D90nk1tb.js";
+import { _ as _e } from "./Tag-DBscnhof.js";
+import { _ as ge } from "./Dropdown-DYs_2JH9.js";
+import { _ as Ue } from "./DropdownMenu-WYbxGISa.js";
+import { _ as ve } from "./DropdownItem-DuMaECWh.js";
+import { _ as pe } from "./Collapse-CUgxKAn3.js";
+import { _ as ye } from "./CollapseItem-Dy3Mf0YG.js";
+import { _ as $e, U as he } from "./CodeEditor-D59JOQPr.js";
+import { _ as Ie } from "./Popconfirm-C9RBWjK5.js";
+import { _ as xe } from "./ConfigProvider-vgDXWmA4.js";
+import { h as Ce, a as Se, i as Te, u as Re } from "./hooks-cKKswLjq.js";
+import { r as Ne, w as we, x as Oe, j as R, v as A, h as z, y as G, p as be, z as De, d as E, A as Me, B as Ee } from "./vendors-D2NGRUOs.js";
+import { _ as Be } from "./Slider-MXxVE45P.js";
+import { _ as Fe } from "./Top-J7it1qXU.js";
+import { _ as ke } from "./Badge-CZZ0s8gs.js";
+import { _ as Ae } from "./Form-CbbIh2Zv.js";
+import { _ as ze } from "./FormItem-CI4EUeUS.js";
+import { _ as Ge } from "./Table-D9dobqKq.js";
+import { _ as Le } from "./Menu-80bieNeJ.js";
+import { _ as Pe } from "./MenuItem-B19qNgPf.js";
+import { _ as Ve } from "./SubMenu-DEljJoYE.js";
+import { _ as qe } from "./Timeline-COJ_VZCl.js";
+import { _ as je } from "./TimelineItem-1aHP7ETO.js";
 /* empty css               */
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { E, D } from "./locale-DVvWKJ3J.js";
-const ULayout = withInstall(_sfc_main$2);
-const URegion = withInstall(_sfc_main$3);
-const UCard = withInstall(_sfc_main$4);
-const UInput = withInstall(_sfc_main$5);
-const UTag = withInstall(_sfc_main$6);
-const UDropdown = withInstall(_sfc_main$7);
-const UDropdownMenu = withInstall(_sfc_main$8);
-const UDropdownItem = withInstall(_sfc_main$9);
-const UCollapse = withInstall(_sfc_main$a);
-const UCollapseItem = withInstall(_sfc_main$b);
-const UPopconfirm = withInstall(_sfc_main$c);
-const UCodeEditor = withInstall(_sfc_main$d);
-const DefaultIconMap = {
+import { library as We } from "@fortawesome/fontawesome-svg-core";
+import { fas as Ze } from "@fortawesome/free-solid-svg-icons";
+import { E as No, D as wo } from "./locale-BeqhBZQs.js";
+const He = o(Z), Ye = o(H), Je = o(le), Ke = o(ue), Qe = o(_e), Xe = o(ge), en = o(Ue), nn = o(ve), on = o(pe), tn = o(ye), sn = o(Ie), an = o($e), cn = {
   info: ["fas", "circle-info"],
   success: ["fas", "circle-check"],
   warning: ["fas", "circle-exclamation"],
   error: ["fas", "circle-xmark"],
   primary: ["fas", "circle-question"]
-};
-const CMessageType = {
+}, rn = {
   INFO: "info",
   SUCCESS: "success",
   WARNING: "warning",
   ERROR: "error",
   PRIMARY: "primary"
-};
-const _hoisted_1$1 = { class: "u-message-icon" };
-const _hoisted_2 = { class: "u-message-content" };
-const _hoisted_3 = {
+}, mn = { class: "u-message-icon" }, fn = { class: "u-message-content" }, ln = {
   key: 0,
   class: "u-message-close"
-};
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
-  ...{
-    name: "UMessage"
-  },
+}, un = /* @__PURE__ */ S({
+  name: "UMessage",
   __name: "Message",
   props: {
     id: {},
     message: {},
     type: { default: "info" },
-    plain: { type: Boolean, default: false },
+    plain: { type: Boolean, default: !1 },
     icon: {},
     dangerouslyUseHTMLString: { type: Boolean },
     customClass: {},
     duration: { default: 3e3 },
-    showClose: { type: Boolean, default: true },
-    center: { type: Boolean, default: false },
+    showClose: { type: Boolean, default: !0 },
+    center: { type: Boolean, default: !1 },
     zIndex: {},
     onDestory: {},
     offset: { default: 10 },
@@ -89,176 +70,141 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     repeatNum: {},
     transitionName: { default: "fade-up" }
   },
-  setup(__props, { expose: __expose }) {
-    const props = __props;
-    const _icon = computed(() => props.icon ?? DefaultIconMap[props.type]);
-    const visible = ref(true);
-    const messageRef = ref(null);
-    const boxHeight = ref(0);
-    const {
-      topOffset,
-      bottomOffset
-    } = useOffset({
-      boxHeight,
-      offset: props.offset,
-      getLastBottomOffset: bind(getLastBottomOffset, props)
+  setup(e, { expose: n }) {
+    const t = e, f = b(() => t.icon ?? cn[t.type]), s = U(!0), a = U(null), i = U(0), {
+      topOffset: r,
+      bottomOffset: c
+    } = Ce({
+      boxHeight: i,
+      offset: t.offset,
+      getLastBottomOffset: Ne(Un, t)
+    }), l = b(() => ({
+      top: Y(r.value),
+      zIndex: t.zIndex
+    })), P = K(s, (u) => {
+      u || (i.value = -t.offset);
     });
-    const messageStyle = computed(() => ({
-      top: pxToRem(topOffset.value),
-      zIndex: props.zIndex
-    }));
-    const visibleWatcher = watch(visible, (val) => {
-      if (!val)
-        boxHeight.value = -props.offset;
+    Se(document, "keydown", (u) => {
+      u.key === "Escape" && s.value && _();
+    }), we(a, () => {
+      i.value = a.value.getBoundingClientRect().height ?? 0;
+    }), Q(() => {
+      V(), N();
+    }), X(() => {
+      w(), P();
     });
-    useEventListener(document, "keydown", (e) => {
-      if (e.key === "Escape" && visible.value)
-        onClose();
-    });
-    useResizeObserver(messageRef, () => {
-      boxHeight.value = messageRef.value.getBoundingClientRect().height ?? 0;
-    });
-    onMounted(() => {
-      onShow();
-      startTimer();
-    });
-    onBeforeUnmount(() => {
-      clearTimer();
-      visibleWatcher();
-    });
-    function onClose() {
-      visible.value = false;
+    function _() {
+      s.value = !1;
     }
-    function onShow() {
-      visible.value = true;
+    function V() {
+      s.value = !0;
     }
-    let timer = null;
-    function startTimer() {
-      if (props.duration > 0)
-        timer = delay(onClose, props.duration);
+    let h = null;
+    function N() {
+      t.duration > 0 && (h = Oe(_, t.duration));
     }
-    function clearTimer() {
-      if (timer)
-        clearTimeout(timer);
+    function w() {
+      h && clearTimeout(h);
     }
-    __expose({
-      close: onClose,
-      bottomOffset
-    });
-    return (_ctx, _cache) => {
-      return openBlock(), createBlock(Teleport, { to: "body" }, [
-        createVNode(Transition, {
-          appear: "",
-          name: __props.transitionName,
-          onAfterLeave: _cache[0] || (_cache[0] = ($event) => !visible.value && unref(isFunction)(__props.onDestory) && __props.onDestory())
-        }, {
-          default: withCtx(() => [
-            withDirectives(createElementVNode("div", {
-              ref_key: "messageRef",
-              ref: messageRef,
-              role: "alert",
-              class: normalizeClass(["u-message", [
-                `u-message--${__props.type}`,
-                { "is-plain": __props.plain },
-                { "is-center": __props.center },
-                __props.customClass
-              ]]),
-              style: normalizeStyle(messageStyle.value),
-              onMouseenter: clearTimer,
-              onMouseleave: startTimer
-            }, [
-              createElementVNode("div", _hoisted_1$1, [
-                createVNode(unref(UIcon), { icon: _icon.value }, null, 8, ["icon"])
-              ]),
-              createElementVNode("div", _hoisted_2, [
-                renderSlot(_ctx.$slots, "default", {}, () => [
-                  __props.message ? (openBlock(), createBlock(unref(RenderVNode), {
-                    key: 0,
-                    vnode: __props.message
-                  }, null, 8, ["vnode"])) : createCommentVNode("", true)
-                ])
-              ]),
-              __props.showClose ? (openBlock(), createElementBlock("div", _hoisted_3, [
-                createVNode(unref(UIcon), {
-                  icon: "close",
-                  onClick: withModifiers(onClose, ["stop"])
-                })
-              ])) : createCommentVNode("", true)
-            ], 38), [
-              [vShow, visible.value]
-            ])
-          ]),
-          _: 3
-        }, 8, ["name"])
-      ]);
-    };
+    return n({
+      close: _,
+      bottomOffset: c
+    }), (u, O) => (v(), D(ee, { to: "body" }, [
+      I(ne, {
+        appear: "",
+        name: e.transitionName,
+        onAfterLeave: O[0] || (O[0] = (Vn) => !s.value && g(R)(e.onDestory) && e.onDestory())
+      }, {
+        default: oe(() => [
+          te(x("div", {
+            ref_key: "messageRef",
+            ref: a,
+            role: "alert",
+            class: ae(["u-message", [
+              `u-message--${e.type}`,
+              { "is-plain": e.plain },
+              { "is-center": e.center },
+              e.customClass
+            ]]),
+            style: se(l.value),
+            onMouseenter: w,
+            onMouseleave: N
+          }, [
+            x("div", mn, [
+              I(g(C), { icon: f.value }, null, 8, ["icon"])
+            ]),
+            x("div", fn, [
+              ie(u.$slots, "default", {}, () => [
+                e.message ? (v(), D(g(pn), {
+                  key: 0,
+                  vnode: e.message
+                }, null, 8, ["vnode"])) : M("", !0)
+              ])
+            ]),
+            e.showClose ? (v(), F("div", ln, [
+              I(g(C), {
+                icon: "close",
+                onClick: ce(_, ["stop"])
+              })
+            ])) : M("", !0)
+          ], 38), [
+            [re, s.value]
+          ])
+        ]),
+        _: 3
+      }, 8, ["name"])
+    ]));
   }
-});
-const { nextZIndex } = useZIndex();
-const instances = shallowReactive([]);
-const defaultOptions = {
+}), { nextZIndex: dn } = Te(), m = me([]), _n = {
   type: "info",
   duration: 3e3,
   offset: 10,
   transitionName: "fade-up"
-};
-const normalizeOptions = (options) => {
-  const res = !options || isVNode(options) || isString(options) ? { message: options } : options;
-  return { ...defaultOptions, ...res };
-};
-const createMessage = (props) => {
-  const id = useId().value;
-  const container = document.createElement("div");
-  const destory = () => {
-    const idx = findIndex(instances, { id });
-    if (idx === -1) return;
-    instances.splice(idx, 1);
-    render(null, container);
+}, L = (e) => {
+  const n = !e || fe(e) || z(e) ? { message: e } : e;
+  return { ..._n, ...n };
+}, gn = (e) => {
+  const n = Re().value, t = document.createElement("div"), f = () => {
+    const l = G(m, { id: n });
+    l !== -1 && (m.splice(l, 1), d(null, t));
+  }, s = {
+    ...e,
+    id: n,
+    zIndex: dn(),
+    onDestory: f
+  }, a = T(un, s);
+  d(a, t);
+  const i = a.component;
+  return {
+    id: n,
+    props: s,
+    handler: {
+      close: () => i.exposed.close()
+    },
+    vm: i,
+    vnode: a
   };
-  const _props = {
-    ...props,
-    id,
-    zIndex: nextZIndex(),
-    onDestory: destory
-  };
-  const vnode = h(_sfc_main$1, _props);
-  render(vnode, container);
-  const vm = vnode.component;
-  const handler = {
-    close: () => vm.exposed.close()
-  };
-  const instance = {
-    id,
-    props: _props,
-    handler,
-    vm,
-    vnode
-  };
-  return instance;
+}, p = (e = {}) => {
+  e = L(e);
+  const n = gn(e);
+  return m.push(n), n.handler;
 };
-const MessageFn = (options = {}) => {
-  options = normalizeOptions(options);
-  const instance = createMessage(options);
-  instances.push(instance);
-  return instance.handler;
-};
-function getLastBottomOffset() {
-  const idx = findIndex(instances, { id: this.id });
-  if (idx <= 0) return 0;
-  return get(instances, [idx - 1, "vm", "exposed", "bottomOffset", "value"]);
+function Un() {
+  const e = G(m, { id: this.id });
+  return e <= 0 ? 0 : be(m, [e - 1, "vm", "exposed", "bottomOffset", "value"]);
 }
-forEach(CMessageType, (type) => set(MessageFn, type, (opts = {}) => MessageFn({ ...normalizeOptions(opts), type })));
-function closeAll(type) {
-  forEach(instances, (ins) => {
-    if (ins.props.type === type) {
-      ins.handler.close();
+A(rn, (e) => De(p, e, (n = {}) => p({ ...L(n), type: e })));
+function vn(e) {
+  A(m, (n) => {
+    if (n.props.type === e) {
+      n.handler.close();
       return;
     }
-    ins.handler.close();
+    n.handler.close();
   });
 }
-MessageFn.closeAll = closeAll;
-const Global_Vars = {
+p.closeAll = vn;
+const $ = {
   DIALOG: "$dialog",
   // finished
   MESSAGE: "$message",
@@ -267,175 +213,133 @@ const Global_Vars = {
   // undo
   PROGRESS: "$progress"
   // finished
-};
-const RenderVNode = defineComponent({
+}, pn = S({
   props: {
     vnode: {
       type: [String, Object, Function],
-      required: true
+      required: !0
     }
   },
-  setup(props) {
-    return () => isFunction(props.vnode) ? props.vnode() : props.vnode;
+  setup(e) {
+    return () => R(e.vnode) ? e.vnode() : e.vnode;
   }
-});
-const UMessageFn = withInstallFunc(MessageFn, Global_Vars.MESSAGE);
-const USlider = withInstall(_sfc_main$e);
-const DialogFn = (props = {}) => {
-  const isSingle = (props == null ? void 0 : props.single) ?? true;
-  let container = (isString(props == null ? void 0 : props.appendTo) ? document.querySelector(props.appendTo) : props == null ? void 0 : props.appendTo) || document.body;
-  if (!isSingle) {
-    const div = document.createElement("div");
-    container.appendChild(div);
-    container = div;
+}), yn = y(p, $.MESSAGE), $n = o(Be), hn = (e = {}) => {
+  const n = (e == null ? void 0 : e.single) ?? !0;
+  let t = (z(e == null ? void 0 : e.appendTo) ? document.querySelector(e.appendTo) : e == null ? void 0 : e.appendTo) || document.body;
+  if (!n) {
+    const c = document.createElement("div");
+    t.appendChild(c), t = c;
   }
-  const openDebounce = debounce(open, (props == null ? void 0 : props.openDelay) || 100);
-  const closeDebounce = debounce(close, (props == null ? void 0 : props.closeDelay) || 100);
-  const _props = {
-    ...props,
-    zIndex: getNextZIndex(),
-    open: openDebounce,
-    close: closeDebounce,
-    onConfirm: async (close2) => {
-      if (isFunction(props.confirm)) {
-        const res = await props.confirm();
-        if (res) close2();
-      } else
-        close2();
+  const f = E(i, (e == null ? void 0 : e.openDelay) || 100), s = E(r, (e == null ? void 0 : e.closeDelay) || 100), a = {
+    ...e,
+    zIndex: q(),
+    open: f,
+    close: s,
+    onConfirm: async (c) => {
+      R(e.confirm) ? await e.confirm() && c() : c();
     }
   };
-  function open() {
-    render(h(_sfc_main$f, _props), container);
-    !isSingle && container.remove();
+  function i() {
+    d(T(B, a), t), !n && t.remove();
   }
-  function close() {
-    render(null, container);
+  function r() {
+    d(null, t);
   }
-  isSingle && close();
-  open();
-  return {
-    close
+  return n && r(), i(), {
+    close: r
   };
-};
-const UDialog = withInstall(_sfc_main$f);
-const UDialogFn = withInstallFunc(DialogFn, Global_Vars.DIALOG);
-const UTop = withInstall(_sfc_main$g);
-const UBadge = withInstall(_sfc_main$h);
-const ReadProgressFn = (props) => {
-  const progressRef = ref(null);
-  render(h(_sfc_main$i, {
-    ...props,
-    ref: (e) => progressRef.value = e
-  }), document.body);
-  return progressRef;
-};
-const UReadProgress = withInstall(_sfc_main$i);
-const UReadProgressFn = withInstallFunc(ReadProgressFn, Global_Vars.PROGRESS);
-const _hoisted_1 = { class: "u-notification" };
-const _sfc_main = /* @__PURE__ */ defineComponent({
-  ...{
-    name: "UNotification"
-  },
+}, In = o(B), xn = y(hn, $.DIALOG), Cn = o(Fe), Sn = o(ke), Tn = (e) => {
+  const n = U(null);
+  return d(T(k, {
+    ...e,
+    ref: (t) => n.value = t
+  }), document.body), n;
+}, Rn = o(k), Nn = y(Tn, $.PROGRESS), wn = { class: "u-notification" }, On = /* @__PURE__ */ S({
+  name: "UNotification",
   __name: "Notification",
-  setup(__props) {
-    return (_ctx, _cache) => {
-      return openBlock(), createElementBlock("div", _hoisted_1);
-    };
+  setup(e) {
+    return (n, t) => (v(), F("div", wn));
   }
-});
-const NotificationFn = () => {
-  return _sfc_main;
-};
-const UNotificationFn = withInstallFunc(NotificationFn, Global_Vars.NOTIFICATION);
-const UConfigProvider = withInstall(_sfc_main$j);
-const UForm = withInstall(_sfc_main$k);
-const UFormItem = withInstall(_sfc_main$l);
-const UTable = withInstall(_sfc_main$m);
-const UMenu = withInstall(_sfc_main$n);
-const UMenuItem = withInstall(_sfc_main$o);
-const USubMenu = withInstall(_sfc_main$p);
-const UTimeline = withInstall(_sfc_main$q);
-const UTimelineItem = withInstall(_sfc_main$r);
-const components = [
-  UButton,
-  UButtonGroup,
-  ULayout,
-  URegion,
-  UIcon,
-  UCard,
-  UInput,
-  UText,
-  UTag,
-  UDropdown,
-  UDropdownMenu,
-  UDropdownItem,
-  UCollapse,
-  UCollapseItem,
-  UTooltip,
-  UPopconfirm,
-  UCodeEditor,
-  USlider,
-  UDialog,
-  UTop,
-  UBadge,
-  UReadProgress,
-  UConfigProvider,
-  UForm,
-  UFormItem,
-  UTable,
-  UMenu,
-  UMenuItem,
-  USubMenu,
-  UTimeline,
-  UTimelineItem,
-  UMessageFn,
-  UDialogFn,
-  UReadProgressFn,
-  UNotificationFn
+}), bn = () => On, Dn = y(bn, $.NOTIFICATION), Mn = o(xe), En = o(Ae), Bn = o(ze), Fn = o(Ge), kn = o(Le), An = o(Pe), zn = o(Ve), Gn = o(qe), Ln = o(je), Pn = [
+  j,
+  W,
+  He,
+  Ye,
+  C,
+  Je,
+  Ke,
+  de,
+  Qe,
+  Xe,
+  en,
+  nn,
+  on,
+  tn,
+  he,
+  sn,
+  an,
+  $n,
+  In,
+  Cn,
+  Sn,
+  Rn,
+  Mn,
+  En,
+  Bn,
+  Fn,
+  kn,
+  An,
+  zn,
+  Gn,
+  Ln,
+  yn,
+  xn,
+  Nn,
+  Dn
 ];
-library.add(fas, icons, icons$1);
-const install = makeInstaller(components.map((v) => {
-  var _a;
-  return { ...v, name: ((_a = v.name) == null ? void 0 : _a.startsWith("U")) ? v.name : `U${v.name}` };
+We.add(Ze, Me, Ee);
+const So = J(Pn.map((e) => {
+  var n;
+  return { ...e, name: (n = e.name) != null && n.startsWith("U") ? e.name : `U${e.name}` };
 }));
 export {
-  RenderVNode,
-  UBadge,
-  UButton,
-  UButtonGroup,
-  UCard,
-  UCodeEditor,
-  UCollapse,
-  UCollapseItem,
-  UConfigProvider,
-  UDialog,
-  UDialogFn,
-  UDropdown,
-  UDropdownItem,
-  UDropdownMenu,
-  UForm,
-  UFormItem,
-  UIcon,
-  UInput,
-  ULayout,
-  UMenu,
-  UMenuItem,
-  UMessageFn,
-  UNotificationFn,
-  UPopconfirm,
-  UReadProgress,
-  UReadProgressFn,
-  URegion,
-  USlider,
-  USubMenu,
-  UTable,
-  UTag,
-  UText,
-  UTimeline,
-  UTimelineItem,
-  UTooltip,
-  UTop,
-  install as default,
-  E as en,
-  D as zhCn
+  pn as RenderVNode,
+  Sn as UBadge,
+  j as UButton,
+  W as UButtonGroup,
+  Je as UCard,
+  an as UCodeEditor,
+  on as UCollapse,
+  tn as UCollapseItem,
+  Mn as UConfigProvider,
+  In as UDialog,
+  xn as UDialogFn,
+  Xe as UDropdown,
+  nn as UDropdownItem,
+  en as UDropdownMenu,
+  En as UForm,
+  Bn as UFormItem,
+  C as UIcon,
+  Ke as UInput,
+  He as ULayout,
+  kn as UMenu,
+  An as UMenuItem,
+  yn as UMessageFn,
+  Dn as UNotificationFn,
+  sn as UPopconfirm,
+  Rn as UReadProgress,
+  Nn as UReadProgressFn,
+  Ye as URegion,
+  $n as USlider,
+  zn as USubMenu,
+  Fn as UTable,
+  Qe as UTag,
+  de as UText,
+  Gn as UTimeline,
+  Ln as UTimelineItem,
+  he as UTooltip,
+  Cn as UTop,
+  So as default,
+  No as en,
+  wo as zhCn
 };

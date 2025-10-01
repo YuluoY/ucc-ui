@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'node:path'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -11,7 +11,7 @@ export default defineConfig({
     dts({
       outDir: 'dist/types',
       tsconfigPath: '../../tsconfig.build.json'
-    })
+    }) as unknown as PluginOption
   ],
   css: {
     preprocessorOptions: {
@@ -22,20 +22,6 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist/umd',
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log'],
-      },
-      mangle: {
-        toplevel: true,
-      },
-      format: {
-        comments: false,
-      }
-    },
     lib: {
       entry: resolve(__dirname, './index.ts'),
       name: 'UccUI',
