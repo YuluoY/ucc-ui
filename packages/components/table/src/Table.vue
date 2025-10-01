@@ -18,16 +18,13 @@
 </template>
 
 <script setup lang="ts">
-import { useId } from '@ucc-ui/hooks'
 import type { UTableProps } from '../types'
 
 defineOptions({
   name: 'UTable'
 })
 
-const uid = useId('u-table')
-
-const props = withDefaults(defineProps<UTableProps>(), {
+withDefaults(defineProps<UTableProps>(), {
 })
 
 </script>

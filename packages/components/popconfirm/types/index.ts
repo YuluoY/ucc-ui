@@ -17,7 +17,7 @@ export interface UPopconfirmProps {
   teleported?: boolean
   persistent?: boolean
   width?: number
-  tooltipProps?: UTooltipProps
+  tooltipProps?: Partial<Omit<UTooltipProps, 'visible'>>
 }
 
 export interface UPopconfirmEmits {

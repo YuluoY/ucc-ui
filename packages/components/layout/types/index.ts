@@ -1,4 +1,4 @@
-import type { ComputedRef, ShallowRef, VNode } from 'vue'
+import type { ComputedRef } from 'vue'
 import type { URegionType, ULayoutMode, ULayoutExtend, ULayoutFlexAlign } from './const'
 
 export interface ULayoutProps {

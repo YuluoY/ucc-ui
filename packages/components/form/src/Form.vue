@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-import { provide, reactive, toRefs } from 'vue'
+import { provide, reactive } from 'vue'
 import type { Arrayable } from '@vueuse/core'
-import type { UFormProps, UFormExposes, FormItemContext, FormContext, UFormValidateCallback, UFormValidationResult, ValidateFieldsError } from '../types'
+import type { UFormProps, UFormExposes, FormItemContext, FormContext, UFormValidateCallback, ValidateFieldsError } from '../types'
 
 defineOptions({
   name: 'UForm',
@@ -61,9 +61,7 @@ const formContext = reactive<FormContext>({
     {
       const index = formItems.indexOf(field)
       if (index !== -1)
-      
         formItems.splice(index, 1)
-      
     }
   }
 })
@@ -73,7 +71,6 @@ provide('form', formContext)
 // 暴露方法
 const validate = async(callback?: UFormValidateCallback): Promise<void> =>
 {
-  let isValid = true
   const invalidFields: ValidateFieldsError = {}
 
   const validateFields = formItems.map(item => item.validate(''))
@@ -85,7 +82,6 @@ const validate = async(callback?: UFormValidateCallback): Promise<void> =>
   }
   catch (fields)
   {
-    isValid = false
     callback?.(false, invalidFields)
   }
 }

@@ -187,6 +187,7 @@ const validate = async(trigger: string): Promise<void> =>
         case 'url':
           try
           {
+            // eslint-disable-next-line no-new
             new URL(transformedValue)
             valid = true
           }
@@ -323,7 +324,7 @@ const clearValidate = () =>
 // 监听model变化
 watch(
   () => form?.model?.[typeof props.prop === 'string' ? props.prop : props.prop[0]],
-  newValue =>
+  _ =>
   {
     if (validateState.value === 'error')
     {

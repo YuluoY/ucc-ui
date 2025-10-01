@@ -5,7 +5,6 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 import glob from 'fast-glob'
 import { basename, extname } from 'node:path'
-import { minifyPlugin } from './vite-plugin-minify.js'
 
 const components = glob.globSync('../components/*/src/*.{vue,tsx}').map(file => basename(file, extname(file)))
 
@@ -16,22 +15,6 @@ export default defineConfig({
     dts({
       outDir: 'dist/types',
       tsconfigPath: '../../tsconfig.build.json'
-    }),
-    minifyPlugin({
-      dir: 'dist/es',
-      terserOptions: {
-        compress: {
-          drop_console: true,
-          drop_debugger: true,
-          pure_funcs: ['console.log'],
-        },
-        mangle: {
-          toplevel: true,
-        },
-        format: {
-          comments: false,
-        }
-      }
     })
   ],
   css: {
@@ -43,7 +26,42 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist/es',
-    minify: false, // 第一步：不压缩，只编译
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log'],
+        // 更激进的压缩选项
+        passes: 2,
+        unsafe: true,
+        unsafe_comps: true,
+        unsafe_math: true,
+        unsafe_proto: true,
+        unsafe_regexp: true,
+        unsafe_undefined: true,
+        conditionals: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true,
+        reduce_vars: true,
+        sequences: true,
+        side_effects: false,
+        unused: true,
+      },
+      mangle: {
+        toplevel: true,
+        properties: {
+          regex: /^_/ // 混淆以下划线开头的属性
+        }
+      },
+      format: {
+        comments: false,
+        beautify: false,
+        ascii_only: true,
+      }
+    },
     lib: {
       entry: resolve(__dirname, './index.ts'),
       name: 'UccUI',

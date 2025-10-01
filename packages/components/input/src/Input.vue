@@ -105,7 +105,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, inject, type ComputedRef } from 'vue'
+import { computed, ref, inject } from 'vue'
 import type { UInputEmits, UInputProps } from '../types'
 import { CInputType } from '../types/const'
 import { UIcon } from '../../icon'

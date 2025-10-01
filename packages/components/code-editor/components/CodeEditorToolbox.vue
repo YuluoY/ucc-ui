@@ -100,6 +100,11 @@ function onToggleWordWrap()
   options.wordWrap = options.wordWrap === 'off' ? 'on' : 'off'
 }
 
+defineExpose({
+  onToggleReadOnly,
+  onToggleWordWrap
+})
+
 </script>
 
 <style scoped lang="scss">

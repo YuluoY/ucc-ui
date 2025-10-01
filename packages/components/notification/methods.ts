@@ -1,9 +1,9 @@
 import Notification from './components/Notification.vue'
 
-const NotificationFn = props =>
+const NotificationFn = () =>
 {
 
-  
+  return Notification
 }
 
 export default NotificationFn
