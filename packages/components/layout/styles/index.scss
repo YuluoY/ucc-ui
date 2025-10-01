@@ -23,34 +23,34 @@
     display: inline-flex;
   }
 
-  .u-region__top {
+  &__top {
     width: 100%;
     flex-shrink: 0;
   }
 
-  .u-region__bottom {
+  &__bottom {
     width: 100%;
     flex-shrink: 0;
   }
 
-  .u-region__left,
-  .u-region__right {
+  &__left,
+  &__right {
     height: 100%;
     flex-shrink: 0;
   }
 
-  .u-region__center {
+  &__center {
     flex: 1;
     width: 100%;
   }
 
   // mode = default
-  .u-layout-mode {
+  &__mode {
     display: flex;
   }
 
   // 延伸模式
-  .u-layout-mode__extend {
+  &__extend {
     height: 100%;
     display: flex;
 
@@ -60,13 +60,13 @@
       flex: 1;
       min-height: 0;
 
-      .u-layout__body-center {
+      &-center {
         display: flex;
         flex: 1;
         flex-shrink: 0;
         flex-direction: column;
 
-        .u-layout__body-center-content {
+        &-content {
           display: flex;
           flex: 1;
           flex-shrink: 0;
@@ -115,17 +115,17 @@
 
 }
 
-.u-layout__row,
-.u-layout__column {
-  .u-region__top,
-  .u-region__bottom,
-  .u-region__left,
-  .u-region__right,
-  .u-region__center {
-    width: unset;
-    height: unset;
-  }
-}
+// .u-layout__row,
+// .u-layout__column {
+//   .u-region__top,
+//   .u-region__bottom,
+//   .u-region__left,
+//   .u-region__right,
+//   .u-region__center {
+//     width: unset;
+//     height: unset;
+//   }
+// }
 
 // 行模式 mode = row
 .u-layout__row {

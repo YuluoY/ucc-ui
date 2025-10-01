@@ -31,11 +31,11 @@ export declare const CComponentName: {
     readonly LAYOUT_MODE: "ULayoutMode";
 };
 export declare const CLayoutFlexAlign: {
-    readonly START: "start";
-    readonly END: "end";
+    readonly START: "flex-start";
+    readonly END: "flex-end";
     readonly CENTER: "center";
-    readonly BETWEEN: "between";
-    readonly AROUND: "around";
+    readonly BETWEEN: "space-between";
+    readonly AROUND: "space-around";
 };
 export declare const CLayoutContext: InjectionKey<ULayoutContext>;
 export type URegionType = typeof CRegion[keyof typeof CRegion];

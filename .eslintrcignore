@@ -20,6 +20,7 @@ auto-global-dts.js
 **/*.spec.tsx
 **/*.test.ts
 **/*.spec.ts
+**/*.mjs
 
 # 类型定义文件
 global.d.ts

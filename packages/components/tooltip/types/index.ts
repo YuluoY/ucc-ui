@@ -136,6 +136,12 @@ export interface UTooltipProps {
   manual?: boolean
 
   /**
+   * @description 内边距
+   * @type {number}
+   */
+  padding?: number
+
+  /**
    * @description 宽度
    * @type {number}
    */

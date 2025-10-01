@@ -1,4 +1,9 @@
 <template>
+    <u-layout mode="column">
+    <u-region justify="space-around">
+      <!-- 11312312 -->
+    </u-region>
+  </u-layout>
   <div>
     <u-button @click="handleChangeDirection">切换布局</u-button>
     <u-button @click="handleChangeDotPosition">随机排序dot位置</u-button>
@@ -9,6 +14,7 @@
       <u-timeline-item v-for="item in data" :key="item.date?.toString()" v-bind="item" @dot-click="handleDotClick"></u-timeline-item>
     </u-timeline>
   </div>
+
 </template>
 
 <script setup lang="ts">

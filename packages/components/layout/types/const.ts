@@ -38,11 +38,11 @@ export const CComponentName = {
 } as const
 
 export const CLayoutFlexAlign = {
-  START: 'start',
-  END: 'end',
+  START: 'flex-start',
+  END: 'flex-end',
   CENTER: 'center',
-  BETWEEN: 'between',
-  AROUND: 'around',
+  BETWEEN: 'space-between',
+  AROUND: 'space-around',
 } as const
 
 export const CLayoutContext: InjectionKey<ULayoutContext> = Symbol('c-layout-context')
