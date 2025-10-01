@@ -1,6 +1,6 @@
-import type { Component, ComponentCustomProperties, ComponentInternalInstance, DirectiveArguments, VNode, Directive } from "vue"
+import type { Component, ComponentCustomProperties, ComponentInternalInstance, DirectiveArguments, VNode, Directive } from 'vue'
 import { withModifiers } from 'vue'
-import type { CDirectives, CLifecycleHooks } from "./const";
+import type { CDirectives, CLifecycleHooks } from './const'
 
 export declare type LifecycleHooks = typeof CLifecycleHooks[keyof typeof CLifecycleHooks];
 
@@ -11,14 +11,14 @@ interface IDynamicCompProvide<T = any> {
   value: T
 }
 
-export type DynamicCompPropsCtxFn<T = any, A extends any[] = any[]> = (this: UDynamicCompProps, ...args: A) => T 
-export type DynamicCompCtxFn<T = any, A extends any[] = any[]> = (this: ComponentInternalInstance | null, ...args: A) => T 
+export type DynamicCompPropsCtxFn<T = any, A extends any[] = any[]> = (this: UDynamicCompProps, ...args: A) => T
+export type DynamicCompCtxFn<T = any, A extends any[] = any[]> = (this: ComponentInternalInstance | null, ...args: A) => T
 
-type DynamicCompType =  string | VNode | Component | Function
+type DynamicCompType = string | VNode | Component | Function
 type DynamicCompChildren = string | VNode | Component | Function | UDynamicCompProps
 type DynamicCompEvent = DynamicCompPropsCtxFn<DynamicCompChildren> | ReturnType<typeof withModifiers<any>>
 type DynamicCompSlots = DynamicCompPropsCtxFn<DynamicCompChildren> | DynamicCompChildren
-export type DynamicCompDirectives = boolean 
+export type DynamicCompDirectives = boolean
 
 interface UDynamicCompExtraProps {
   isAsync?: boolean
@@ -110,15 +110,15 @@ export interface UDynamicCompProps {
    *   // VNode - 虚拟节点
    *   children: h('div', { class: 'text' }, '文本内容')
    *   children: createVNode('div', { class: 'text' }, '文本内容')
-   * 
+   *
    *   // Component - 组件
    *   children: MyComponent
    *   children: () => import('./MyComponent.vue')
    *   children: defineAsyncComponent(() => import('./MyComponent.vue'))
-   * 
+   *
    *   // Function - 函数式组件
    *   children: (props) => h('div', { class: 'text' }, '文本内容')
-   * 
+   *
    *   // Array - 多子组件
    *   children: [
    *     { type, props, children, ... }  // 同UModelComp的props
@@ -188,7 +188,7 @@ export interface UDynamicCompProps {
    *  }
    *  ```
    */
-  hooks: Record<LifecycleHooks, DynamicCompCtxFn<void>> 
+  hooks: Record<LifecycleHooks, DynamicCompCtxFn<void>>
 
   /**
    * 指令
@@ -200,7 +200,7 @@ export interface UDynamicCompProps {
    *     'v-if': true,
    *     'v-show': (this: instance) => true,  // 不用监听函数时，this为组件实例，使用箭头函数则this为undefined
    *  }
-   * 
+   *
    * ```
    */
   directives: Record<Directives, DynamicCompDirectives | DynamicCompCtxFn<DynamicCompDirectives>>

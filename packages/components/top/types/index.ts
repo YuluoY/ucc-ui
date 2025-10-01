@@ -1,4 +1,4 @@
-import type { UTopPosition } from "./const"
+import type { UTopPosition } from './const'
 
 export interface UTopProps {
   /**

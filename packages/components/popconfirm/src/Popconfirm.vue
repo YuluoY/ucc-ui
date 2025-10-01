@@ -1,20 +1,50 @@
 <template>
-  <u-tooltip class="u-popconfirm" v-model:visible="visible" effect='light' trigger="click" ref='tooltipRef'
-    v-bind="tooltipProps">
+  <u-tooltip
+    ref="tooltipRef"
+    v-model:visible="visible"
+    class="u-popconfirm"
+    effect="light"
+    trigger="click"
+    v-bind="tooltipProps"
+  >
     <template #content>
-      <main :style="{ minWidth }" class="u-popconfirm__main">
+      <main
+        :style="{ minWidth }"
+        class="u-popconfirm__main"
+      >
         <div class="u-popconfirm__content">
-          <u-icon class="u-popconfirm__icon" :icon="icon" />
+          <u-icon
+            class="u-popconfirm__icon"
+            :icon="icon"
+          />
           <slot>
             <span class="u-popconfirm__title">{{ title }}</span>
           </slot>
         </div>
         <div class="u-popconfirm__actions">
-          <slot name="actions" :confirm="onConfirm" :cancel="onCancel">
-            <u-button class="u-popconfirm__cancel" size="small" :type="cancelType" v-bind="cancelButtonProps"
-              @click="onCancel">{{ cancelText }}</u-button>
-            <u-button class="u-popconfirm__confirm" size="small" :type="confirmType" v-bind="confirmButtonProps"
-              @click="onConfirm">{{ confirmText }}</u-button>
+          <slot
+            name="actions"
+            :confirm="onConfirm"
+            :cancel="onCancel"
+          >
+            <u-button
+              class="u-popconfirm__cancel"
+              size="small"
+              :type="cancelType"
+              v-bind="cancelButtonProps"
+              @click="onCancel"
+            >
+              {{ cancelText }}
+            </u-button>
+            <u-button
+              class="u-popconfirm__confirm"
+              size="small"
+              :type="confirmType"
+              v-bind="confirmButtonProps"
+              @click="onConfirm"
+            >
+              {{ confirmText }}
+            </u-button>
           </slot>
         </div>
       </main>
@@ -26,13 +56,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref } from 'vue'
 import { UTooltip } from '../../tooltip'
-import { UButton } from '../../button';
-import { UIcon } from '../../icon';
-import type { UPopconfirmEmits, UPopconfirmProps } from '../types';
-import { pxToRem } from '../../../utils';
-import type { UTooltipExposes } from '../../tooltip/types';
+import { UButton } from '../../button'
+import { UIcon } from '../../icon'
+import type { UPopconfirmEmits, UPopconfirmProps } from '../types'
+import { pxToRem } from '../../../utils'
+import type { UTooltipExposes } from '../../tooltip/types'
 
 defineOptions({
   name: 'UPopconfirm'
@@ -53,12 +83,14 @@ const confirmText = computed(() => props.confirmButtonText ?? '确定')
 const cancelType = computed(() => props.cancelButtonType ?? void 0)
 const confirmType = computed(() => props.confirmButtonType ?? 'primary')
 
-const onConfirm = (evt: MouseEvent) => {
+const onConfirm = (evt: MouseEvent) =>
+{
   tooltipRef.value?.onClose()
   emits('confirm', evt)
 }
 
-const onCancel = (evt: MouseEvent) => {
+const onCancel = (evt: MouseEvent) =>
+{
   tooltipRef.value?.onClose()
   emits('cancel', evt)
 }

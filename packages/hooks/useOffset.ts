@@ -1,4 +1,4 @@
-import { computed, type Ref  } from "vue";
+import { computed, type Ref } from 'vue'
 
 interface IUseOffsetOptions {
   offset: number;
@@ -12,8 +12,8 @@ interface IUseOffsetResult {
 }
 
 /**
- * 
- * @param options 
+ *
+ * @param options
  * @param options.offset 偏移量
  * @param options.boxHeight 盒子高度
  * @param options.getLastBottomOffset 获取最后一个底部偏移量
@@ -26,12 +26,13 @@ interface IUseOffsetResult {
  *   getLastBottomOffset: () => 0,
  * })
  * ```
- * @returns 
+ * @returns
  */
-export function useOffset(options: IUseOffsetOptions): IUseOffsetResult {
-  const { offset, boxHeight, getLastBottomOffset } = options;
+export function useOffset(options: IUseOffsetOptions): IUseOffsetResult
+{
+  const { offset, boxHeight, getLastBottomOffset } = options
 
-  const lastBottomOffset = computed(() => getLastBottomOffset());
+  const lastBottomOffset = computed(() => getLastBottomOffset())
   const topOffset = computed(() => offset + lastBottomOffset.value)
   const bottomOffset = computed(() => topOffset.value + boxHeight.value)
   

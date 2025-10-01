@@ -1,16 +1,20 @@
 <template>
-  <transition name="u-collapse-transition" v-on="on">
+  <transition
+    name="u-collapse-transition"
+    v-on="on"
+  >
     <slot />
   </transition>
 </template>
 <script lang="ts" setup>
-import type { RendererElement } from '@vue/runtime-core'
+import type { RendererElement } from 'vue'
 
 defineOptions({
   name: 'UCollapseTransition',
 })
 
-const reset = (el: RendererElement) => {
+const reset = (el: RendererElement) =>
+{
   el.style.maxHeight = ''
   el.style.overflow = el.dataset.oldOverflow
   el.style.paddingTop = el.dataset.oldPaddingTop
@@ -18,7 +22,8 @@ const reset = (el: RendererElement) => {
 }
 
 const on = {
-  beforeEnter(el: RendererElement) {
+  beforeEnter(el: RendererElement)
+  {
     if (!el.dataset) el.dataset = {}
 
     el.dataset.oldPaddingTop = el.style.paddingTop
@@ -30,16 +35,23 @@ const on = {
     el.style.paddingBottom = 0
   },
 
-  enter(el: RendererElement) {
-    requestAnimationFrame(() => {
+  enter(el: RendererElement)
+  {
+    requestAnimationFrame(() =>
+    {
       el.dataset.oldOverflow = el.style.overflow
-      if (el.dataset.elExistsHeight) {
+      if (el.dataset.elExistsHeight)
+      
         el.style.maxHeight = el.dataset.elExistsHeight
-      } else if (el.scrollHeight !== 0) {
+      
+      else if (el.scrollHeight !== 0)
+      
         el.style.maxHeight = `${el.scrollHeight}px`
-      } else {
+      
+      else
+      
         el.style.maxHeight = 0
-      }
+      
 
       el.style.paddingTop = el.dataset.oldPaddingTop
       el.style.paddingBottom = el.dataset.oldPaddingBottom
@@ -47,16 +59,19 @@ const on = {
     })
   },
 
-  afterEnter(el: RendererElement) {
+  afterEnter(el: RendererElement)
+  {
     el.style.maxHeight = ''
     el.style.overflow = el.dataset.oldOverflow
   },
 
-  enterCancelled(el: RendererElement) {
+  enterCancelled(el: RendererElement)
+  {
     reset(el)
   },
 
-  beforeLeave(el: RendererElement) {
+  beforeLeave(el: RendererElement)
+  {
     if (!el.dataset) el.dataset = {}
     el.dataset.oldPaddingTop = el.style.paddingTop
     el.dataset.oldPaddingBottom = el.style.paddingBottom
@@ -66,19 +81,23 @@ const on = {
     el.style.overflow = 'hidden'
   },
 
-  leave(el: RendererElement) {
-    if (el.scrollHeight !== 0) {
+  leave(el: RendererElement)
+  {
+    if (el.scrollHeight !== 0)
+    {
       el.style.maxHeight = 0
       el.style.paddingTop = 0
       el.style.paddingBottom = 0
     }
   },
 
-  afterLeave(el: RendererElement) {
+  afterLeave(el: RendererElement)
+  {
     reset(el)
   },
 
-  leaveCancelled(el: RendererElement) {
+  leaveCancelled(el: RendererElement)
+  {
     reset(el)
   },
 }

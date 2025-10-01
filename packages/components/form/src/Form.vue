@@ -7,7 +7,7 @@
     ]"
     @submit.prevent
   >
-    <slot></slot>
+    <slot />
   </form>
 </template>
 
@@ -51,15 +51,19 @@ const formContext = reactive<FormContext>({
   statusIcon: props.statusIcon,
   validateOnRuleChange: props.validateOnRuleChange,
   size: props.size,
-  addField: (field: FormItemContext) => {
+  addField: (field: FormItemContext) =>
+  {
     formItems.push(field)
   },
-  removeField: (field: FormItemContext) => {
-    if (field.prop) {
+  removeField: (field: FormItemContext) =>
+  {
+    if (field.prop)
+    {
       const index = formItems.indexOf(field)
-      if (index !== -1) {
+      if (index !== -1)
+      
         formItems.splice(index, 1)
-      }
+      
     }
   }
 })
@@ -67,68 +71,84 @@ const formContext = reactive<FormContext>({
 provide('form', formContext)
 
 // 暴露方法
-const validate = async (callback?: UFormValidateCallback): Promise<void> => {
+const validate = async(callback?: UFormValidateCallback): Promise<void> =>
+{
   let isValid = true
   const invalidFields: ValidateFieldsError = {}
 
-  const validateFields = formItems.map((item) => item.validate(''))
+  const validateFields = formItems.map(item => item.validate(''))
 
-  try {
+  try
+  {
     await Promise.all(validateFields)
     callback?.(true)
-  } catch (fields) {
+  }
+  catch (fields)
+  {
     isValid = false
     callback?.(false, invalidFields)
   }
 }
 
-const validateField = async (props?: Arrayable<string | string[]>, callback?: UFormValidateCallback): Promise<boolean> => {
+const validateField = async(props?: Arrayable<string | string[]>, callback?: UFormValidateCallback): Promise<boolean> =>
+{
   if (!props) return true
 
   const propsArray = Array.isArray(props) ? props : [props]
   const fields = propsArray.flat()
   
   const validateFields = formItems
-    .filter((item) => item.prop && fields.includes(item.prop))
-    .map((item) => item.validate(''))
+    .filter(item => item.prop && fields.includes(item.prop))
+    .map(item => item.validate(''))
 
-  try {
+  try
+  {
     await Promise.all(validateFields)
     callback?.(true)
     return true
-  } catch (error) {
+  }
+  catch (error)
+  {
     callback?.(false)
     return false
   }
 }
 
-const resetFields = () => {
-  formItems.forEach((item) => {
+const resetFields = () =>
+{
+  formItems.forEach(item =>
+  {
     item.resetField()
   })
 }
 
-const clearValidate = (props?: Arrayable<string | string[]>) => {
-  if (!props) {
-    formItems.forEach((item) => item.clearValidate())
+const clearValidate = (props?: Arrayable<string | string[]>) =>
+{
+  if (!props)
+  {
+    formItems.forEach(item => item.clearValidate())
     return
   }
 
   const propsArray = Array.isArray(props) ? props : [props]
   const fields = propsArray.flat()
 
-  formItems.forEach((item) => {
-    if (item.prop && fields.includes(item.prop)) {
+  formItems.forEach(item =>
+  {
+    if (item.prop && fields.includes(item.prop))
+    
       item.clearValidate()
-    }
+    
   })
 }
 
-const scrollToField = (prop: string | string[]) => {
-  const field = formItems.find((item) => 
+const scrollToField = (prop: string | string[]) =>
+{
+  const field = formItems.find(item =>
     item.prop === (Array.isArray(prop) ? prop[0] : prop)
   )
-  if (field) {
+  if (field)
+  {
     // 这里可以添加滚动到字段的逻辑
     // 例如使用 scrollIntoView
     const el = document.querySelector(`.u-form-item[data-prop="${field.prop}"]`)

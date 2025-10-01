@@ -5,13 +5,13 @@ export const CTextType = {
   WARNING: 'warning',
   DANGER: 'danger',
   INFO: 'info'
-} as const;
+} as const
 
 export const CTextSize = {
   SMALL: 'small',
   DEFAULT: 'default',
   LARGE: 'large'
-} as const;
+} as const
 
 export type UTextType = typeof CTextType[keyof typeof CTextType];
 export type UTextSize = typeof CTextSize[keyof typeof CTextSize];

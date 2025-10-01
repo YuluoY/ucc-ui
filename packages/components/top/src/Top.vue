@@ -1,9 +1,12 @@
 <template>
   <Teleport :to="appendTo">
-    <Transition appear :name="animationClass">
-      <div 
-        class="u-top"
+    <Transition
+      appear
+      :name="animationClass"
+    >
+      <div
         v-show="visible"
+        class="u-top"
         :style="topStyles"
         @click.prevent="handleClick"
       >
@@ -18,12 +21,12 @@
 </template>
 
 <script setup lang="ts">
-import { type UTopProps, type UTopEmits, type UTopExposes } from '../types';
-import { computed, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue';
-import { pxToRem } from '../../../utils';
-import { isString } from 'lodash-es';
-import useScrollTo, { type UseScrollToReturn } from '@ucc-ui/hooks/useScrollTo';
-import { CTopPosition } from '../types/const';
+import { type UTopProps, type UTopEmits, type UTopExposes } from '../types'
+import { computed, onBeforeUnmount, onMounted, ref, watch, type CSSProperties } from 'vue'
+import { pxToRem } from '../../../utils'
+import { isString } from 'lodash-es'
+import useScrollTo, { type UseScrollToReturn } from '@ucc-ui/hooks/useScrollTo'
+import { CTopPosition } from '../types/const'
 
 defineOptions({
   name: 'UTop'
@@ -41,31 +44,38 @@ const props = withDefaults(defineProps<UTopProps>(), {
 const emits = defineEmits<UTopEmits>()
 
 const visible = ref(props.modelValue || false)
-const visibleWatchHandle = watch(visible, val => {
+const visibleWatchHandle = watch(visible, val =>
+{
   emits('update:modelValue', val)
 })
-onBeforeUnmount(() => {
+onBeforeUnmount(() =>
+{
   visibleWatchHandle && visibleWatchHandle()
 })
 const container = ref<HTMLElement | null>(null)
 const containerScrollAble = ref(0)
 let scrollToFn: UseScrollToReturn['scrollTo'] | null = null
 
-const _scrollThreshold = computed(() => {
-  if (container.value) {
+const _scrollThreshold = computed(() =>
+{
+  if (container.value)
     containerScrollAble.value = getSurplusScroll(container.value)
-  }
-  if (isString(props.scrollThreshold)) {
+  
+  if (isString(props.scrollThreshold))
+  {
     const val = parseInt(props.scrollThreshold, 10)
     if (!val)
       return containerScrollAble.value / 3
     return containerScrollAble.value ? val / 100 * containerScrollAble.value : val
-  } else {
-    return props.scrollThreshold
   }
+  else
+  
+    return props.scrollThreshold
+  
 })
 
-const topStyles = computed<CSSProperties>(() => {
+const topStyles = computed<CSSProperties>(() =>
+{
   const size = pxToRem(props.size)
 
   let offsetStyle = {
@@ -73,7 +83,8 @@ const topStyles = computed<CSSProperties>(() => {
     right: pxToRem(props.offset),
   } as CSSProperties
  
-  if (props.position === CTopPosition.LEFT) {
+  if (props.position === CTopPosition.LEFT)
+  {
     offsetStyle = {
       bottom: pxToRem(props.offset),
       left: pxToRem(props.offset)
@@ -90,20 +101,22 @@ const topStyles = computed<CSSProperties>(() => {
   }
 })
 
-const handleClick = (e: Event) => {
+const handleClick = (e: Event) =>
+{
   scrollToFn?.()
   emits('click', e)
 }
 
-onMounted(() => {
+onMounted(() =>
+{
   container.value = props.appendTo === 'body' ? document.documentElement : document.querySelector(props.appendTo) as HTMLElement
   
-  const { 
+  const {
     scrollTo
-  } = useScrollTo({ 
+  } = useScrollTo({
     el: container,
     duration: props.duration,
-    isAuto: false, 
+    isAuto: false,
     scrolling: () => vaildate() ? show() : hide(),
     wheeling: () => vaildate() ? show() : hide()
   })
@@ -112,7 +125,8 @@ onMounted(() => {
   vaildate() ? show() : hide()
 })
 
-function getSurplusScroll(el: HTMLElement): number {
+function getSurplusScroll(el: HTMLElement): number
+{
   if (!el)
     return 0
   return el.scrollHeight - el.clientHeight - el.scrollTop
@@ -121,7 +135,8 @@ function getSurplusScroll(el: HTMLElement): number {
 /**
  * 是否在阈值内
  */
-function vaildate() {
+function vaildate()
+{
   if (!container.value)
     return false
   return container.value.scrollTop >= _scrollThreshold.value
@@ -130,49 +145,56 @@ function vaildate() {
 /**
  * 显示
  */
-function show() {
+function show()
+{
   visible.value = true
 }
 
 /**
  * 隐藏
  */
-function hide() {
+function hide()
+{
   visible.value = false
 }
 
 /**
  * 切换显隐
  */
-function toggle() {
+function toggle()
+{
   visible.value = !visible.value
 }
 
 /**
  * 滚动到指定位置
  */
-function scrollTo(to: number = 0, duration: number = 300) {
+function scrollTo(to: number = 0, duration: number = 300)
+{
   scrollToFn?.(to, duration)
 }
 
 /**
  * 滚动置顶
  */
-function scrollToTop(duration: number = 300) {
+function scrollToTop(duration: number = 300)
+{
   scrollToFn?.(0, duration)
 }
 
 /**
  * 滚动到底部
  */
-function scrollToBottom(duration: number = 300) {
+function scrollToBottom(duration: number = 300)
+{
   scrollToFn?.(container.value?.scrollHeight, duration)
 }
 
 /**
  * 滚动到指定元素
  */
-function scrollToElement(el: HTMLElement, duration: number = 300) {
+function scrollToElement(el: HTMLElement, duration: number = 300)
+{
   scrollToFn?.(el.offsetTop, duration)
 }
 
@@ -186,7 +208,8 @@ defineExpose<UTopExposes>({
   scrollToBottom,
   scrollToElement,
   vaildate,
-  get visible() {
+  get visible()
+  {
     return visible.value
   }
 })

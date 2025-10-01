@@ -16,16 +16,19 @@ type ComponentInstance = {
   rules?: Record<string, any>
 }
 
-describe('UForm 组件测试', () => {
+describe('UForm 组件测试', () =>
+{
   // 基础渲染测试
-  it('默认渲染正确', () => {
+  it('默认渲染正确', () =>
+  {
     const wrapper = mount(UForm)
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.classes()).toContain('u-form')
   })
 
   // 标签位置测试
-  it('标签位置渲染正确', () => {
+  it('标签位置渲染正确', () =>
+  {
     const wrapper = mount(UForm, {
       props: {
         labelPosition: 'left'
@@ -35,7 +38,8 @@ describe('UForm 组件测试', () => {
   })
 
   // 行内表单测试
-  it('行内表单渲染正确', () => {
+  it('行内表单渲染正确', () =>
+  {
     const wrapper = mount(UForm, {
       props: {
         inline: true
@@ -45,7 +49,8 @@ describe('UForm 组件测试', () => {
   })
 
   // 表单验证测试
-  it('表单验证功能正确', async () => {
+  it('表单验证功能正确', async() =>
+  {
     const rules = {
       name: [
         { required: true, message: '请输入姓名', trigger: 'blur' }
@@ -72,7 +77,8 @@ describe('UForm 组件测试', () => {
         UFormItem,
         UInput
       },
-      data() {
+      data()
+      {
         return {
           model: {
             name: '',
@@ -105,7 +111,8 @@ describe('UForm 组件测试', () => {
   })
 
   // 表单重置测试
-  it('表单重置功能正确', async () => {
+  it('表单重置功能正确', async() =>
+  {
     const wrapper = mount({
       template: `
         <UForm ref="form" :model="model">
@@ -119,7 +126,8 @@ describe('UForm 组件测试', () => {
         UFormItem,
         UInput
       },
-      data() {
+      data()
+      {
         return {
           model: {
             name: ''
@@ -143,7 +151,8 @@ describe('UForm 组件测试', () => {
   })
 
   // 表单项验证测试
-  it('单个表单项验证功能正确', async () => {
+  it('单个表单项验证功能正确', async() =>
+  {
     const rules = {
       name: [
         { required: true, message: '请输入姓名', trigger: 'blur' }
@@ -163,7 +172,8 @@ describe('UForm 组件测试', () => {
         UFormItem,
         UInput
       },
-      data() {
+      data()
+      {
         return {
           model: {
             name: ''
@@ -192,7 +202,8 @@ describe('UForm 组件测试', () => {
   })
 
   // 清除验证测试
-  it('清除验证功能正确', async () => {
+  it('清除验证功能正确', async() =>
+  {
     const rules = {
       name: [
         { required: true, message: '请输入姓名', trigger: 'blur' }
@@ -212,7 +223,8 @@ describe('UForm 组件测试', () => {
         UFormItem,
         UInput
       },
-      data() {
+      data()
+      {
         return {
           model: {
             name: ''
@@ -242,7 +254,8 @@ describe('UForm 组件测试', () => {
   })
 
   // 尺寸测试
-  it('表单尺寸渲染正确', () => {
+  it('表单尺寸渲染正确', () =>
+  {
     const wrapper = mount(UForm, {
       props: {
         size: 'large'
@@ -267,7 +280,8 @@ describe('UForm 组件测试', () => {
   })
 
   // 必填星号测试
-  it('必填星号显示正确', () => {
+  it('必填星号显示正确', () =>
+  {
     const wrapper = mount({
       template: `
         <UForm :model="model" :rules="rules">
@@ -281,7 +295,8 @@ describe('UForm 组件测试', () => {
         UFormItem,
         UInput
       },
-      data() {
+      data()
+      {
         return {
           model: { test: '' },
           rules: {
@@ -295,7 +310,8 @@ describe('UForm 组件测试', () => {
   })
 
   // 标签后缀测试
-  it('标签后缀渲染正确', () => {
+  it('标签后缀渲染正确', () =>
+  {
     const wrapper = mount({
       template: `
         <UForm :model="model" label-suffix=":">
@@ -309,7 +325,8 @@ describe('UForm 组件测试', () => {
         UFormItem,
         UInput
       },
-      data() {
+      data()
+      {
         return {
           model: {
             test: ''
@@ -321,4 +338,4 @@ describe('UForm 组件测试', () => {
     const label = wrapper.find('.u-form-item__label')
     expect(label.text()).toBe('测试:')
   })
-}) 
+})

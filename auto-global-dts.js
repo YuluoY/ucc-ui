@@ -6,14 +6,16 @@ const pkg = require('./packages/core/package.json')
 const COMS_BASE_PATH = './packages/components'
 const GLOBAL_FILENAME = 'global';
 
-(async () => {
+(async() =>
+{
   const globalFile = GLOBAL_FILENAME + '.d.ts'
   const comsFiles = await glob([`${COMS_BASE_PATH}/*/src/*.{vue,tsx}`])
   const glbalFnFiles = await glob([`${COMS_BASE_PATH}/**/methods.ts`])
 
-  if (fs.existsSync(GLOBAL_FILENAME)) {
+  if (fs.existsSync(GLOBAL_FILENAME))
+  
     fs.unlinkSync(globalFile)
-  }
+  
   // 创建文件
   fs.writeFileSync(globalFile, `
   declare module 'vue' {
@@ -28,13 +30,15 @@ const GLOBAL_FILENAME = 'global';
   const glbalDts = fs.readFileSync(globalFile, 'utf-8')
   
   let componentDeclarations = '\n'
-  comsFiles.forEach(file => {
+  comsFiles.forEach(file =>
+  {
     const componentName = path.basename(file, path.extname(file))
     componentDeclarations += `    U${componentName}: typeof import('${pkg.name}')['U${componentName}'];\n`
   })
 
   let customProps = '\n'
-  glbalFnFiles.forEach(file => {
+  glbalFnFiles.forEach(file =>
+  {
     let compFnName = path.basename(path.dirname(file))
     let compFnVar = compFnName
     if (~compFnName.indexOf('-'))
@@ -51,5 +55,5 @@ const GLOBAL_FILENAME = 'global';
 
   fs.writeFileSync(globalFile, newGlbalDts)
   fs.writeFileSync('./packages/core/dist/index.d.ts', newGlbalDts)
-  console.log('global.d.ts generated successfully!');
+  console.log('global.d.ts generated successfully!')
 })()

@@ -1,6 +1,6 @@
-import type { Arrayable } from "@vueuse/core"
-import type { UFormItemRuleTrigger, UFormItemValidateStatus, UFormLabelPosition, UFormSize, URequiredAsteriskPosition } from "./const"
-import type { ComputedRef, Ref } from "vue"
+import type { Arrayable } from '@vueuse/core'
+import type { UFormItemRuleTrigger, UFormItemValidateStatus, UFormLabelPosition, UFormSize, URequiredAsteriskPosition } from './const'
+import type { ComputedRef, Ref } from 'vue'
 
 export type Value = any;
 export type Values = Record<string, Value>;
@@ -229,4 +229,4 @@ export interface UFormItemExposes {
    * @description 移除该表单项的校验结果
    */
   clearValidate: () => void
-} 
+}

@@ -4,25 +4,25 @@ export const CTagType = {
   WARNING: 'warning',
   DANGER: 'danger',
   INFO: 'info'
-} as const;
+} as const
 
 export const CTagSize = {
   SMALL: 'small',
   DEFAULT: 'default',
   LARGE: 'large'
-} as const;
+} as const
 
 export const CTagEffect = {
   DARK: 'dark',
   LIGHT: 'light',
   PLAIN: 'plain'
-} as const;
+} as const
 
 export const CTagClosePosition = {
   LEFT: 'left',
   RIGHT: 'right',
   DEFAULT: 'default'
-} as const;
+} as const
 
 export type UTagType = typeof CTagType[keyof typeof CTagType];
 export type UTagSize = typeof CTagSize[keyof typeof CTagSize];

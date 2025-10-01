@@ -1,6 +1,6 @@
-import { getCurrentInstance, onActivated, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onDeactivated, onErrorCaptured, onMounted, onRenderTracked, onRenderTriggered, onUnmounted, onUpdated, type ComponentInternalInstance } from "vue";
-import type { UDynamicCompProps } from "../types";
-import { isFunction } from "lodash-es";
+import { getCurrentInstance, onActivated, onBeforeMount, onBeforeUnmount, onBeforeUpdate, onDeactivated, onErrorCaptured, onMounted, onRenderTracked, onRenderTriggered, onUnmounted, onUpdated, type ComponentInternalInstance } from 'vue'
+import type { UDynamicCompProps } from '../types'
+import { isFunction } from 'lodash-es'
 
 interface HandleHooksOpts {
   uid?: string
@@ -10,7 +10,8 @@ interface HandleHooksOpts {
 export default function handleHooks(
   this: UDynamicCompProps,
   opts: HandleHooksOpts
-) {
+)
+{
   const {
     uid,
     instance = getCurrentInstance()

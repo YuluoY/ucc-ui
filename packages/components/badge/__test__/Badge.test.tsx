@@ -5,23 +5,27 @@ import type { UBadgeProps } from '../types'
 import React from 'react'
 
 // 创建通用的测试配置
-const createWrapper = (props = {}, slots = {}) => {
+const createWrapper = (props = {}, slots = {}) =>
+{
   return mount(UBadge, {
     props,
     slots
   })
 }
 
-describe('UBadge 组件测试', () => {
+describe('UBadge 组件测试', () =>
+{
   // 基础渲染测试
-  it('默认渲染正确', () => {
+  it('默认渲染正确', () =>
+  {
     const wrapper = createWrapper()
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.classes()).toContain('u-badge')
   })
 
   // 值显示测试
-  it('值显示正确', () => {
+  it('值显示正确', () =>
+  {
     const value = '5'
     const wrapper = createWrapper({
       value
@@ -33,7 +37,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 最大值测试
-  it('最大值处理正确', () => {
+  it('最大值处理正确', () =>
+  {
     const wrapper = createWrapper({
       value: 100,
       max: 99
@@ -44,7 +49,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 小圆点模式测试
-  it('小圆点模式渲染正确', () => {
+  it('小圆点模式渲染正确', () =>
+  {
     const wrapper = createWrapper({
       isDot: true
     } as UBadgeProps)
@@ -54,7 +60,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 隐藏测试
-  it('隐藏功能正确', () => {
+  it('隐藏功能正确', () =>
+  {
     const wrapper = createWrapper({
       hidden: true
     } as UBadgeProps)
@@ -64,10 +71,12 @@ describe('UBadge 组件测试', () => {
   })
 
   // 类型测试
-  it('不同类型渲染正确', () => {
+  it('不同类型渲染正确', () =>
+  {
     const types = ['primary', 'success', 'warning', 'danger', 'info']
     
-    types.forEach(type => {
+    types.forEach(type =>
+    {
       const wrapper = createWrapper({
         type
       } as UBadgeProps)
@@ -77,7 +86,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 值为0时的显示测试
-  it('值为0时的显示控制正确', async () => {
+  it('值为0时的显示控制正确', async() =>
+  {
     const wrapper = createWrapper({
       value: 0,
       showZero: true
@@ -90,7 +100,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 自定义颜色测试
-  it('自定义颜色渲染正确', () => {
+  it('自定义颜色渲染正确', () =>
+  {
     const color = 'rgb(255, 0, 0)'
     const wrapper = createWrapper({
       color
@@ -101,7 +112,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 偏移量测试
-  it('偏移量设置正确', () => {
+  it('偏移量设置正确', () =>
+  {
     const offset: [number, number] = [10, 20]
     const wrapper = createWrapper({
       offset
@@ -114,7 +126,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 自定义样式测试
-  it('自定义样式生效正确', () => {
+  it('自定义样式生效正确', () =>
+  {
     const badgeStyle = {
       fontSize: '20px'
     }
@@ -127,7 +140,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 自定义类名测试
-  it('自定义类名添加正确', () => {
+  it('自定义类名添加正确', () =>
+  {
     const badgeClass = 'custom-badge'
     const wrapper = createWrapper({
       badgeClass
@@ -138,7 +152,8 @@ describe('UBadge 组件测试', () => {
   })
 
   // 插槽测试
-  it('默认插槽渲染正确', () => {
+  it('默认插槽渲染正确', () =>
+  {
     const wrapper = createWrapper({}, {
       default: () => <div className="test-content">测试内容</div>
     })
@@ -146,4 +161,4 @@ describe('UBadge 组件测试', () => {
     expect(wrapper.find('.test-content').exists()).toBe(true)
     expect(wrapper.find('.test-content').text()).toBe('测试内容')
   })
-}) 
+})

@@ -1,4 +1,4 @@
-import type { CardShadow } from "./const"
+import type { CardShadow } from './const'
 
 export interface UCardProps {
   /**

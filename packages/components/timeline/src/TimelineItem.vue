@@ -1,51 +1,107 @@
 <template>
   <div class="u-timeline-item">
-    <template v-if="isVueComponent(icon)">
-      <component :is="icon" />
-    </template>
-    <template v-else-if="icon">
-      <u-icon :icon="icon" />
-    </template>
-    <div 
-      v-else
+    <div
+      v-if="!icon"
       class="u-timeline-item-dot"
-      :class="[
-        `u-timeline-item-dot--${type}`,
-        `u-timeline-item-dot--${size}`,
-        `u-timeline-item-dot--${position}`,
-        { 'u-timeline-item-dot--hollow': hollow }
-      ]"
+      :class="classList"
+      :style="{ color: props.color }"
+      @click="handleDotClick($event)"
     >
     </div>
+    <u-icon
+      v-else-if="icon"
+      class="u-timeline-item-dot"
+      :class="classList"
+      v-bind="iconProps"
+      :icon="icon"
+      :style="{ color: props.color }"
+      @click="handleDotClick($event)"
+    />
+    <component
+      v-else-if="isVNode(icon) || isFunction(icon)"
+      class="u-timeline-item-dot"
+      :class="classList"
+      :style="{ color: props.color }"
+      :is="icon"
+      @click="handleDotClick($event)"
+    />
     <div class="u-timeline-item__inner">
-      <div v-if="position === CTimelinePosition.TOP" class="u-timeline-item-date">
-        <slot name="date">{{ date }}</slot>
-      </div>
-      <div class="u-timeline-item-title">
-        <slot name="title">{{ title }}</slot>
+      <div
+        v-if="placement === CTimelinePlacement.TOP"
+        class="u-timeline-item-date"
+      >
+        <slot name="date">
+          {{ date }}
+        </slot>
       </div>
       <div class="u-timeline-item-content">
-        <slot name="content">{{ content }}</slot>
+        <slot name="content">
+          {{ content }}
+        </slot>
       </div>
-      <div v-if="position === CTimelinePosition.BOTTOM" class="u-timeline-item-date">
-        <slot name="date">{{ date }}</slot>
+      <div
+        v-if="placement === CTimelinePlacement.BOTTOM"
+        class="u-timeline-item-date"
+      >
+        <slot name="date">
+          {{ date }}
+        </slot>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { UIcon } from '../../icon';
-import { isVueComponent } from '@ucc-ui/utils';
-import type { UTimelineItemProps } from '../types';
-import { CTimelinePosition, CTimelineSize, CTimelineType, CTimelinePlacement } from '../types/const';
+import { isFunction } from 'lodash-es'
+import { UIcon } from '../../icon'
+import type { UTimelineItemEmits, UTimelineItemProps } from '../types'
+import { CTimelinePlacement } from '../types/const'
+import { CTimelineContextKey } from '../types/const'
+import { computed, effectScope, inject, isVNode, onBeforeUnmount, watch } from 'vue'
 
+defineOptions({
+  name: 'UTimelineItem'
+})
+
+const emits = defineEmits<UTimelineItemEmits>()
 const props = withDefaults(defineProps<UTimelineItemProps>(), {
-  placement: CTimelinePlacement.TOP,
-  type: CTimelineType.PRIMARY,
-  size: CTimelineSize.NORMAL,
-  position: CTimelinePosition.TOP,
+  placement: 'top',
+  type: 'primary',
+  size: 'normal',
+  position: 'left',
   hollow: false
+})
+
+const timelineContext = inject(CTimelineContextKey)
+
+const scope = effectScope()
+
+const classList = computed(() => [
+  `u-timeline-item-dot--${props.type}`,
+  `u-timeline-item-dot--${props.size}`,
+  `u-timeline-item-dot--${props.position}`,
+  { 'u-timeline-item-dot--hollow': props.hollow }
+])
+
+const handleDotClick = (evt: MouseEvent) =>
+{
+  emits('dot-click', evt, { ...props })
+  props.dotClick?.(evt, { ...props })
+}
+
+scope.run(() =>
+{
+  watch(() => props.position, () =>
+  {
+    timelineContext?.onCalcLine()
+  }, {
+    flush: 'post'
+  })
+})
+
+onBeforeUnmount(() =>
+{
+  scope.stop()
 })
 
 </script>

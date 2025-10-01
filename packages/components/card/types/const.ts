@@ -3,6 +3,6 @@ export const CCardShadow = {
   ALWAYS: 'always',
   HOVER: 'hover',
   ACTIVE: 'active'
-} as const;
+} as const
 
 export type CardShadow = typeof CCardShadow[keyof typeof CCardShadow];

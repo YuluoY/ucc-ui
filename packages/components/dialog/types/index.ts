@@ -1,4 +1,4 @@
-import type { VNode, Component } from 'vue';
+import type { VNode, Component } from 'vue'
 
 export interface UDialogProps {
   /**

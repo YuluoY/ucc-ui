@@ -1,19 +1,19 @@
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import { resolve } from "node:path";
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { resolve } from 'node:path'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import dts from "vite-plugin-dts";
+import dts from 'vite-plugin-dts'
 import glob from 'fast-glob'
-import { basename, extname  } from 'node:path'
+import { basename, extname } from 'node:path'
 
 const components = glob.globSync('../components/*/src/*.{vue,tsx}').map(file => basename(file, extname(file)))
 
 export default defineConfig({
   plugins: [
-    vue(), 
+    vue(),
     vueJsx(),
     dts({
-      outDir: "dist/types",
+      outDir: 'dist/types',
       tsconfigPath: '../../tsconfig.build.json'
     })
   ],
@@ -53,10 +53,12 @@ export default defineConfig({
           if (components.includes(name))
             return name
         },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') {
+        assetFileNames: assetInfo =>
+        {
+          if (assetInfo.name === 'style.css')
+          
             return 'index.css' as string
-          }
+          
           return assetInfo.name as string
         }
       }

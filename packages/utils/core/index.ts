@@ -3,13 +3,17 @@
  * @param   str   字符串
  * @param   def   默认值
  */
-export function parseJson(str: string, def: any = {}): any {
+export function parseJson(str: string, def: any = {}): any
+{
   // 如果 str 不是字符串或者是空字符串，直接返回默认值 def
   if (typeof str !== 'string' || str.trim() === '')
-    return typeof str === 'undefined' || str === null || str === '' ? def : str;
-  try {
+    return typeof str === 'undefined' || str === null || str === '' ? def : str
+  try
+  {
     return JSON.parse(str)
-  } catch (e) {
+  }
+  catch (e)
+  {
     return def
   }
 }
@@ -29,14 +33,15 @@ export const rootFontSize = parseInt(document.documentElement.style.fontSize, 10
  * ```
  */
 export function pxToRem<T = string | number>(
-  px: number, 
-  opts: Partial<{ 
-    isReverse: boolean, 
-    unit: 'px' | 'rem', 
-    rootFontSize: number, 
+  px: number,
+  opts: Partial<{
+    isReverse: boolean,
+    unit: 'px' | 'rem',
+    rootFontSize: number,
   }> = {}
-): T {
-  const { 
+): T
+{
+  const {
     isReverse = false,
     unit = 'rem',
     rootFontSize = parseInt(document.documentElement.style.fontSize, 10) || (window.innerWidth / 100)
@@ -61,7 +66,8 @@ export function pxToRem<T = string | number>(
  * isVueComponent({}) // false
  * ```
  */
-export const isVueComponent = (obj: any): boolean => {
+export const isVueComponent = (obj: any): boolean =>
+{
   return (
     typeof obj === 'object' &&
     obj !== null &&
@@ -87,7 +93,8 @@ export const isVueComponent = (obj: any): boolean => {
  * restoreValue('123') // 123
  * ```
  */
-export const restoreValue = <T = any>(str: string): T => {
+export const restoreValue = <T = any>(str: string): T =>
+{
   if (typeof str !== 'string')
     return str
 
@@ -103,7 +110,7 @@ export const restoreValue = <T = any>(str: string): T => {
   {
     try
     {
-      // eslint-disable-next-line no-new-func
+       
       return new Function(`return ${str}`)()
     }
     catch (error)

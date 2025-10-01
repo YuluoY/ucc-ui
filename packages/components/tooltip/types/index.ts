@@ -1,5 +1,5 @@
-import type { Ref, TransitionProps } from "vue"
-import type { UTooltipEffect, UTooltipTrigger } from "./const"
+import type { Ref, TransitionProps } from 'vue'
+import type { UTooltipEffect, UTooltipTrigger } from './const'
 import type { Placement, Options } from '@popperjs/core'
 
 export interface UTooltipProps {
@@ -143,7 +143,7 @@ export interface UTooltipProps {
 
   /**
    * @description 过渡动画配置
-   * @type {TransitionProps}  
+   * @type {TransitionProps}
    */
   transitionProps?: TransitionProps
 }

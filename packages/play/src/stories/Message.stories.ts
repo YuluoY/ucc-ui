@@ -1,8 +1,7 @@
 import type { Meta } from '@storybook/vue3'
-import { expect, fn, userEvent, within } from '@storybook/test'
-import { UMessage, UButton } from 'ucc-ui'
+import { UMessageFn as UMessage, UButton } from 'ucc-ui'
 import 'ucc-ui/dist/index.css'
-import type { UMessageProps, MessageInstance } from '../../../components/message/types'
+import type {  UMessageInstance } from '../../../components/message/types'
 import type { Story } from './types'
 import { container } from './utils'
 
@@ -72,7 +71,7 @@ export const Default: Story<typeof UMessage> = {
     components: { UButton },
     setup() {
       const showMessage = () => {
-        const instance: MessageInstance = UMessage({
+        const instance: UMessageInstance = UMessage({
           ...args,
           onClose: () => {
             console.log('消息关闭')

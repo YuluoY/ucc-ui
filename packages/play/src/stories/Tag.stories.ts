@@ -1,8 +1,6 @@
 import type { Meta } from '@storybook/vue3'
-import { expect, fn, userEvent, within } from '@storybook/test'
 import { UTag } from 'ucc-ui'
 import 'ucc-ui/dist/index.css'
-import type { UTagProps } from '../../../components/tag/types'
 import type { Story } from './types'
 import { container } from './utils'
 
@@ -56,10 +54,12 @@ export const Default: Story<typeof UTag> = {
     content: '标签内容'
   },
   argTypes: meta.argTypes,
-  render: (args) => ({
+  render: args => ({
     components: { UTag },
-    setup() {
-      const handleClose = (event: MouseEvent) => {
+    setup()
+    {
+      const handleClose = (event: MouseEvent) =>
+      {
         console.log('Tag closed', event)
       }
       return { args, handleClose }
@@ -72,4 +72,4 @@ export const Default: Story<typeof UTag> = {
   })
 }
 
-export default meta 
+export default meta

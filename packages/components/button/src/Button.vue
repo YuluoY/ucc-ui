@@ -18,7 +18,7 @@
     }"
     :style="{ backgroundColor: color }"
     @click="(e: MouseEvent) => (
-      useThrottle ? handleThrottleClick(e) : 
+      useThrottle ? handleThrottleClick(e) :
       useDebounce ? handleDebounceClick(e) :
       handleClick(e)
     )"
@@ -36,7 +36,7 @@
       v-bind="_iconProps"
     />
     <span v-if="$slots.default">
-      <slot></slot>
+      <slot />
     </span>
     <u-icon
       v-if="icon && iconPosition === CIconPosition.RIGHT"
@@ -54,10 +54,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, inject } from 'vue';
-import type { UButtonEmits, UButtonInstance, UButtonProps } from '../types';
+import { computed, ref, inject } from 'vue'
+import type { UButtonEmits, UButtonInstance, UButtonProps } from '../types'
 import { throttle, debounce } from 'lodash-es'
-import { CIconPosition } from '../types/const';
+import { CIconPosition } from '../types/const'
 import { UIcon } from '../../icon'
 import { FORM_ITEM_SIZE_INJECTION_KEY } from '../../form/types/const'
 
@@ -65,7 +65,7 @@ defineOptions({
   name: 'UButton'
 })
 
-const emits = defineEmits<UButtonEmits>();
+const emits = defineEmits<UButtonEmits>()
 const props = withDefaults(defineProps<UButtonProps>(), {
   tag: 'button',
   size: 'default',
@@ -98,7 +98,7 @@ const handleThrottleClick = throttle(handleClick, props.throttleTime)
 const handleDebounceClick = debounce(handleClick, props.debounceTime)
 
 const _iconProps = computed<UButtonProps['iconProps']>(() => Object.assign(props.iconProps, {
-  spin: props.loading || props.iconProps.spin, 
+  spin: props.loading || props.iconProps.spin,
   icon: (props.loading ? props.loadingIcon || props.icon || props.iconProps.icon : props.icon || props.iconProps.icon) || ''
 }))
 

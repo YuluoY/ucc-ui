@@ -6,9 +6,11 @@ import { nextTick } from 'vue'
 import { pxToRem } from '@ucc-ui/utils'
 
 vi.mock('@ucc-ui/hooks/useScrollTo', () => ({
-  default: ({ scrolling, wheeling }: any) => {
+  default: ({ scrolling, wheeling }: any) =>
+  {
     // 模拟滚动事件回调
-    const mockScrollTo = vi.fn((to: number = 0, duration: number = 300) => {
+    const mockScrollTo = vi.fn((to: number = 0, duration: number = 300) =>
+    {
       document.documentElement.scrollTop = to
       scrolling?.()
       return Promise.resolve()
@@ -20,7 +22,8 @@ vi.mock('@ucc-ui/hooks/useScrollTo', () => ({
 }))
 
 // 创建通用的测试配置
-const createWrapper = (props: Partial<UTopProps> = {}, slots = {}) => {
+const createWrapper = (props: Partial<UTopProps> = {}, slots = {}) =>
+{
   // 创建目标容器
   const container = document.createElement('div')
   container.id = 'top-container'
@@ -37,8 +40,10 @@ const createWrapper = (props: Partial<UTopProps> = {}, slots = {}) => {
   })
 }
 
-describe('UTop 组件测试', () => {
-  beforeEach(() => {
+describe('UTop 组件测试', () =>
+{
+  beforeEach(() =>
+  {
     // 清理 body
     document.body.innerHTML = ''
     // 模拟 window 尺寸和滚动
@@ -46,20 +51,22 @@ describe('UTop 组件测试', () => {
     Object.defineProperty(window.document.documentElement, 'clientWidth', { value: 1024, configurable: true })
     Object.defineProperty(window.document.documentElement, 'clientHeight', { value: 768, configurable: true })
     Object.defineProperty(window.document.documentElement, 'scrollHeight', { value: 2000, configurable: true })
-    Object.defineProperty(window.document.documentElement, 'scrollTop', { 
+    Object.defineProperty(window.document.documentElement, 'scrollTop', {
       value: 0,
       configurable: true,
       writable: true
     })
   })
 
-  afterEach(() => {
+  afterEach(() =>
+  {
     document.body.innerHTML = ''
     vi.clearAllMocks()
   })
 
   // 基础渲染测试
-  it('默认渲染正确', async () => {
+  it('默认渲染正确', async() =>
+  {
     const wrapper = createWrapper()
     await nextTick()
     
@@ -70,7 +77,8 @@ describe('UTop 组件测试', () => {
   })
 
   // 尺寸测试
-  it('尺寸设置正确', async () => {
+  it('尺寸设置正确', async() =>
+  {
     const size = 60
     const wrapper = createWrapper({
       size
@@ -83,7 +91,8 @@ describe('UTop 组件测试', () => {
   })
 
   // 位置测试
-  it('位置设置正确', async () => {
+  it('位置设置正确', async() =>
+  {
     const offset = 100
     const wrapper = createWrapper({
       position: 'left',
@@ -112,7 +121,7 @@ describe('UTop 组件测试', () => {
   //   const container = document.querySelector('#top-container') as HTMLElement
   //   Object.defineProperty(container, 'clientHeight', { value: 768, configurable: true })
   //   Object.defineProperty(container, 'scrollHeight', { value: 2000, configurable: true })
-  //   Object.defineProperty(container, 'scrollTop', { 
+  //   Object.defineProperty(container, 'scrollTop', {
   //     value: 0,
   //     configurable: true,
   //     writable: true
@@ -132,7 +141,8 @@ describe('UTop 组件测试', () => {
   // })
 
   // 点击事件测试
-  it('点击事件触发正确', async () => {
+  it('点击事件触发正确', async() =>
+  {
     const wrapper = createWrapper()
     await nextTick()
     
@@ -170,7 +180,7 @@ describe('UTop 组件测试', () => {
   //   const container = document.querySelector('#top-container') as HTMLElement
   //   Object.defineProperty(container, 'clientHeight', { value: 768, configurable: true })
   //   Object.defineProperty(container, 'scrollHeight', { value: 2000, configurable: true })
-  //   Object.defineProperty(container, 'scrollTop', { 
+  //   Object.defineProperty(container, 'scrollTop', {
   //     value: 0,
   //     configurable: true,
   //     writable: true
@@ -211,7 +221,8 @@ describe('UTop 组件测试', () => {
   // })
 
   // 自定义内容测试
-  it('自定义内容渲染正确', async () => {
+  it('自定义内容渲染正确', async() =>
+  {
     const customContent = '返回顶部'
     const wrapper = createWrapper({}, {
       default: () => customContent
@@ -221,4 +232,4 @@ describe('UTop 组件测试', () => {
     const inner = document.querySelector('.u-top__inner')
     expect(inner?.textContent?.trim()).toBe(customContent)
   })
-}) 
+})

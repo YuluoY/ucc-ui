@@ -1,8 +1,9 @@
-import { h, ref, render } from "vue";
-import type { UReadProgressExposes, UReadProgressProps } from "./types";
-import ReadProgress from "./src/ReadProgress.vue";
+import { h, ref, render } from 'vue'
+import type { UReadProgressExposes, UReadProgressProps } from './types'
+import ReadProgress from './src/ReadProgress.vue'
 
-const ReadProgressFn = (props: UReadProgressProps) => {
+const ReadProgressFn = (props: UReadProgressProps) =>
+{
   const progressRef = ref<UReadProgressExposes | null>(null)
   render(h(ReadProgress, {
     ...props,
@@ -11,4 +12,4 @@ const ReadProgressFn = (props: UReadProgressProps) => {
   return progressRef
 }
 
-export default ReadProgressFn;
+export default ReadProgressFn

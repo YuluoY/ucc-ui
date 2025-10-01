@@ -1,5 +1,5 @@
-import type { CSSProperties } from "vue";
-import type { UTagClosePosition, UTagEffect, UTagSize, UTagType } from "./const";
+import type { CSSProperties } from 'vue'
+import type { UTagClosePosition, UTagEffect, UTagSize, UTagType } from './const'
 
 export interface UTagProps {
   type?: UTagType

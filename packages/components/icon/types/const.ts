@@ -16,7 +16,7 @@ export const CIconSize = [
   '8x',
   '9x',
   '10x'
-] as const;
+] as const
 
 export const CIconRotation = [
   '90',
@@ -26,7 +26,7 @@ export const CIconRotation = [
   180,
   270,
   'default'
-] as const;
+] as const
 
 
 export const CIconType = [
@@ -36,20 +36,20 @@ export const CIconType = [
   'info',
   'primary',
   'default'
-] as const;
+] as const
 
 export const CIconFlip = [
   'horizontal',
   'vertical',
   'both',
   'default'
-] as const;
+] as const
 
 export const CIconPull = [
   'left',
   'right',
   'default'
-] as const;
+] as const
 
 export type UIconSize = typeof CIconSize[number]
 export type UIconRotation = typeof CIconRotation[number]

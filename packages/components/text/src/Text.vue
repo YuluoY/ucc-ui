@@ -1,6 +1,6 @@
 
 <template>
-  <component 
+  <component
     :is="tag"
     class="u-text"
     :class="{
@@ -11,13 +11,13 @@
     }"
     :style="styles"
   >
-    <slot></slot>
+    <slot />
   </component>
 </template>
 
 <script setup lang="ts">
-import { computed, type CSSProperties } from 'vue';
-import type { UTextProps } from '../types';
+import { computed, type CSSProperties } from 'vue'
+import type { UTextProps } from '../types'
 
 defineOptions({
   name: 'UText'

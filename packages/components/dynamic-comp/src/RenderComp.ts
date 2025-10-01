@@ -1,75 +1,59 @@
-import { capitalize, defineComponent, getCurrentInstance, h, isVNode, resolveComponent, type CSSProperties } from "vue";
-import type { URenderCompProps } from "../types";
-import handleAsyncComponent from "../handles/handleAsyncComp";
-import { has, isArray, isEmpty, isFunction, isPlainObject, isString } from "lodash-es";
-import { isVueComponent } from "@ucc-ui/utils";
-import { CDirectives } from "../types/const";
+import { capitalize, defineComponent, getCurrentInstance, h, isVNode, resolveComponent, type CSSProperties } from 'vue'
+import type { URenderCompProps } from '../types'
+import handleAsyncComponent from '../handles/handleAsyncComp'
+import { has, isArray, isEmpty, isFunction, isPlainObject, isString } from 'lodash-es'
+import { isVueComponent } from '@ucc-ui/utils'
+import { CDirectives } from '../types/const'
 const Native = ['div', 'span', 'pre', 'i', 'main', 'section']
 export default defineComponent({
   name: 'URenderComp',
-  render() {
-    let isNative = false, component = this.type
-    if (isString(this.type)) {
-      if (!Native.includes(this.type)) {
-        component = resolveComponent(this.type)
-      }
+  setup(_, ctx)
+  {
+    const props = withDefaults(defineProps<URenderCompProps>(), {})
+
+    const instance = getCurrentInstance()
+
+    const {
+      AsyncComponent: UDynamicComp
+    } = handleAsyncComponent(() => import('./DynamicComp'), { instance })
+
+    return {
+      UDynamicComp,
+      ...props
     }
-
-    const params = {
-      default: () => this.getChildren(),
-      ...this.getSlots()
-    }
-
-    const on = { onChange: this.$emit('change'), ...this.addEventPrefix(this.events) }
-
-    const props = {
-      style: {} as CSSProperties,
-      ...this.$props,
-      ...this.$attrs,
-      ...on,
-    }
-
-    if (has(this.directives, CDirectives.V_SHOW)) {
-      props.style.display = this.directives[CDirectives.V_SHOW] ? 'block' : 'none'
-    }
-
-    return h(component as any, props, params)
-
-  },
-  setup(_, ctx) {
-   const props = withDefaults(defineProps<URenderCompProps>(), {})
-
-   const instance = getCurrentInstance()
-
-   const {
-    AsyncComponent: UDynamicComp
-   } = handleAsyncComponent(() => import('./DynamicComp'), { instance })
-
-   return {
-    UDynamicComp,
-    ...props
-   }
   },
   methods: {
-    getChildren() {
-      if (isArray(this.children) && this.children.length) {
+    getChildren()
+    {
+      if (isArray(this.children) && this.children.length)
+      
         return this.children.map(v => this.toVNode(v))
-      }
+      
       return [this.toVNode(this.children)]
     },
 
-    toVNode(val: any) {
-      if (isFunction(val)) {
+    toVNode(val: any)
+    {
+      if (isFunction(val))
+      
         return val()
-      } else if (isVNode(val)) {
+      
+      else if (isVNode(val))
+      
         return val
-      } else if (isVueComponent(val)) {
+      
+      else if (isVueComponent(val))
+      
         return h(val)
-      } else if (isPlainObject(val) && !isEmpty(val)) {
+      
+      else if (isPlainObject(val) && !isEmpty(val))
+      
         return h(this.UDynamicComp, {...val, onChange: this.$emit('change')})
-      } else if (isString(val)) {
+      
+      else if (isString(val))
+      
         return h('span', { innerHTML: val })
-      }
+      
       return null
     },
 
@@ -112,5 +96,38 @@ export default defineComponent({
         return acc
       }, {})
     }
+  },
+  render()
+  {
+    let isNative = false, component = this.type
+    if (isString(this.type))
+    {
+      if (!Native.includes(this.type))
+      
+        component = resolveComponent(this.type)
+      
+    }
+
+    const params = {
+      default: () => this.getChildren(),
+      ...this.getSlots()
+    }
+
+    const on = { onChange: this.$emit('change'), ...this.addEventPrefix(this.events) }
+
+    const props = {
+      style: {} as CSSProperties,
+      ...this.$props,
+      ...this.$attrs,
+      ...on,
+    }
+
+    if (has(this.directives, CDirectives.V_SHOW))
+    
+      props.style.display = this.directives[CDirectives.V_SHOW] ? 'block' : 'none'
+    
+
+    return h(component as any, props, params)
+
   }
 })

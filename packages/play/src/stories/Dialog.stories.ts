@@ -1,8 +1,6 @@
 import type { Meta } from '@storybook/vue3'
-import { expect, fn, userEvent, within } from '@storybook/test'
 import { UDialog, UButton } from 'ucc-ui'
 import 'ucc-ui/dist/index.css'
-import type { UDialogProps } from '../../../components/dialog/types'
 import type { Story } from './types'
 import { container } from './utils'
 import { ref } from 'vue'
@@ -109,20 +107,25 @@ export const Default: Story<typeof UDialog> = {
     showFooter: true
   },
   argTypes: meta.argTypes,
-  render: (args) => ({
+  render: args => ({
     components: { UDialog, UButton },
-    setup() {
+    setup()
+    {
       const visible = ref(args.modelValue)
-      const handleOpen = () => {
+      const handleOpen = () =>
+      {
         visible.value = true
       }
-      const handleClose = () => {
+      const handleClose = () =>
+      {
         visible.value = false
       }
-      const handleOpened = () => {
+      const handleOpened = () =>
+      {
         console.log('Dialog opened')
       }
-      const handleClosed = () => {
+      const handleClosed = () =>
+      {
         console.log('Dialog closed')
       }
       return { args, visible, handleOpen, handleClose, handleOpened, handleClosed }
@@ -150,4 +153,4 @@ export const Default: Story<typeof UDialog> = {
   })
 }
 
-export default meta 
+export default meta

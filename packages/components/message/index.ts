@@ -1,8 +1,8 @@
-import { withInstallFunc } from "../../utils";
-import { defineComponent } from "vue";
-import { isFunction } from "lodash-es";
-import MessageFn from "./methods";
-import { Global_Vars } from "../constants";
+import { withInstallFunc } from '../../utils'
+import { defineComponent } from 'vue'
+import { isFunction } from 'lodash-es'
+import MessageFn from './methods'
+import { Global_Vars } from '../constants'
 
 export const RenderVNode = defineComponent({
   props: {
@@ -11,10 +11,12 @@ export const RenderVNode = defineComponent({
       required: true
     }
   },
-  setup(props) {
-    return () => isFunction(props.vnode) ? props.vnode() : props.vnode 
+  setup(props)
+  {
+    return () => isFunction(props.vnode) ? props.vnode() : props.vnode
   }
 })
 
+export * from './types'
 export const UMessageFn = withInstallFunc(MessageFn, Global_Vars.MESSAGE)
 

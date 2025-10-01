@@ -1,12 +1,10 @@
 import type { Meta } from '@storybook/vue3'
-import { expect, fn, userEvent, within } from '@storybook/test'
 import { UBadge } from 'ucc-ui'
 import 'ucc-ui/dist/index.css'
-import type { UBadgeProps } from '../../../components/badge/types'
-import type { Story } from './types'
+import type { ExtraContent, StoryPlus } from './types'
 import { container } from './utils'
 
-const meta: Meta<typeof UBadge> = {
+const meta: Meta<typeof UBadge & ExtraContent> = {
   title: 'Components/Badge',
   component: UBadge,
   tags: ['autodocs'],
@@ -59,7 +57,7 @@ const meta: Meta<typeof UBadge> = {
   }
 }
 
-export const Default: Story<typeof UBadge> = {
+export const Default: StoryPlus<typeof UBadge> = {
   args: {
     value: 5,
     max: 99,
@@ -86,9 +84,10 @@ export const Default: Story<typeof UBadge> = {
     badgeClass: { control: 'text' },
     content: { control: 'text' }
   },
-  render: (args) => ({
+  render: args => ({
     components: { UBadge },
-    setup() {
+    setup()
+    {
       return { args }
     },
     template: container(`
@@ -101,4 +100,4 @@ export const Default: Story<typeof UBadge> = {
   })
 }
 
-export default meta 
+export default meta

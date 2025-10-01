@@ -1,13 +1,13 @@
-import { computed, Fragment, h, type ComputedRef, type FunctionalComponent, type SetupContext, type VNode } from "vue";
-import type { ULayoutProps } from "../types";
-import { CLayoutExtend, CLayoutMode, CRegion } from "../types/const";
+import { computed, Fragment, h, type ComputedRef, type FunctionalComponent, type SetupContext, type VNode } from 'vue'
+import type { ULayoutProps } from '../types'
+import { CLayoutExtend, CLayoutMode, CRegion } from '../types/const'
 
 interface IClassifyNodes {
   topRegions: VNode[];
   leftRegions: VNode[];
   centerRegions: VNode[];
   rightRegions: VNode[];
-  bottomRegions: VNode[]; 
+  bottomRegions: VNode[];
   others: VNode[];
 }
 
@@ -21,43 +21,45 @@ export default function useLayoutMode({
   slots: SetupContext['slots']
 }): {
   processedSlot: ComputedRef<FnVNode>;
-} {
+}
+{
   
-  const isNotExtend = computed(() => !props.extend);
-  const isLeftTopExtend = computed(() => props.extend === CLayoutExtend.LEFT_TOP);
-  const isLeftBottomExtend = computed(() => props.extend === CLayoutExtend.LEFT_BOTTOM);
-  const isRightTopExtend = computed(() => props.extend === CLayoutExtend.RIGHT_TOP);
-  const isRightBottomExtend = computed(() => props.extend === CLayoutExtend.RIGHT_BOTTOM);
-  const isLeftExtend = computed(() => props.extend === CLayoutExtend.LEFT);
-  const isRightExtend = computed(() => props.extend === CLayoutExtend.RIGHT);
-  const isBothExtend = computed(() => props.extend === CLayoutExtend.BOTH); 
+  const isNotExtend = computed(() => !props.extend)
+  const isLeftTopExtend = computed(() => props.extend === CLayoutExtend.LEFT_TOP)
+  const isLeftBottomExtend = computed(() => props.extend === CLayoutExtend.LEFT_BOTTOM)
+  const isRightTopExtend = computed(() => props.extend === CLayoutExtend.RIGHT_TOP)
+  const isRightBottomExtend = computed(() => props.extend === CLayoutExtend.RIGHT_BOTTOM)
+  const isLeftExtend = computed(() => props.extend === CLayoutExtend.LEFT)
+  const isRightExtend = computed(() => props.extend === CLayoutExtend.RIGHT)
+  const isBothExtend = computed(() => props.extend === CLayoutExtend.BOTH)
 
-  const processedSlot = computed(() => {
+  const processedSlot = computed(() =>
+  {
 
-    const nodes = slots.default?.() || [];
+    const nodes = slots.default?.() || []
     // 如果不是默认布局模式，直接返回
-    if (!nodes || props.mode !== CLayoutMode.DEFAULT) 
-      return () => nodes;
+    if (!nodes || props.mode !== CLayoutMode.DEFAULT)
+      return () => nodes
    
     // 分类子元素
-    const n = classfiyNodes(nodes);
+    const n = classfiyNodes(nodes)
   
     if (isNotExtend.value)
-      return processNotExtend(n);
+      return processNotExtend(n)
     else if (isLeftTopExtend.value)
-      return processLeftTopExtend(props, n);
+      return processLeftTopExtend(props, n)
     else if (isRightTopExtend.value)
-      return processRightTopExtend(props, n);
+      return processRightTopExtend(props, n)
     else if (isLeftBottomExtend.value)
-      return processLeftBottomExtend(props, n);
+      return processLeftBottomExtend(props, n)
     else if (isRightBottomExtend.value)
-      return processRightBootomExtend(props, n);
+      return processRightBootomExtend(props, n)
     else if (isLeftExtend.value)
-      return processLeftExtend(props, n);
+      return processLeftExtend(props, n)
     else if (isRightExtend.value)
-      return processRightExtend(props, n);
+      return processRightExtend(props, n)
     else if (isBothExtend.value)
-      return processBothExtend(props, n);
+      return processBothExtend(props, n)
   
     return nodes
   })
@@ -67,7 +69,8 @@ export default function useLayoutMode({
   }
 }
 
-function processNotExtend(n: IClassifyNodes): FnVNode {
+function processNotExtend(n: IClassifyNodes): FnVNode
+{
   return addFragment(
     [
       h(Fragment, null, n.topRegions),
@@ -83,7 +86,8 @@ function processNotExtend(n: IClassifyNodes): FnVNode {
   )
 }
 
-function processLeftTopExtend(props: ULayoutProps, n: IClassifyNodes): FnVNode {
+function processLeftTopExtend(props: ULayoutProps, n: IClassifyNodes): FnVNode
+{
   return addFragment(
     [
       addLayoutCont(
@@ -103,7 +107,8 @@ function processLeftTopExtend(props: ULayoutProps, n: IClassifyNodes): FnVNode {
   )
 }
 
-function processRightTopExtend(props: ULayoutProps, n: IClassifyNodes): FnVNode  {
+function processRightTopExtend(props: ULayoutProps, n: IClassifyNodes): FnVNode
+{
   return addFragment(
     [
       addLayoutCont(
@@ -112,7 +117,7 @@ function processRightTopExtend(props: ULayoutProps, n: IClassifyNodes): FnVNode 
           addLayoutBody(
             [
               h(Fragment, null, n.topRegions),
-              addLayoutBodyCenter(h(Fragment, null, [...n.leftRegions,...n.centerRegions]))
+              addLayoutBodyCenter(h(Fragment, null, [...n.leftRegions, ...n.centerRegions]))
             ]
           ),
           h(Fragment, null, n.rightRegions)
@@ -123,7 +128,8 @@ function processRightTopExtend(props: ULayoutProps, n: IClassifyNodes): FnVNode 
   )
 }
 
-function processLeftBottomExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
+function processLeftBottomExtend(props: ULayoutProps, n: IClassifyNodes): VNode
+{
   return addLayoutCont(
     props.mode,
     [
@@ -133,7 +139,7 @@ function processLeftBottomExtend(props: ULayoutProps, n: IClassifyNodes): VNode 
           h(Fragment, null, n.leftRegions),
           addLayoutBodyCenter(
             [
-              addLayoutBodyCenterContent(h(Fragment, null, [...n.centerRegions,...n.rightRegions])),
+              addLayoutBodyCenterContent(h(Fragment, null, [...n.centerRegions, ...n.rightRegions])),
               h(Fragment, null, n.bottomRegions)
             ]
           )
@@ -143,7 +149,8 @@ function processLeftBottomExtend(props: ULayoutProps, n: IClassifyNodes): VNode 
   )
 }
 
-function processRightBootomExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
+function processRightBootomExtend(props: ULayoutProps, n: IClassifyNodes): VNode
+{
   return addLayoutCont(
     props.mode,
     [
@@ -152,7 +159,7 @@ function processRightBootomExtend(props: ULayoutProps, n: IClassifyNodes): VNode
         [
           addLayoutBodyCenter(
             [
-              addLayoutBodyCenterContent(h(Fragment, null, [...n.leftRegions,...n.centerRegions])),
+              addLayoutBodyCenterContent(h(Fragment, null, [...n.leftRegions, ...n.centerRegions])),
               h(Fragment, null, n.bottomRegions)
             ]
           ),
@@ -163,7 +170,8 @@ function processRightBootomExtend(props: ULayoutProps, n: IClassifyNodes): VNode
   )
 }
 
-function processLeftExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
+function processLeftExtend(props: ULayoutProps, n: IClassifyNodes): VNode
+{
   return addLayoutCont(
     props.mode,
     [
@@ -173,7 +181,7 @@ function processLeftExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
           h(Fragment, null, n.topRegions),
           addLayoutBodyCenter(
             [
-              addLayoutBodyCenterContent(h(Fragment, null, [...n.centerRegions,...n.rightRegions])),
+              addLayoutBodyCenterContent(h(Fragment, null, [...n.centerRegions, ...n.rightRegions])),
               h(Fragment, null, n.bottomRegions)
             ]
           )
@@ -183,7 +191,8 @@ function processLeftExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
   )
 }
 
-function processRightExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
+function processRightExtend(props: ULayoutProps, n: IClassifyNodes): VNode
+{
   return addLayoutCont(
     props.mode,
     [
@@ -192,7 +201,7 @@ function processRightExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
           h(Fragment, null, n.topRegions),
           addLayoutBodyCenter(
             [
-              addLayoutBodyCenterContent(h(Fragment, null, [...n.leftRegions,...n.centerRegions])),
+              addLayoutBodyCenterContent(h(Fragment, null, [...n.leftRegions, ...n.centerRegions])),
               h(Fragment, null, n.bottomRegions)
             ]
           )
@@ -203,7 +212,8 @@ function processRightExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
   )
 }
 
-function processBothExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
+function processBothExtend(props: ULayoutProps, n: IClassifyNodes): VNode
+{
   return addLayoutCont(
     props.mode,
     [
@@ -214,29 +224,32 @@ function processBothExtend(props: ULayoutProps, n: IClassifyNodes): VNode {
   )
 }
 
-function classfiyNodes(nodes: VNode[]): IClassifyNodes {
-  const topRegions: VNode[] = [];
-  const leftRegions: VNode[] = [];
-  const centerRegions: VNode[] = [];
-  const rightRegions: VNode[] = [];
-  const bottomRegions: VNode[] = [];
-  const others: VNode[] = [];
+function classfiyNodes(nodes: VNode[]): IClassifyNodes
+{
+  const topRegions: VNode[] = []
+  const leftRegions: VNode[] = []
+  const centerRegions: VNode[] = []
+  const rightRegions: VNode[] = []
+  const bottomRegions: VNode[] = []
+  const others: VNode[] = []
 
-  for (let i = 0; i < nodes.length; i++) {
-    const node = nodes[i];
-    const region = node.props?.region;
+  for (let i = 0; i < nodes.length; i++)
+  {
+    const node = nodes[i]
+    const region = node.props?.region
     if (!region)
     {
-      others.push(node);
-      continue;
+      others.push(node)
+      continue
     }
-    switch (region) {
-      case CRegion.TOP: topRegions.push(node); break;
-      case CRegion.LEFT: leftRegions.push(node); break;
-      case CRegion.CENTER: centerRegions.push(node); break;
-      case CRegion.RIGHT: rightRegions.push(node); break;
-      case CRegion.BOTTOM: bottomRegions.push(node); break;
-      default: break;
+    switch (region)
+    {
+    case CRegion.TOP: topRegions.push(node); break
+    case CRegion.LEFT: leftRegions.push(node); break
+    case CRegion.CENTER: centerRegions.push(node); break
+    case CRegion.RIGHT: rightRegions.push(node); break
+    case CRegion.BOTTOM: bottomRegions.push(node); break
+    default: break
     }
   }
 
@@ -250,7 +263,8 @@ function classfiyNodes(nodes: VNode[]): IClassifyNodes {
   }
 }
 
-function addFragment(child: VNode[]): FnVNode {
+function addFragment(child: VNode[]): FnVNode
+{
   return () => h(
     Fragment,
     null,
@@ -258,7 +272,8 @@ function addFragment(child: VNode[]): FnVNode {
   )
 }
 
-function addLayoutCont(mode: ULayoutProps['mode'], child: VNode | VNode[]): VNode {
+function addLayoutCont(mode: ULayoutProps['mode'], child: VNode | VNode[]): VNode
+{
   return h(
     'div',
     { class: `u-layout-mode u-layout-mode__${mode}`},
@@ -266,7 +281,8 @@ function addLayoutCont(mode: ULayoutProps['mode'], child: VNode | VNode[]): VNod
   )
 }
 
-function addLayoutBody(child: VNode | VNode[]): VNode {
+function addLayoutBody(child: VNode | VNode[]): VNode
+{
   return h(
     'div',
     { class: 'u-layout__body' },
@@ -274,7 +290,8 @@ function addLayoutBody(child: VNode | VNode[]): VNode {
   )
 }
 
-function addLayoutBodyCenter(child: VNode | VNode[]): VNode {
+function addLayoutBodyCenter(child: VNode | VNode[]): VNode
+{
   return h(
     'div',
     { class: 'u-layout__body-center' },
@@ -282,7 +299,8 @@ function addLayoutBodyCenter(child: VNode | VNode[]): VNode {
   )
 }
 
-function addLayoutBodyCenterContent(child: VNode | VNode[]): VNode {
+function addLayoutBodyCenterContent(child: VNode | VNode[]): VNode
+{
   return h(
     'div',
     { class: 'u-layout__body-center-content' },

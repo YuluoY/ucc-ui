@@ -1,5 +1,5 @@
-import type { CSSProperties } from "vue"
-import type { UBadgeType } from "./const"
+import type { CSSProperties } from 'vue'
+import type { UBadgeType } from './const'
 
 export interface UBadgeProps {
   /**
@@ -16,7 +16,7 @@ export interface UBadgeProps {
 
   /**
    * @description 是否显示小圆点
-   * @default false 
+   * @default false
    */
   isDot?: boolean
 

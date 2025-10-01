@@ -6,17 +6,21 @@ import { nextTick } from 'vue'
 import { rootFontSize } from '@ucc-ui/utils'
 
 // 创建通用的测试配置
-const createWrapper = (props = {}, options = {}) => {
+const createWrapper = (props = {}, options = {}) =>
+{
   return mount(UReadProgress, {
     props,
     ...options
   })
 }
 
-describe('UReadProgress 组件测试', () => {
+describe('UReadProgress 组件测试', () =>
+{
   // 设置 requestAnimationFrame mock
-  beforeEach(() => {
-    vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+  beforeEach(() =>
+  {
+    vi.spyOn(window, 'requestAnimationFrame').mockImplementation(cb =>
+    {
       cb(0)
       return 0
     })
@@ -28,19 +32,22 @@ describe('UReadProgress 组件测试', () => {
     })
   })
 
-  afterEach(() => {
+  afterEach(() =>
+  {
     vi.restoreAllMocks()
   })
 
   // 基础渲染测试
-  it('默认渲染正确', () => {
+  it('默认渲染正确', () =>
+  {
     const wrapper = createWrapper()
     expect(wrapper.exists()).toBe(true)
     expect(wrapper.classes()).toContain('u-read-progress')
   })
 
   // 进度条类型测试
-  it('根据类型渲染正确', () => {
+  it('根据类型渲染正确', () =>
+  {
     const wrapper = createWrapper({
       type: 'success'
     } as UReadProgressProps)
@@ -48,7 +55,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 进度条高度测试
-  it('高度设置正确', () => {
+  it('高度设置正确', () =>
+  {
     const height = 8
     const wrapper = createWrapper({
       height
@@ -60,7 +68,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 进度条颜色测试
-  it('自定义颜色渲染正确', () => {
+  it('自定义颜色渲染正确', () =>
+  {
     const color = 'rgb(255, 0, 0)'
     const wrapper = createWrapper({
       color
@@ -70,7 +79,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 进度条背景色测试
-  it('背景颜色设置正确', () => {
+  it('背景颜色设置正确', () =>
+  {
     const backgroundColor = 'rgb(0, 0, 255)'
     const wrapper = createWrapper({
       backgroundColor
@@ -79,7 +89,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 进度值测试
-  it('进度值显示正确', async () => {
+  it('进度值显示正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: 50,
       showText: true
@@ -93,7 +104,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 显示/隐藏测试
-  it('显示/隐藏功能正确', async () => {
+  it('显示/隐藏功能正确', async() =>
+  {
     const wrapper = createWrapper({
       show: true
     } as UReadProgressProps)
@@ -106,7 +118,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 文本显示测试
-  it('文本显示正确', () => {
+  it('文本显示正确', () =>
+  {
     const wrapper = createWrapper({
       modelValue: 50,
       showText: true,
@@ -119,7 +132,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 默认文本显示测试
-  it('默认文本显示正确', () => {
+  it('默认文本显示正确', () =>
+  {
     const wrapper = createWrapper({
       modelValue: 50,
       showText: true
@@ -131,7 +145,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 事件测试
-  it('事件触发正确', async () => {
+  it('事件触发正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: 0
     } as UReadProgressProps)
@@ -154,7 +169,8 @@ describe('UReadProgress 组件测试', () => {
   })
 
   // 方法测试
-  it('expose方法正确', async () => {
+  it('expose方法正确', async() =>
+  {
     const wrapper = createWrapper()
     
     // 测试 hide 方法
@@ -170,4 +186,4 @@ describe('UReadProgress 组件测试', () => {
     // 测试 progress 值
     expect(wrapper.vm.progress).toBeDefined()
   })
-}) 
+})

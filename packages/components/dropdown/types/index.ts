@@ -1,7 +1,7 @@
-import type { Component, ComputedRef } from "vue";
-import type { UButtonProps } from "../../button/types";
-import type { UTooltipProps } from "../../tooltip/types";
-import type { UIconProps } from "../../icon/types";
+import type { Component, ComputedRef } from 'vue'
+import type { UButtonProps } from '../../button/types'
+import type { UTooltipProps } from '../../tooltip/types'
+import type { UIconProps } from '../../icon/types'
 
 export interface UDropdownProps {
 
@@ -111,7 +111,7 @@ export interface UDropdownProps {
 export interface UDropdownEmits {
   /**
    * 点击菜单项时触发
-   * @param {any} args 
+   * @param {any} args
    */
   (e: 'command', ...args: any[]): void
 

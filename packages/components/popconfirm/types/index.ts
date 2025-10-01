@@ -1,10 +1,10 @@
-import type { Component } from "vue"
-import type { UButtonProps } from "../../button/types"
-import type { UTooltipProps } from "../../tooltip/types"
+import type { Component } from 'vue'
+import type { UButtonProps } from '../../button/types'
+import type { UTooltipProps } from '../../tooltip/types'
 
 export interface UPopconfirmProps {
   title: string
-  confirmButtonText?: string 
+  confirmButtonText?: string
   cancelButtonText?: string
   confirmButtonType?: UButtonProps['type']
   cancelButtonType?: UButtonProps['type']

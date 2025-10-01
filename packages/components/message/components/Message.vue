@@ -1,11 +1,11 @@
 <template>
   <Teleport to="body">
-    <Transition 
+    <Transition
       appear
-      :name="transitionName" 
+      :name="transitionName"
       @after-leave="!visible && isFunction(onDestory) && onDestory()"
     >
-      <div 
+      <div
         v-show="visible"
         ref="messageRef"
         role="alert"
@@ -25,11 +25,20 @@
         </div>
         <div class="u-message-content">
           <slot>
-            <RenderVNode v-if="message" :vnode="message" />
+            <RenderVNode
+              v-if="message"
+              :vnode="message"
+            />
           </slot>
         </div>
-        <div class="u-message-close" v-if="showClose">
-          <u-icon icon="close" @click.stop="onClose" />
+        <div
+          v-if="showClose"
+          class="u-message-close"
+        >
+          <u-icon
+            icon="close"
+            @click.stop="onClose"
+          />
         </div>
       </div>
     </Transition>
@@ -37,16 +46,16 @@
 </template>
 
 <script setup lang="ts">
-import { watch, computed, onBeforeUnmount, onMounted, ref, type CSSProperties } from 'vue';
-import type { UMessageExposes, UMessageProps } from '../types';
-import { pxToRem } from '../../../utils';
-import { UIcon } from '../../icon';
-import { bind, delay, isFunction } from 'lodash-es';
-import { DefaultIconMap } from '../types/const';
-import { RenderVNode } from '..';
-import { useEventListener, useOffset } from '@ucc-ui/hooks';
-import { getLastBottomOffset } from '../methods';
-import { useResizeObserver } from '@vueuse/core';
+import { watch, computed, onBeforeUnmount, onMounted, ref, type CSSProperties } from 'vue'
+import type { UMessageExposes, UMessageProps } from '../types'
+import { pxToRem } from '../../../utils'
+import { UIcon } from '../../icon'
+import { bind, delay, isFunction } from 'lodash-es'
+import { DefaultIconMap } from '../types/const'
+import { RenderVNode } from '..'
+import { useEventListener, useOffset } from '@ucc-ui/hooks'
+import { getLastBottomOffset } from '../methods'
+import { useResizeObserver } from '@vueuse/core'
 
 defineOptions({
   name: 'UMessage'
@@ -83,51 +92,64 @@ const messageStyle = computed<CSSProperties>(() => ({
   zIndex: props.zIndex
 }))
 
-const visibleWatcher = watch(visible, val => {
-  if (!val) {
+const visibleWatcher = watch(visible, val =>
+{
+  if (!val)
+  
     boxHeight.value = -props.offset  // 关闭时，高度变为负值，避免出现空白
-  }
+  
 })
 
-useEventListener(document, 'keydown', (e: KeyboardEvent) => {
-  if (e.key === 'Escape' && visible.value) {
+useEventListener(document, 'keydown', (e: KeyboardEvent) =>
+{
+  if (e.key === 'Escape' && visible.value)
+  
     onClose()
-  }
+  
 })
 
-useResizeObserver(messageRef, () => {
+useResizeObserver(messageRef, () =>
+{
   boxHeight.value = messageRef.value!.getBoundingClientRect().height ?? 0
 })
 
-onMounted(() => {
+onMounted(() =>
+{
   onShow()
   startTimer()
 })
 
-onBeforeUnmount(() => {
+onBeforeUnmount(() =>
+{
   clearTimer()
   visibleWatcher()
 })
 
-function onClose () {
+function onClose()
+{
   visible.value = false
 }
 
-function onShow () {
+function onShow()
+{
   visible.value = true
 }
 
 let timer: number | null = null
-function startTimer () {
-  if (props.duration > 0) {
+function startTimer()
+{
+  if (props.duration > 0)
+  
     timer = delay(onClose, props.duration)
-  }
+  
 }
 
-function clearTimer () {
-  if (timer) {
+function clearTimer()
+{
+  if (timer)
+  
     clearTimeout(timer as any)
-  }
+  
 }
 
 defineExpose<UMessageExposes>({

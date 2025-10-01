@@ -1,4 +1,4 @@
-export const CCodeEditorCtx = Symbol('CCodeEditorCtx');
+export const CCodeEditorCtx = Symbol('CCodeEditorCtx')
 
 export const CCodeEditorToolbox = {
   IncrementFontSize: 'IncrementFontSize',
@@ -8,11 +8,11 @@ export const CCodeEditorToolbox = {
   ToggleMinimap: 'ToggleMinimap',
   ToggleReadOnly: 'ToggleReadOnly',
   ToggleWordWrap: 'ToggleWordWrap'
-} as const;
+} as const
 
 export const CCodeEditorShadow = {
   Default: 'default',
   Hover: 'hover'
-} as const;
+} as const
 
 export type UCodeEditorShadow = typeof CCodeEditorShadow[keyof typeof CCodeEditorShadow];

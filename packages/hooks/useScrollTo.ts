@@ -1,6 +1,6 @@
-import { toDOM } from "@ucc-ui/utils";
-import { isFunction } from "lodash-es";
-import { onBeforeUnmount, readonly, ref, type Ref } from "vue";
+import { toDOM } from '@ucc-ui/utils'
+import { isFunction } from 'lodash-es'
+import { onBeforeUnmount, readonly, ref, type Ref } from 'vue'
 
 export interface UseScrollToOptions {
   el: string | HTMLElement | Ref<HTMLElement | null>
@@ -23,8 +23,8 @@ export interface UseScrollToReturn {
 }
 
 /**
- * 
- * @param opts 
+ *
+ * @param opts
  * @param opts.el 需要滚动的元素
  * @param opts.to 滚动到的位置
  * @param opts.toReferEl 滚动到的参考元素
@@ -46,10 +46,11 @@ export interface UseScrollToReturn {
  *   },
  * })
  * ```
- * @returns 
+ * @returns
  */
-export default function useScrollTo(opts: UseScrollToOptions): UseScrollToReturn {
-  let { 
+export default function useScrollTo(opts: UseScrollToOptions): UseScrollToReturn
+{
+  let {
     el,
     to = 0,
     toReferEl,
@@ -57,20 +58,22 @@ export default function useScrollTo(opts: UseScrollToOptions): UseScrollToReturn
     duration = 300,
     scrolling,
     wheeling
-  } = opts;
+  } = opts
 
   const scrollingFn = scrolling && isFunction(scrolling) ? scrolling : null
   const wheelingFn = wheeling && isFunction(wheeling) ? wheeling : null
   const target = toDOM(el)
 
-  if (!target) {
-    throw new Error("useScrollTo: target is not found")
-  }
+  if (!target)
+  
+    throw new Error('useScrollTo: target is not found')
+  
 
   const referEl = toDOM(toReferEl!)
-  if (referEl) {
+  if (referEl)
+  
     to = referEl.offsetTop
-  }
+  
 
   // 滚动起点
   const scrollStart = ref(0)
@@ -85,10 +88,12 @@ export default function useScrollTo(opts: UseScrollToOptions): UseScrollToReturn
   const isCancel = ref(false)
   const currentAnimation = ref<ReturnType<typeof requestAnimationFrame> | null>(null)
 
-  const scrollTo = (top: number = 0, duration: number = 300) => {
-    if (isScolling.value) {
+  const scrollTo = (top: number = 0, duration: number = 300) =>
+  {
+    if (isScolling.value)
+    
       return
-    }
+    
     scrollStart.value = target.scrollTop
     scrollDistance.value = top - scrollStart.value
     scrollDistanceSurplus.value = scrollDistance.value
@@ -97,7 +102,8 @@ export default function useScrollTo(opts: UseScrollToOptions): UseScrollToReturn
     isScolling.value = true
     isCancel.value = false
 
-    const scroll = () => {
+    const scroll = () =>
+    {
       const now = Date.now()
       const elapsed = now - startTime
       const progress = Math.min(elapsed / duration, 1)
@@ -108,30 +114,37 @@ export default function useScrollTo(opts: UseScrollToOptions): UseScrollToReturn
 
       scrollingFn && scrollingFn(target.scrollTop, progress)
 
-      if (progress < 1 && !isCancel.value) {
+      if (progress < 1 && !isCancel.value)
+      
         currentAnimation.value = requestAnimationFrame(scroll)
-      } else {
+      
+      else
+      
         isScolling.value = false
-      }
+      
     }
     currentAnimation.value = requestAnimationFrame(scroll)
   }
 
-  const cancel = () => {
+  const cancel = () =>
+  {
     isCancel.value = true
     isScolling.value = false
     currentAnimation.value && cancelAnimationFrame(currentAnimation.value)
   }
 
-  const handleWheel = (e: WheelEvent) => {
-    if (isScolling.value) {
+  const handleWheel = (e: WheelEvent) =>
+  {
+    if (isScolling.value)
+    
       cancel()
-    }
+    
     wheelingFn && wheelingFn(e)
   }
   target.addEventListener('wheel', handleWheel, { passive: false })
 
-  onBeforeUnmount(() => {
+  onBeforeUnmount(() =>
+  {
     target.removeEventListener('wheel', handleWheel)
   })
 

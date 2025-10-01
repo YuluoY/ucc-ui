@@ -18,8 +18,8 @@
 </template>
 
 <script setup lang="ts">
-import { useId } from '@ucc-ui/hooks';
-import type { UTableProps } from '../types';
+import { useId } from '@ucc-ui/hooks'
+import type { UTableProps } from '../types'
 
 defineOptions({
   name: 'UTable'

@@ -1,8 +1,8 @@
-import { reactive, withDirectives, type ComponentInternalInstance, type Directive, type DirectiveArguments, type DirectiveHook, type Reactive } from "vue";
-import type { Directives, DynamicCompCtxFn, DynamicCompDirectives, UDynamicCompProps } from "../types";
-import { CDirectives } from "../types/const";
-import { has, isArray, isBoolean, isFunction, isPlainObject } from "lodash-es";
-import { nextTick } from "process";
+import { reactive, withDirectives, type ComponentInternalInstance, type Directive, type DirectiveArguments, type DirectiveHook, type Reactive } from 'vue'
+import type { Directives, DynamicCompCtxFn, DynamicCompDirectives, UDynamicCompProps } from '../types'
+import { CDirectives } from '../types/const'
+import { has, isArray, isBoolean, isFunction, isPlainObject } from 'lodash-es'
+import { nextTick } from 'process'
 
 interface HandleDirectivesOts {
   uid: string
@@ -12,7 +12,8 @@ interface HandleDirectivesOts {
 export default function handleDirectives(
   this: UDynamicCompProps,
   opts: HandleDirectivesOts
-) {
+)
+{
   const {
     uid,
     instance
@@ -25,45 +26,58 @@ export default function handleDirectives(
     [CDirectives.V_SHOW]: true
   })
 
-  Object.keys(this.directives).forEach(key => {
-    if (has(CDirectives, key)) {
+  Object.keys(this.directives).forEach(key =>
+  {
+    if (has(CDirectives, key))
+    
       directives[key] = transDirective(key, (this.directives as any)[key])
-    }
+    
   })
 
   const transDirective = (
     directive: string,
     value: DynamicCompDirectives | DynamicCompCtxFn<DynamicCompDirectives>
-  ): DynamicCompDirectives | null => {
+  ): DynamicCompDirectives | null =>
+  {
     let newValue: DynamicCompDirectives | null = null
-    if (isFunction(value)) {
+    if (isFunction(value))
+    
       newValue = transDirective(directive, value.call(instance))
-    } else if (isBoolean(value)) {
+    
+    else if (isBoolean(value))
+    
       newValue = value
-    }
+    
     return newValue
   }
 
   const setDirective = (
     directive: string,
     value: DynamicCompDirectives | DynamicCompCtxFn<DynamicCompDirectives>
-  ) => {
+  ) =>
+  {
     directives[directive] = transDirective(directive, value)
   }
 
-  const onShow = (val?: boolean) => {
+  const onShow = (val?: boolean) =>
+  {
     directives[CDirectives.V_SHOW] = val ?? !directives[CDirectives.V_SHOW]
   }
 
-  const onRefresh = (val?: boolean, time: number = 0) => {
+  const onRefresh = (val?: boolean, time: number = 0) =>
+  {
     directives[CDirectives.V_IF] = val ?? !directives[CDirectives.V_IF]
     
-    nextTick(() => {
-      if (time) {
+    nextTick(() =>
+    {
+      if (time)
+      
         setTimeout(() => directives[CDirectives.V_IF] = !directives[CDirectives.V_IF], time)
-      } else {
+      
+      else
+      
         directives[CDirectives.V_IF] = !directives[CDirectives.V_IF]
-      }
+      
     })
   }
 

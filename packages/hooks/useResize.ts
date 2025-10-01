@@ -1,5 +1,5 @@
-import { isArray, isPlainObject, isString, merge } from "lodash-es";
-import { nextTick, Fragment, computed, h, isRef, onBeforeUnmount, ref, render, type CSSProperties, type Ref, type VNode } from "vue";
+import { isArray, isPlainObject, isString, merge } from 'lodash-es'
+import { nextTick, Fragment, computed, h, isRef, onBeforeUnmount, ref, render, type CSSProperties, type Ref, type VNode } from 'vue'
 
 interface UseResizeOptions {
   el: string | HTMLElement | Ref<HTMLElement | null>
@@ -53,8 +53,8 @@ const ResizeCursors: {
 }
 
 /**
- * 
- * @param opts 
+ *
+ * @param opts
  * @param opts.el 需要调整大小的元素
  * @param opts.angleWidth 对角控制条的宽度
  * @param opts.barSize 控制条的大小
@@ -70,10 +70,11 @@ const ResizeCursors: {
  *   el: '#app',
  * })
  * ```
- * 
- * @returns 
+ *
+ * @returns
  */
-export default function useResize(opts: UseResizeOptions): UseResizeReturn {
+export default function useResize(opts: UseResizeOptions): UseResizeReturn
+{
 
   const defaultOpts = merge({
     angleWidth: 8,
@@ -93,7 +94,8 @@ export default function useResize(opts: UseResizeOptions): UseResizeReturn {
   if (!target)
     throw new Error('el is required')
 
-  window.requestAnimationFrame(() => {
+  window.requestAnimationFrame(() =>
+  {
     target.style.position = 'relative'
     target.style.willChange = 'width, height, left, top'
   })
@@ -106,7 +108,8 @@ export default function useResize(opts: UseResizeOptions): UseResizeReturn {
   const resizeType = ref('')
   const rect = ref(target.getBoundingClientRect())
 
-  const onMousedown = (e: MouseEvent) => {
+  const onMousedown = (e: MouseEvent) =>
+  {
     isPress.value = true
     const t = e.target as HTMLElement
     startX.value = e.clientX
@@ -116,7 +119,8 @@ export default function useResize(opts: UseResizeOptions): UseResizeReturn {
     resizeType.value = t.classList[0]
   }
 
-  const onMousemove = (e: MouseEvent) => {
+  const onMousemove = (e: MouseEvent) =>
+  {
     if (!isPress.value)
       return
     e.preventDefault()
@@ -132,13 +136,15 @@ export default function useResize(opts: UseResizeOptions): UseResizeReturn {
       minWidth: minWidth!,
       minHeight: minHeight!
     })
-    nextTick(() => {
+    nextTick(() =>
+    {
       rect.value = target.getBoundingClientRect()
       opts.resizing?.(rect.value.width, rect.value.height)
     })
   }
 
-  const onMouseup = () => {
+  const onMouseup = () =>
+  {
     isPress.value = false
   }
  
@@ -151,7 +157,8 @@ export default function useResize(opts: UseResizeOptions): UseResizeReturn {
 
   renders(controlVNodes, target)
 
-  onBeforeUnmount(() => {
+  onBeforeUnmount(() =>
+  {
     window.removeEventListener('mousemove', onMousemove)
     window.removeEventListener('mouseup', onMouseup)
   })
@@ -170,10 +177,11 @@ export default function useResize(opts: UseResizeOptions): UseResizeReturn {
 }
 
 function handleResize(
-  target: HTMLElement, 
-  resizeType: ResizeType, 
+  target: HTMLElement,
+  resizeType: ResizeType,
   opts: Record<string, number>
-) {
+)
+{
   const {
     dx,
     dy,
@@ -184,70 +192,73 @@ function handleResize(
     minWidth,
     minHeight
   } = opts
-  window.requestAnimationFrame(() => {
-    switch (resizeType) {
-      case ResizeClasses.TOP:
-      {
-        const height = startHeight - dy
-        const top = startY + dy
-        if (height < minHeight! || top < 0)
-          return
-        target.style.height = `${height}px`
-        target.style.top = `${top}px`
-        break
-      }
-      case ResizeClasses.BOTTOM:
-      {
-        const height = startHeight + dy
-        if (height < minHeight!)
-          return
-        target.style.height = `${height}px`
-        break
-      }
-      case ResizeClasses.LEFT:
-      {
-        const width = startWidth - dx
-        const left = startX + dx
-        if (width < minWidth! || left < 0)
-          return
-        target.style.width = `${width}px`
-        target.style.left = `${left}px`
-        break
-      }
-      case ResizeClasses.RIGHT:
-      {
-        const width = startWidth + dx
-        if (width < minWidth!)
-          return
-        target.style.width = `${startWidth + dx}px`
-        break
-      }
-      case ResizeClasses.TOP_LEFT:
-        handleResize(target, ResizeClasses.LEFT, opts)
-        handleResize(target, ResizeClasses.TOP, opts)
-        break
-      case ResizeClasses.TOP_RIGHT:
-        handleResize(target, ResizeClasses.RIGHT, opts)
-        handleResize(target, ResizeClasses.TOP, opts)
-        break
-      case ResizeClasses.BOTTOM_LEFT:
-        handleResize(target, ResizeClasses.LEFT, opts)
-        handleResize(target, ResizeClasses.BOTTOM, opts)
-        break
-      case ResizeClasses.BOTTOM_RIGHT:
-        handleResize(target, ResizeClasses.RIGHT, opts)
-        handleResize(target, ResizeClasses.BOTTOM, opts)
-        break
-      default:
-        break
-      }
+  window.requestAnimationFrame(() =>
+  {
+    switch (resizeType)
+    {
+    case ResizeClasses.TOP:
+    {
+      const height = startHeight - dy
+      const top = startY + dy
+      if (height < minHeight! || top < 0)
+        return
+      target.style.height = `${height}px`
+      target.style.top = `${top}px`
+      break
+    }
+    case ResizeClasses.BOTTOM:
+    {
+      const height = startHeight + dy
+      if (height < minHeight!)
+        return
+      target.style.height = `${height}px`
+      break
+    }
+    case ResizeClasses.LEFT:
+    {
+      const width = startWidth - dx
+      const left = startX + dx
+      if (width < minWidth! || left < 0)
+        return
+      target.style.width = `${width}px`
+      target.style.left = `${left}px`
+      break
+    }
+    case ResizeClasses.RIGHT:
+    {
+      const width = startWidth + dx
+      if (width < minWidth!)
+        return
+      target.style.width = `${startWidth + dx}px`
+      break
+    }
+    case ResizeClasses.TOP_LEFT:
+      handleResize(target, ResizeClasses.LEFT, opts)
+      handleResize(target, ResizeClasses.TOP, opts)
+      break
+    case ResizeClasses.TOP_RIGHT:
+      handleResize(target, ResizeClasses.RIGHT, opts)
+      handleResize(target, ResizeClasses.TOP, opts)
+      break
+    case ResizeClasses.BOTTOM_LEFT:
+      handleResize(target, ResizeClasses.LEFT, opts)
+      handleResize(target, ResizeClasses.BOTTOM, opts)
+      break
+    case ResizeClasses.BOTTOM_RIGHT:
+      handleResize(target, ResizeClasses.RIGHT, opts)
+      handleResize(target, ResizeClasses.BOTTOM, opts)
+      break
+    default:
+      break
+    }
   })
 }
 
-function getDOM(el: UseResizeOptions['el']): HTMLElement | null {
-  const target: HTMLElement | null = isString(el) ? document.querySelector(el) : 
+function getDOM(el: UseResizeOptions['el']): HTMLElement | null
+{
+  const target: HTMLElement | null = isString(el) ? document.querySelector(el) :
     el instanceof HTMLElement ? el :
-    isRef(el) ? el.value : null
+      isRef(el) ? el.value : null
   return target
 }
 
@@ -264,7 +275,8 @@ function getControlVNodes(
   TopRight: VNode
   BottomLeft: VNode
   BottomRight: VNode
-} {
+}
+{
 
   const {
     barSize,
@@ -278,8 +290,8 @@ function getControlVNodes(
   }
   const Top = h('div', {
     class: ResizeClasses.TOP,
-    style: { 
-      ...commonStyles, 
+    style: {
+      ...commonStyles,
       top: 0,
       left: angleWidth + 'px',
       width: `calc(100% - ${angleWidth! * 2}px)`,
@@ -291,8 +303,8 @@ function getControlVNodes(
 
   const Bottom = h('div', {
     class: ResizeClasses.BOTTOM,
-    style: { 
-      ...commonStyles, 
+    style: {
+      ...commonStyles,
       bottom: 0,
       left: angleWidth + 'px',
       width: `calc(100% - ${angleWidth! * 2}px)`,
@@ -304,8 +316,8 @@ function getControlVNodes(
 
   const Left = h('div', {
     class: ResizeClasses.LEFT,
-    style: { 
-      ...commonStyles, 
+    style: {
+      ...commonStyles,
       left: 0,
       top: angleWidth + 'px',
       width: `${barSize}px`,
@@ -317,8 +329,8 @@ function getControlVNodes(
 
   const Right = h('div', {
     class: ResizeClasses.RIGHT,
-    style: { 
-      ...commonStyles, 
+    style: {
+      ...commonStyles,
       right: 0,
       top: angleWidth + 'px',
       width: `${barSize}px`,
@@ -330,8 +342,8 @@ function getControlVNodes(
 
   const TopLeft = h('div', {
     class: ResizeClasses.TOP_LEFT,
-    style: { 
-      ...commonStyles, 
+    style: {
+      ...commonStyles,
       top: 0,
       left: 0,
       width: `${angleWidth}px`,
@@ -343,8 +355,8 @@ function getControlVNodes(
 
   const TopRight = h('div', {
     class: ResizeClasses.TOP_RIGHT,
-    style: { 
-      ...commonStyles, 
+    style: {
+      ...commonStyles,
       top: 0,
       right: 0,
       width: `${angleWidth}px`,
@@ -356,8 +368,8 @@ function getControlVNodes(
 
   const BottomLeft = h('div', {
     class: ResizeClasses.BOTTOM_LEFT,
-    style: { 
-      ...commonStyles, 
+    style: {
+      ...commonStyles,
       bottom: 0,
       left: 0,
       width: `${angleWidth}px`,
@@ -370,7 +382,7 @@ function getControlVNodes(
   const BottomRight = h('div', {
     class: ResizeClasses.BOTTOM_RIGHT,
     style:{
-      ...commonStyles, 
+      ...commonStyles,
       bottom: 0,
       right: 0,
       width: `${angleWidth}px`,
@@ -392,10 +404,14 @@ function getControlVNodes(
   }
 }
 
-function renders(vnodes: Record<string, VNode> | VNode[], target: HTMLElement) {
-  if (isArray(vnodes)) {
+function renders(vnodes: Record<string, VNode> | VNode[], target: HTMLElement)
+{
+  if (isArray(vnodes))
+  
     render(h(Fragment, null, vnodes), target)
-  } else if (isPlainObject(vnodes)) {
+  
+  else if (isPlainObject(vnodes))
+  
     renders(Object.values(vnodes), target)
-  }
+  
 }

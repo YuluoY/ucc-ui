@@ -1,49 +1,107 @@
 <template>
   <div
-    class="u-timeline" 
+    ref="timelineRef"
+    class="u-timeline"
     :class="`u-timeline--${direction}`"
     :style="styles"
-    ref="timelineRef"
   >
-    <div class="u-timeline-line"></div>
+    <div class="u-timeline-line" :style="lineStyle"></div>
     <slot>
-      <TimelineItem v-for="item in data" :key="item.date?.toString()" v-bind="item" />
+      <TimelineItem
+        v-for="item in data"
+        :key="`${uid}-${item.date?.toString()}`"
+        v-bind="item"
+      />
     </slot>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { UTimelineItemProps, UTimelineProps } from '../types';
-import TimelineItem from './TimelineItem.vue';
-import { CTimelineDirection } from '../types/const';
-import { pxToRem } from '@ucc-ui/utils';
-import { computed, ref } from 'vue';
+import type { UTimelineItemProps, UTimelineProps } from '../types'
+import TimelineItem from './TimelineItem.vue'
+import { CTimelineContextKey, CTimelineDirection } from '../types/const'
+import { pxToRem } from '@ucc-ui/utils'
+import { computed, onBeforeUnmount, provide, ref, shallowRef, useId, watch, type CSSProperties } from 'vue'
+import { debounce } from 'lodash-es'
 
 defineOptions({
   name: 'UTimeline'
 })
 
+const uid = useId()
+
 const props = withDefaults(defineProps<UTimelineProps>(), {
   data: (() => [] as UTimelineItemProps[]),
-  direction: CTimelineDirection.VERTICAL,
+  direction: 'vertical',
   gutter: 30,
   margin: 20,
   lineColor: ''
 })
 
-
-const gutter = computed(() => props.gutter ? pxToRem(props.gutter) : props.gutter);
-const margin = computed(() => props.margin ? pxToRem(props.margin) : props.margin);
 const timelineRef = ref<HTMLElement | null>(null)
-const itemHeight = computed(() => timelineRef.value?.querySelector('.u-timeline-item')?.clientHeight ?? 0)
+
+const gutter = computed(() => props.gutter ? pxToRem(props.gutter) : props.gutter)
+const margin = computed(() => props.margin ? pxToRem(props.margin) : props.margin)
+
+const lineStyle = shallowRef<CSSProperties>({})
+
+/**
+ * 自动计算线位置
+ */
+const onCalcLine = () =>
+{
+  const firstItemNode = timelineRef.value?.querySelector('.u-timeline-item') as HTMLElement | null
+  const lastItemNode = timelineRef.value?.querySelector('.u-timeline-item:last-of-type') as HTMLElement | null
+  
+  if (!firstItemNode || !lastItemNode || firstItemNode === lastItemNode)
+    return
+  const firstDot = firstItemNode.children[0] as HTMLElement
+  const lastDot = lastItemNode.children[0] as HTMLElement
+  const firstDotRect = firstDot.getBoundingClientRect()
+  const lastDotRect = lastDot.getBoundingClientRect()
+
+  if (props.direction === CTimelineDirection.HORIZONTAL)
+  {
+    lineStyle.value = {
+      width: lastDotRect.left - firstDotRect.left + 'px',
+      left: firstDot.offsetLeft + 'px'
+    }
+  }
+  else if (props.direction === CTimelineDirection.VERTICAL)
+  {
+    lineStyle.value = {
+      height: lastDotRect.top - firstDotRect.top + 'px',
+      top: firstDot.offsetTop + 'px'
+    }
+  }
+}
+
+const onDebouncedCalcLine = debounce(onCalcLine, 200)
+
+const watcher = watch(() => [props.direction, props.data.length], () =>
+{
+  onDebouncedCalcLine()
+}, {
+  immediate: true,
+  flush: 'post'
+})
+
 const styles = computed(() => ({
   '--timeline-gutter': gutter.value,
   '--timeline-margin': margin.value,
   '--timeline-line-color': props.lineColor || 'var(--uc-background-4)',
-  '--timeline-item-height': `${itemHeight.value}px`
 }))
+
+provide(CTimelineContextKey, {
+  onCalcLine: onDebouncedCalcLine
+})
+
+onBeforeUnmount(() =>
+{
+  watcher()
+})
 </script>
 
 <style lang="scss">
-@import '../styles/index.scss';
+@use '../styles/index.scss';
 </style>

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import { UForm, UFormItem, UInput, UButton } from 'ucc-ui'
 import 'ucc-ui/dist/index.css'
-import type { UFormProps, UFormExposes } from '../../../components/form/types'
+import type { UFormExposes } from '../../../components/form/types'
 import { container } from './utils'
 import { ref } from 'vue'
 
@@ -77,23 +77,29 @@ export const Default: Story = {
     showMessage: true,
     size: 'default'
   },
-  render: (args) => ({
+  render: args => ({
     components: { UForm, UFormItem, UInput, UButton },
-    setup() {
+    setup()
+    {
       const formRef = ref<UFormExposes>()
       const formModel = ref(args.model)
       
-      const handleSubmit = async () => {
+      const handleSubmit = async() =>
+      {
         if (!formRef.value) return
-        try {
+        try
+        {
           await formRef.value.validate()
           console.log('表单验证通过', formModel.value)
-        } catch (error) {
+        }
+        catch (error)
+        {
           console.error('表单验证失败', error)
         }
       }
 
-      const handleReset = () => {
+      const handleReset = () =>
+      {
         if (!formRef.value) return
         formRef.value.resetFields()
         formModel.value = {
@@ -125,4 +131,4 @@ export const Default: Story = {
       </UForm>
     `)
   })
-} 
+}

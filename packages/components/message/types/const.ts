@@ -4,7 +4,7 @@ export const DefaultIconMap = {
   warning: ['fas', 'circle-exclamation'],
   error: ['fas', 'circle-xmark'],
   primary: ['fas', 'circle-question'],
-} as const;
+} as const
 
 export const CMessageType = {
   INFO: 'info',
@@ -12,6 +12,6 @@ export const CMessageType = {
   WARNING: 'warning',
   ERROR: 'error',
   PRIMARY: 'primary'
-} as const;
+} as const
 
 export type UMessageType = typeof CMessageType[keyof typeof CMessageType];

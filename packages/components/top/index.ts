@@ -1,4 +1,5 @@
-import { withInstall, type SFCWithInstall } from "../../utils";
-import Top from "./src/Top.vue"
+import { withInstall, type SFCWithInstall } from '../../utils'
+import Top from './src/Top.vue'
+export * from './types'
 
-export const UTop: SFCWithInstall<typeof Top> = withInstall<typeof Top>(Top);
+export const UTop: SFCWithInstall<typeof Top> = withInstall<typeof Top>(Top)

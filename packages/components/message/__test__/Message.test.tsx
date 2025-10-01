@@ -1,11 +1,15 @@
-import { nextTick } from "vue"
+import { nextTick } from 'vue'
 import { describe, expect, test } from 'vitest'
 import { MessageFn, closeAll } from '../methods'
 
-const rAf = async () => {
-  return new Promise((resolve) => {
-    requestAnimationFrame(() => {
-      requestAnimationFrame(async () => {
+const rAf = async() =>
+{
+  return new Promise(resolve =>
+  {
+    requestAnimationFrame(() =>
+    {
+      requestAnimationFrame(async() =>
+      {
         resolve(null)
         await nextTick()
       })
@@ -13,9 +17,11 @@ const rAf = async () => {
   })
 }
 
-describe('UMessage 组件覆盖测试', () => {
+describe('UMessage 组件覆盖测试', () =>
+{
 
-  test('message函数式用法测试', async () => {
+  test('message函数式用法测试', async() =>
+  {
     const handler = MessageFn({ message: 'hello world', duration: 0 })
     await rAf()
     expect(document.body.querySelector('.u-message')).toBeTruthy()
@@ -24,7 +30,8 @@ describe('UMessage 组件覆盖测试', () => {
     expect(document.body.querySelector('.u-message')).toBeFalsy()
   })
 
-  test('message函数式用法多次调用测试', async () => {
+  test('message函数式用法多次调用测试', async() =>
+  {
     MessageFn({ message: 'hello world', duration: 0 })
     MessageFn({ message: 'hello world1', duration: 0 })
     await rAf()

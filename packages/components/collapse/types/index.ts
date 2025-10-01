@@ -1,5 +1,5 @@
-import type { Ref } from "vue"
-import type { UIconProps } from "../../icon/types"
+import type { Ref } from 'vue'
+import type { UIconProps } from '../../icon/types'
 
 export interface UCollapseProps {
   modelValue?: Array<string>

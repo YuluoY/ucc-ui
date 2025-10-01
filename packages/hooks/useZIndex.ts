@@ -1,9 +1,9 @@
-import { computed, ref } from "vue";
+import { computed, ref } from 'vue'
 
 const zIndex = ref(0)
 
 /**
- * 
+ *
  * @param initVal 初始值
  * @description 用于生成z-index
  * @example
@@ -11,11 +11,13 @@ const zIndex = ref(0)
  * const { initVal, curZIndex, nextZIndex } = useZIndex()
  * ```
  */
-export default function useZIndex(initVal = 1100) {
+export default function useZIndex(initVal = 1100)
+{
   const _initVal = ref(initVal)
   const curZIndex = computed(() => zIndex.value + _initVal.value)
 
-  const nextZIndex = () => {
+  const nextZIndex = () =>
+  {
     zIndex.value++
     return curZIndex.value
   }

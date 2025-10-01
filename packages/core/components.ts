@@ -1,9 +1,9 @@
 import type { Plugin } from 'vue'
-import { 
-  UButton, 
-  UButtonGroup, 
-  ULayout, 
-  URegion, 
+import {
+  UButton,
+  UButtonGroup,
+  ULayout,
+  URegion,
   UIcon,
   UCard,
   UInput,
@@ -30,6 +30,7 @@ import {
   UMenuItem,
   USubMenu,
   UTimeline,
+  UTimelineItem,
 
   UMessageFn,
   UDialogFn,
@@ -68,7 +69,8 @@ export default [
   UMenuItem,
   USubMenu,
   UTimeline,
-
+  UTimelineItem,
+  
   UMessageFn,
   UDialogFn,
   UReadProgressFn,

@@ -13,12 +13,14 @@ export interface UDialogFnReturn {
   close: () => void
 }
 
-const DialogFn = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn => {
+const DialogFn = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn =>
+{
   const isSingle = props?.single ?? true
 
   let container = (isString(props?.appendTo) ? document.querySelector(props.appendTo) : props?.appendTo) || document.body
 
-  if (!isSingle) {
+  if (!isSingle)
+  {
     const div = document.createElement('div')
     container.appendChild(div)
     container = div
@@ -27,28 +29,31 @@ const DialogFn = (props: UDialogProps & UDialogFnProps = {}): UDialogFnReturn =>
   const openDebounce = debounce(open, props?.openDelay || 100)
   const closeDebounce = debounce(close, props?.closeDelay || 100)
 
-  const _props = { 
-    ...props, 
+  const _props = {
+    ...props,
     zIndex: getNextZIndex(),
     open: openDebounce,
     close: closeDebounce,
-    onConfirm: async (close: () => void) => {
+    onConfirm: async(close: () => void) =>
+    {
       if (isFunction(props.confirm))
       {
         const res = await props.confirm()
         if (res) close()
       }
-      else 
+      else
         close()
     }
   } as any
 
-  function open() {
+  function open()
+  {
     render(h(DialogSFC, _props), container)
     !isSingle && container.remove()
   }
 
-  function close() {
+  function close()
+  {
     render(null, container)
   }
 

@@ -1,35 +1,20 @@
-import { capitalize, computed, defineComponent, getCurrentInstance, h, isVNode, readonly, ref, useAttrs } from "vue";
-import type { UDynamicCompExposes, UDynamicCompProps } from "../types";
-import { bind, has, isArray, isEmpty, isFunction, isNil, isPlainObject, isString, merge, pick } from "lodash-es";
-import handleHooks from "../handles/handleHooks";
-import handleEvents from "../handles/handleEvents";
-import handleParameter from "../handles/handleParameter";
-import handleDeepTransfer from "../handles/handleDeepTransfer";
-import handleModelValue from "../handles/handleModelValue";
-import handleDirectives from "../handles/handleDirectives";
-import handleAsyncComponent from "../handles/handleAsyncComp";
+import { capitalize, computed, defineComponent, getCurrentInstance, h, isVNode, readonly, ref, useAttrs } from 'vue'
+import type { UDynamicCompExposes, UDynamicCompProps } from '../types'
+import { bind, has, isArray, isEmpty, isFunction, isNil, isPlainObject, isString, merge, pick } from 'lodash-es'
+import handleHooks from '../handles/handleHooks'
+import handleEvents from '../handles/handleEvents'
+import handleParameter from '../handles/handleParameter'
+import handleDeepTransfer from '../handles/handleDeepTransfer'
+import handleModelValue from '../handles/handleModelValue'
+import handleDirectives from '../handles/handleDirectives'
+import handleAsyncComponent from '../handles/handleAsyncComp'
 
 export default defineComponent({
   name: 'UDynamicComp',
   emits: ['update:modelValue', 'change'],
 
-  render() {
-    if (has(this.binds.directives, 'v-if') && !this.binds.directives['v-if']) {
-      return null
-    }
-
-    if (!isNil(this.$props.props?.modelValue)) {
-      this.binds['data-model'] = true
-      this.binds['modelValue'] = this.modelValue
-
-      if (this.isInitialized) {
-        this.binds['update:modelValue'] = bind(this.setModelValue, this)
-      }
-    }
-    return h(this.URenderComp, this.binds)
-  },
-
-  setup(_, ctx) {
+  setup(_, ctx)
+  {
     const props = withDefaults(defineProps<UDynamicCompProps>(), {})
 
     const isInitialized = ref(false)
@@ -50,8 +35,8 @@ export default defineComponent({
 
     handleHooks.call(props, { instance, uid })
 
-    const { 
-      newEvents 
+    const {
+      newEvents
     } = handleEvents.call(props)
  
     const {
@@ -76,13 +61,16 @@ export default defineComponent({
 
     const onChange = (e: Event | any) => ctx.emit('change', e)
 
-    const setProps = (fn: (props: UDynamicCompProps) => void) => {
-      if (isFunction(fn)) {
+    const setProps = (fn: (props: UDynamicCompProps) => void) =>
+    {
+      if (isFunction(fn))
+      
         fn(_props)
-      }
+      
     }
 
-    const setInnerProps = (props: UDynamicCompProps['props']) => {
+    const setInnerProps = (props: UDynamicCompProps['props']) =>
+    {
       innerProps.value = merge(innerProps.value, props)
     }
 
@@ -101,7 +89,8 @@ export default defineComponent({
       ...useAttrs()
     }))
 
-    DCMounted(() => {
+    DCMounted(() =>
+    {
       isInitialized.value = true
     })
 
@@ -134,5 +123,25 @@ export default defineComponent({
       modelValue,
       setModelValue
     }
+  },
+
+  render()
+  {
+    if (has(this.binds.directives, 'v-if') && !this.binds.directives['v-if'])
+    
+      return null
+    
+
+    if (!isNil(this.$props.props?.modelValue))
+    {
+      this.binds['data-model'] = true
+      this.binds['modelValue'] = this.modelValue
+
+      if (this.isInitialized)
+      
+        this.binds['update:modelValue'] = bind(this.setModelValue, this)
+      
+    }
+    return h(this.URenderComp, this.binds)
   },
 })

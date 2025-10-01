@@ -4,6 +4,6 @@ export const CReadProgress = {
   WARNING: 'warning',
   SUCCESS: 'success',
   INFO: 'info'
-} as const;
+} as const
 
 export type UReadProgressType = typeof CReadProgress[keyof typeof CReadProgress];

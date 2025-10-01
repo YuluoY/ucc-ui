@@ -22,7 +22,8 @@ interface WrapperOptions {
   slots?: Record<string, any>
 }
 
-const createWrapper = (props: Partial<UDialogProps> = {}, slots = {}) => {
+const createWrapper = (props: Partial<UDialogProps> = {}, slots = {}) =>
+{
   // 创建目标容器
   const container = document.createElement('div')
   container.id = 'dialog-container'
@@ -42,8 +43,10 @@ const createWrapper = (props: Partial<UDialogProps> = {}, slots = {}) => {
   })
 }
 
-describe('UDialog 组件测试', () => {
-  beforeEach(() => {
+describe('UDialog 组件测试', () =>
+{
+  beforeEach(() =>
+  {
     vi.useFakeTimers()
     // 清理 body
     document.body.innerHTML = ''
@@ -53,19 +56,22 @@ describe('UDialog 组件测试', () => {
     Object.defineProperty(window, 'innerHeight', { value: 768, configurable: true })
     Object.defineProperty(window.document.documentElement, 'clientHeight', { value: 768, configurable: true })
     // 模拟 requestAnimationFrame
-    vi.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
+    vi.spyOn(window, 'requestAnimationFrame').mockImplementation(cb =>
+    {
       cb(0)
       return 0
     })
   })
 
-  afterEach(() => {
+  afterEach(() =>
+  {
     vi.useRealTimers()
     document.body.innerHTML = ''
   })
 
   // 基础渲染测试
-  it('默认渲染正确', async () => {
+  it('默认渲染正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: true
     })
@@ -79,7 +85,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 标题测试
-  it('标题渲染正确', async () => {
+  it('标题渲染正确', async() =>
+  {
     const title = '测试标题'
     const wrapper = createWrapper({
       modelValue: true,
@@ -92,7 +99,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 内容测试
-  it('内容渲染正确', async () => {
+  it('内容渲染正确', async() =>
+  {
     const content = '测试内容'
     const wrapper = createWrapper({
       modelValue: true,
@@ -105,7 +113,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 遮罩层测试
-  it('遮罩层渲染正确', async () => {
+  it('遮罩层渲染正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: true,
       modal: true
@@ -117,7 +126,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 自定义遮罩层类名测试
-  it('自定义遮罩层类名渲染正确', async () => {
+  it('自定义遮罩层类名渲染正确', async() =>
+  {
     const modalClass = 'custom-modal'
     const wrapper = createWrapper({
       modelValue: true,
@@ -131,7 +141,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 关闭按钮测试
-  it('关闭按钮功能正确', async () => {
+  it('关闭按钮功能正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: true,
       showCloseIcon: true
@@ -147,7 +158,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 折叠按钮测试
-  it('折叠按钮功能正确', async () => {
+  it('折叠按钮功能正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: true,
       showCollapseIcon: true
@@ -162,7 +174,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 点击遮罩层关闭测试
-  it('点击遮罩层关闭功能正确', async () => {
+  it('点击遮罩层关闭功能正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: true,
       modal: true,
@@ -177,7 +190,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // ESC关闭测试
-  it('ESC关闭功能正确', async () => {
+  it('ESC关闭功能正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: true,
       closeOnPressEscape: true
@@ -190,7 +204,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 底部按钮测试
-  it('底部按钮功能正确', async () => {
+  it('底部按钮功能正确', async() =>
+  {
     const wrapper = createWrapper({
       modelValue: true,
       showFooter: true
@@ -212,7 +227,8 @@ describe('UDialog 组件测试', () => {
   })
 
   // 自定义宽高测试
-  it('自定义宽高渲染正确', async () => {
+  it('自定义宽高渲染正确', async() =>
+  {
     const width = 0.5
     const height = 0.6
     const wrapper = createWrapper({
@@ -302,4 +318,4 @@ describe('UDialog 组件测试', () => {
   //   expect(dialog.style.width).toBe(initialPosition.width)
   //   expect(dialog.style.height).toBe(initialPosition.height)
   // })
-}) 
+})

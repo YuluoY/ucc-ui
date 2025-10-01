@@ -3,27 +3,27 @@
     :class="['u-region', `u-region__${region}`, 'u-region-container']"
     :style="regionStyle"
   >
-    <slot></slot>
+    <slot />
   </section>
 </template>
 
 <script setup lang="ts">
-import { isNil, isNumber } from "lodash-es";
+import { isNil, isNumber } from 'lodash-es'
 
-import { pxToRem } from "../../../utils";
-import type { URegionProps, ULayoutContext } from "../types";
-import { CComponentName, CLayoutContext, CLayoutMode } from "../types/const";
-import { type VNode, type CSSProperties, computed, getCurrentInstance, inject, shallowRef } from "vue";
+import { pxToRem } from '../../../utils'
+import type { URegionProps, ULayoutContext } from '../types'
+import { CComponentName, CLayoutContext, CLayoutMode } from '../types/const'
+import { type VNode, type CSSProperties, computed, getCurrentInstance, inject, shallowRef } from 'vue'
 
 defineOptions({
   name: CComponentName.REGION,
-});
+})
 
 const instance = getCurrentInstance()
 
 const props = withDefaults(defineProps<URegionProps>(), {
-  region: "center"
-});
+  region: 'center'
+})
 
 /**
  * 上下文
@@ -38,32 +38,34 @@ const maxSpan = computed(() => ctx?.maxSpan?.value!)
 /**
  * 同级dom
  */
-const siblings = shallowRef((instance?.parent?.subTree.children as VNode[])?.[0]?.children as VNode[]);
+const siblings = shallowRef((instance?.parent?.subTree.children as VNode[])?.[0]?.children as VNode[])
 /**
  * region组件
  */
-const siblingRegions = computed(() => siblings.value.filter(item => (item.type as any)?.name === CComponentName.REGION));
+const siblingRegions = computed(() => siblings.value.filter(item => (item.type as any)?.name === CComponentName.REGION))
 /**
  * region没有span的组件
  */
-const siblingRegionsWithoutSpan = computed(() => siblingRegions.value.filter(item => isNil(item.props?.span)));
+const siblingRegionsWithoutSpan = computed(() => siblingRegions.value.filter(item => isNil(item.props?.span)))
 
 /**
  * 列数
  */
-const span = computed(() => {
+const span = computed(() =>
+{
   if (props.span)
     return props.span
   if (siblingRegionsWithoutSpan.value.length === 0)
     return 0
-  const { surplus } = handleRowSpan(siblingRegions.value);
-  return surplus / siblingRegionsWithoutSpan.value.length;
+  const { surplus } = handleRowSpan(siblingRegions.value)
+  return surplus / siblingRegionsWithoutSpan.value.length
 })
 
 /**
  * 区域样式
  */
-const regionStyle = computed<CSSProperties>(() => {
+const regionStyle = computed<CSSProperties>(() =>
+{
   const style = {
     ...props.style
   } as CSSProperties
@@ -89,15 +91,17 @@ const regionStyle = computed<CSSProperties>(() => {
  * 计算行跨度
  * @param regions 同级组件
  */
-function handleRowSpan(regions: VNode[]) {
-  let total = 0;
-  let surplus = 0;
+function handleRowSpan(regions: VNode[])
+{
+  let total = 0
+  let surplus = 0
 
-  for (const region of regions) {
-    total += region.props?.span || 0;
-  }
+  for (const region of regions)
+  
+    total += region.props?.span || 0
+  
 
-  surplus = maxSpan.value - total;
+  surplus = maxSpan.value - total
   
   return {
     total,

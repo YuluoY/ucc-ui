@@ -5,19 +5,19 @@ export const CButtonType = {
   DANGER: 'danger',
   INFO: 'info',
   LINK: 'link'
-} as const;
+} as const
 
 export const CButtonSize = {
   SMALL: 'small',
   DEFAULT: 'default',
   LARGE: 'large',
-} as const;
+} as const
 
 export const CIconPosition = {
   LEFT: 'left',
   RIGHT: 'right',
   DEFAULT: 'default' // left
-} as const;
+} as const
 
 export type ButtonSize = typeof CButtonSize[keyof typeof CButtonSize];
 export type ButtonType = typeof CButtonType[keyof typeof CButtonType];

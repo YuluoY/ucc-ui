@@ -6,20 +6,20 @@ export const CInputType = {
   FILE: 'file',
   NUMBER: 'number',
   RADIO: 'radio'
-} as const;
+} as const
 
 export const CInputSize = {
   SMALL: 'small',
   DEFAULT: 'default',
   LARGE: 'large'
-} as const;
+} as const
 
 export const CInputResize = {
   NONE: 'none',
   BOTH: 'both',
   HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical'
-} as const;
+} as const
 
 export type UInputType = typeof CInputType[keyof typeof CInputType];
 export type UInputSize = typeof CInputSize[keyof typeof CInputSize];

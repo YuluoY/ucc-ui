@@ -2,7 +2,7 @@ import { isFunction } from 'lodash'
 import { defineAsyncComponent, type ComponentInternalInstance } from 'vue'
 
 export default function handleAsyncComponent(
-  asyncCompFn: Function, 
+  asyncCompFn: Function,
   opts: {
     instance: ComponentInternalInstance | null
   }

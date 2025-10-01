@@ -1,6 +1,6 @@
-import type { Ref, VNode } from "vue"
-import type { UTextProps } from "../../text/types"
-import type { UReadProgressType } from "./const"
+import type { Ref, VNode } from 'vue'
+import type { UTextProps } from '../../text/types'
+import type { UReadProgressType } from './const'
 
 export interface UReadProgressProps {
 

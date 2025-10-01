@@ -1,4 +1,4 @@
-import type { ArgTypes, StoryObj } from "@storybook/vue3"
+import type { ArgTypes, StoryObj } from '@storybook/vue3'
 
 export interface ExtraContent {
   content?: string

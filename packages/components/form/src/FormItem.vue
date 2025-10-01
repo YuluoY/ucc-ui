@@ -17,12 +17,23 @@
       :class="[form?.labelPosition ? `is-${form.labelPosition}` : '']"
       :style="labelStyle"
     >
-      <span v-if="isRequired && !form?.hideRequiredAsterisk" class="u-form-item__required-star" :class="{ 'is-right': form?.requiredAsteriskPosition === 'right' }">*</span>
+      <span
+        v-if="isRequired && !form?.hideRequiredAsterisk"
+        class="u-form-item__required-star"
+        :class="{ 'is-right': form?.requiredAsteriskPosition === 'right' }"
+      >*</span>
       <slot name="label">{{ label }}{{ form?.labelSuffix }}</slot>
-      <span v-if="isRequired && !form?.hideRequiredAsterisk && form?.requiredAsteriskPosition === 'right'" class="u-form-item__required-star">*</span>
+      <span
+        v-if="isRequired && !form?.hideRequiredAsterisk && form?.requiredAsteriskPosition === 'right'"
+        class="u-form-item__required-star"
+      >*</span>
     </label>
-    <div class="u-form-item__content" @blur="onFieldBlur" @input="onFieldInput">
-      <slot></slot>
+    <div
+      class="u-form-item__content"
+      @blur="onFieldBlur"
+      @input="onFieldInput"
+    >
+      <slot />
       <transition name="u-zoom-in-top">
         <div
           v-if="validateState === 'error' && showMessage && form?.showMessage"
@@ -64,7 +75,8 @@ const showMessage = computed(() => form?.showMessage ?? true)
 const initialValue = ref<any>(undefined)
 
 // 计算是否必填
-const isRequired = computed(() => {
+const isRequired = computed(() =>
+{
   if (!props.prop || !form?.rules) return false
   const rules = form.rules[typeof props.prop === 'string' ? props.prop : props.prop[0]]
   if (!rules) return false
@@ -72,7 +84,8 @@ const isRequired = computed(() => {
   return ruleList.some(rule => rule.required)
 })
 
-const labelStyle = computed(() => {
+const labelStyle = computed(() =>
+{
   if (form?.labelPosition === 'top') return {}
   const labelWidth = props.labelWidth || form?.labelWidth
   if (!labelWidth) return {}
@@ -81,11 +94,13 @@ const labelStyle = computed(() => {
   }
 })
 
-const validate = async (trigger: string): Promise<void> => {
+const validate = async(trigger: string): Promise<void> =>
+{
   if (!props.prop) return
 
   const rules = form?.rules?.[typeof props.prop === 'string' ? props.prop : props.prop[0]]
-  if (!rules || !rules.length) {
+  if (!rules || !rules.length)
+  {
     validateState.value = ''
     validateMessage.value = ''
     return
@@ -93,128 +108,154 @@ const validate = async (trigger: string): Promise<void> => {
 
   validateState.value = 'validating'
 
-  try {
+  try
+  {
     const model = form?.model
     const value = get(model, typeof props.prop === 'string' ? props.prop : props.prop[0])
     const rulesToValidate = Array.isArray(rules) ? rules : [rules]
 
     // 检查是否有匹配当前触发方式的规则
-    const hasMatchingTrigger = rulesToValidate.some(rule => {
+    const hasMatchingTrigger = rulesToValidate.some(rule =>
+    {
       if (!rule.trigger) return false
       if (Array.isArray(rule.trigger)) return rule.trigger.includes(trigger)
       return rule.trigger === trigger
     })
 
     // 如果没有匹配的触发方式，则不进行校验
-    if (trigger && !hasMatchingTrigger) {
+    if (trigger && !hasMatchingTrigger)
+    
       return
-    }
+    
 
-    for (const rule of rulesToValidate) {
-      if (trigger && rule.trigger && !Array.isArray(rule.trigger) && rule.trigger !== trigger) {
+    for (const rule of rulesToValidate)
+    {
+      if (trigger && rule.trigger && !Array.isArray(rule.trigger) && rule.trigger !== trigger)
+      
         continue
-      }
+      
 
-      if (trigger && rule.trigger && Array.isArray(rule.trigger) && !rule.trigger.includes(trigger)) {
+      if (trigger && rule.trigger && Array.isArray(rule.trigger) && !rule.trigger.includes(trigger))
+      
         continue
-      }
+      
 
       // 转换值
       const transformedValue = rule.transform ? rule.transform(value) : value
 
       // 自定义验证器
-      if (rule.validator) {
+      if (rule.validator)
+      {
         await rule.validator(rule, transformedValue)
         continue
       }
 
       // 必填验证
-      if (rule.required && (transformedValue === '' || transformedValue === null || transformedValue === undefined)) {
+      if (rule.required && (transformedValue === '' || transformedValue === null || transformedValue === undefined))
+      
         throw new Error(rule.message || '此字段是必填的')
-      }
+      
 
-      if (transformedValue === null || transformedValue === undefined || transformedValue === '') {
+      if (transformedValue === null || transformedValue === undefined || transformedValue === '')
+      
         continue
-      }
+      
 
       // 类型验证
-      if (rule.type) {
+      if (rule.type)
+      {
         let valid = true
         const type = rule.type
 
-        switch (type) {
-          case 'number':
-            valid = typeof transformedValue === 'number'
-            break
-          case 'boolean':
-            valid = typeof transformedValue === 'boolean'
-            break
-          case 'array':
-            valid = Array.isArray(transformedValue)
-            break
-          case 'object':
-            valid = typeof transformedValue === 'object' && !Array.isArray(transformedValue)
-            break
-          case 'date':
-            valid = transformedValue instanceof Date
-            break
-          case 'url':
-            try {
-              new URL(transformedValue)
-              valid = true
-            } catch {
-              valid = false
-            }
-            break
-          case 'email':
-            valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(transformedValue)
-            break
-          default:
-            valid = typeof transformedValue === 'string'
+        switch (type)
+        {
+        case 'number':
+          valid = typeof transformedValue === 'number'
+          break
+        case 'boolean':
+          valid = typeof transformedValue === 'boolean'
+          break
+        case 'array':
+          valid = Array.isArray(transformedValue)
+          break
+        case 'object':
+          valid = typeof transformedValue === 'object' && !Array.isArray(transformedValue)
+          break
+        case 'date':
+          valid = transformedValue instanceof Date
+          break
+        case 'url':
+          try
+          {
+            new URL(transformedValue)
+            valid = true
+          }
+          catch
+          {
+            valid = false
+          }
+          break
+        case 'email':
+          valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(transformedValue)
+          break
+        default:
+          valid = typeof transformedValue === 'string'
         }
 
-        if (!valid) {
+        if (!valid)
+        
           throw new Error(rule.message || `类型应该是${type}`)
-        }
+        
       }
 
       // 长度验证
-      if (typeof transformedValue === 'string' || Array.isArray(transformedValue)) {
-        if (rule.min != null && transformedValue.length < rule.min) {
+      if (typeof transformedValue === 'string' || Array.isArray(transformedValue))
+      {
+        if (rule.min != null && transformedValue.length < rule.min)
+        
           throw new Error(rule.message || `长度不能小于${rule.min}`)
-        }
-        if (rule.max != null && transformedValue.length > rule.max) {
+        
+        if (rule.max != null && transformedValue.length > rule.max)
+        
           throw new Error(rule.message || `长度不能大于${rule.max}`)
-        }
-        if (rule.length != null && transformedValue.length !== rule.length) {
+        
+        if (rule.length != null && transformedValue.length !== rule.length)
+        
           throw new Error(rule.message || `长度应该是${rule.length}`)
-        }
+        
       }
 
       // 数值范围验证
-      if (typeof transformedValue === 'number') {
-        if (rule.min != null && transformedValue < rule.min) {
+      if (typeof transformedValue === 'number')
+      {
+        if (rule.min != null && transformedValue < rule.min)
+        
           throw new Error(rule.message || `不能小于${rule.min}`)
-        }
-        if (rule.max != null && transformedValue > rule.max) {
+        
+        if (rule.max != null && transformedValue > rule.max)
+        
           throw new Error(rule.message || `不能大于${rule.max}`)
-        }
+        
       }
 
       // 枚举验证
-      if (rule.enum && !rule.enum.includes(transformedValue)) {
+      if (rule.enum && !rule.enum.includes(transformedValue))
+      
         throw new Error(rule.message || `值应该在 ${rule.enum.join(', ')} 中`)
-      }
+      
 
       // 正则验证
-      if (rule.pattern && !rule.pattern.test(transformedValue)) {
+      if (rule.pattern && !rule.pattern.test(transformedValue))
+      
         throw new Error(rule.message || '格式不正确')
-      }
+      
     }
 
     validateState.value = 'success'
     validateMessage.value = ''
-  } catch (error: any) {
+  }
+  catch (error: any)
+  {
     validateState.value = 'error'
     validateMessage.value = error.message
     throw error
@@ -222,37 +263,50 @@ const validate = async (trigger: string): Promise<void> => {
 }
 
 // 监听输入事件
-const onFieldBlur = () => {
-  validate('blur').catch(() => {})
+const onFieldBlur = () =>
+{
+  validate('blur').catch(() =>
+  {})
 }
 
-const onFieldInput = (e: Event) => {
+const onFieldInput = (e: Event) =>
+{
   const target = e.target as HTMLInputElement | HTMLTextAreaElement
   if (!props.prop || !form?.model) return
 
   const propPath = typeof props.prop === 'string' ? props.prop : props.prop[0]
   form.model[propPath] = target.value
 
-  if (validateState.value === 'error') {
-    validate('change').catch(() => {})
+  if (validateState.value === 'error')
+  {
+    validate('change').catch(() =>
+    {})
   }
 }
 
-const resetField = () => {
+const resetField = () =>
+{
   // 重置表单值到初始值
-  if (props.prop && form?.model) {
+  if (props.prop && form?.model)
+  {
     const propPath = typeof props.prop === 'string' ? props.prop : props.prop[0]
-    if (initialValue.value !== undefined) {
-      if (typeof initialValue.value === 'object') {
-        form.model[propPath] = Array.isArray(initialValue.value) 
+    if (initialValue.value !== undefined)
+    {
+      if (typeof initialValue.value === 'object')
+      {
+        form.model[propPath] = Array.isArray(initialValue.value)
           ? [...initialValue.value]
           : { ...initialValue.value }
-      } else {
-        form.model[propPath] = initialValue.value
       }
-    } else {
-      form.model[propPath] = ''
+      else
+      
+        form.model[propPath] = initialValue.value
+      
     }
+    else
+    
+      form.model[propPath] = ''
+    
   }
 
   // 重置验证状态
@@ -260,7 +314,8 @@ const resetField = () => {
   validateMessage.value = ''
 }
 
-const clearValidate = () => {
+const clearValidate = () =>
+{
   validateState.value = ''
   validateMessage.value = ''
 }
@@ -268,22 +323,28 @@ const clearValidate = () => {
 // 监听model变化
 watch(
   () => form?.model?.[typeof props.prop === 'string' ? props.prop : props.prop[0]],
-  (newValue) => {
-    if (validateState.value === 'error') {
-      validate('change').catch(() => {})
+  newValue =>
+  {
+    if (validateState.value === 'error')
+    {
+      validate('change').catch(() =>
+      {})
     }
   },
   { deep: true }
 )
 
 // 在 onMounted 中保存初始值
-onMounted(() => {
-  if (props.prop && form?.model) {
+onMounted(() =>
+{
+  if (props.prop && form?.model)
+  {
     const propPath = typeof props.prop === 'string' ? props.prop : props.prop[0]
     initialValue.value = form.model[propPath]
   }
 
-  if (props.prop) {
+  if (props.prop)
+  {
     form?.addField?.({
       prop: typeof props.prop === 'string' ? props.prop : props.prop[0],
       validate,
@@ -295,19 +356,23 @@ onMounted(() => {
     const input = document.querySelector(`.u-form-item[data-prop="${props.prop}"] input`)
     const textarea = document.querySelector(`.u-form-item[data-prop="${props.prop}"] textarea`)
 
-    if (input) {
+    if (input)
+    {
       input.addEventListener('blur', onFieldBlur)
       input.addEventListener('input', onFieldInput)
     }
-    if (textarea) {
+    if (textarea)
+    {
       textarea.addEventListener('blur', onFieldBlur)
       textarea.addEventListener('input', onFieldInput)
     }
   }
 })
 
-onUnmounted(() => {
-  if (props.prop) {
+onUnmounted(() =>
+{
+  if (props.prop)
+  {
     form?.removeField?.({
       prop: typeof props.prop === 'string' ? props.prop : props.prop[0]
     } as FormItemContext)
@@ -316,11 +381,13 @@ onUnmounted(() => {
     const input = document.querySelector(`.u-form-item[data-prop="${props.prop}"] input`)
     const textarea = document.querySelector(`.u-form-item[data-prop="${props.prop}"] textarea`)
 
-    if (input) {
+    if (input)
+    {
       input.removeEventListener('blur', onFieldBlur)
       input.removeEventListener('input', onFieldInput)
     }
-    if (textarea) {
+    if (textarea)
+    {
       textarea.removeEventListener('blur', onFieldBlur)
       textarea.removeEventListener('input', onFieldInput)
     }

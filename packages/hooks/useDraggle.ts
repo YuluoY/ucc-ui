@@ -1,5 +1,5 @@
-import { isString } from "lodash-es";
-import { computed, isRef, onBeforeUnmount, ref, type Ref } from "vue";
+import { isString } from 'lodash-es'
+import { computed, isRef, onBeforeUnmount, ref, type Ref } from 'vue'
 
 interface UseDraggleOptions {
   el: string | HTMLElement | Ref<HTMLElement | null>
@@ -23,8 +23,8 @@ interface UseDraggleReturn {
 }
 
 /**
- * 
- * @param opts 
+ *
+ * @param opts
  * @param opts.el 需要拖拽的元素
  * @param opts.dragEl 拖拽的元素
  * @param opts.moving 拖拽时触发的事件
@@ -38,7 +38,8 @@ interface UseDraggleReturn {
  * })
  * ```
  */
-export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
+export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn
+{
   
   const {
     el,
@@ -48,10 +49,11 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
   const target = getDOM(el)
   const draggleTarget = getDOM(dragEl) || target
 
-  if (!target) 
+  if (!target)
     throw new Error('el is not found')
 
-  window.requestAnimationFrame(() => {
+  window.requestAnimationFrame(() =>
+  {
     target.style.position = 'relative'
     draggleTarget!.style.cursor = 'move'
     const willChangeArr = target.style.willChange.split(',')
@@ -79,7 +81,8 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
 
   const isDraggle = ref(false)
 
-  const handleMouseDown = (e: MouseEvent) => {
+  const handleMouseDown = (e: MouseEvent) =>
+  {
     startX.value = e.clientX
     startY.value = e.clientY
     
@@ -91,8 +94,9 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
     isDraggle.value = true
   }
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (!isDraggle.value) 
+  const handleMouseMove = (e: MouseEvent) =>
+  {
+    if (!isDraggle.value)
       return
     e.preventDefault()
     
@@ -107,14 +111,16 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
     if (left.value < 0 || top.value < 0)
       return
       
-    window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() =>
+    {
       opts.moving?.(moveX.value, moveY.value)
       target.style.left = `${left.value}px`
       target.style.top = `${top.value}px`
     })
   }
 
-  const handleMouseUp = (e: MouseEvent) => {
+  const handleMouseUp = (e: MouseEvent) =>
+  {
     if (!isDraggle.value) return
     
     isDraggle.value = false
@@ -134,7 +140,8 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
   document.addEventListener('mousemove', handleMouseMove, { passive:false })
   document.addEventListener('mouseup', handleMouseUp, { passive: true })
 
-  onBeforeUnmount(() => {
+  onBeforeUnmount(() =>
+  {
     draggleTarget?.removeEventListener('mousedown', handleMouseDown)
     document.removeEventListener('mousemove', handleMouseMove)
     document.removeEventListener('mouseup', handleMouseUp)
@@ -155,7 +162,8 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn {
   }
 }
 
-function getDOM(el: UseDraggleOptions['el']): HTMLElement | null {
+function getDOM(el: UseDraggleOptions['el']): HTMLElement | null
+{
   if (isString(el))
     return document.querySelector(el)
   else if (el instanceof HTMLElement)

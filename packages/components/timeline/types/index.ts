@@ -1,5 +1,6 @@
-import type { Component } from "vue";
-import type { UTimelinePlacement, UTimelinePosition, UTimelineSize, UTimelineType, UTimelineDirection } from "./const";
+import type { Component } from 'vue'
+import type { UTimelinePlacement, UTimelinePosition, UTimelineSize, UTimelineType, UTimelineDirection } from './const'
+import type { UIconProps } from '../../icon/types'
 
 export interface UTimelineProps {
   /**
@@ -34,12 +35,6 @@ export interface UTimelineProps {
 }
 
 export interface UTimelineItemProps {
-  /**
-   * @description 标题
-   * @default ''
-   */
-  title?: string;
-
   /**
    * @description 内容
    * @default ''
@@ -89,8 +84,33 @@ export interface UTimelineItemProps {
   icon?: string | Component
 
   /**
+   * @description 圆点自定义图标属性
+   * @default {}
+   */
+  iconProps?: UIconProps
+
+  /**
    * @description 是否是空心圆点
    * @default false
    */
   hollow?: boolean;
+
+  /**
+   * @description 圆点点击事件
+   * @default () => {}
+   */
+  dotClick?: (evt: MouseEvent, item: UTimelineItemProps) => void
+}
+
+export interface UTimelineItemEmits {
+  /**
+   * @description 圆点点击事件
+   * @param {MouseEvent} evt
+   * @param {UTimelineItemProps} item
+   * @default () => {}
+   */
+  (e: 'dot-click', evt: MouseEvent, item: UTimelineItemProps): void
+}
+export interface UTimelineContext {
+  onCalcLine: () => void;
 }

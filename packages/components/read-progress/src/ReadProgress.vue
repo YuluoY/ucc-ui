@@ -1,7 +1,11 @@
 
 <template>
-  <div class="u-read-progress" v-show="showProgress" :style="progressStyle">
-    <div 
+  <div
+    v-show="showProgress"
+    class="u-read-progress"
+    :style="progressStyle"
+  >
+    <div
       class="u-read-progress__bar"
       :class="`u-read-progress__bar--${type}`"
       :style="{
@@ -9,14 +13,13 @@
         backgroundColor: props.color,
         willChange: 'width'
       }"
-    >
-    </div>
+    />
     <div
       v-if="showText && progress"
       class="u-read-progress__text"
     >
       <slot>
-        <u-text 
+        <u-text
           :size="textSize"
           :type="textType || type"
         >
@@ -28,12 +31,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type CSSProperties } from 'vue';
-import type { UReadProgressEmits, UReadProgressProps } from '../types';
-import { pxToRem } from '../../../utils';
-import { useEventListener, useWatchRef } from '@ucc-ui/hooks';
+import { computed, type CSSProperties } from 'vue'
+import type { UReadProgressEmits, UReadProgressProps } from '../types'
+import { pxToRem } from '../../../utils'
+import { useEventListener, useWatchRef } from '@ucc-ui/hooks'
 import { UText } from '../../text'
-import { CReadProgress } from '../types/const';
+import { CReadProgress } from '../types/const'
 
 defineOptions({
   name: 'UReadProgress'
@@ -59,8 +62,10 @@ const progressStyle = computed<CSSProperties>(() => ({
   backgroundColor: props.backgroundColor,
 }))
 
-useEventListener(document, 'scroll', () => {
-  window.requestAnimationFrame(() => {
+useEventListener(document, 'scroll', () =>
+{
+  window.requestAnimationFrame(() =>
+  {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
     const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight
     const clientHeight = document.documentElement.clientHeight || document.body.clientHeight
@@ -70,11 +75,13 @@ useEventListener(document, 'scroll', () => {
   })
 })
 
-function hide() {
+function hide()
+{
   showProgress.value = false
 }
 
-function show() {
+function show()
+{
   showProgress.value = true
 }
 

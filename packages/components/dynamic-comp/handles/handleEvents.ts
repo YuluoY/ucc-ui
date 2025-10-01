@@ -11,7 +11,7 @@ export default function handleEvents(
     for (const key in this.events)
     {
       // eslint-disable-next-line no-prototype-builtins
-      if (!this.events.hasOwnProperty(key)) 
+      if (!this.events.hasOwnProperty(key))
         continue
       const event = this.events[key]
       newEvents[key] = isFunction(event) ? event.bind(this) : event

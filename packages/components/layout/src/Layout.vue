@@ -1,18 +1,21 @@
 <template>
-  <main 
-    :class="['u-layout', `u-layout__${mode}`]" 
+  <main
+    :class="['u-layout', `u-layout__${mode}`]"
     :style="layoutStyle"
   >
-     <component v-if="mode === CLayoutMode.DEFAULT" :is="processedSlot"></component>
-    <slot v-else></slot>
+    <component
+      :is="processedSlot"
+      v-if="mode === CLayoutMode.DEFAULT"
+    />
+    <slot v-else />
   </main>
 </template>
 
 <script setup lang="ts">
-import { isNumber, isNil } from "lodash-es";
+import { isNumber, isNil } from 'lodash-es'
 
-import { pxToRem } from "../../../utils";
-import useLayoutMode from "../hooks/useLayoutMode";
+import { pxToRem } from '../../../utils'
+import useLayoutMode from '../hooks/useLayoutMode'
 
 import {
   type CSSProperties,
@@ -21,8 +24,8 @@ import {
   useSlots,
   provide,
   computed,
-} from "vue";
-import type { ULayoutProps } from "../types";
+} from 'vue'
+import type { ULayoutProps } from '../types'
 import {
   type ULayoutMode,
 
@@ -30,15 +33,15 @@ import {
   CLayoutContext,
   CComponentName,
   CMaxSpan,
-} from "../types/const";
+} from '../types/const'
 
-defineOptions({ name: CComponentName.LAYOUT });
+defineOptions({ name: CComponentName.LAYOUT })
 
 const props = withDefaults(defineProps<ULayoutProps>(), {
   mode: CLayoutMode.DEFAULT,
-});
+})
 
-const slots: SetupContext["slots"] = useSlots();
+const slots: SetupContext['slots'] = useSlots()
 
 /**
  * 布局模式
@@ -46,21 +49,22 @@ const slots: SetupContext["slots"] = useSlots();
 const {
   processedSlot
 } = useLayoutMode({
-  props, 
+  props,
   slots
 })
 
 /**
  * 布局样式
  */
-const layoutStyle = computed(() => {
-  const style: CSSProperties = {};
-  if (!isNil(props.padding)) 
-    style.padding = isNumber(props.padding) ? pxToRem(props.padding) : props.padding;
-  if (!isNil(props.gutter)) 
-    style.gap = isNumber(props.gutter) ? pxToRem(props.gutter) : props.gutter;
-  return style;
-});
+const layoutStyle = computed(() =>
+{
+  const style: CSSProperties = {}
+  if (!isNil(props.padding))
+    style.padding = isNumber(props.padding) ? pxToRem(props.padding) : props.padding
+  if (!isNil(props.gutter))
+    style.gap = isNumber(props.gutter) ? pxToRem(props.gutter) : props.gutter
+  return style
+})
 
 
 /**
@@ -69,7 +73,7 @@ const layoutStyle = computed(() => {
 provide(CLayoutContext, {
   mode: computed(() => props.mode as ULayoutMode),
   maxSpan: computed(() => props.maxSpan ?? CMaxSpan),
-});
+})
 </script>
 
 <style>

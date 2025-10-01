@@ -1,6 +1,6 @@
-import type { CSSProperties, Ref } from "vue";
-import type { ButtonIconPosition, ButtonSize, ButtonType } from "./const";
-import type { UIconProps } from "../../icon/types";
+import type { CSSProperties, Ref } from 'vue'
+import type { ButtonIconPosition, ButtonSize, ButtonType } from './const'
+import type { UIconProps } from '../../icon/types'
 
 export interface UButtonProps {
   tag?: string;      // 标签

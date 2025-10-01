@@ -1,6 +1,6 @@
-import type { CSSProperties, InputHTMLAttributes, ReservedProps } from "vue";
-import type { UInputSize, UInputType } from "./const";
-import type { UIconProps } from "../../icon/types";
+import type { CSSProperties, InputHTMLAttributes, ReservedProps } from 'vue'
+import type { UInputSize, UInputType } from './const'
+import type { UIconProps } from '../../icon/types'
 
 type Input = InputHTMLAttributes & ReservedProps
 

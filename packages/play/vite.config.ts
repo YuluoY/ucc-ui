@@ -6,5 +6,13 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     extensions: ['.ts', '.js', '.vue', '.json', '.css'],
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        implementation: 'sass-embedded',
+        api: 'modern-compiler'
+      }
+    }
   }
 })

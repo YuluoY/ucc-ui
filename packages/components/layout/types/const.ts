@@ -1,10 +1,10 @@
-import type { InjectionKey } from "vue";
-import type { ULayoutContext } from ".";
+import type { InjectionKey } from 'vue'
+import type { ULayoutContext } from '.'
 
 /**
  * 最大span
  */
-export const CMaxSpan = 24 as const;
+export const CMaxSpan = 24 as const
 
 export const CRegion = {
   LEFT: 'left',
@@ -12,14 +12,14 @@ export const CRegion = {
   TOP: 'top',
   CENTER: 'center',
   BOTTOM: 'bottom',
-} as const;
+} as const
 
 
 export const CLayoutMode = {
   ROW: 'row',
   COLUMN: 'column',
   DEFAULT: 'default',
-} as const;
+} as const
 
 export const CLayoutExtend = {
   LEFT_TOP: 'left-top',
@@ -29,13 +29,13 @@ export const CLayoutExtend = {
   LEFT: 'left',
   RIGHT: 'right',
   BOTH: 'both'
-} as const;
+} as const
 
 export const CComponentName = {
   LAYOUT: 'ULayout',
   REGION: 'URegion',
   LAYOUT_MODE: 'ULayoutMode',
-} as const;
+} as const
 
 export const CLayoutFlexAlign = {
   START: 'start',
@@ -43,9 +43,9 @@ export const CLayoutFlexAlign = {
   CENTER: 'center',
   BETWEEN: 'between',
   AROUND: 'around',
-} as const;
+} as const
 
-export const CLayoutContext: InjectionKey<ULayoutContext> = Symbol('c-layout-context');
+export const CLayoutContext: InjectionKey<ULayoutContext> = Symbol('c-layout-context')
 
 export type URegionType = typeof CRegion[keyof typeof CRegion];
 export type ULayoutMode = typeof CLayoutMode[keyof typeof CLayoutMode];

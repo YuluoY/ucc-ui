@@ -1,15 +1,15 @@
 
 <template>
   <div class="u-button-group">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script setup lang="ts">
   
-  defineOptions({
-    name: 'UButtonGroup'
-  })
+defineOptions({
+  name: 'UButtonGroup'
+})
 </script>
 
 <style lang="scss">
@@ -25,7 +25,7 @@
     .u-button:first-child {
       border-top-left-radius: var(--uc-border-radius-4);
       border-bottom-left-radius: var(--uc-border-radius-4);
-    }  
+    }
     .u-button:last-child {
       border-top-right-radius: var(--uc-border-radius-4);
       border-bottom-right-radius: var(--uc-border-radius-4);

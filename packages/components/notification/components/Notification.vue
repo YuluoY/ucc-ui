@@ -1,8 +1,6 @@
 
 <template>
-  <div class="u-notification">
-
-  </div>
+  <div class="u-notification" />
 </template>
 
 <script setup lang="ts">

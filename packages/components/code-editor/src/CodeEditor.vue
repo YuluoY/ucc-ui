@@ -1,24 +1,30 @@
 <template>
-  <main :class="[
-    'u-code-editor',
-    `is-shadow--${shadow}`
-  ]" :style="{ height: Height }">
-    <section ref="editorRef" class="u-code-editor__inner"></section>
-    <slot></slot>
+  <main
+    :class="[
+      'u-code-editor',
+      `is-shadow--${shadow}`
+    ]"
+    :style="{ height: Height }"
+  >
+    <section
+      ref="editorRef"
+      class="u-code-editor__inner"
+    />
+    <slot />
     <slot name="toolbox">
-      <code-editor-toolbox></code-editor-toolbox>
+      <code-editor-toolbox />
     </slot>
   </main>
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, provide, ref, shallowRef, toRaw } from 'vue';
-import monaco from './monaco';
-import type { UCodeEditor, UCodeEditorChangeEvent, UCodeEditorEmits, UCodeEditorMinimap, UCodeEditorModel, UCodeEditorProps } from '../types';
-import { pxToRem, rootFontSize } from '../../../utils';
-import { cloneDeep, debounce } from 'lodash-es';
-import CodeEditorToolbox from '../components/CodeEditorToolbox.vue';
-import { CCodeEditorCtx } from '../types/const';
+import { computed, onBeforeUnmount, onMounted, provide, ref, shallowRef, toRaw } from 'vue'
+import monaco from './monaco'
+import type { UCodeEditor, UCodeEditorChangeEvent, UCodeEditorEmits, UCodeEditorMinimap, UCodeEditorModel, UCodeEditorProps } from '../types'
+import { pxToRem, rootFontSize } from '../../../utils'
+import { cloneDeep, debounce } from 'lodash-es'
+import CodeEditorToolbox from '../components/CodeEditorToolbox.vue'
+import { CCodeEditorCtx } from '../types/const'
 
 defineOptions({
   name: 'UCodeEditor'
@@ -50,45 +56,52 @@ const editorRef = ref(null)
 const editorModel = shallowRef<UCodeEditorModel>(null)
 
 provide(CCodeEditorCtx, {
-  editor, 
+  editor,
   options: CodeEditorOptions
 })
 
-onBeforeUnmount(() => {
+onBeforeUnmount(() =>
+{
   if (editor.value)
     editor.value.dispose()
   if (resizeObserver.value)
     resizeObserver.value.disconnect()
 })
 
-onMounted(() => {
+onMounted(() =>
+{
   init()
 })
 
-function init() {
+function init()
+{
   if (!editorRef.value)
-    return console.error('UCodeEditor：editorRef is null');
-  editor.value = monaco.editor.create(editorRef.value, toRaw(props));
+    return console.error('UCodeEditor：editorRef is null')
+  editor.value = monaco.editor.create(editorRef.value, toRaw(props))
   editorModel.value = editor.value.getModel()
 
   // 宽高变化
   handleMonitorResize()
 
   // 内容变化
-  editor.value.onDidChangeModelContent((evt: UCodeEditorChangeEvent) => {
+  editor.value.onDidChangeModelContent((evt: UCodeEditorChangeEvent) =>
+  {
     emits('update:value', toRaw(editorModel.value)?.getValue())
     emits('change', evt)
   })
 }
 
-function handleMonitorResize() {
-  if (editorRef.value) {
+function handleMonitorResize()
+{
+  if (editorRef.value)
+  {
     resizeObserver.value = new ResizeObserver(debounce(() => onReLayout()))
     resizeObserver.value.observe(editorRef.value)
   }
 }
 
-function onReLayout() {
+function onReLayout()
+{
   toRaw(editor.value)?.layout()
 }
 

@@ -1,5 +1,5 @@
-import type { InjectionKey } from "vue";
-import type { UDynamicCompRoot } from ".";
+import type { InjectionKey } from 'vue'
+import type { UDynamicCompRoot } from '.'
 
 export const CLifecycleHooks = {
   BEFORE_CREATE: 'beforeCreate',
@@ -15,7 +15,7 @@ export const CLifecycleHooks = {
   DEACTIVATED: 'deactivated',
   RENDER_TRACKED: 'renderTracked',
   RENDER_TRIGGERED: 'renderTriggered',
-} as const;
+} as const
 
 export const CDirectives = {
   V_BIND: 'v-bind',          // 动态绑定属性
@@ -31,7 +31,7 @@ export const CDirectives = {
   V_CLOAK: 'v-cloak',        // 在 Vue 实例激活之前保持元素的显示
   V_ONCE: 'v-once',          // 仅渲染一次的内容
   V_HTML: 'v-html',          // DOM渲染
-} as const;
+} as const
 
 export const DC_ROOT_KEY: InjectionKey<UDynamicCompRoot | null> = Symbol('DC_ROOT_KEY')
 export const DC_RENDER_BACK_KEY: InjectionKey<boolean | null> = Symbol('DC_RENDER_BACK_KEY')

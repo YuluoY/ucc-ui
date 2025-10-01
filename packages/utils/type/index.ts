@@ -1,13 +1,13 @@
 /**
  * 是否是字符串
- * @param     {any}     val 
+ * @param     {any}     val
  * @returns   {boolean}
  */
 export const isString = (val: any): val is string => typeof val === 'string'
 
 /**
  * 是否是有效的数组
- * @param     {any}     val 
+ * @param     {any}     val
  * @returns   {boolean}
  */
 export const isEffectArray = (val: any): val is boolean => !!(Array.isArray(val) && val.length)
@@ -21,7 +21,7 @@ export const isEffectObject = (val: any): val is boolean => !!(val && typeof val
 
 /**
  * 是否是函数
- * @param     {any}     val 
+ * @param     {any}     val
  * @returns   {boolean}
  */
 export const isFunction = (val: any): val is Function => typeof val === 'function'

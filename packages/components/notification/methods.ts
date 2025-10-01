@@ -1,6 +1,7 @@
-import Notification from "./components/Notification.vue"
+import Notification from './components/Notification.vue'
 
-const NotificationFn = (props) => {
+const NotificationFn = props =>
+{
 
   
 }

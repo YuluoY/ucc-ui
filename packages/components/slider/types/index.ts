@@ -1,4 +1,4 @@
-import type { USliderSize } from "./const"
+import type { USliderSize } from './const'
 import type { Placement, Options } from '@popperjs/core'
 export interface USliderProps {
   /**

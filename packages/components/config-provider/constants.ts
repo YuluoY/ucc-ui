@@ -1,5 +1,5 @@
-import type { InjectionKey, Ref } from "vue";
-import type { UConfigProviderProps } from "./types";
+import type { InjectionKey, Ref } from 'vue'
+import type { UConfigProviderProps } from './types'
 
 export type ConfigProviderContext = Partial<UConfigProviderProps>
 

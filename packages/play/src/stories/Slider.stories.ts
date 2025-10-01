@@ -94,22 +94,25 @@ export const Default: Story<typeof USlider> = {
     content: '滑块内容'
   },
   argTypes: meta.argTypes,
-  render: (args) => ({
+  render: args => ({
     components: { USlider },
-    setup() {
+    setup()
+    {
       const value = ref(args.modelValue)
-      const formatTooltip = (val: number) => {
+      const formatTooltip = (val: number) =>
+      {
         return val + ' %'
       }
-      const handleInput = (val: number | number[]) => {
+      const handleInput = (val: number | number[]) =>
+      {
         value.value = val
       }
-      return { 
+      return {
         args: {
           ...args,
           modelValue: value.value
-        }, 
-        value, 
+        },
+        value,
         formatTooltip,
         handleInput
       }
@@ -157,22 +160,25 @@ export const Range: Story<typeof USlider> = {
     content: '范围滑块内容'
   },
   argTypes: meta.argTypes,
-  render: (args) => ({
+  render: args => ({
     components: { USlider },
-    setup() {
+    setup()
+    {
       const value = ref(args.modelValue)
-      const formatTooltip = (val: number) => {
+      const formatTooltip = (val: number) =>
+      {
         return val + ' %'
       }
-      const handleInput = (val: number | number[]) => {
+      const handleInput = (val: number | number[]) =>
+      {
         value.value = val
       }
-      return { 
+      return {
         args: {
           ...args,
           modelValue: value.value
-        }, 
-        value, 
+        },
+        value,
         formatTooltip,
         handleInput
       }
@@ -220,22 +226,25 @@ export const Vertical: Story<typeof USlider> = {
     content: '竖向滑块内容'
   },
   argTypes: meta.argTypes,
-  render: (args) => ({
+  render: args => ({
     components: { USlider },
-    setup() {
+    setup()
+    {
       const value = ref(args.modelValue)
-      const formatTooltip = (val: number) => {
+      const formatTooltip = (val: number) =>
+      {
         return val + ' %'
       }
-      const handleInput = (val: number | number[]) => {
+      const handleInput = (val: number | number[]) =>
+      {
         value.value = val
       }
-      return { 
+      return {
         args: {
           ...args,
           modelValue: value.value
-        }, 
-        value, 
+        },
+        value,
         formatTooltip,
         handleInput
       }
@@ -265,4 +274,4 @@ export const Vertical: Story<typeof USlider> = {
   })
 }
 
-export default meta 
+export default meta

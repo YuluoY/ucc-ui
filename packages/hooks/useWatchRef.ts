@@ -1,8 +1,8 @@
-import { isFunction } from "lodash-es";
-import { onBeforeUnmount, ref, watch, type Ref, type WatchOptions } from "vue";
+import { isFunction } from 'lodash-es'
+import { onBeforeUnmount, ref, watch, type Ref, type WatchOptions } from 'vue'
 
 /**
- * 
+ *
  * @param val 需要监听的值
  * @param watchFn 监听的函数
  * @param change 变化时的回调函数
@@ -17,19 +17,22 @@ import { onBeforeUnmount, ref, watch, type Ref, type WatchOptions } from "vue";
  * ```
  */
 export default function useWatchRef<T = any>(
-  val: T, 
+  val: T,
   watchFn: () => any,
   change?: () => void,
-  watchOpts: WatchOptions  = {}
-): Ref<T> {
+  watchOpts: WatchOptions = {}
+): Ref<T>
+{
   const valRef = ref(val) as Ref<T>
   const isChangeFn = change && isFunction(change)
-  const watchHandle = watch(watchFn, (newVal: T) => {
+  const watchHandle = watch(watchFn, (newVal: T) =>
+  {
     valRef.value = newVal
     isChangeFn && change()
   }, watchOpts)
 
-  onBeforeUnmount(() => {
+  onBeforeUnmount(() =>
+  {
     watchHandle()
   })
 

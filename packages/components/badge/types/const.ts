@@ -4,6 +4,6 @@ export const CBadgeType = {
   WARNING: 'warning',
   DANGER: 'danger',
   INFO: 'info'
-} as const;
+} as const
 
 export type UBadgeType = typeof CBadgeType[keyof typeof CBadgeType];

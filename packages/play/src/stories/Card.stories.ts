@@ -1,14 +1,14 @@
-import type { Meta } from "@storybook/vue3";
-import { UCard } from "ucc-ui";
-import type { ExtraContent, Story } from "./types";
-import type { UCardProps } from "../../../components/card/types";
-import { container } from "./utils";
-import { CCardShadow } from "../../../components/card/types/const";
+import type { Meta } from '@storybook/vue3'
+import { UCard } from 'ucc-ui'
+import type { ExtraContent, Story } from './types'
+import type { UCardProps } from '../../../components/card/types'
+import { container } from './utils'
+import { CCardShadow } from '../../../components/card/types/const'
 
 const meta: Meta<typeof UCard> = {
- title: 'Components/Card',
- component: UCard,
- tags: ['autodocs']
+  title: 'Components/Card',
+  component: UCard,
+  tags: ['autodocs']
 }
 
 export const Default: Story<typeof UCard> = {
@@ -28,7 +28,7 @@ export const Default: Story<typeof UCard> = {
     },
     padding: {
       control: { type: 'number' },
-      description: '内边距'    
+      description: '内边距'
     },
     bodyClass: {
       control: { type: 'text' },
@@ -36,7 +36,7 @@ export const Default: Story<typeof UCard> = {
     },
     bodyStyle: {
       control: { type: 'object' },
-      description: 'body样式'    
+      description: 'body样式'
     }
   },
   args: {
@@ -44,12 +44,13 @@ export const Default: Story<typeof UCard> = {
     bodyClass: '',
     bodyStyle: {},
     padding: 15,
-    header: "sadasd",
-    footer: "asdasd"
+    header: 'sadasd',
+    footer: 'asdasd'
   },
   render: (args: UCardProps & ExtraContent) => ({
     components: { UCard },
-    setup() {
+    setup()
+    {
       return { args }
     },
     template: container(`

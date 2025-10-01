@@ -1,7 +1,7 @@
 @charset "UTF-8";
-@import './blue/index.css';
-@import './reset.css';
-@import './uncss.css';
+@use './blue/index.css';
+@use './reset.css';
+@use './uncss.css';
 :root {
 
   /* 字体大小 */

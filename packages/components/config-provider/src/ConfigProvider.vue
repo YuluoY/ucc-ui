@@ -1,11 +1,11 @@
 
 <template>
-  <slot :config="config"></slot>
+  <slot :config="config" />
 </template>
 
 <script setup lang="ts">
-import { provideGlobalConfig } from '../hooks';
-import type { UConfigProviderProps } from '../types';
+import { provideGlobalConfig } from '../hooks'
+import type { UConfigProviderProps } from '../types'
 
 defineOptions({
   name: 'UConfigProvider'

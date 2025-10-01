@@ -1,7 +1,10 @@
+import type { InjectionKey } from 'vue'
+import type { UTimelineContext } from '.'
+
 export const CTimelinePlacement = {
   TOP: 'top',
   BOTTOM: 'bottom'
-} as const;
+} as const
 
 export const CTimelineType = {
   PRIMARY: 'primary',
@@ -10,23 +13,25 @@ export const CTimelineType = {
   DANGER: 'danger',
   INFO: 'info',
   LINK: 'link'
-} as const;
+} as const
 
 export const CTimelineSize = {
   NORMAL: 'normal',
   LARGE: 'large'
-} as const;
+} as const
 
 export const CTimelinePosition = {
-  TOP: 'top',
-  BOTTOM: 'bottom',
-  CENTER: 'center',
-} as const;
+  LEFT: 'left',
+  RIGHT: 'right',
+  CENTER: 'center'
+} as const
 
 export const CTimelineDirection = {
   VERTICAL: 'vertical',
   HORIZONTAL: 'horizontal'
-} as const;
+} as const
+
+export const CTimelineContextKey: InjectionKey<UTimelineContext> = Symbol('UTimelineContextKey')
 
 export type UTimelinePlacement = typeof CTimelinePlacement[keyof typeof CTimelinePlacement];
 export type UTimelineType = typeof CTimelineType[keyof typeof CTimelineType];
