@@ -76,6 +76,6 @@ provide(CLayoutContext, {
 })
 </script>
 
-<style>
-@import "../styles/index.css";
+<style lang="scss">
+@use "../styles/index.scss";
 </style>

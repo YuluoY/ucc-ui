@@ -35,7 +35,7 @@
         </slot>
       </div>
       <div class="u-timeline-item-content">
-        <slot name="content">
+        <slot>
           {{ content }}
         </slot>
       </div>
