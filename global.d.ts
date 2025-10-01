@@ -4,11 +4,11 @@
     UBadge: typeof import('ucc-ui')['UBadge'];
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
-    UCard: typeof import('ucc-ui')['UCard'];
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
+    UCard: typeof import('ucc-ui')['UCard'];
+    UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
-    UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
     UDialog: typeof import('ucc-ui')['UDialog'];
     UDropdown: typeof import('ucc-ui')['UDropdown'];
     UDropdownItem: typeof import('ucc-ui')['UDropdownItem'];
@@ -28,11 +28,11 @@
     USlider: typeof import('ucc-ui')['USlider'];
     UTable: typeof import('ucc-ui')['UTable'];
     UTag: typeof import('ucc-ui')['UTag'];
-    UText: typeof import('ucc-ui')['UText'];
     UTimeline: typeof import('ucc-ui')['UTimeline'];
     UTimelineItem: typeof import('ucc-ui')['UTimelineItem'];
-    UTooltip: typeof import('ucc-ui')['UTooltip'];
+    UText: typeof import('ucc-ui')['UText'];
     UTop: typeof import('ucc-ui')['UTop'];
+    UTooltip: typeof import('ucc-ui')['UTooltip'];
 }
   }
   declare module '@vue/runtime-core' {

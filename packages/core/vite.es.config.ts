@@ -26,6 +26,20 @@ export default defineConfig({
   },
   build: {
     outDir: 'dist/es',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log'],
+      },
+      mangle: {
+        toplevel: true,
+      },
+      format: {
+        comments: false,
+      }
+    },
     lib: {
       entry: resolve(__dirname, './index.ts'),
       name: 'UccUI',
@@ -45,8 +59,15 @@ export default defineConfig({
         // 分包
         manualChunks(id)
         {
+          // 将大型第三方库单独分包
+          if (id.includes('monaco-editor'))
+            return 'monaco'
+          
+          // 其他 node_modules 依赖
           if (id.includes('node_modules'))
             return 'vendors'
+          
+          // 内部包
           if (id.includes('/packages/utils'))
             return 'utils'
           if (id.includes('/packages/hooks'))
