@@ -2,10 +2,10 @@
   declare module 'vue' {
     export interface GlobalComponents {
     UBadge: typeof import('ucc-ui')['UBadge'];
+    UCard: typeof import('ucc-ui')['UCard'];
     UButton: typeof import('ucc-ui')['UButton'];
     UButtonGroup: typeof import('ucc-ui')['UButtonGroup'];
     UCodeEditor: typeof import('ucc-ui')['UCodeEditor'];
-    UCard: typeof import('ucc-ui')['UCard'];
     UCollapse: typeof import('ucc-ui')['UCollapse'];
     UCollapseItem: typeof import('ucc-ui')['UCollapseItem'];
     UConfigProvider: typeof import('ucc-ui')['UConfigProvider'];
@@ -15,31 +15,31 @@
     UDropdownMenu: typeof import('ucc-ui')['UDropdownMenu'];
     UForm: typeof import('ucc-ui')['UForm'];
     UFormItem: typeof import('ucc-ui')['UFormItem'];
-    UInput: typeof import('ucc-ui')['UInput'];
-    UInputNumber: typeof import('ucc-ui')['UInputNumber'];
+    UIcon: typeof import('ucc-ui')['UIcon'];
     ULayout: typeof import('ucc-ui')['ULayout'];
     URegion: typeof import('ucc-ui')['URegion'];
-    UIcon: typeof import('ucc-ui')['UIcon'];
+    UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
+    UInput: typeof import('ucc-ui')['UInput'];
+    UInputNumber: typeof import('ucc-ui')['UInputNumber'];
     UMenu: typeof import('ucc-ui')['UMenu'];
     UMenuItem: typeof import('ucc-ui')['UMenuItem'];
     USubMenu: typeof import('ucc-ui')['USubMenu'];
-    UPopconfirm: typeof import('ucc-ui')['UPopconfirm'];
     UReadProgress: typeof import('ucc-ui')['UReadProgress'];
     USlider: typeof import('ucc-ui')['USlider'];
     UTable: typeof import('ucc-ui')['UTable'];
-    UText: typeof import('ucc-ui')['UText'];
     UTag: typeof import('ucc-ui')['UTag'];
-    UTop: typeof import('ucc-ui')['UTop'];
+    UText: typeof import('ucc-ui')['UText'];
     UTimeline: typeof import('ucc-ui')['UTimeline'];
     UTimelineItem: typeof import('ucc-ui')['UTimelineItem'];
     UTooltip: typeof import('ucc-ui')['UTooltip'];
+    UTop: typeof import('ucc-ui')['UTop'];
 }
   }
   declare module '@vue/runtime-core' {
     export interface ComponentCustomProperties {
     $dialog: typeof import('ucc-ui')['UDialogFn'];
-    $notification: typeof import('ucc-ui')['UNotificationFn'];
     $message: typeof import('ucc-ui')['UMessageFn'];
+    $notification: typeof import('ucc-ui')['UNotificationFn'];
     $progress: typeof import('ucc-ui')['UReadProgressFn'];
 }
   }

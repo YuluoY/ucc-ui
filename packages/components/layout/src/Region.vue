@@ -97,9 +97,7 @@ function handleRowSpan(regions: VNode[])
   let surplus = 0
 
   for (const region of regions)
-  
     total += region.props?.span || 0
-  
 
   surplus = maxSpan.value - total
   

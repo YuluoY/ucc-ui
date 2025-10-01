@@ -13,8 +13,29 @@ export default defineConfig({
       tsconfigPath: '../../tsconfig.build.json'
     })
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler' // 使用现代编译器 API
+      }
+    }
+  },
   build: {
     outDir: 'dist/umd',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log'],
+      },
+      mangle: {
+        toplevel: true,
+      },
+      format: {
+        comments: false,
+      }
+    },
     lib: {
       entry: resolve(__dirname, './index.ts'),
       name: 'UccUI',

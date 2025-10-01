@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@ucc-ui/components": "workspace:*",
+    "terser": "^5.44.0",
     "vite-plugin-dts": "^4.0.2"
   },
   "peerDependencies": {

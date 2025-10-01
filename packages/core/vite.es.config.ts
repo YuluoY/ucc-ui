@@ -5,6 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 import glob from 'fast-glob'
 import { basename, extname } from 'node:path'
+import { minifyPlugin } from './vite-plugin-minify.js'
 
 const components = glob.globSync('../components/*/src/*.{vue,tsx}').map(file => basename(file, extname(file)))
 
@@ -15,10 +16,34 @@ export default defineConfig({
     dts({
       outDir: 'dist/types',
       tsconfigPath: '../../tsconfig.build.json'
+    }),
+    minifyPlugin({
+      dir: 'dist/es',
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+          pure_funcs: ['console.log'],
+        },
+        mangle: {
+          toplevel: true,
+        },
+        format: {
+          comments: false,
+        }
+      }
     })
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler' // 使用现代编译器 API
+      }
+    }
+  },
   build: {
     outDir: 'dist/es',
+    minify: false, // 第一步：不压缩，只编译
     lib: {
       entry: resolve(__dirname, './index.ts'),
       name: 'UccUI',
