@@ -59,10 +59,6 @@ export default defineConfig({
         // 分包
         manualChunks(id)
         {
-          // 将大型第三方库单独分包
-          if (id.includes('monaco-editor'))
-            return 'monaco'
-          
           // 其他 node_modules 依赖
           if (id.includes('node_modules'))
             return 'vendors'
@@ -78,6 +74,7 @@ export default defineConfig({
             return 'theme'
 
           const name = basename(id, extname(id))
+
           if (components.includes(name))
             return name
         },

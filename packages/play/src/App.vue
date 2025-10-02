@@ -1,18 +1,15 @@
 <template>
-    <u-layout mode="column">
-    <u-region justify="space-around">
-      <!-- 11312312 -->
-    </u-region>
-  </u-layout>
   <div>
     <u-button @click="handleChangeDirection">切换布局</u-button>
     <u-button @click="handleChangeDotPosition">随机排序dot位置</u-button>
   </div>
   <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
     <!-- <u-timeline style="width: 40%;" :data="data" :direction="'vertical'"></u-timeline> -->
-    <u-timeline style="width: 80%;" :data="data" :direction="direction">
-      <u-timeline-item v-for="item in data" :key="item.date?.toString()" v-bind="item" @dot-click="handleDotClick"></u-timeline-item>
-    </u-timeline>
+    <u-card style="width: 80%;" shadow="hover">
+      <u-timeline :data="data" :direction="direction">
+        <u-timeline-item v-for="item in data" :key="item.date?.toString()" v-bind="item" @dot-click="handleDotClick"></u-timeline-item>
+      </u-timeline>
+    </u-card>
   </div>
 
 </template>

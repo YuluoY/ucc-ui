@@ -17,8 +17,8 @@
     border: 0.02rem solid var(--uc-border-1);
   } */
 
-  &.u-card--hover:hover,
-  &.u-card--active:active,
+  &.u-card--shadow-hover:hover,
+  &.u-card--shadow-active:active,
   &.u-card--shadow-always {
     box-shadow: var(--uc-shadow-3);
   }
