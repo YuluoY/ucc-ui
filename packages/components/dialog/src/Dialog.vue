@@ -58,20 +58,8 @@
           class="u-dialog__footer custom-scollbar"
         >
           <slot name="footer">
-            <u-button
-              type="primary"
-              size="small"
-              @click="onConfirm"
-            >
-              确认
-            </u-button>
-            <u-button
-              plain
-              size="small"
-              @click="close"
-            >
-              取消
-            </u-button>
+            <u-button type="primary" @click="onConfirm">确认</u-button>
+            <u-button plain @click="close">取消</u-button>
           </slot>
         </div>
       </div>
@@ -107,7 +95,8 @@ const props = withDefaults(defineProps<UDialogProps>(), {
   title: '标题',
   zIndex: 2000,
   showCloseIcon: true,
-  showFooter: true
+  showFooter: true,
+  isLimitBounds: false
 })
 
 cacheZIndex(props.zIndex)
@@ -244,7 +233,8 @@ onMounted(() =>
    */
   useDraggle({
     el: dialogRef,
-    dragEl: dialogHeaderRef
+    dragEl: dialogHeaderRef,
+    isLimitBounds: props.isLimitBounds
   })
 })
 
@@ -277,6 +267,6 @@ defineExpose<UDialogExposes>({
 
 </script>
 
-<style>
-@import '../styles/index.css';
+<style lang="scss">
+@use '../styles/index.scss';
 </style>

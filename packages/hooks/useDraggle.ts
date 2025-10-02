@@ -1,25 +1,27 @@
 import { isString } from 'lodash-es'
-import { computed, isRef, onBeforeUnmount, ref, type Ref } from 'vue'
+import { isRef, onBeforeUnmount, ref, type Ref } from 'vue'
 
 interface UseDraggleOptions {
   el: string | HTMLElement | Ref<HTMLElement | null>
   dragEl: string | HTMLElement | Ref<HTMLElement | null>
   moving?: (moveX: number, moveY: number) => void
   end?: (endX: number, endY: number) => void
+  // 是否需要限制拖拽范围
+  isLimitBounds?: boolean
 }
 
 interface UseDraggleReturn {
   isDraggle: Ref<boolean>,
-  moveX: Readonly<Ref<number>>,
-  moveY: Readonly<Ref<number>>,
-  startX: Readonly<Ref<number>>,
-  startY: Readonly<Ref<number>>,
-  endX: Readonly<Ref<number>>,
-  endY: Readonly<Ref<number>>,
-  left: Readonly<Ref<number>>,
-  top: Readonly<Ref<number>>,
-  initialLeft: Readonly<Ref<number>>,
-  initialTop: Readonly<Ref<number>>
+  moveX: Ref<number>,
+  moveY: Ref<number>,
+  startX: Ref<number>,
+  startY: Ref<number>,
+  endX: Ref<number>,
+  endY: Ref<number>,
+  left: Ref<number>,
+  top: Ref<number>,
+  initialLeft: Ref<number>,
+  initialTop: Ref<number>
 }
 
 /**
@@ -29,6 +31,7 @@ interface UseDraggleReturn {
  * @param opts.dragEl 拖拽的元素
  * @param opts.moving 拖拽时触发的事件
  * @param opts.end 拖拽结束时触发的事件
+ * @param opts.isLimitBounds 是否限制拖拽范围
  * @description 用于拖拽元素
  * @example
  * ```ts
@@ -43,7 +46,8 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn
   
   const {
     el,
-    dragEl
+    dragEl,
+    isLimitBounds = false
   } = opts
 
   const target = getDOM(el)
@@ -108,7 +112,7 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn
     left.value = initialLeft.value + moveX.value
     top.value = initialTop.value + moveY.value
     
-    if (left.value < 0 || top.value < 0)
+    if (isLimitBounds && (left.value < 0 || top.value < 0))
       return
       
     window.requestAnimationFrame(() =>
@@ -121,7 +125,8 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn
 
   const handleMouseUp = (e: MouseEvent) =>
   {
-    if (!isDraggle.value) return
+    if (!isDraggle.value)
+      return
     
     isDraggle.value = false
     endX.value = e.clientX
@@ -149,16 +154,16 @@ export default function useDraggle(opts: UseDraggleOptions): UseDraggleReturn
 
   return {
     isDraggle,
-    moveX: computed(() => moveX.value),
-    moveY: computed(() => moveY.value),
-    startX: computed(() => startX.value),
-    startY: computed(() => startY.value),
-    endX: computed(() => endX.value),
-    endY: computed(() => endY.value),
-    left: computed(() => left.value),
-    top: computed(() => top.value),
-    initialLeft: computed(() => initialLeft.value),
-    initialTop: computed(() => initialTop.value)
+    moveX,
+    moveY,
+    startX,
+    startY,
+    endX,
+    endY,
+    left,
+    top,
+    initialLeft,
+    initialTop
   }
 }
 

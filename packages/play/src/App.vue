@@ -5,7 +5,7 @@
   </div>
   <div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
     <!-- <u-timeline style="width: 40%;" :data="data" :direction="'vertical'"></u-timeline> -->
-    <u-card style="width: 80%;" shadow="hover">
+    <u-card style="width: 80%;" shadow="hover" @click="handleCardClick">
       <u-timeline :data="data" :direction="direction">
         <u-timeline-item v-for="item in data" :key="item.date?.toString()" v-bind="item" @dot-click="handleDotClick"></u-timeline-item>
       </u-timeline>
@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import { faker } from '@faker-js/faker'
 import type { UTimelineItemProps } from '@ucc-ui/components'
+import { UDialogFn } from 'ucc-ui'
 import { reactive, ref } from 'vue'
 const data = reactive(Array.from({ length: 5 }, () => ({
   content: faker.lorem.paragraph(),
@@ -56,6 +57,13 @@ const handleChangeDotPosition = () =>
   {
     item.position = faker.helpers.arrayElement(['left', 'right', 'center'])
     item.icon = faker.helpers.arrayElement(['', 'fas fa-home', 'fas fa-user', 'fas fa-search', 'fas fa-star', 'fas fa-heart'])
+  })
+}
+
+const handleCardClick = () =>
+{
+  UDialogFn({
+    title: 'asdasdas'
   })
 }
 </script>

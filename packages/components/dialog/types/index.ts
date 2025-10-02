@@ -126,6 +126,13 @@ export interface UDialogProps {
    * @default true
    */
   showFooter?: boolean
+
+  /**
+   * @description 是否限制拖拽范围
+   * @type {boolean}
+   * @default false
+   */
+  isLimitBounds?: boolean
 }
 
 export interface UDialogEmits {
